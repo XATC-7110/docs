@@ -107,7 +107,7 @@ hide:
 
     ---
 
-    Windows 10 or 11, a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
+    X-Plane 12.1.4 or newer, Windows 10 or 11, a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
 
 -   :material-account-key: **An invitation**
 
