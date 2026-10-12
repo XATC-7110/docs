@@ -40,10 +40,10 @@ Your microphone is not reaching the client.
 
 ## X-Plane too old
 
-The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and an older X-Plane lacks some or all of it.
+The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. An older X-Plane 12 does not answer the client's first question, so the client treats it as not there:
 
-- **Before 12.1.1** X-Plane has no Web API at all, so the client never connects. It looks like [X-Plane: not connected](#x-plane-not-connected) and does not go away.
-- **12.1.1 to 12.1.3** connects, but X-Plane cannot run commands for the client. The window's radio swap button still works, by writing both frequencies instead of using X-Plane's own swap. If ATC loses its data and the client cannot pause X-Plane for you, the log says "couldn't pause X-Plane (its Web API has no pause command); pause it yourself".
+- The startup dialog and the window show **X-Plane: not connected**, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable".
+- It does not go away, however long you wait, and it looks like [X-Plane: not connected](#x-plane-not-connected), whose checks do not help.
 
 What to do: update X-Plane 12 to the current release.
 
