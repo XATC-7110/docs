@@ -1613,10 +1613,10 @@
 <li>The client keeps looking every few seconds. You do not need to restart it after starting X-Plane.</li>
 </ul>
 <h2 id="x-plane-too-old">X-Plane too old<a class="headerlink" href="#x-plane-too-old" title="Permanent link">&para;</a></h2>
-<p>The client needs <strong>X-Plane 12.1.4 or newer</strong>. It uses X-Plane's own Web API, and an older X-Plane lacks some or all of it.</p>
+<p>The client needs <strong>X-Plane 12.1.4 or newer</strong>. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. An older X-Plane 12 does not answer the client's first question, so the client treats it as not there:</p>
 <ul>
-<li><strong>Before 12.1.1</strong> X-Plane has no Web API at all, so the client never connects. It looks like <a href="#x-plane-not-connected">X-Plane: not connected</a> and does not go away.</li>
-<li><strong>12.1.1 to 12.1.3</strong> connects, but X-Plane cannot run commands for the client. The window's radio swap button still works, by writing both frequencies instead of using X-Plane's own swap. If ATC loses its data and the client cannot pause X-Plane for you, the log says "couldn't pause X-Plane (its Web API has no pause command); pause it yourself".</li>
+<li>The startup dialog and the window show <strong>X-Plane: not connected</strong>, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable".</li>
+<li>It does not go away, however long you wait, and it looks like <a href="#x-plane-not-connected">X-Plane: not connected</a>, whose checks do not help.</li>
 </ul>
 <p>What to do: update X-Plane 12 to the current release.</p>
 <h2 id="tower-will-not-clear-me">Tower will not clear me<a class="headerlink" href="#tower-will-not-clear-me" title="Permanent link">&para;</a></h2>
