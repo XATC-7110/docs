@@ -38,6 +38,15 @@ Your microphone is not reaching the client.
 - Check **Settings > Simulator**: *X-Plane 12*, host `127.0.0.1`, port `8086`.
 - The client keeps looking every few seconds. You do not need to restart it after starting X-Plane.
 
+## X-Plane too old
+
+The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and an older X-Plane lacks some or all of it.
+
+- **Before 12.1.1** X-Plane has no Web API at all, so the client never connects. It looks like [X-Plane: not connected](#x-plane-not-connected) and does not go away.
+- **12.1.1 to 12.1.3** connects, but X-Plane cannot run commands for the client. The window's radio swap button still works, by writing both frequencies instead of using X-Plane's own swap. If ATC loses its data and the client cannot pause X-Plane for you, the log says "couldn't pause X-Plane (its Web API has no pause command); pause it yourself".
+
+What to do: update X-Plane 12 to the current release.
+
 ## Tower will not clear me
 
 - **Traffic.** Tower waits for a departure ahead to be clear, and for an arrival on short final. It tells you why.
