@@ -6,7 +6,7 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 
 | | |
 |---|---|
-| Simulator | X-Plane 12.1.4 or newer. The client uses X-Plane's own Web API, which arrived in 12.1.1 and gained the commands the client needs in 12.1.4. Tested on 12.4.3. Use the current X-Plane 12 release |
+| Simulator | X-Plane 12.1.4 or newer. The client uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. Tested on 12.4.3. Use the current X-Plane 12 release |
 | PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both |
 | Audio | A microphone, and speakers or a headset |
 | Account | An xatc-agent account, created for you by the project owner |
