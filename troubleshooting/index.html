@@ -308,6 +308,25 @@
   
   
   
+    <li class="md-tabs__item">
+      <a href="../known-limitations/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Known limitations
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
     
     
       <li class="md-tabs__item">
@@ -934,6 +953,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../known-limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
       
@@ -956,10 +1002,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -977,8 +1023,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1544,6 +1590,7 @@
 
 <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
 <p>Start with the <strong>log</strong> at the bottom of the window. It says why something did not happen.</p>
+<p>If something is simply not built yet, it is on the <a href="../known-limitations/">known limitations</a> page.</p>
 <h2 id="atc-does-not-answer">ATC does not answer<a class="headerlink" href="#atc-does-not-answer" title="Permanent link">&para;</a></h2>
 <p>After a transmission with no reply, the log has a <strong>No reply</strong> line with the reason:</p>
 <table>
@@ -1613,10 +1660,10 @@
 <li>The client keeps looking every few seconds. You do not need to restart it after starting X-Plane.</li>
 </ul>
 <h2 id="x-plane-too-old">X-Plane too old<a class="headerlink" href="#x-plane-too-old" title="Permanent link">&para;</a></h2>
-<p>The client needs <strong>X-Plane 12.1.4 or newer</strong>. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. An older X-Plane 12 does not answer the client's first question, so the client treats it as not there:</p>
+<p>The client needs <strong>X-Plane 12.1.4 or newer</strong>. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4.</p>
 <ul>
-<li>The startup dialog and the window show <strong>X-Plane: not connected</strong>, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable".</li>
-<li>It does not go away, however long you wait, and it looks like <a href="#x-plane-not-connected">X-Plane: not connected</a>, whose checks do not help.</li>
+<li><strong>Client 0.13.0 or newer:</strong> the X-Plane pill reads <strong>X-Plane: too old</strong>, with "X-Plane 12.1.4 or newer is needed; this is 12.1.2" (the version your X-Plane reports), or "X-Plane 12.1.4 or newer is needed; this one is older" when your X-Plane is too old to say which version it is. When X-Plane is connected, the window's header shows its version after the client's.</li>
+<li><strong>A client older than 0.13.0:</strong> an older X-Plane 12 does not answer the client's first question, so the client treats it as not there. The startup dialog and the window show <strong>X-Plane: not connected</strong>, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable". It does not go away, however long you wait, and it looks like <a href="#x-plane-not-connected">X-Plane: not connected</a>, whose checks do not help.</li>
 </ul>
 <p>What to do: update X-Plane 12 to the current release.</p>
 <h2 id="tower-will-not-clear-me">Tower will not clear me<a class="headerlink" href="#tower-will-not-clear-me" title="Permanent link">&para;</a></h2>
@@ -1671,13 +1718,13 @@
 <h2 id="the-window">The window<a class="headerlink" href="#the-window" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>It opened in my browser instead.</strong> The window needs Edge WebView2, which ships with Windows 10 and 11. Without it the same page opens in your default browser and works the same.</li>
-<li><strong>"Already running".</strong> Only one client runs at a time. Use the window that is open.</li>
+<li><strong>"Already running".</strong> Only one client runs at a time. Starting it again brings the window that is already open to the front (a client older than 0.13.0 says it cannot start: use the window that is open).</li>
 <li><strong>I closed the client mid-flight.</strong> Start it again within about ten minutes and choose <strong>Rejoin last flight</strong>.</li>
 </ul>
 <h2 id="the-radios-will-not-tune-from-the-window">The radios will not tune from the window<a class="headerlink" href="#the-radios-will-not-tune-from-the-window" title="Permanent link">&para;</a></h2>
 <p>The <strong>1</strong>, <strong>2</strong> and <strong>⇄</strong> buttons write to X-Plane. They are greyed out while X-Plane is not connected; hover over them for the reason. Only real VHF COM frequencies are accepted (118.000 to 136.990 MHz).</p>
 <h2 id="reporting-a-problem">Reporting a problem<a class="headerlink" href="#reporting-a-problem" title="Permanent link">&para;</a></h2>
-<p>Send the owner:</p>
+<p>Check the <a href="../known-limitations/">known limitations</a> first. Then send the owner:</p>
 <ol>
 <li>What you said and what you expected, with the time.</li>
 <li>The log file: <strong>Settings</strong>, at the bottom, <strong>Open log folder</strong>. It never contains your sign-in or any audio.</li>
