@@ -4,11 +4,12 @@ Everything is configured on the window's **Settings** view. There are no command
 
 **Save** checks every field first. A bad value is highlighted and nothing is saved. With a flight under way, Save reconnects on the same flight with the new settings, waiting for ATC to finish talking first. Save never starts a flight.
 
-## Gateway
+## ATC
 
 | Setting | What it is |
 |---|---|
-| **Runtime ARN** | Required. The gateway address the owner gave you. Paste it once |
+| **ATC address** | One line, not a field. ATC's address comes with your account when you sign in, so there is nothing to paste. The line says **From your account.** once the client has it. If it could not be fetched, the line says so and **Try again** is beside it |
+| **Advanced: set the address by hand** | Folded away, for developers. A pilot does not need it. An address set here is kept until you clear it or press **Use the account's address** |
 | **Sign-in service** | Two values that come with the client. Change them only when the owner tells you to |
 
 While a flight is up, this section also shows the flight's session id.
@@ -41,7 +42,11 @@ For a yoke or joystick button, press **Learn button**, then press and release th
 | **Use the microphone and speakers** | Off: no microphone and no sound, for testing |
 | **Microphone**, **Speakers / headset** | Your devices, or the system default. A headset switched on after the client started appears after **Refresh devices** |
 | **Radio effect** | *Clean*, *Realistic* or *Busy day*: how much of a VHF radio you hear on ATC's voice |
-| **ATC voice engine** | *Standard* is the most robotic. *Neural* is the default. *Generative* is the most natural and may be slightly slower to start |
+| **ATC voices** | The voices ATC speaks with. Four choices, in this order: *Radio voices: distinct controllers with accents*, then under **Standard voices**: *Standard* (the most robotic), *Neural* (the default) and *Generative* (the most natural, and may be slightly slower to start). Saving a change reconnects the flight on the same flight, so ATC switches at once |
+
+### The radio voices
+
+The radio voices are off by default. With them on, each controller on the radio gets a distinct voice with an accent. Within a flight, one frequency keeps one voice. They already sound like a radio, so the **Radio effect** only adds its key-up click and tail to them. Phone calls, the ATIS and AWOS keep the Neural voices. If the radio voices are not available on a flight, the flight goes on with the standard voices, and Settings says so under the list.
 | **ATC delivery** | How briskly controllers talk: *Relaxed*, *Brisk* (the default, about 15% faster) or *Fast* (about 30% faster). The ATIS is always read at the relaxed pace |
 | **The recording choice** | Your answer to the recording question, with **Allow** and **Don't allow** to change it. See [Your data](privacy.md#recordings-of-your-voice) |
 
