@@ -675,10 +675,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gateway" class="md-nav__link">
+  <a href="#atc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gateway
+        ATC
       
     </span>
   </a>
@@ -715,6 +715,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-radio-voices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The radio voices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1385,10 +1402,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gateway" class="md-nav__link">
+  <a href="#atc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gateway
+        ATC
       
     </span>
   </a>
@@ -1425,6 +1442,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Audio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-radio-voices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The radio voices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1481,7 +1515,7 @@
 <h1 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h1>
 <p>Everything is configured on the window's <strong>Settings</strong> view. There are no command-line options to learn and no files to edit. The view has two tabs: <strong>General</strong> and <strong>X-Plane data</strong>.</p>
 <p><strong>Save</strong> checks every field first. A bad value is highlighted and nothing is saved. With a flight under way, Save reconnects on the same flight with the new settings, waiting for ATC to finish talking first. Save never starts a flight.</p>
-<h2 id="gateway">Gateway<a class="headerlink" href="#gateway" title="Permanent link">&para;</a></h2>
+<h2 id="atc">ATC<a class="headerlink" href="#atc" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1491,8 +1525,12 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Runtime ARN</strong></td>
-<td>Required. The gateway address the owner gave you. Paste it once</td>
+<td><strong>ATC address</strong></td>
+<td>One line, not a field. ATC's address comes with your account when you sign in, so there is nothing to paste. The line says <strong>From your account.</strong> once the client has it. If it could not be fetched, the line says so and <strong>Try again</strong> is beside it</td>
+</tr>
+<tr>
+<td><strong>Advanced: set the address by hand</strong></td>
+<td>Folded away, for developers. A pilot does not need it. An address set here is kept until you clear it or press <strong>Use the account's address</strong></td>
 </tr>
 <tr>
 <td><strong>Sign-in service</strong></td>
@@ -1575,8 +1613,8 @@
 <td><em>Clean</em>, <em>Realistic</em> or <em>Busy day</em>: how much of a VHF radio you hear on ATC's voice</td>
 </tr>
 <tr>
-<td><strong>ATC voice engine</strong></td>
-<td><em>Standard</em> is the most robotic. <em>Neural</em> is the default. <em>Generative</em> is the most natural and may be slightly slower to start</td>
+<td><strong>ATC voices</strong></td>
+<td>The voices ATC speaks with. Four choices, in this order: <em>Radio voices: distinct controllers with accents</em>, then under <strong>Standard voices</strong>: <em>Standard</em> (the most robotic), <em>Neural</em> (the default) and <em>Generative</em> (the most natural, and may be slightly slower to start). Saving a change reconnects the flight (the same flight), so ATC switches at once</td>
 </tr>
 <tr>
 <td><strong>ATC delivery</strong></td>
@@ -1588,6 +1626,8 @@
 </tr>
 </tbody>
 </table>
+<h3 id="the-radio-voices">The radio voices<a class="headerlink" href="#the-radio-voices" title="Permanent link">&para;</a></h3>
+<p>The radio voices are off by default. With them on, each controller on the radio gets a distinct voice with an accent. Within a flight, one frequency keeps one voice. They already sound like a radio, so the <strong>Radio effect</strong> only adds its key-up click and tail to them. Phone calls, the ATIS and AWOS keep the Neural voices. If the radio voices are not available on a flight, the flight goes on with the standard voices, and Settings says so under the list.</p>
 <h2 id="display">Display<a class="headerlink" href="#display" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1651,7 +1691,7 @@
 </tbody>
 </table>
 <p>The Settings view shows both paths at the bottom, with <strong>Open log folder</strong>.</p>
-<p>The settings file never holds a password or a key. It holds the gateway address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.</p>
+<p>The settings file never holds a password or a key. It holds ATC's address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.</p>
 <p>The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.</p>
 
 
