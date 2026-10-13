@@ -10,11 +10,11 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 | PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both |
 | Audio | A microphone, and speakers or a headset |
 | Account | An xatc-agent account, created for you by the project owner |
-| The client | The client package, also from the owner, with the **gateway address** to paste into Settings |
+| The client | The client package, also from the owner |
 | Phone | An authenticator app, for the sign-in's second step |
 
 !!! note "Invitation only"
-    xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you the client, the gateway address and an email with a temporary password.
+    xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you the client and an email with a temporary password.
 
 ## Install (one time)
 
@@ -46,14 +46,15 @@ Double-click **`scripts\xatc-agent-client-run.cmd`**. A console window shows war
 
 You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager, never in a file.
 
-## Tell the client where ATC is
+## Choose your audio
 
-The first time, the startup dialog's gateway row says it needs setting up:
+ATC's address comes with your account. When you sign in, the client gets it and there is nothing to paste. The **ATC** section of Settings has one line about it: **From your account.** once the client has it.
 
-1. Press **Open Settings**.
-2. Paste the gateway address the owner gave you into **Runtime ARN**.
-3. Under **Audio**, pick your microphone and your speakers or headset.
-4. Press **Save**.
+1. Open the **Settings** view (the startup dialog closes by itself once you are signed in).
+2. Under **Audio**, pick your microphone and your speakers or headset.
+3. Press **Save**.
+
+If the line says the address could not be fetched, press **Try again**. Settings also has a folded **Advanced: set the address by hand** section. It is for developers, and you do not need it.
 
 That is all the setup. [Settings](settings.md) describes everything else you can change, such as push-to-talk on a yoke button and how the controllers sound.
 
