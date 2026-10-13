@@ -67,6 +67,7 @@ nav:
       - Readbacks: features/readbacks.md
       - ATIS and weather: features/atis-weather.md
       - At every position: features/everywhere.md
+  - Known limitations: known-limitations.md
   - In the window:
       - The approach plan: client/approach-card.md
       - Parking: client/parking.md

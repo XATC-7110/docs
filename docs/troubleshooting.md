@@ -2,6 +2,8 @@
 
 Start with the **log** at the bottom of the window. It says why something did not happen.
 
+If something is simply not built yet, it is on the [known limitations](known-limitations.md) page.
+
 ## ATC does not answer
 
 After a transmission with no reply, the log has a **No reply** line with the reason:
@@ -40,10 +42,10 @@ Your microphone is not reaching the client.
 
 ## X-Plane too old
 
-The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. An older X-Plane 12 does not answer the client's first question, so the client treats it as not there:
+The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4.
 
-- The startup dialog and the window show **X-Plane: not connected**, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable".
-- It does not go away, however long you wait, and it looks like [X-Plane: not connected](#x-plane-not-connected), whose checks do not help.
+- **Client 0.13.0 or newer:** the X-Plane pill reads **X-Plane: too old**, with "X-Plane 12.1.4 or newer is needed; this is 12.1.2" (the version your X-Plane reports), or "X-Plane 12.1.4 or newer is needed; this one is older" when your X-Plane is too old to say which version it is. When X-Plane is connected, the window's header shows its version after the client's.
+- **A client older than 0.13.0:** an older X-Plane 12 does not answer the client's first question, so the client treats it as not there. The startup dialog and the window show **X-Plane: not connected**, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable". It does not go away, however long you wait, and it looks like [X-Plane: not connected](#x-plane-not-connected), whose checks do not help.
 
 What to do: update X-Plane 12 to the current release.
 
@@ -78,7 +80,7 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 ## The window
 
 - **It opened in my browser instead.** The window needs Edge WebView2, which ships with Windows 10 and 11. Without it the same page opens in your default browser and works the same.
-- **"Already running".** Only one client runs at a time. Use the window that is open.
+- **"Already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front (a client older than 0.13.0 says it cannot start: use the window that is open).
 - **I closed the client mid-flight.** Start it again within about ten minutes and choose **Rejoin last flight**.
 
 ## The radios will not tune from the window
@@ -87,7 +89,7 @@ The **1**, **2** and **⇄** buttons write to X-Plane. They are greyed out while
 
 ## Reporting a problem
 
-Send the owner:
+Check the [known limitations](known-limitations.md) first. Then send the owner:
 
 1. What you said and what you expected, with the time.
 2. The log file: **Settings**, at the bottom, **Open log folder**. It never contains your sign-in or any audio.

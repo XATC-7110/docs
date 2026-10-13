@@ -36,7 +36,7 @@ There is nothing else to install and no keys to copy. You sign in from the windo
 Double-click **`scripts\xatc-agent-client-run.cmd`**. A console window shows warnings and errors, and the **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC gateway and X-Plane.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
-- Only one client runs at a time. If a second one says it cannot start, use the window that is already open.
+- Only one client runs at a time. Starting it again brings the window that is already open to the front.
 
 ## Sign in
 

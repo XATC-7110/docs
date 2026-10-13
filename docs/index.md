@@ -128,3 +128,5 @@ hide:
 - **US airports** work best: everything outside the taxiways comes from the FAA's data. Outside the US, ATC asks your X-Plane for the airport's procedures and frequencies instead.
 - **English, FAA phraseology.**
 - When ATC is asked for something it has not been taught, it says so: *"unable, I have not completed that training."* It does not make something up.
+
+[All the known limitations](known-limitations.md) are on one page.
