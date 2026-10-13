@@ -2,6 +2,8 @@
 
 Start with the **log** at the bottom of the window. It says why something did not happen.
 
+If something is simply not built yet, it is on the [known limitations](known-limitations.md) page.
+
 ## ATC does not answer
 
 After a transmission with no reply, the log has a **No reply** line with the reason:
@@ -87,7 +89,7 @@ The **1**, **2** and **⇄** buttons write to X-Plane. They are greyed out while
 
 ## Reporting a problem
 
-Send the owner:
+Check the [known limitations](known-limitations.md) first. Then send the owner:
 
 1. What you said and what you expected, with the time.
 2. The log file: **Settings**, at the bottom, **Open log folder**. It never contains your sign-in or any audio.
