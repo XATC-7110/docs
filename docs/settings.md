@@ -42,7 +42,7 @@ For a yoke or joystick button, press **Learn button**, then press and release th
 | **Use the microphone and speakers** | Off: no microphone and no sound, for testing |
 | **Microphone**, **Speakers / headset** | Your devices, or the system default. A headset switched on after the client started appears after **Refresh devices** |
 | **Radio effect** | *Clean*, *Realistic* or *Busy day*: how much of a VHF radio you hear on ATC's voice |
-| **ATC voices** | The voices ATC speaks with. Four choices, in this order: *Radio voices: distinct controllers with accents*, then under **Standard voices**: *Standard* (the most robotic), *Neural* (the default) and *Generative* (the most natural, and may be slightly slower to start). Saving a change reconnects the flight on the same flight, so ATC switches at once |
+| **ATC voices** | The voices ATC speaks with. Four choices, in this order: *Radio voices: distinct controllers with accents*, then under **Standard voices**: *Standard* (the most robotic), *Neural* (the default) and *Generative* (the most natural, and may be slightly slower to start). Saving a change reconnects the flight (the same flight), so ATC switches at once |
 
 ### The radio voices
 
