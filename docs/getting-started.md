@@ -50,7 +50,7 @@ You stay signed in for 30 days, across restarts. In the last 24 hours the window
 
 ATC's address comes with your account. When you sign in, the client gets it and there is nothing to paste. The **ATC** section of Settings has one line about it: **From your account.** once the client has it.
 
-1. If the startup dialog is still open, press **Open Settings**. Otherwise open the **Settings** view.
+1. Open the **Settings** view (the startup dialog closes by itself once you are signed in).
 2. Under **Audio**, pick your microphone and your speakers or headset.
 3. Press **Save**.
 

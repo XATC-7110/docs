@@ -43,12 +43,12 @@ For a yoke or joystick button, press **Learn button**, then press and release th
 | **Microphone**, **Speakers / headset** | Your devices, or the system default. A headset switched on after the client started appears after **Refresh devices** |
 | **Radio effect** | *Clean*, *Realistic* or *Busy day*: how much of a VHF radio you hear on ATC's voice |
 | **ATC voices** | The voices ATC speaks with. Four choices, in this order: *Radio voices: distinct controllers with accents*, then under **Standard voices**: *Standard* (the most robotic), *Neural* (the default) and *Generative* (the most natural, and may be slightly slower to start). Saving a change reconnects the flight (the same flight), so ATC switches at once |
+| **ATC delivery** | How briskly controllers talk: *Relaxed*, *Brisk* (the default, about 15% faster) or *Fast* (about 30% faster). The ATIS is always read at the relaxed pace |
+| **The recording choice** | Your answer to the recording question, with **Allow** and **Don't allow** to change it. See [Your data](privacy.md#recordings-of-your-voice) |
 
 ### The radio voices
 
 The radio voices are off by default. With them on, each controller on the radio gets a distinct voice with an accent. Within a flight, one frequency keeps one voice. They already sound like a radio, so the **Radio effect** only adds its key-up click and tail to them. Phone calls, the ATIS and AWOS keep the Neural voices. If the radio voices are not available on a flight, the flight goes on with the standard voices, and Settings says so under the list.
-| **ATC delivery** | How briskly controllers talk: *Relaxed*, *Brisk* (the default, about 15% faster) or *Fast* (about 30% faster). The ATIS is always read at the relaxed pace |
-| **The recording choice** | Your answer to the recording question, with **Allow** and **Don't allow** to change it. See [Your data](privacy.md#recordings-of-your-voice) |
 
 ## Display
 
@@ -76,6 +76,6 @@ The second tab.
 
 The Settings view shows both paths at the bottom, with **Open log folder**.
 
-The settings file never holds a password or a key. It holds the gateway address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.
+The settings file never holds a password or a key. It holds ATC's address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.
 
 The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.
