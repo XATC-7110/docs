@@ -20,7 +20,7 @@ Approach picks from what the airport publishes for the runway in use: the ILS fi
 
 Approach vectors you on a downwind, a base and an intercept heading, as a real controller does for a vectored ILS. You do not need to ask for the next turn: ATC calls each one.
 
-- **The first vector tells you the pattern**: "turn left heading two eight zero, descend and maintain four thousand, vectors for the ILS runway one zero right, expect a left downwind runway one zero right".
+- **The first vector says why you are being vectored**: "turn left heading two eight zero, descend and maintain four thousand, vectors for the ILS runway one zero right". ATC does not announce the pattern it plans: the [Approach card](../client/approach-card.md) draws it.
 - Altitudes step down as the minimum altitudes allow.
 - Every heading allows for the wind.
 - Coming off a STAR: "depart Battle Ground heading one one zero, descend and maintain five thousand, vectors for the ILS runway one zero right".

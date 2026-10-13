@@ -60,7 +60,7 @@ Departure says "radar contact", climbs you and turns you on course. Center takes
 
 ### 6. Approach
 
-Approach tells you which approach to expect and vectors you to final. With the first vector it tells you the pattern: "expect a left downwind runway one zero right". The window's [Approach card](client/approach-card.md) draws that plan, and the top line of the window confirms that ATC is vectoring you.
+Approach tells you which approach to expect and vectors you to final. The first vector says why: "..., vectors for the ILS runway one zero right". ATC does not say the pattern it plans: the window's [Approach card](client/approach-card.md) draws it, and the top line of the window confirms that ATC is vectoring you.
 
 > **ATC:** November five four seven Golf Alpha, turn left heading one three zero, maintain three thousand until established, cleared ILS runway one zero right approach.
 

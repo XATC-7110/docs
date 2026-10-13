@@ -9,7 +9,7 @@ xatc is an invitation-only experiment under active development. These are the ed
 - **Clearances by phone at fields without a tower.** At an airport with no control tower and no radio way to reach Clearance Delivery, the Frequencies card has a **Clearance Delivery · by phone** row instead of a frequency. You call the overlying approach control (or the Center) from the window, on the ground only, never Flight Service. The clearance ends with "hold for release": you call back when you are number one for departure and are given a release with a void time.
 - **Some replies are still intermittent.** In a small number of situations the controller answers correctly most of the time, but not every time. The list shrinks with each release.
 - **Controller voices.** The voices are synthetic and speak American English. **Settings > Audio** has three voice engines, from the most robotic to the most natural: see [Settings](settings.md#audio).
-- **One client per PC.** A second client cannot start while one is open: use the window that is already open.
+- **One client per PC.** Starting the client again brings the window that is already open to the front.
 
 ## If you hit something that is not here
 

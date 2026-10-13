@@ -19,6 +19,7 @@ While a flight is up, this section also shows the flight's session id.
 |---|---|
 | **Aircraft state from** | **X-Plane 12** is the normal choice. *Replay a recording* and *None* (a fixed aircraft parked at Seattle) are for testing without the sim |
 | **X-Plane host** and **Web API port** | Where X-Plane's Web API listens. The default, `127.0.0.1` and `8086`, is right when the client runs on the same PC as X-Plane |
+| **Silence X-Plane's own ATIS and AWOS during a flight** | On by default. X-Plane has an ATIS and AWOS of its own on the same frequencies, so with both on you would hear two voices with two sets of weather. During a flight the client switches X-Plane's off and switches it back on when the flight ends. If you had it off already, it stays off |
 | **End the flight when X-Plane is closed for** | Seconds. The default is 30. A pause or a stutter never ends a flight. `0` turns it off |
 
 ## Push-to-talk

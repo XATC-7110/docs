@@ -11,7 +11,7 @@ The client runs in its own window, titled **xatc-agent**, beside X-Plane. It has
 - **Your flight**: callsign, aircraft type, departure → destination, and its state (starting, ready, ended). With no flight it says "No flight: press New flight". When a flight ended, the line under it says why.
 - **The approach confirmation**: while ATC has you on an approach, a pill beside your callsign shows the kind of approach (**ILS**, **RNAV**, **Visual**), the runway, and **ATC is vectoring you**. It turns green and says **cleared for the approach** once ATC clears you. See [The approach plan](client/approach-card.md).
 - **End flight** (only while a flight runs) and **New flight**.
-- The client's version and the gateway's version, and the light/dark theme button.
+- The client's version, X-Plane's version while X-Plane is connected, and the gateway's version, and the light/dark theme button.
 
 ## The services row
 
