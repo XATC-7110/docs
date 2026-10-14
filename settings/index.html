@@ -1526,11 +1526,7 @@
 <tbody>
 <tr>
 <td><strong>ATC address</strong></td>
-<td>One line, not a field. ATC's address comes with your account when you sign in, so there is nothing to paste. The line says <strong>From your account.</strong> once the client has it. If it could not be fetched, the line says so and <strong>Try again</strong> is beside it</td>
-</tr>
-<tr>
-<td><strong>Advanced: set the address by hand</strong></td>
-<td>Folded away, for developers. A pilot does not need it. An address set here is kept until you clear it or press <strong>Use the account's address</strong></td>
+<td>One line, not a field. ATC's address comes with your account when you sign in. The line says <strong>From your account.</strong> once the client has it, and the window never shows the address itself. If it could not be fetched, the line says so and <strong>Try again</strong> is beside it</td>
 </tr>
 <tr>
 <td><strong>Sign-in service</strong></td>
@@ -1617,6 +1613,10 @@
 <td>The voices ATC speaks with. Four choices, in this order: <em>Radio voices: distinct controllers with accents</em>, then under <strong>Standard voices</strong>: <em>Standard</em> (the most robotic), <em>Neural</em> (the default) and <em>Generative</em> (the most natural, and may be slightly slower to start). Saving a change reconnects the flight (the same flight), so ATC switches at once</td>
 </tr>
 <tr>
+<td><strong>Speech recognition</strong></td>
+<td>How your transmissions are written down for ATC. Two choices: <em>Standard</em> (the default) and <em>Scribe, which knows your flight's names</em>. Saving a change reconnects the flight (the same flight); it applies from your next transmission. If Scribe is not available on a flight, Settings says <strong>Scribe is not available on this flight: speech recognition is Standard.</strong> See <a href="../privacy/#what-happens-to-your-voice">Your data</a> for where the audio goes</td>
+</tr>
+<tr>
 <td><strong>ATC delivery</strong></td>
 <td>How briskly controllers talk: <em>Relaxed</em>, <em>Brisk</em> (the default, about 15% faster) or <em>Fast</em> (about 30% faster). The ATIS is always read at the relaxed pace</td>
 </tr>
@@ -1691,8 +1691,8 @@
 </tbody>
 </table>
 <p>The Settings view shows both paths at the bottom, with <strong>Open log folder</strong>.</p>
-<p>The settings file never holds a password or a key. It holds ATC's address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.</p>
-<p>The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.</p>
+<p>The settings file never holds a password or a key. It holds ATC's address (written from your account's answer, never by the window, and never shown in it), the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.</p>
+<p>The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, ATC's address, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.</p>
 
 
 

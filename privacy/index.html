@@ -1539,6 +1539,8 @@
 <p>No connection to ATC is open when no flight is running, and your microphone is never sent outside push-to-talk.</p>
 <h2 id="what-happens-to-your-voice">What happens to your voice<a class="headerlink" href="#what-happens-to-your-voice" title="Permanent link">&para;</a></h2>
 <p>While you hold push-to-talk, your audio is streamed to a speech recognition service and turned into text. The text is what ATC works from.</p>
+<p>When the client's <strong>Speech recognition</strong> setting is <strong>Scribe</strong>, the audio of your transmissions goes to a third-party speech service outside xatc's own systems, to be written down. When it is <strong>Standard</strong>, or if that service cannot be reached, xatc's own speech recognition writes it down within xatc's systems.</p>
+<p>The full statement, which names the services, is the <a href="https://xatc.bandd.cloud/#/privacy">Privacy page on the pilot site</a>.</p>
 <h3 id="recordings-of-your-voice">Recordings of your voice<a class="headerlink" href="#recordings-of-your-voice" title="Permanent link">&para;</a></h3>
 <p>By default <strong>nothing you say is kept as audio</strong>. The first time you connect, the window asks:</p>
 <blockquote>
@@ -1565,8 +1567,8 @@
 </ul>
 <h2 id="what-stays-on-your-pc">What stays on your PC<a class="headerlink" href="#what-stays-on-your-pc" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Settings</strong>: the gateway address, your SimBrief username or pilot ID, your X-Plane folder, your last flight plan. No password and no key.</li>
-<li><strong>The log file</strong>: connections, what ATC asked of your X-Plane, warnings and errors. Never your sign-in and never audio.</li>
+<li><strong>Settings</strong>: ATC's address (written from your account's answer, never shown in the window, and recorded in the log file), your SimBrief username or pilot ID, your X-Plane folder, your last flight plan. No password and no key.</li>
+<li><strong>The log file</strong>: connections, ATC's address, what ATC asked of your X-Plane, warnings and errors. Never your sign-in and never audio.</li>
 <li><strong>The window</strong> answers only to your own PC. No website can press your push-to-talk, sign you in or sign you out.</li>
 <li><strong>Your X-Plane files</strong> are read, never uploaded as files. The only writes are the optional <a href="../client/xplane-data/#faa-procedures-for-your-x-plane">FAA procedures</a>, which you install and remove yourself.</li>
 </ul>
