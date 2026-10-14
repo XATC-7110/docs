@@ -9,6 +9,7 @@ xatc is an invitation-only experiment under active development. These are the ed
 - **Clearances by phone at fields without a tower.** At an airport with no control tower and no radio way to reach Clearance Delivery, the Frequencies card has a **Clearance Delivery · by phone** row instead of a frequency. You call the overlying approach control (or the Center) from the window, on the ground only, never Flight Service. The clearance ends with "hold for release": you call back when you are number one for departure and are given a release with a void time.
 - **Some replies are still intermittent.** In a small number of situations the controller answers correctly most of the time, but not every time. The list shrinks with each release.
 - **Controller voices.** All the voices are synthetic and speak American English; the radio voices add regional American accents. **Settings > Audio** has four choices for **ATC voices**: the radio voices, which give each controller a distinct voice and already sound like a radio, and three standard voices from the most robotic to the most natural. See [Settings](settings.md#audio).
+- **Fix names.** ATC says a VOR by its name. It says a fix the way controllers say it where a real source confirms it, which so far is a few. Any other fix it says as written ("PANGL" as "Pangl") rather than guess. If a name sounds wrong to you, report it with the time.
 - **One client per PC.** Starting the client again brings the window that is already open to the front.
 
 ## If you hit something that is not here
