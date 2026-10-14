@@ -48,13 +48,13 @@ You stay signed in for 30 days, across restarts. In the last 24 hours the window
 
 ## Choose your audio
 
-ATC's address comes with your account. When you sign in, the client gets it and there is nothing to paste. The **ATC** section of Settings has one line about it: **From your account.** once the client has it.
+ATC's address comes with your account. When you sign in, the client gets it. The **ATC** section of Settings has one line about it: **From your account.** once the client has it.
 
 1. Open the **Settings** view (the startup dialog closes by itself once you are signed in).
 2. Under **Audio**, pick your microphone and your speakers or headset.
 3. Press **Save**.
 
-If the line says the address could not be fetched, press **Try again**. Settings also has a folded **Advanced: set the address by hand** section. It is for developers, and you do not need it.
+If the line says the address could not be fetched, press **Try again**.
 
 That is all the setup. [Settings](settings.md) describes everything else you can change, such as push-to-talk on a yoke button and how the controllers sound.
 

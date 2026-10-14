@@ -8,8 +8,7 @@ Everything is configured on the window's **Settings** view. There are no command
 
 | Setting | What it is |
 |---|---|
-| **ATC address** | One line, not a field. ATC's address comes with your account when you sign in, so there is nothing to paste. The line says **From your account.** once the client has it. If it could not be fetched, the line says so and **Try again** is beside it |
-| **Advanced: set the address by hand** | Folded away, for developers. A pilot does not need it. An address set here is kept until you clear it or press **Use the account's address** |
+| **ATC address** | One line, not a field. ATC's address comes with your account when you sign in. The line says **From your account.** once the client has it, and the window never shows the address itself. If it could not be fetched, the line says so and **Try again** is beside it |
 | **Sign-in service** | Two values that come with the client. Change them only when the owner tells you to |
 
 While a flight is up, this section also shows the flight's session id.
