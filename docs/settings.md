@@ -8,8 +8,7 @@ Everything is configured on the window's **Settings** view. There are no command
 
 | Setting | What it is |
 |---|---|
-| **ATC address** | One line, not a field. ATC's address comes with your account when you sign in, so there is nothing to paste. The line says **From your account.** once the client has it. If it could not be fetched, the line says so and **Try again** is beside it |
-| **Advanced: set the address by hand** | Folded away, for developers. A pilot does not need it. An address set here is kept until you clear it or press **Use the account's address** |
+| **ATC address** | One line, not a field. ATC's address comes with your account when you sign in. The line says **From your account.** once the client has it, and the window never shows the address itself. If it could not be fetched, the line says so and **Try again** is beside it |
 | **Sign-in service** | Two values that come with the client. Change them only when the owner tells you to |
 
 While a flight is up, this section also shows the flight's session id.
@@ -77,6 +76,6 @@ The second tab.
 
 The Settings view shows both paths at the bottom, with **Open log folder**.
 
-The settings file never holds a password or a key. It holds ATC's address, the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.
+The settings file never holds a password or a key. It holds ATC's address (written from your account's answer, never by the window, and never shown in it), the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.
 
-The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.
+The log file rotates at 5 MB and keeps five older files. It has every connect and disconnect, ATC's address, what ATC asked of your X-Plane, and every warning and error. It never has your sign-in or any audio. Send it along when you report a problem.
