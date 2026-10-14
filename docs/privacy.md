@@ -30,6 +30,8 @@ No connection to ATC is open when no flight is running, and your microphone is n
 
 While you hold push-to-talk, your audio is streamed to a speech recognition service and turned into text. The text is what ATC works from.
 
+When the client's **Speech recognition** setting is **Scribe**, the audio of your transmissions goes to a third-party speech service outside xatc's own systems, to be written down. When it is **Standard**, or if that service cannot be reached, xatc's own speech recognition writes it down within xatc's systems.
+
 ### Recordings of your voice
 
 By default **nothing you say is kept as audio**. The first time you connect, the window asks:

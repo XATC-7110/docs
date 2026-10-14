@@ -43,6 +43,7 @@ For a yoke or joystick button, press **Learn button**, then press and release th
 | **Microphone**, **Speakers / headset** | Your devices, or the system default. A headset switched on after the client started appears after **Refresh devices** |
 | **Radio effect** | *Clean*, *Realistic* or *Busy day*: how much of a VHF radio you hear on ATC's voice |
 | **ATC voices** | The voices ATC speaks with. Four choices, in this order: *Radio voices: distinct controllers with accents*, then under **Standard voices**: *Standard* (the most robotic), *Neural* (the default) and *Generative* (the most natural, and may be slightly slower to start). Saving a change reconnects the flight (the same flight), so ATC switches at once |
+| **Speech recognition** | How your transmissions are written down for ATC. Two choices: *Standard* (the default) and *Scribe, which knows your flight's names*. Saving a change reconnects the flight (the same flight); it applies from your next transmission. If Scribe is not available on a flight, Settings says **Scribe is not available on this flight: speech recognition is Standard.** See [Your data](privacy.md#what-happens-to-your-voice) for where the audio goes |
 | **ATC delivery** | How briskly controllers talk: *Relaxed*, *Brisk* (the default, about 15% faster) or *Fast* (about 30% faster). The ATIS is always read at the relaxed pace |
 | **The recording choice** | Your answer to the recording question, with **Allow** and **Don't allow** to change it. See [Your data](privacy.md#recordings-of-your-voice) |
 
