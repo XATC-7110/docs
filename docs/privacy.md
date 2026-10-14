@@ -38,11 +38,12 @@ The full statement, which names the services, is the [Privacy page on the pilot 
 
 By default **nothing you say is kept as audio**. The first time you connect, the window asks:
 
-> **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to train it to understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. You can change this at any time in Settings. Nothing is kept unless you allow it.
+> **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. You can change this at any time in Settings. Nothing is kept unless you allow it.
 
 - You must choose **Allow** or **Don't allow** before you can transmit.
 - The choice is stored with your account, so you are asked once, not once per PC.
 - Change it at any time in **Settings > Audio**.
+- When the wording of the question changes, every pilot is asked again, so you will see the question once more after you update to client 0.16.0.
 
 ## What is kept about a flight
 
