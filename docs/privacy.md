@@ -58,7 +58,7 @@ The project owner and an air traffic control expert who advises the project revi
 
 ## What stays on your PC
 
-- **Settings**: the gateway address, your SimBrief username or pilot ID, your X-Plane folder, your last flight plan. No password and no key.
-- **The log file**: connections, what ATC asked of your X-Plane, warnings and errors. Never your sign-in and never audio.
+- **Settings**: ATC's address (written from your account's answer, never shown in the window, and recorded in the log file), your SimBrief username or pilot ID, your X-Plane folder, your last flight plan. No password and no key.
+- **The log file**: connections, ATC's address, what ATC asked of your X-Plane, warnings and errors. Never your sign-in and never audio.
 - **The window** answers only to your own PC. No website can press your push-to-talk, sign you in or sign you out.
 - **Your X-Plane files** are read, never uploaded as files. The only writes are the optional [FAA procedures](client/xplane-data.md#faa-procedures-for-your-x-plane), which you install and remove yourself.
