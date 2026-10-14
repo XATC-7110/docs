@@ -32,6 +32,8 @@ While you hold push-to-talk, your audio is streamed to a speech recognition serv
 
 When the client's **Speech recognition** setting is **Scribe**, the audio of your transmissions goes to a third-party speech service outside xatc's own systems, to be written down. When it is **Standard**, or if that service cannot be reached, xatc's own speech recognition writes it down within xatc's systems.
 
+The full statement, which names the services, is the [Privacy page on the pilot site](https://xatc.bandd.cloud/#/privacy).
+
 ### Recordings of your voice
 
 By default **nothing you say is kept as audio**. The first time you connect, the window asks:
