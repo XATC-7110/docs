@@ -113,7 +113,7 @@ hide:
 
     ---
 
-    xatc-agent is an invitation-only experiment. The owner creates your account and gives you the client.
+    xatc-agent is an invitation-only experiment. The owner creates your account; you download the Windows installer from the pilot site once you are signed in.
 
     [:octicons-arrow-right-24: Install and sign in](getting-started.md)
 
