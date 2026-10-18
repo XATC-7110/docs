@@ -2,7 +2,7 @@
 
 Source for the xatc-agent documentation site: AI air traffic control for X-Plane 12.
 
-**The site: <https://dbryant4.github.io/xplane12-atc-agent-docs/>**
+**The site: <https://xatc-7110.github.io/docs/>**
 
 It is written for pilots: how to install and configure the client, how to fly with it, and what the controllers can do. Built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
 

@@ -1,6 +1,6 @@
 site_name: xatc-agent
 site_description: AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.
-site_url: https://dbryant4.github.io/xplane12-atc-agent-docs/
+site_url: https://xatc-7110.github.io/docs/
 docs_dir: docs
 
 # The look is the product's own: the client window's colours, dark first (docs/stylesheets/xatc.css).
