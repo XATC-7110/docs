@@ -26,7 +26,7 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 
 There is nothing else to install and no keys to copy. You sign in from the window.
 
-The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and sign-in stay on the PC until you delete the `%LOCALAPPDATA%\xatc-agent-client` folder.
+The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
 
 ## Start the client
 

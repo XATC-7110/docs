@@ -61,7 +61,7 @@ The radio voices are off by default. With them on, each controller on the radio 
 The installed app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner above the views: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight. **Update now** downloads the installer, checks it, runs it, and the app opens again by itself. **Later** puts that version off until a newer one comes, or until you start the app again.
 
 - **Check now** checks on request, and says if it could not.
-- **Receive prereleases** is off unless you turn it on. On, you are offered early versions too, which may break.
+- **Receive prereleases** is off unless you turn it on. On, you are offered early versions too. A prerelease is a build for testing; it can have faults, and a later change to the service can stop it working until you update. Turn it on only if you have been asked to.
 - If ATC needs a newer client than yours, the banner says **Update required** and has no **Later**.
 
 ## X-Plane data
