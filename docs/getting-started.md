@@ -10,30 +10,27 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 | PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both |
 | Audio | A microphone, and speakers or a headset |
 | Account | An xatc-agent account, created for you by the project owner |
-| The client | The client package, also from the owner |
+| The client | The installer, from the pilot site once you are signed in (below) |
 | Phone | An authenticator app, for the sign-in's second step |
 
 !!! note "Invitation only"
-    xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you the client and an email with a temporary password.
+    xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you an email with a temporary password.
 
 ## Install (one time)
 
-1. Unzip the client package on the sim PC, anywhere you like.
-2. Open PowerShell in that folder and run:
-
-    ```powershell
-    powershell -ExecutionPolicy Bypass -File scripts\setup-windows.ps1
-    ```
-
-    The script checks for [uv](https://docs.astral.sh/uv/) (it shows the official install command and asks before running it), installs Python and the client, and runs a quick self-check: the window engine, your audio devices, and whether a sign-in is already saved. It makes no network call.
-
-3. Allow the microphone: *Windows Settings > Privacy & security > Microphone > Let desktop apps access your microphone*.
+1. Go to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), and sign in with your xatc-agent account. Open **Download** and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
+2. Run it. It installs for your Windows account only and does not ask for an administrator password.
+3. The installer is not signed yet, so Windows may say "Windows protected your PC". Choose **More info**, then **Run anyway**. Do this only for a file you downloaded from the Download page while signed in.
+4. Open **xatc-agent** from the Start menu (or from the last page of the installer).
+5. Allow the microphone: *Windows Settings > Privacy & security > Microphone > Let desktop apps access your microphone*.
 
 There is nothing else to install and no keys to copy. You sign in from the window.
 
+The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
+
 ## Start the client
 
-Double-click **`scripts\xatc-agent-client-run.cmd`**. A console window shows warnings and errors, and the **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC gateway and X-Plane.
+Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC gateway and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.

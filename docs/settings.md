@@ -29,7 +29,6 @@ The window's button and the **Space** key always work. **Also transmit with** ad
 | Choice | What it does |
 |---|---|
 | Only this window | The button, or hold Space while the window has focus |
-| Enter in the console window | Each press toggles transmitting on or off |
 | A yoke or joystick button, through X-Plane | Hold the button to transmit, wherever the focus is |
 
 For a yoke or joystick button, press **Learn button**, then press and release the button you want within 10 seconds. X-Plane must be running. The client reads the button through X-Plane, so anything X-Plane sees as a joystick button works.
@@ -56,6 +55,14 @@ The radio voices are off by default. With them on, each controller on the radio 
 |---|---|
 | **Theme** | Dark (the default) or light. The sun/moon button in the header switches it too |
 | **Show the Approach card** | On by default. Off, the window never shows [ATC's approach plan](client/approach-card.md) as a card. The confirmation in the header still shows |
+
+## Updates
+
+The installed app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner above the views: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight. **Update now** downloads the installer, checks it, runs it, and the app opens again by itself. **Later** puts that version off until a newer one comes, or until you start the app again.
+
+- **Check now** checks on request, and says if it could not.
+- **Receive prereleases** is off unless you turn it on. On, you are offered early versions too. A prerelease is a build for testing; it can have faults, and a later change to the service can stop it working until you update. Turn it on only if you have been asked to.
+- If ATC needs a newer client than yours, the banner says **Update required** and has no **Later**.
 
 ## X-Plane data
 

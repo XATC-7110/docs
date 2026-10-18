@@ -64,7 +64,7 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 ## Update the client
 
-"Update the client to x.y.z or newer": ATC needs a newer client than yours and has stopped connecting. Install the newer client package from the owner and start again.
+"Update the client to x.y.z or newer": ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the update banner, or download the newest installer from the pilot site ([xatc.bandd.cloud](https://xatc.bandd.cloud), **Download**) and run it over your copy. Then start the client again.
 
 ## Sign-in
 
