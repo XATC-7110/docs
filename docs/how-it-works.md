@@ -10,7 +10,7 @@ Two parts: a thin **client** on your sim PC, and the **controller** in the cloud
 <figure class="xa-diagram">
 <svg viewBox="0 0 1060 590" role="img" aria-labelledby="xa-d-title xa-d-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="xa-d-title">How the parts of xatc-agent work together</title>
-<desc id="xa-d-desc">On your PC, X-Plane 12 gives the xatc-agent client the aircraft's state, and the client tunes X-Plane's radios; your microphone and headset carry your voice in and ATC's audio out. The client signs in through your browser with the sign-in service, then keeps one encrypted connection per flight to the voice gateway in the cloud. It sends the aircraft's state, your voice and answers about your scenery, and receives ATC's audio and text, the approach plan and parking. In the gateway, speech recognition hears the call, an AI model understands it, the controller agent (an AI model) decides which ATC tool to use, the tool checks the request and writes the phraseology, and text to speech speaks it. Monitors watch every frame and start ATC's own calls through the same tools. The tools read the FAA's data. Each flight is written to a flight log that is reviewed afterwards.</desc>
+<desc id="xa-d-desc">On your PC, X-Plane 12 gives the xatc-agent client the aircraft's state, and the client tunes X-Plane's radios; your microphone and headset carry your voice in and ATC's audio out. The client signs in through your browser with the sign-in service, then keeps one encrypted connection per flight to the ATC service in the cloud. It sends the aircraft's state, your voice and answers about your scenery, and receives ATC's audio and text, the approach plan and parking. In the ATC service, speech recognition hears the call, an AI model understands it, the controller agent (an AI model) decides which ATC tool to use, the tool checks the request and writes the phraseology, and text to speech speaks it. Monitors watch every frame and start ATC's own calls through the same tools. The tools read the FAA's data. Each flight is written to a flight log that is reviewed afterwards.</desc>
 <defs>
 <marker id="xa-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 Z"/></marker>
 <marker id="xa-ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="ah2" d="M0,0 L10,5 L0,10 Z"/></marker>
@@ -57,8 +57,8 @@ Two parts: a thin **client** on your sim PC, and the **controller** in the cloud
 <text class="l" x="318" y="358">the approach plan</text>
 <text class="l" x="318" y="374">parking, frequencies</text>
 <rect class="gw" x="490" y="175" width="530" height="270" rx="12"/>
-<text class="t" x="506" y="200">Voice gateway</text>
-<text class="u" x="606" y="200">one isolated session per flight</text>
+<text class="t" x="506" y="200">ATC service</text>
+<text class="u" x="596" y="200">one isolated session per flight</text>
 <rect class="b" x="505" y="215" width="92" height="64" rx="8"/>
 <text class="t" x="551" y="243" text-anchor="middle">Hear</text>
 <text class="u" x="551" y="261" text-anchor="middle">speech to text</text>
@@ -106,13 +106,13 @@ Two parts: a thin **client** on your sim PC, and the **controller** in the cloud
 ## One radio call
 
 1. **You key the mic.** The client streams your audio while push-to-talk is held, beside a frame of aircraft state about once a second.
-2. **Speech recognition** turns the audio into text. It is tuned for aviation phraseology.
+2. **Speech recognition** turns the audio into text. It is tuned for aviation phraseology, and with the **Scribe** choice in Settings it is also given the names from your flight (callsign, cities, procedures, route fixes).
 3. **Plain code checks the basics**: is a controller on that frequency, and did your callsign come through.
 4. **An AI model reads the call.** Is it a readback of what ATC just said, a request, or both?
 5. **A readback is judged** item by item, quoting your own words. Code refuses any quote that is not in the transcript, then decides: accept in silence, correct one item, or ask once for a safety item.
 6. **A request goes to the controller agent**, an AI model that plays the position you called. Its job is to pick the right **tool** for what you asked: issue a taxi clearance, assign an altitude, clear an approach.
 7. **The tool does the controlling.** It checks the request against the FAA's data, your scenery and the state of your flight, writes the exact phraseology, and refuses in fixed words when the data says no.
-8. **Text to speech** speaks it, the client adds the radio effect, and you hear it if you are tuned to that frequency.
+8. **Text to speech** speaks it, the client adds the radio effect (the optional radio voices already sound like a radio, so they get only the key-up click), and you hear it if a radio that is on and selected to listen is tuned to that frequency. A call you could not hear is said again once when the radio can hear it, within about a minute.
 
 Meanwhile **monitors** watch every frame of your aircraft's state and start ATC's own calls: handoffs, readback reminders, an altitude that drifted, traffic.
 
@@ -133,12 +133,12 @@ A model can still pick the wrong tool. When it does, the tool refuses rather tha
 ## The data
 
 - **The FAA's published data**, updated every 28-day cycle: procedures (SIDs, STARs, approaches), fixes and airways, facility frequencies and hours, airspace boundaries, minimum vectoring and minimum IFR altitudes.
-- **Your X-Plane**, asked when needed: taxiways, stands and runway use, and the weather and traffic around you. See [Your X-Plane's data](client/xplane-data.md).
+- **Your X-Plane**, asked when needed: taxiways, stands and runway use. The weather and traffic around you are sent continuously. See [Your X-Plane's data](client/xplane-data.md).
 
 ## One session per flight
 
-Each flight gets its own isolated session in the cloud, which keeps the flight's state: your clearance, where you are in the flight, what you still owe a readback for. It survives a reconnect, and it stops when the flight ends.
+Each flight gets its own isolated session in the cloud, which keeps the flight's state: your clearance, where you are in the flight, what you still owe a readback for. It survives a reconnect (a transmission lost in a dropped connection is sent again once), and it stops when the flight ends.
 
 ## Why it takes a moment to answer
 
-Each reply involves speech recognition, one or two model calls, and speech synthesis. Expect a few seconds from releasing push-to-talk to the first word. The log's **Timing** line shows each step.
+Each reply involves speech recognition, two or three model calls (a router for every call, a judge for a readback, the controller agent for a request), and speech synthesis. Expect a few seconds from releasing push-to-talk to the first word. The log's **Timing** line shows each step.

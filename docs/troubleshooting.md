@@ -6,46 +6,61 @@ If something is simply not built yet, it is on the [known limitations](known-lim
 
 ## ATC does not answer
 
-After a transmission with no reply, the log has a **No reply** line with the reason:
+After a transmission with no reply, the log has a **No reply** line with the reason, in words:
 
 | Reason | What it means | What to do |
 |---|---|---|
-| `no_controller_on_frequency` | Nobody works the frequency you transmitted on | Check which radio is selected to transmit (**TX**), and its active frequency. The Frequencies card lists the right ones |
-| `sim_paused` | X-Plane is paused | Unpause. ATC is silent and deaf while paused |
-| `sim_in_replay` | X-Plane is in a replay | Leave the replay |
-| `empty_transcript` | The speech recognition heard nothing | Check your microphone (below) |
-| `agent_chose_silence` | ATC judged that no reply was needed | Normal after a correct readback or a remark. Look for the **✓ Readback accepted** |
-| `busy` | ATC was still handling your previous call | Wait a moment and say it again |
-| `error` | Something failed | Say it again. If it repeats, send the log file |
+| no controller on frequency | Nobody works the frequency you transmitted on | Check which radio is selected to transmit (**TX**), and its active frequency. The Frequencies card lists the right ones. On an airport's advisory frequency (**advisory · no ATC**) silence is normal: the log says "no reply expected" |
+| sim paused | X-Plane is paused | Unpause. ATC is silent and deaf while paused |
+| sim in replay | X-Plane is in a replay | Leave the replay |
+| empty transcript | The speech recognition heard nothing | Check your microphone (below) |
+| agent chose silence, readback accepted | ATC judged that no reply was needed | Normal after a correct readback or a remark. Look for the **✓ Readback accepted** |
+| busy | ATC was still handling your previous call | Wait a moment and say it again |
+| error | Something failed | Say it again. If it repeats, send the log file |
 
-If ATC answers "Aircraft calling, say again", it did not catch your callsign. Say your full callsign clearly.
+If ATC answers "Aircraft calling, say again", it did not catch your callsign. Say your full callsign clearly. If you fly under an airline callsign, say it as ATC says it ("Walker seventeen forty-five").
 
 ## I cannot hear ATC
 
-- **You hear ATC only on a frequency you are tuned to.** If the log says a reply was "not played (not tuned)", COM1 or COM2 was not on that frequency.
+- **You hear ATC only on a radio that is tuned to the frequency, switched on, and selected to listen on your audio panel.** If the log says a reply was "not played", the line says why: "isn't on COM1/COM2 active" (neither radio was tuned to it), or "COM1 is off", "COM1 isn't selected to listen", "the avionics are off".
+- **A call you missed is said again.** When the radio can hear it again within about a minute, and you have not transmitted since, ATC repeats its latest call on that frequency once.
 - ATC's audio waits while you are transmitting. Release push-to-talk.
-- Check **Settings > Audio > Speakers / headset**. A headset you switched on after the client started appears after **Refresh devices**.
+- Check **Settings > Your setup > Audio > Speakers / headset**. A headset you switched on after the client started appears after **Refresh devices**.
+
+## Cannot transmit
+
+Pressing push-to-talk does nothing, and the log shows an **Error** line that begins "can't transmit":
+
+| The line says | What to do |
+|---|---|
+| the avionics are off | Switch the avionics on in X-Plane |
+| COM1 is off (or COM2) | Switch that radio on. It is the radio selected to transmit, marked **TX** |
+| COM1 isn't selected to listen | Select it to listen on your audio panel, or select the other radio to transmit |
+| no aircraft state yet (is X-Plane connected?) | Start X-Plane: see [X-Plane: not connected](#x-plane-not-connected) |
+| answer the recording question in the xatc-agent window first | Choose **Allow** or **Don't allow** in the [recording question](privacy.md#recordings-of-your-voice) |
+| your recording choice is still being saved | Wait for the **Saving settings** box to finish, or choose **Try again** or **Close** if it says it could not save |
+
+Nothing is sent to ATC when a press is refused.
 
 ## The log shows nothing after "You:"
 
 Your microphone is not reaching the client.
 
 - *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On Linux, check your desktop's sound settings and that the microphone is not muted.
-- **Settings > Audio > Microphone**: pick the right device.
+- **Settings > Your setup > Audio > Microphone**: pick the right device.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
 ## X-Plane: not connected
 
 - The client and X-Plane must run on the same PC. X-Plane's Web API listens only on `127.0.0.1:8086`.
-- Check **Settings > Simulator**: *X-Plane 12*, host `127.0.0.1`, port `8086`.
+- Check **Settings > Your setup > X-Plane**: host `127.0.0.1`, port `8086`. (Under **Advanced**, **Aircraft state from** must be *X-Plane 12 (Web API)*; that is how it ships.)
 - The client keeps looking every few seconds. You do not need to restart it after starting X-Plane.
 
 ## X-Plane too old
 
 The client needs **X-Plane 12.1.4 or newer**. It uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4.
 
-- **Client 0.13.0 or newer:** the X-Plane pill reads **X-Plane: too old**, with "X-Plane 12.1.4 or newer is needed; this is 12.1.2" (the version your X-Plane reports), or "X-Plane 12.1.4 or newer is needed; this one is older" when your X-Plane is too old to say which version it is. When X-Plane is connected, the window's header shows its version after the client's.
-- **A client older than 0.13.0:** an older X-Plane 12 does not answer the client's first question, so the client treats it as not there. The startup dialog and the window show **X-Plane: not connected**, with "not reachable at 127.0.0.1:8086; retrying", and the console window says "X-Plane not reachable". It does not go away, however long you wait, and it looks like [X-Plane: not connected](#x-plane-not-connected), whose checks do not help.
+The X-Plane pill reads **X-Plane: too old**, with "X-Plane 12.1.4 or newer is needed; this is 12.1.2" (the version your X-Plane reports), or "X-Plane 12.1.4 or newer is needed; this one is older" when your X-Plane is too old to say which version it is. When X-Plane is connected, the window's header shows its version after the client's.
 
 What to do: update X-Plane 12 to the current release.
 
@@ -62,9 +77,9 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 - Check your internet connection.
 - When the data is back, the alert clears by itself and the log says "Data access restored". X-Plane stays paused until **you** unpause it.
 
-## Update the client
+## Update required
 
-"Update the client to x.y.z or newer": ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the update banner, or download the newest installer from the pilot site ([xatc.bandd.cloud](https://xatc.bandd.cloud), **Download**) and run it over your copy. Then start the client again.
+The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([xatc.bandd.cloud](https://xatc.bandd.cloud), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
 
 ## Sign-in
 
@@ -72,7 +87,8 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 |---|---|
 | **Not signed in** | Press **Sign in**. A sign-in lasts 30 days |
 | **Signed in · offline** | The sign-in service cannot be reached. Your flight keeps going and the client keeps trying |
-| "Your sign-in expires in ..." | Press **Sign in again** whenever it suits you. It does not interrupt a flight |
+| "Your sign-in expires in ..." | Press **Sign in again** whenever it suits you. During a flight, sign in as the same account or the flight will end |
+| "Your sign-in has run out. Sign in again to keep flying." | Press **Sign in again** |
 | "This flight belongs to another pilot" | You tried to rejoin a flight another account started. Press **New flight** |
 | "Your account isn't allowed to fly" | Ask the owner |
 | "Can't confirm this flight's pilot right now. Retrying." | Nothing to do. The client reconnects by itself and your flight is kept |
@@ -81,7 +97,7 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 - **It opened in my browser instead.** On Windows the window needs Edge WebView2, which ships with Windows 10 and 11; on Linux it needs WebKit2GTK. Without it the same page opens in your default browser and works the same.
 - **On Linux I have to sign in every time.** Staying signed in needs a keyring (GNOME Keyring or KWallet). Without one, the sign-in lasts only while the app runs.
-- **"Already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front (a client older than 0.13.0 says it cannot start: use the window that is open).
+- **"xatc-agent is already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front. If the line adds that the window could not be brought forward, look for it in the taskbar.
 - **I closed the client mid-flight.** Start it again within about ten minutes and choose **Rejoin last flight**.
 
 ## The radios will not tune from the window

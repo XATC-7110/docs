@@ -18,7 +18,7 @@ Over one encrypted connection to ATC, for as long as a flight is running:
 | What | When |
 |---|---|
 | Your flight plan: callsign, aircraft type, departure, destination, cruise altitude, route | When the flight starts |
-| Your aircraft's state: position, altitude, speed, heading, radios, on the ground or not | About once a second |
+| Your aircraft's state: position, altitude, speed, heading, radios (frequencies, and whether each is on and selected to listen), transponder code, on the ground or not | About once a second |
 | The weather at your aircraft and X-Plane's clock | Every few seconds |
 | The other aircraft in your X-Plane (the nearest 32) | About once a second |
 | **Your microphone** | **Only while you hold push-to-talk** |
@@ -42,7 +42,7 @@ By default **nothing you say is kept as audio**. The first time you connect, the
 
 - You must choose **Allow** or **Don't allow** before you can transmit.
 - The choice is stored with your account, so you are asked once, not once per PC.
-- Change it at any time in **Settings > Audio**.
+- Change it at any time in **Settings > Your account > Recording**.
 - When the wording of the question changes, every pilot is asked again, so you will see the question once more after you update to client 0.16.0.
 
 ## What is kept about a flight
@@ -54,10 +54,13 @@ Each flight is logged so that it can be reviewed and the controller improved:
 - your aircraft's track,
 - which account flew it.
 
-The project owner and an air traffic control expert who advises the project review flights in a private tool. They can see the items above, and they can listen to your recordings only if you allowed them.
+The project owner, an air traffic control expert who advises the project, and the project's testers review flights in a private tool. They can see the items above. Only the owner and the expert can listen to your recordings, and only if you allowed them.
+
+A flight log is kept until it is deleted: there is no automatic expiry today. The pilot site's [Privacy page](https://xatc.bandd.cloud/#/privacy) says how to ask for a copy of what is held about you, or for your account, flights or recordings to be deleted.
 
 ## Other services
 
+- **The radio voices.** ATC's voice is made by xatc's own text to speech. Only when **ATC voices** is set to **Radio voices** do the words ATC says on the radio go instead, as text, to a third-party speech service outside xatc's own systems, to give each controller a distinct voice and accent. Only ATC's words are sent, never your voice. The setting is off by default. Phone calls, the ATIS and AWOS are always spoken by xatc's own text to speech, and so is any transmission that the third-party service cannot speak in time.
 - **The AI model.** The text of your transmissions, with the facts of your flight, is processed by an AI model to work out what you asked for and to judge readbacks. See [How it works](how-it-works.md).
 - **SimBrief.** If you load a flight plan from SimBrief, the client fetches your latest plan from SimBrief with the username or pilot ID you typed. No SimBrief password or key is involved.
 

@@ -31,7 +31,7 @@ The diagram is drawn **course up**: the runway is at the top and the final appro
 
 Beside the diagram:
 
-- the plan in one line: "ILS RWY 10R · left downwind · base turn 10.8 nm · join 8.2 nm · FAF 4.8 nm",
+- the plan in one line: "ILS RWY 10R · left downwind · base turn 10.8 nm · join 8.2 nm · FAF 4.8 nm" (once ATC has cleared you, the pattern part is dropped),
 - where you are: "You: 5.0 nm out, 3.0 nm left of the final",
 - the airport, the controller and your assigned altitude,
 - the badge: **vectors**, then **cleared**.
@@ -53,5 +53,5 @@ If the window is too short for the card's diagram to be readable, the full-size 
 
 ## Turning it off
 
-- **Close** on the card hides it until ATC plans a different approach.
-- **Settings > Display > Show the Approach card** turns the card off for good. The confirmation in the header stays.
+- **Close** on the card hides it until ATC makes a new plan.
+- **Settings > Appearance > Show the Approach card** turns the card off for good. The confirmation in the header stays.

@@ -4,11 +4,11 @@ xatc-agent staffs every position of an IFR flight. Each controller is on its rea
 
 | Position | What it does for you |
 |---|---|
-| [Clearance Delivery](clearance.md) | Your IFR clearance, amendments, a pre-departure clearance by text, and a clearance by phone where there is no radio way |
+| [Clearance Delivery](clearance.md) | Your IFR clearance (from Ground or Tower where an airport has no Clearance Delivery), amendments, a pre-departure clearance by text, and a clearance by phone where there is no radio way |
 | [Ground](ground.md) | Pushback, taxi to the runway, runway crossings, progressive taxi, taxi-in to your parking |
 | [Tower](tower.md) | Line up and wait, takeoff and landing clearances, go-arounds, the runway exit |
 | [Departure and Center](departure-center.md) | Radar contact, climbs, turns on course, direct routings, descents, holds, diversions, and cancelling IFR (by phone after landing at a field without a tower) |
-| [Approach](approach.md) | The approach to expect, vectors to final, ILS, RNAV and visual approach clearances |
+| [Approach](approach.md) | The approach to expect, vectors to final (or a direct to a fix at some airports), ILS, RNAV and visual approach clearances |
 
 And at every position:
 
@@ -35,6 +35,8 @@ When the answer is no, ATC says why: "unable, runway one niner not available", "
 **One reply per call.** Ask for two things in one transmission and you get one reply that covers both.
 
 **Silent while paused.** While X-Plane is paused or in a replay, ATC says nothing and does not hear you.
+
+**Your radio has to be on.** You hear a controller only on a radio that is tuned to the frequency, switched on and selected to listen on your audio panel.
 
 ## Not built yet
 

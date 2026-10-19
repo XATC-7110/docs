@@ -17,11 +17,9 @@ hide:
 
 <div class="xa-call">
 <p class="you"><span class="who">You</span><span class="said">Seattle Clearance, November 547 Golf Alpha, IFR to Portland with Charlie.</span></p>
-<p class="atc"><span class="who">Clearance</span><span class="said">N547GA, cleared to Portland via the SUMMA2 departure, then as filed. Maintain 5000, expect 16000 10 minutes after departure. Departure frequency 119.2, squawk 4521.</span></p>
+<p class="atc"><span class="who">Clearance</span><span class="said">N547GA, cleared to Portland International airport via the SUMMA2 departure, then as filed. Climb and maintain 5000, expect 16000 10 minutes after departure. Departure frequency 119.2, squawk 4521.</span></p>
 <p class="you"><span class="who">You</span><span class="said">Cleared to Portland, SUMMA2 then as filed, 5000 expect 16000, 119.2, squawk 4521, 547GA. <span class="ok">✓ Readback accepted</span></span></p>
 </div>
-
-![The xatc-agent window during an approach: the radios, push-to-talk, ATC's plan for the approach and the log](assets/window-approach.png)
 
 </div>
 
@@ -44,7 +42,7 @@ hide:
 
     ---
 
-    Clearance Delivery, Ground, Tower, Departure, Center and Approach, each on its real frequency. Tune a frequency nobody is on and you hear nothing.
+    Clearance Delivery, Ground, Tower, Departure, Center and Approach, each on its real frequency. Tune a frequency nobody is on and you hear nothing. At a field with no radio way to Clearance, you pick up the phone.
 
     [:octicons-arrow-right-24: What ATC can do](features/index.md)
 
@@ -107,7 +105,7 @@ hide:
 
     ---
 
-    X-Plane 12.1.4 or newer, Windows 10 or 11 or a 64-bit Linux desktop (a Mac app is coming soon), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
+    X-Plane 12.1.4 or newer, Windows 10 or 11 or a 64-bit Linux desktop (the Linux app is a prerelease for now, and a Mac app is coming soon), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
 
 -   :material-account-key: **An invitation**
 
@@ -122,7 +120,7 @@ hide:
 ## Know before you fly
 
 !!! warning "A simulation, and an experiment"
-    xatc-agent is for flight simulation only. It is not a training device and must never be used for real-world flying. It is under active development: what a controller says and does changes between releases, and things break.
+    xatc-agent is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is under active development: what a controller says and does changes between releases, and things break.
 
 - **IFR only**, for now. VFR departures, pattern work and flight following are not built.
 - **US airports** work best: everything outside the taxiways comes from the FAA's data. Outside the US, ATC asks your X-Plane for the airport's procedures and frequencies instead.
