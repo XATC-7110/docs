@@ -1,6 +1,7 @@
 site_name: xatc-agent
 site_description: AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.
-site_url: https://xatc-7110.github.io/docs/
+# The canonical address is the `latest` alias, so a search engine ranks the current docs, not an old version.
+site_url: https://xatc-7110.github.io/docs/latest/
 docs_dir: docs
 
 # The look is the product's own: the client window's colours, dark first (docs/stylesheets/xatc.css).
@@ -32,6 +33,12 @@ theme:
     - search.suggest
     - content.code.copy
     - toc.follow
+
+# Versions: mike deploys one folder per docs release (1.0, 1.1, ...) and the alias `latest`; this
+# makes the theme show the version selector (it reads versions.json at the site root).
+extra:
+  version:
+    provider: mike
 
 extra_css:
   - stylesheets/xatc.css

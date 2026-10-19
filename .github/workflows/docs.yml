@@ -1,3 +1,5 @@
+# Pull requests and pushes to main only build and test. Nothing is deployed here: the site
+# is published by a release (docs-release.yml).
 name: docs
 
 on:
@@ -27,30 +29,5 @@ jobs:
       # --strict turns a broken internal link or a page missing from nav into a build
       # failure instead of a silent warning.
       - run: mkdocs build --strict
-
-  # main is published to the gh-pages branch, which GitHub Pages serves
-  # ("Deploy from a branch": gh-pages, / (root)).
-  deploy:
-    name: deploy (gh-pages)
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    concurrency:
-      group: docs-gh-pages
-      cancel-in-progress: false
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-      - run: pip install -r requirements.txt
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - run: scripts/publish-docs.sh
+      # The generator of the redirect stubs for the old, unversioned page addresses.
+      - run: python -m unittest discover -s tests -v
