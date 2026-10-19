@@ -20,9 +20,9 @@ mkdocs serve
 
 The site is versioned with [mike](https://github.com/jimporter/mike) and **is published only by a release of this repository**. A push to `main` and a pull request run the strict build and the tests (`docs` workflow) and deploy nothing.
 
-A release `vX.Y.Z` deploys the version `X.Y` (titled `X.Y.Z`), moves the alias `latest` to it and keeps `latest` as the default, so <https://xatc-7110.github.io/docs/> redirects to `/docs/latest/`. Releasing a patch (`v1.0.1`) replaces `1.0`; a new minor (`v1.1.0`) adds a version. The theme's version selector lists them all.
+A release `vX.Y.Z` deploys the version `X.Y` (titled `X.Y.Z`). When it is the newest stable tag it also moves the alias `latest` to it and keeps `latest` as the default, so <https://xatc-7110.github.io/docs/> redirects to `/docs/latest/`. Releasing a patch (`v1.0.1`) replaces `1.0`; a new minor (`v1.1.0`) adds a version. The theme's version selector lists them all.
 
-Cut a docs release from an up-to-date `main` with the release skill. Docs releases go through it because a hook blocks a raw `gh release create`. Keep the notes file outside `docs/` (the skill's default path is inside the site's source folder):
+Cut a docs release from a pushed, up-to-date `main` with the release skill (`gh release create` tags the remote `main`, so unpushed commits are not in the release). Docs releases go through it because a hook blocks a raw `gh release create`. Keep the notes file outside `docs/` (the skill's default path is inside the site's source folder; `pending-release-*.md` there is ignored by git and left out of the site as a safety net, but do not rely on it):
 
 ```bash
 bash ~/.claude/skills/release/release.sh init   v1.0.0 /tmp/docs-release-v1.0.0.md   # scaffold the notes
@@ -30,14 +30,16 @@ bash ~/.claude/skills/release/release.sh init   v1.0.0 /tmp/docs-release-v1.0.0.
 bash ~/.claude/skills/release/release.sh create v1.0.0 /tmp/docs-release-v1.0.0.md
 ```
 
+`release.sh` requires a compare link in the notes. The **first** release has nothing earlier to compare with, so its link is `compare/v1.0.0...v1.0.0`. Later releases compare with the previous tag (`compare/v1.0.0...v1.1.0`).
+
 Publishing the release starts the `docs-release` workflow, which deploys the tag. What it does, and does not do:
 
 - A **stable** release (`vX.Y.Z`) deploys. A **prerelease** (`v1.0.0-rc.1`) deploys nothing, a draft does nothing until it is published, and a bare tag does nothing.
-- To deploy a published stable release again, run the `docs-release` workflow by hand (Actions > docs-release > Run workflow) with its tag. It checks that the tag is `vX.Y.Z` and that GitHub says the release is published, not a draft and not a prerelease.
-- The old, unversioned page addresses (`/docs/getting-started/`) keep working: each is a redirect stub to `/docs/latest/<page>/`, keeping the `#anchor`, written by `scripts/legacy_stubs.py` into the same push as the deploy. A page later removed from the docs keeps its old root address, so look at it when you remove a page.
+- To deploy a published stable release again, run the `docs-release` workflow by hand (Actions > docs-release > Run workflow) with its tag. It checks that the tag is `vX.Y.Z` and that GitHub says the release is published, not a draft and not a prerelease. **`latest` moves only to the newest stable tag**: re-deploying an older release (`v1.0.0` after `v1.1.0`) replaces its own version folder, leaves `latest` on the newest, and says so in the run's output.
+- The old, unversioned page addresses (`/docs/getting-started/`) keep working: each is a redirect stub to `/docs/latest/<page>/`, keeping the `#anchor`, written by `scripts/legacy_stubs.py` into the same push as the deploy. A page later removed from the docs keeps its old root address, so look at it when you remove a page. The same step puts `latest`'s `404.html` at the site root (its links are absolute, under `/docs/<version>/`) and deletes the old unversioned build's root `sitemap.xml`, `sitemap.xml.gz`, `search/`, `assets/` and `stylesheets/`; each version folder has its own.
 - Never run `mkdocs gh-deploy`: it replaces the whole `gh-pages` branch and would delete every version.
 
-To look at what a deploy would write, without pushing anything: `scripts/deploy-versioned.sh v1.0.0 --no-push` (with `mike` installed; it commits to a local `gh-pages` branch only).
+To look at what a deploy would write, without pushing anything: `scripts/deploy-versioned.sh v1.0.0 --no-push` (with `mike` installed; the local `gh-pages` branch is updated, the remote is not).
 
 ## Layout
 
