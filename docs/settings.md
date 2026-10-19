@@ -33,6 +33,12 @@ The window's button and the **Space** key always work. **Also transmit with** ad
 
 For a yoke or joystick button, press **Learn button**, then press and release the button you want within 10 seconds. X-Plane must be running. The client reads the button through X-Plane, so anything X-Plane sees as a joystick button works.
 
+### Phone calls
+
+The last row of this part is **Phone calls**. *Push to talk* is the default: on a [clearance call](features/clearance.md#by-phone-at-a-field-with-no-radio-way) you hold the key, as on the radio.
+
+The two *Two-way (experimental)* choices, A and B (two versions of the same thing, being compared), open your microphone for the call: there is no button, you just talk, and ATC answers when you have finished. Use a headset. They are experimental and offered only on some accounts for now. When a flight does not offer one, its choice is greyed with "Not available right now" and calls stay push to talk. If a two-way call has trouble, it goes on as push to talk and the call screen says "Two-way calling stopped. Hold to talk to continue." The choice applies from your next call; saving it never reconnects the flight.
+
 ## Audio
 
 | Setting | Choices |

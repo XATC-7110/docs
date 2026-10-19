@@ -31,6 +31,8 @@ The handoff to Center comes on its own, near the top of Departure's airspace. Ch
 | To return to your departure airport | Radar vectors back, and what to expect |
 | To cancel IFR | "IFR cancellation received, squawk VFR, frequency change approved" |
 
+Cancelling IFR in the air is on the radio, as above. After you land at an airport with no control tower, you cancel on the ground: see [Cancelling IFR after landing](#cancelling-ifr-after-landing).
+
 ATC never clears you below the minimum altitude for where you are. The FAA's minimum vectoring and minimum IFR altitude charts for the whole US are in its data.
 
 ## The descent
@@ -42,6 +44,16 @@ At the top of descent Center starts you down without being asked:
 or a crossing restriction: "cross Battle Ground at and maintain one one thousand". Asking "request lower" or "request descend via" starts the same descent.
 
 Center then hands you to the next sector, and finally to [Approach](approach.md), about 40 nm from the destination or at the end of the arrival.
+
+## Cancelling IFR after landing
+
+At an airport with a control tower, your IFR flight plan closes when you land. At one without, you cancel it yourself. Once you have landed at your destination:
+
+- **With no radio way to Clearance Delivery** (no clearance delivery frequency, no ground communication outlet), the **Frequencies** card shows **Cancel IFR · by phone** under that airport, with **Call to cancel** and the text "IFR flight plan open · call to cancel". Press it, say "cancel IFR" when ATC answers with the facility's name, and ATC says "IFR cancellation received". The row then reads **IFR cancelled**. The call works like the [clearance call](clearance.md#by-phone-at-a-field-with-no-radio-way).
+- **With a radio way**, there is no phone row: cancel on that frequency.
+- **If you already cancelled in the air**, there is nothing left to cancel and no row.
+
+ATC ends the flight about 30 seconds after the engines are off, call or no call. If that cuts the call before the cancellation is in, the log says the flight ended before it was confirmed. Call before you shut down.
 
 ## The radar controller calls you
 
