@@ -4,10 +4,10 @@ xatc-agent staffs every position of an IFR flight. Each controller is on its rea
 
 | Position | What it does for you |
 |---|---|
-| [Clearance Delivery](clearance.md) | Your IFR clearance, amendments, and a pre-departure clearance by text |
+| [Clearance Delivery](clearance.md) | Your IFR clearance, amendments, a pre-departure clearance by text, and a clearance by phone where there is no radio way |
 | [Ground](ground.md) | Pushback, taxi to the runway, runway crossings, progressive taxi, taxi-in to your parking |
 | [Tower](tower.md) | Line up and wait, takeoff and landing clearances, go-arounds, the runway exit |
-| [Departure and Center](departure-center.md) | Radar contact, climbs, turns on course, direct routings, descents, holds, diversions |
+| [Departure and Center](departure-center.md) | Radar contact, climbs, turns on course, direct routings, descents, holds, diversions, and cancelling IFR (by phone after landing at a field without a tower) |
 | [Approach](approach.md) | The approach to expect, vectors to final, ILS, RNAV and visual approach clearances |
 
 And at every position:

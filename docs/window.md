@@ -71,6 +71,8 @@ The stations ATC has for your flight, grouped by airport, your departure and des
 
 Each station has two small buttons, **1** and **2**: they put its frequency into COM1's or COM2's standby. Then press that radio's **⇄**. The list follows the flight: when a clearance or a handoff names another frequency, the card changes with it.
 
+An airport with no tower and no radio way to Clearance Delivery has a **by phone** row with a **Call** button instead of a frequency: see [Clearance by phone](features/clearance.md#by-phone-at-a-field-with-no-radio-way).
+
 ## The log
 
 Everything that happened, newest at the bottom:
