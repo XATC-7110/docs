@@ -5,7 +5,7 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 ## Before you call anyone
 
 1. **Start X-Plane 12** and put your aircraft on a stand at the departure airport.
-2. **Start the client** and wait for the startup dialog to close (signed in, gateway ready).
+2. **Start the client** and wait for the startup dialog to close (signed in, ATC service ready).
 3. Press **New flight**.
     - **Enter manually**: callsign, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan.
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.

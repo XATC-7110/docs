@@ -7,16 +7,18 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 | | |
 |---|---|
 | Simulator | X-Plane 12.1.4 or newer. The client uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. Tested on 12.4.3. Use the current X-Plane 12 release |
-| PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both |
+| PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both. On Linux, see [Install on Linux](install-linux.md); a Mac app is [coming soon](install-mac.md) |
 | Audio | A microphone, and speakers or a headset |
 | Account | An xatc-agent account, created for you by the project owner |
-| The client | The installer, from the pilot site once you are signed in (below) |
+| The client | The installer (Windows) or the AppImage (Linux), from the pilot site once you are signed in (below) |
 | Phone | An authenticator app, for the sign-in's second step |
 
 !!! note "Invitation only"
     xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you an email with a temporary password.
 
 ## Install (one time)
+
+These steps are for Windows. On Linux, follow [Install on Linux](install-linux.md), then come back here to sign in. The Mac app is [coming soon](install-mac.md).
 
 1. Go to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), and sign in with your xatc-agent account. Open **Download** and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
 2. Run it. It installs for your Windows account only and does not ask for an administrator password.
@@ -30,7 +32,7 @@ The installed app updates itself: see [Updates](settings.md#updates). To remove 
 
 ## Start the client
 
-Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC gateway and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
+Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.
@@ -41,7 +43,7 @@ Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with th
 2. The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one).
 3. The browser says **Signed in** and you can close the tab. The window's sign-in pill turns green.
 
-You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager, never in a file.
+You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), never in a file.
 
 ## Choose your audio
 

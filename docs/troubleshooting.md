@@ -30,7 +30,7 @@ If ATC answers "Aircraft calling, say again", it did not catch your callsign. Sa
 
 Your microphone is not reaching the client.
 
-- *Windows Settings > Privacy & security > Microphone*: allow desktop apps.
+- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On Linux, check your desktop's sound settings and that the microphone is not muted.
 - **Settings > Audio > Microphone**: pick the right device.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
@@ -79,7 +79,8 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 ## The window
 
-- **It opened in my browser instead.** The window needs Edge WebView2, which ships with Windows 10 and 11. Without it the same page opens in your default browser and works the same.
+- **It opened in my browser instead.** On Windows the window needs Edge WebView2, which ships with Windows 10 and 11; on Linux it needs WebKit2GTK. Without it the same page opens in your default browser and works the same.
+- **On Linux I have to sign in every time.** Staying signed in needs a keyring (GNOME Keyring or KWallet). Without one, the sign-in lasts only while the app runs.
 - **"Already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front (a client older than 0.13.0 says it cannot start: use the window that is open).
 - **I closed the client mid-flight.** Start it again within about ten minutes and choose **Rejoin last flight**.
 
