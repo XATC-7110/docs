@@ -16,16 +16,28 @@ mkdocs serve
 
 `mkdocs build --strict` fails on a broken internal link or a page missing from the nav.
 
-## Publish
+## Releasing the docs
 
-The site lives on the `gh-pages` branch, which GitHub Pages serves ("Deploy from a branch": `gh-pages`, `/ (root)`). From an up-to-date, clean `main`:
+The site is versioned with [mike](https://github.com/jimporter/mike) and **is published only by a release of this repository**. A push to `main` and a pull request run the strict build and the tests (`docs` workflow) and deploy nothing.
+
+A release `vX.Y.Z` deploys the version `X.Y` (titled `X.Y.Z`), moves the alias `latest` to it and keeps `latest` as the default, so <https://xatc-7110.github.io/docs/> redirects to `/docs/latest/`. Releasing a patch (`v1.0.1`) replaces `1.0`; a new minor (`v1.1.0`) adds a version. The theme's version selector lists them all.
+
+Cut a docs release from an up-to-date `main` with the release skill. Docs releases go through it because a hook blocks a raw `gh release create`. Keep the notes file outside `docs/` (the skill's default path is inside the site's source folder):
 
 ```bash
-scripts/publish-docs.sh             # mkdocs build --strict, then mkdocs gh-deploy
-scripts/publish-docs.sh --no-push   # the same, on the local gh-pages branch only
+bash ~/.claude/skills/release/release.sh init   v1.0.0 /tmp/docs-release-v1.0.0.md   # scaffold the notes
+# fill the notes in, then:
+bash ~/.claude/skills/release/release.sh create v1.0.0 /tmp/docs-release-v1.0.0.md
 ```
 
-The `docs` workflow runs the strict build on every pull request and publishes on every push to `main`.
+Publishing the release starts the `docs-release` workflow, which deploys the tag. What it does, and does not do:
+
+- A **stable** release (`vX.Y.Z`) deploys. A **prerelease** (`v1.0.0-rc.1`) deploys nothing, a draft does nothing until it is published, and a bare tag does nothing.
+- To deploy a published stable release again, run the `docs-release` workflow by hand (Actions > docs-release > Run workflow) with its tag. It checks that the tag is `vX.Y.Z` and that GitHub says the release is published, not a draft and not a prerelease.
+- The old, unversioned page addresses (`/docs/getting-started/`) keep working: each is a redirect stub to `/docs/latest/<page>/`, keeping the `#anchor`, written by `scripts/legacy_stubs.py` into the same push as the deploy. A page later removed from the docs keeps its old root address, so look at it when you remove a page.
+- Never run `mkdocs gh-deploy`: it replaces the whole `gh-pages` branch and would delete every version.
+
+To look at what a deploy would write, without pushing anything: `scripts/deploy-versioned.sh v1.0.0 --no-push` (with `mike` installed; it commits to a local `gh-pages` branch only).
 
 ## Layout
 
@@ -38,3 +50,6 @@ The `docs` workflow runs the strict build on every pull request and publishes on
 | `docs/privacy.md`, `troubleshooting.md`, `how-it-works.md` | Your data, when something goes wrong, the design in one page |
 | `docs/assets/` | Screenshots, taken from the client's demo data, and the logo |
 | `docs/stylesheets/xatc.css` | The look: the client window's colours, dark first |
+| `scripts/deploy-versioned.sh`, `scripts/legacy_stubs.py` | The release deploy (mike) and the redirect stubs for the old page addresses |
+| `tests/` | Tests of the stub generator (`python -m unittest discover -s tests`) |
+| `.github/workflows/` | `docs` (build and tests on every pull request and push), `docs-release` (deploy on a published stable release) |
