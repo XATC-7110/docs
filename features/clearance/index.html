@@ -821,6 +821,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#by-phone-at-a-field-with-no-radio-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By phone, at a field with no radio way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="By phone, at a field with no radio way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hold-for-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold for release
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#one-frequency-one-controller" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1390,6 +1418,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#by-phone-at-a-field-with-no-radio-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By phone, at a field with no radio way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="By phone, at a field with no radio way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hold-for-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold for release
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#one-frequency-one-controller" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1462,6 +1518,27 @@
 <p>When something changes before you depart, Clearance Delivery amends the clearance and says only the items that changed: a new SID, altitude or squawk. Read those back.</p>
 <h2 id="a-clearance-by-text-pdc">A clearance by text (PDC)<a class="headerlink" href="#a-clearance-by-text-pdc" title="Permanent link">&para;</a></h2>
 <p>Instead of copying the clearance by voice, press <strong>Request PDC</strong> in the window. The clearance arrives as text and needs no readback. See <a href="../../client/pdc/">Pre-departure clearance by text</a>.</p>
+<h2 id="by-phone-at-a-field-with-no-radio-way">By phone, at a field with no radio way<a class="headerlink" href="#by-phone-at-a-field-with-no-radio-way" title="Permanent link">&para;</a></h2>
+<p>At an airport with no control tower and no radio way to reach Clearance Delivery (no clearance delivery frequency and no ground communication outlet), the <strong>Frequencies</strong> card has a <strong>Clearance Delivery · by phone</strong> row instead of a frequency. You get your clearance by calling.</p>
+<ol>
+<li>Press <strong>Call</strong>. A call screen opens, already calling, with the facility's name like a saved contact. There is no number to dial.</li>
+<li>You hear a phone ring. A facility that is busier, such as the approach control of a busy airport, may ring twice before it answers.</li>
+<li>ATC answers with the facility's name: "Seattle Approach." Ask for your clearance as you would on the radio. The facility is the approach control over the airport, or the Center where no approach control is. It is never Flight Service.</li>
+<li>Read the clearance back. A correct readback gets "readback correct, have a safe flight", and the call ends. (When the clearance holds for release, see below.)</li>
+</ol>
+<p>To talk, hold <strong>Hold to talk</strong> on the call screen or your yoke's push-to-talk button. While a call is open, every press talks on the call, not on a radio. ATC is heard whatever COM1 and COM2 are tuned to, with a telephone's sound. <strong>Mute</strong> stops your side, the keypad is only for looks, and the red button hangs up. (An experimental way to call with no button is in <a href="../../settings/#phone-calls">Settings</a>.)</p>
+<ul>
+<li><strong>On the ground only.</strong> In the air the row says "No phone in flight: use the departure frequency".</li>
+<li><strong>The row tells you where the clearance stands</strong>: "Clearance issued · not read back yet", "Clearance received", then <strong>Call back</strong> or <strong>Call again</strong>. If nobody answers, the log says "nobody answered: call again": call again.</li>
+<li><strong>No text clearance</strong> at these fields: ATC does not offer a <a href="../../client/pdc/">PDC</a> there.</li>
+</ul>
+<h3 id="hold-for-release">Hold for release<a class="headerlink" href="#hold-for-release" title="Permanent link">&para;</a></h3>
+<p>At a field like this the clearance ends "hold for release, call back when you are number one for departure". Read it back; the call ends with "readback correct, call back when you are number one". The row then reads <strong>Hold for release</strong>.</p>
+<p>When you are number one, press <strong>Call for release</strong> and tell ATC, with the runway: "number one for departure, runway one six". The release comes on that call, not on the readback of the clearance, and a promise to call does not count as the call. It says when the clearance is void:</p>
+<blockquote>
+<p>"November five four seven Golf Alpha, released for departure, clearance void if not off by one seven four three, ... upon entering controlled airspace, proceed direct Helns."</p>
+</blockquote>
+<p>Read it back. The row shows <strong>Released for departure · void at 17:43Z</strong>. The void time is three minutes after the release. If you are not off by then, the row says <strong>Release ran out · call back for a new one</strong>.</p>
 <h2 id="one-frequency-one-controller">One frequency, one controller<a class="headerlink" href="#one-frequency-one-controller" title="Permanent link">&para;</a></h2>
 <p>At many smaller towered airports, one controller works Clearance Delivery and Ground on the same frequency. There the clearance and the taxi come from the same voice, and you are never told to "contact Ground" on the frequency you are already on. Read back your clearance and add "ready to taxi", and you get "readback correct" and your taxi instructions in one reply.</p>
 
