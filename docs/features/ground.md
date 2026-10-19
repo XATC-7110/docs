@@ -42,6 +42,6 @@ Ground moves you between your parking and the runway, on the taxiways of your ow
 
 After Tower sends you to Ground, say where you are parking: a gate, an FBO by name, or "general aviation".
 
-- Name nothing and Ground asks **"say parking"** once per taxi-in. If you still name nothing, or name something it cannot find, it taxis you to a general parking and says which. In an emergency it does not ask. The window's [Parking card](../client/parking.md) lists the stands you can say.
+- Name nothing and Ground asks **"say parking"** once per taxi-in. If you still name nothing, or name something it cannot find, it taxis you to a general parking and says which. In an emergency it does not ask. The window's [Parking card](../client/parking.md) lists the stands you can say, and comes up on its own when you land and when you switch to Ground.
 - A parking Ground cannot find: "unable to find the <what you said>, taxi to ..." with a general parking, named.
 - A gate that another aircraft is on: you are held on a taxiway until it is free.

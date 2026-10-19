@@ -8,7 +8,7 @@ The radar controllers: Departure takes you from the runway into the climb, Cente
 
 > "November five four seven Golf Alpha, Seattle Departure, radar contact, Seattle altimeter three zero zero two, climb and maintain one five thousand."
 
-Departure climbs you to your filed cruise, up to the top of its own airspace (15,000 ft at Seattle), and Center gives the rest. If your transponder is not on the squawk you were given: "radar contact, reset transponder, squawk zero one seven four", and once more 30 seconds later if it is still wrong.
+Departure climbs you to your filed cruise, up to the top of its own airspace, and Center gives the rest. If your transponder is not on the squawk you were given: "radar contact, reset transponder, squawk zero one seven four", and once more 30 seconds later if it is still wrong.
 
 On a SID with altitude restrictions it is "climb via the Summa Two departure", sometimes "except maintain" an altitude.
 

@@ -120,7 +120,7 @@ hide:
 ## Know before you fly
 
 !!! warning "A simulation, and an experiment"
-    xatc-agent is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is under active development: what a controller says and does changes between releases, and things break.
+    xatc-agent is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is not an approved flight training device. It is under active development: what a controller says and does changes between releases, and things break.
 
 - **IFR only**, for now. VFR departures, pattern work and flight following are not built.
 - **US airports** work best: everything outside the taxiways comes from the FAA's data. Outside the US, ATC asks your X-Plane for the airport's procedures and frequencies instead.

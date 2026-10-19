@@ -68,7 +68,7 @@ Read back the heading, the altitude and the approach with its runway. Approach t
 
 ### 7. Tower, landing and taxi-in
 
-Tower clears you to land with the wind. Read back "cleared to land" with the runway. Where it matters, Tower tells you on the rollout where to turn off; either way it hands you to Ground. Tell Ground where you are parking: a gate, an FBO, or "general aviation". If ATC asks **"say parking"**, the window's [Parking card](client/parking.md) lists the names you can say and shows them on a map.
+Tower clears you to land with the wind. Read back "cleared to land" with the runway. Where it matters, Tower tells you on the rollout where to turn off; either way it hands you to Ground. Tell Ground where you are parking: a gate, an FBO, or "general aviation". If ATC asks **"say parking"**, the window's [Parking card](client/parking.md) lists the names you can say and shows them on a map. It also comes up on its own when you land and slow to 30 kt or less, and when you switch to Ground.
 
 ### 8. The end of the flight
 

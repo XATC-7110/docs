@@ -70,7 +70,7 @@ One card at a time, picked with the chips above it. The slot keeps its height, s
 |---|---|
 | **Frequencies** | Always available: the ATC stations for your flight |
 | **[Approach](client/approach-card.md)** | When ATC starts vectoring you for an approach |
-| **[Parking](client/parking.md)** (with the airport, such as "Parking KPDX") | When ATC asks you to say your parking |
+| **[Parking](client/parking.md)** (with the airport, such as "Parking KPDX") | When ATC asks you to say your parking, and on its own when you land or switch to Ground |
 | **[PDC](client/pdc.md)** | After you request a pre-departure clearance by text. **Request PDC** is a chip too, while one is possible |
 | **⚠ Deviation** | When ATC flags a pilot deviation, such as taking off without a clearance. It stays until you dismiss it, and the chip stays so that you can bring it back |
 | **⚠ No data** | **Unable to access data, check connection**: when ATC cannot read its airport data. The client pauses X-Plane; see [Troubleshooting](troubleshooting.md#unable-to-access-data-check-connection) |

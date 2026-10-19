@@ -1,8 +1,19 @@
 # Parking
 
-When ATC asks you to **"say parking"**, the window shows what you can answer.
+When ATC asks you to **"say parking"**, the window shows what you can answer. It also comes up on its own when you land or switch to Ground.
 
-ATC asks in two places: Approach, at an airport with a large number of airline gates (once, on the check-in or with the approach clearance), and Ground, on your first call after landing when no parking is known (once per taxi-in). The Parking card comes to the front of the card slot, titled with the airport, such as "Parking KPDX".
+## When the card comes up
+
+- **When ATC asks "say parking".** ATC asks in two places: Approach, at an airport with a large number of airline gates (once, on the check-in or with the approach clearance), and Ground, on your first call after landing when no parking is known (once per taxi-in).
+- **When you land.** Once you have landed at your destination and slowed to 30 kt or less, the card comes up without being asked. Tower's runway exit does not have to come first, and an airport with no tower works the same way.
+- **When you switch to Ground.** The card also comes up when the radio you transmit on is tuned to the destination's Ground and is on and listening.
+
+The card comes up once per landing, at whichever of the last two comes first. It does not come up on its own when your parking is already known (you named it), when a card is already up, when it already came up for this landing, or when the airport has no stands. A go-around followed by a new landing is a new landing; a bounce is not.
+
+The Parking card comes to the front of the card slot, titled with the airport, such as "Parking at KPDX". When it came up on its own, a line under the title says **"Pick your parking, then tell Ground"**, and the log says "Landed" or "Switched to Ground" instead of naming a controller who asked. If you close it, it stays closed for that landing; ATC's "say parking" still brings it back.
+
+!!! note "Needs client 0.20"
+    The card's own line, the log's wording and a closed card staying closed come with client 0.20, which is still a prerelease (the stable release is 0.19.0). On client 0.19.0 the card does not know why it came up: the card appears on landing and on the switch to Ground all the same, but with no line under its title, and the log says that ATC asked for your parking when it did not.
 
 ## What you can say
 
