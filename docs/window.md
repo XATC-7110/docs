@@ -11,7 +11,7 @@ The client runs in its own window, titled **xatc-agent**, beside X-Plane. It has
 - **Your flight**: callsign, aircraft type, departure → destination, and its state (starting, ready, ended). With no flight it says "No flight: press New flight". When a flight ended, the line under it says why.
 - **The approach confirmation**: while ATC has you on an approach, a pill beside your callsign shows the kind of approach (**ILS**, **RNAV**, **Visual**), the runway, and **ATC is vectoring you**. It turns green and says **cleared for the approach** once ATC clears you. See [The approach plan](client/approach-card.md).
 - **End flight** (only while a flight runs) and **New flight**.
-- The client's version, X-Plane's version while X-Plane is connected, and the gateway's version, and the light/dark theme button.
+- The client's version, X-Plane's version while X-Plane is connected, and the ATC service's version, and the light/dark theme button.
 
 ## The services row
 
@@ -84,7 +84,7 @@ Scroll up to read something and the log stays where you left it; scroll back to 
 
 ## Dialogs you will meet
 
-- **The startup dialog**, each time the client starts: your sign-in, the gateway and X-Plane. It closes by itself when the first two are ready. After a client restart mid-flight it offers **Rejoin last flight**.
+- **The startup dialog**, each time the client starts: your sign-in, the ATC service and X-Plane. It closes by itself when the first two are ready. After a client restart mid-flight it offers **Rejoin last flight**.
 - **New flight**: the flight plan, by hand or from SimBrief.
 - **The recording question**, the first time you connect: see [Your data](privacy.md#recordings-of-your-voice).
 - **The approach diagram**, full size, when ATC's plan starts and the card is too small to read.

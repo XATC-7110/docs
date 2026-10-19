@@ -32,7 +32,7 @@ The installed app updates itself: see [Updates](settings.md#updates). To remove 
 
 ## Start the client
 
-Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC gateway and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
+Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.

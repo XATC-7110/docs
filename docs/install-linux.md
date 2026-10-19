@@ -18,7 +18,7 @@ The Linux app is new and has been run by fewer pilots than the Windows one. If s
 
 ## Install (one time)
 
-1. Go to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), and sign in with your xatc-agent account. Open **Download** and choose **Linux**. The file is `xatc-agent-<version>-x86_64.AppImage`.
+1. Go to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), and sign in with your xatc-agent account. Open **Download**, choose **Linux**, then press **Download for Linux**. The file is `xatc-agent-<version>-x86_64.AppImage`.
 2. Make it executable. Either:
     - in your file manager, open the file's **Properties** and tick **Allow executing as program**; or
     - in a terminal, run `chmod +x xatc-agent-<version>-x86_64.AppImage`.
