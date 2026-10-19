@@ -6,17 +6,21 @@ The radar controllers: Departure takes you from the runway into the climb, Cente
 
 **Check in** with your altitude. Departure answers "radar contact" with the altimeter and your climb:
 
-> "November five four seven Golf Alpha, Seattle Departure, radar contact, climb and maintain one six thousand."
+> "November five four seven Golf Alpha, Seattle Departure, radar contact, Seattle altimeter three zero zero two, climb and maintain one five thousand."
+
+Departure climbs you to your filed cruise, up to the top of its own airspace (15,000 ft at Seattle), and Center gives the rest. If your transponder is not on the squawk you were given: "radar contact, reset transponder, squawk zero one seven four", and once more 30 seconds later if it is still wrong.
 
 On a SID with altitude restrictions it is "climb via the Summa Two departure", sometimes "except maintain" an altitude.
 
 **On course.** After a heading off the runway, Departure turns you toward your route: "turn left heading two niner zero, vectors to Mapel", then "proceed direct Mapel" on its own. A SID that ends on a heading is followed by "proceed direct" its next fix. You can also ask: "request on course".
 
-**Still on the wrong frequency?** If you call Tower when you should be with Departure: "you're on Seattle Tower, contact Seattle Departure". If you never check in, Departure asks "are you with me?"
+**A route with no fix in it.** If your route has no fix ATC knows (none filed, or just your destination's name), the destination stands in for it. Departure says "proceed direct Easton" when it is ahead of you, or "turn left heading one three zero, vectors to Easton" and then "proceed direct Easton" once you have come round. "Request direct Easton" is granted. It is not used within 5 nm of the destination. At a field with no tower the release still says "fly runway heading", and Departure's radar contact adds the direct or the turn.
+
+**Still on the wrong frequency?** If you call Tower when you should be with Departure: "you're on Seattle Tower, contact Seattle Departure". If you stay on the old frequency, the old controller says "are you with me? contact Seattle Departure one one niner point two", and if you switch but never check in, the new one asks "how do you hear?" The same happens at every handoff.
 
 ## Center
 
-The handoff to Center comes on its own, near the top of Departure's airspace. Check in and Center clears you to your cruise altitude, in steps around traffic if it has to.
+The handoff to Center comes on its own: climbing through a thousand feet below the top of Departure's airspace when your cruise is at or above that top, otherwise at the edge of its airspace, sideways, to whoever owns the airspace there (on a short flight, to the destination's Approach). Check in and Center clears you to your cruise altitude, in steps around traffic if it has to.
 
 ## What you can ask for
 
@@ -29,7 +33,7 @@ The handoff to Center comes on its own, near the top of Departure's airspace. Ch
 | A hold | "hold west of Battle Ground as published, expect further clearance two one three five" |
 | A diversion | "cleared to the Olympia airport via direct, maintain ..." |
 | To return to your departure airport | Radar vectors back, and what to expect |
-| To cancel IFR | "IFR cancellation received, squawk VFR, frequency change approved" |
+| To cancel IFR | "IFR cancellation received, squawk VFR, frequency change approved". Not in Class A airspace: "unable, IFR cannot be cancelled in Class Alpha airspace". Near a towered destination it ends "contact Portland Tower" and the frequency; inbound to a field with no tower, "change to advisory frequency approved". Words that do not say what is cancelled get "confirm cancelling IFR?" |
 
 Cancelling IFR in the air is on the radio, as above. After you land at an airport with no control tower, you cancel on the ground: see [Cancelling IFR after landing](#cancelling-ifr-after-landing).
 
@@ -43,7 +47,7 @@ At the top of descent Center starts you down without being asked:
 
 or a crossing restriction: "cross Battle Ground at and maintain one one thousand". Asking "request lower" or "request descend via" starts the same descent.
 
-Center then hands you to the next sector, and finally to [Approach](approach.md), about 40 nm from the destination or at the end of the arrival.
+The top of descent allows for speed, so a descent that starts early at high speed is normal. Center then hands you to the next sector, and finally to [Approach](approach.md): at the first of these, once you are inside the destination's approach airspace, 40 nm from the field, or within 2 nm of the arrival's last fix.
 
 ## Cancelling IFR after landing
 
@@ -61,6 +65,6 @@ ATC ends the flight about 30 seconds after the engines are off, call or no call.
 - **Course**: "verify on course", "verify you are proceeding direct Helns", or a heading back to your route.
 - **A missed restriction** on a SID or STAR: "verify you are descending via the Helns Six arrival".
 - **Low altitude alert**: "low altitude alert, check your altitude immediately, the minimum altitude in your area is ...".
-- **Traffic**: converging aircraft are called with the clock position, distance, direction and altitude.
+- **Traffic**: converging aircraft are called in the climb and en route, once each, with the clock position, distance, direction and altitude. A climb held for traffic is answered "unable higher, traffic".
 - **Speed**: above 250 knots below 10,000 ft, "reduce speed to two five zero knots".
 - **A readback you owe** for an altitude, a crossing or a procedure, about 30 seconds after ATC stops talking.

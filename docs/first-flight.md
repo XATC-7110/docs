@@ -7,7 +7,7 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 1. **Start X-Plane 12** and put your aircraft on a stand at the departure airport.
 2. **Start the client** and wait for the startup dialog to close (signed in, ATC service ready).
 3. Press **New flight**.
-    - **Enter manually**: callsign, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan.
+    - **Enter manually**: tail number, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan. To fly as an airline, switch **Tail number** to **Callsign** and give the **Airline** (three letters), its **Pronunciation** (the word ATC says, filled in for the airlines the client knows) and the **Flight number**. A line under the fields says what ATC will say, such as "Walker seventeen forty-five", and the window's header shows "Walker 1745".
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.
 4. Press **Start flight**. The dialog says **Starting new flight…** and closes when ATC is ready.
 
@@ -19,7 +19,7 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 - **Push-to-talk**: hold the big button in the window, hold **Space** while the window has focus, or use a yoke or joystick button ([Settings](settings.md#push-to-talk)).
 - You transmit on the COM radio selected on your aircraft's audio panel, on its active frequency. The push-to-talk button names who is listening there.
 - Say **who you are calling, your callsign, and what you want**, as on a real radio. Read back clearances and instructions.
-- You hear ATC only if COM1 or COM2 is tuned to the frequency ATC transmits on.
+- You hear ATC only if COM1 or COM2 is tuned to the frequency ATC transmits on, is switched on, and is selected to listen on your audio panel. A radio that is off, or not selected to listen, is silent, and you cannot transmit on it.
 - While X-Plane is **paused**, ATC is silent and does not hear you.
 
 ## Gate to gate
@@ -32,7 +32,7 @@ Tune the ATIS frequency on either radio. The recording loops, starting mid-broad
 
 > **You:** Seattle Clearance, November five four seven Golf Alpha, IFR to Portland with information Charlie.
 >
-> **ATC:** November five four seven Golf Alpha, cleared to Portland via the Summa Two departure, then as filed. Maintain five thousand, expect one six thousand one zero minutes after departure. Departure frequency one one niner point two, squawk four five two one.
+> **ATC:** November five four seven Golf Alpha, cleared to Portland International airport via the Summa Two departure, then as filed, climb and maintain five thousand, expect one six thousand ten minutes after departure, departure frequency one one niner point two, squawk four five two one.
 >
 > **You:** Cleared to Portland, Summa Two then as filed, five thousand expect one six thousand, one one niner point two, squawk four five two one, five four seven Golf Alpha.
 >
@@ -44,7 +44,7 @@ Prefer not to copy a clearance by voice? [Request a PDC](client/pdc.md) and it a
 
 > **You:** Seattle Ground, November five four seven Golf Alpha, at alpha eleven, ready to taxi with Charlie.
 
-Ground gives you a route along your scenery's real taxiways, with a hold short for each runway on the way. Read back the runway and every hold short. Ask for a pushback first if you need one. If you get lost, say **"request progressive taxi"** and Ground calls each turn as you come up to it.
+Ground gives you a route along your scenery's real taxiways, with a hold short for each runway on the way. Read back the runway and each hold short for a crossing. Ask for a pushback first if you need one. If you get lost, say **"request progressive taxi"** and Ground calls each turn as you come up to it.
 
 ### 4. Tower
 
@@ -68,7 +68,7 @@ Read back the heading, the altitude and the approach with its runway. Approach t
 
 ### 7. Tower, landing and taxi-in
 
-Tower clears you to land with the wind. Read back "cleared to land" with the runway. On the rollout Tower tells you where to turn off, then hands you to Ground. Tell Ground where you are parking: a gate, an FBO, or "general aviation". If ATC asks **"say parking"**, the window's [Parking card](client/parking.md) lists the names you can say and shows them on a map.
+Tower clears you to land with the wind. Read back "cleared to land" with the runway. Where it matters, Tower tells you on the rollout where to turn off; either way it hands you to Ground. Tell Ground where you are parking: a gate, an FBO, or "general aviation". If ATC asks **"say parking"**, the window's [Parking card](client/parking.md) lists the names you can say and shows them on a map.
 
 ### 8. The end of the flight
 
@@ -77,5 +77,5 @@ Park at your stand and shut down the engines. The flight ends by itself within a
 ## If something goes wrong
 
 - **Silence after you transmit?** The log's **No reply** line says why. See [Troubleshooting](troubleshooting.md).
-- **Missed what ATC said?** Say "say again". The words are also in the log.
+- **Missed what ATC said?** Say "say again". The words are also in the log. If ATC called while your radio was off or not selected to listen, it says that call again once the radio can hear it, within about a minute.
 - **Closed the client mid-flight by accident?** Start it again within about ten minutes and choose **Rejoin last flight**.

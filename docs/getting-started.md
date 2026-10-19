@@ -32,7 +32,7 @@ The installed app updates itself: see [Updates](settings.md#updates). To remove 
 
 ## Start the client
 
-Open **xatc-agent** from the Start menu. The **xatc-agent** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
+Open **xatc-agent** from the Start menu. The **xatc-agent client** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.
@@ -47,15 +47,15 @@ You stay signed in for 30 days, across restarts. In the last 24 hours the window
 
 ## Choose your audio
 
-ATC's address comes with your account. When you sign in, the client gets it. The **ATC** section of Settings has one line about it: **From your account.** once the client has it.
+ATC's address comes with your account. When you sign in, the client gets it. Under **Your account**, Settings has an **ATC** part with one line about it: **From your account.** once the client has it.
 
 1. Open the **Settings** view (the startup dialog closes by itself once you are signed in).
-2. Under **Audio**, pick your microphone and your speakers or headset.
-3. Press **Save**.
+2. Under **Your setup > Audio**, pick your microphone and your speakers or headset.
+3. Press **Save**, at the bottom of the page.
 
-If the line says the address could not be fetched, press **Try again**.
+If the ATC line says the address could not be fetched, press **Try again**.
 
-That is all the setup. [Settings](settings.md) describes everything else you can change, such as push-to-talk on a yoke button and how the controllers sound.
+That is all the setup. [Settings](settings.md) describes everything else you can change, such as push-to-talk on a yoke button (**Your setup**) and how the controllers sound (**How ATC sounds**).
 
 ## The recording question
 
@@ -63,7 +63,7 @@ The first time you connect, the window asks one thing before you can transmit:
 
 > **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. You can change this at any time in Settings. Nothing is kept unless you allow it.
 
-Choose **Allow** or **Don't allow**. Your choice is remembered with your account, and you can change it in **Settings > Audio**. [Your data](privacy.md) says what else is sent and kept.
+Choose **Allow** or **Don't allow**. Your choice is remembered with your account, and you can change it in **Settings > Your account > Recording**. [Your data](privacy.md) says what else is sent and kept.
 
 ## Next
 

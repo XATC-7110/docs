@@ -12,9 +12,9 @@ Nothing is uploaded in advance. When ATC needs something only your X-Plane has, 
 | **Parking stands** | When ATC asks you to say parking | The same scenery |
 | **Outside the US only**: the airport's runways, frequencies and procedures, the fixes and airways along your route | At the start of the flight | Your X-Plane's navigation data. It is assumed to be current |
 
-It is done safely. ATC can ask only for these kinds of data, for an airport identifier that is checked first. It can never name a file to read. The log says what was read: "ATC read KBFI's ground layout from your X-Plane".
+It is done safely. ATC can ask only for these kinds of data, for an airport identifier that is checked first, and for a few weather values that X-Plane itself reports, read-only. It can never name a file to read, and it can never write or command anything. The log says what was read: "ATC read KBFI's ground layout from your X-Plane".
 
-If your scenery has no taxiway data for an airport, Ground says "taxi at your own discretion".
+If your scenery has no taxiway data for an airport, Ground says "taxi at your own discretion". While an answer is still on its way, Ground says "stand by" and calls back.
 
 ### The scenery index, once
 
@@ -25,8 +25,9 @@ The first flight after installing reads the header of every airport file in your
 About once a second, and at once when you change a radio:
 
 - your aircraft's position, altitude, speed, heading and whether it is on the ground,
-- your radios: frequencies and which one you transmit on,
-- the weather at the aircraft,
+- your radios: frequencies, which one you transmit on, and whether each is on and selected to listen,
+- your transponder code,
+- the weather at the aircraft (sampled about every five seconds and sent with the once-a-second state),
 - X-Plane's clock, so that ATC judges things like tower opening hours by the sim's time,
 - the other aircraft X-Plane knows about (its AI traffic, and aircraft a multiplayer plugin adds): the nearest 32.
 
@@ -44,6 +45,6 @@ Optional. ATC clears you on the FAA's current procedures. If your X-Plane's navi
 You need a flight started to check or install, because the download link comes from ATC. **Restart X-Plane** afterwards: it reads navigation data only when it starts.
 
 !!! warning "It overrides your navigation data for US procedures"
-    While the pack is installed, X-Plane uses the FAA's procedures in place of your provider's (Navigraph, for example) for the airports it covers. **Remove** undoes it. The tab warns you when your navigation data is a different AIRAC cycle from the pack: fixes may then not match.
+    While the pack is installed, X-Plane uses the FAA's procedures in place of your provider's (Navigraph, for example) for the airports it covers. **Remove** undoes it. Settings warns you when your navigation data is a different AIRAC cycle from the pack: fixes may then not match.
 
-A pack for a cycle that has not started yet can be installed early. The tab marks it **Not valid until** its first day.
+A pack for a cycle that has not started yet can be installed early. Settings marks it **Not valid until** its first day.
