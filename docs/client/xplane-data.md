@@ -9,7 +9,7 @@ Nothing is uploaded in advance. When ATC needs something only your X-Plane has, 
 | What | When | From |
 |---|---|---|
 | **The airport's ground layout**: taxiways with their names, hold lines, stands, runways as drawn, runway-use rules | The departure airport at the start, the destination when you are inbound | The scenery pack that wins in your X-Plane, in `scenery_packs.ini` order |
-| **Parking stands** | When ATC asks you to say parking | The same scenery |
+| **Parking stands** | When the Parking card comes up | The same scenery |
 | **Outside the US only**: the airport's runways, frequencies and procedures, the fixes and airways along your route | At the start of the flight | Your X-Plane's navigation data. It is assumed to be current |
 
 It is done safely. ATC can ask only for these kinds of data, for an airport identifier that is checked first, and for a few weather values that X-Plane itself reports, read-only. It can never name a file to read, and it can never write or command anything. The log says what was read: "ATC read KBFI's ground layout from your X-Plane".
