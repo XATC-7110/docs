@@ -1,7 +1,11 @@
 site_name: xatc-agent
 site_description: AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.
+# mike builds each version with this address plus the version folder (docs/1.0/).
 site_url: https://xatc-7110.github.io/docs/
 docs_dir: docs
+# The release skill's default notes path is docs/pending-release-<tag>.md: never a page.
+exclude_docs: |
+  pending-release-*.md
 
 # The look is the product's own: the client window's colours, dark first (docs/stylesheets/xatc.css).
 theme:
@@ -32,6 +36,12 @@ theme:
     - search.suggest
     - content.code.copy
     - toc.follow
+
+# Versions: mike deploys one folder per docs release (1.0, 1.1, ...) and the alias `latest`; this
+# makes the theme show the version selector (it reads versions.json at the site root).
+extra:
+  version:
+    provider: mike
 
 extra_css:
   - stylesheets/xatc.css

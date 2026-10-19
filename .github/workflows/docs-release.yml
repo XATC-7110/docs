@@ -1,0 +1,83 @@
+# Publishes the docs site, and only when a stable release is published.
+#
+#   release published (stable)  -> deploys version X.Y (title X.Y.Z), moves the alias `latest`
+#   release published (prerelease), a draft, a bare tag, a push, a pull request -> deploys nothing
+#   workflow_dispatch with a tag -> deploys an already published stable release again
+#
+# mike pushes to the gh-pages branch, which GitHub Pages serves. See scripts/deploy-versioned.sh.
+name: docs-release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "A published stable release to deploy again, e.g. v1.0.0"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check (stable, published release)
+    # A prerelease deploys nothing, the same rule as the pilot site: stable only.
+    if: github.event_name == 'workflow_dispatch' || github.event.release.prerelease == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+    steps:
+      - id: tag
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then TAG="$INPUT_TAG"; else TAG="$RELEASE_TAG"; fi
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::'$TAG' is not a stable release tag (vX.Y.Z): nothing is deployed"
+            exit 1
+          fi
+          # Ask GitHub, whatever started the run: the release must exist, be published and be stable.
+          STATE="$(gh release view "$TAG" --repo "$REPO" --json isDraft,isPrerelease --jq '"\(.isDraft) \(.isPrerelease)"')"
+          if [[ "$STATE" != "false false" ]]; then
+            echo "::error::release $TAG is not a published stable release (draft prerelease = '$STATE'): nothing is deployed"
+            exit 1
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: deploy (gh-pages)
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # One deploy at a time; a second waits for the first (mike pushes to one branch).
+    concurrency:
+      group: docs-gh-pages
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      # Exactly the release's tag, with every branch (mike needs gh-pages).
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ needs.check.outputs.tag }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Deploy the release
+        env:
+          TAG: ${{ needs.check.outputs.tag }}
+        run: scripts/deploy-versioned.sh "$TAG"
