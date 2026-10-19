@@ -7,7 +7,7 @@ What the client sends, what is kept, and what stays on your PC. This page descri
 You sign in with an xatc-agent account that the owner creates for you: your email address, a password you choose, and an authenticator app or a passkey.
 
 - The client never sees your password. You type it into the sign-in page in your own browser.
-- The client keeps your sign-in in Windows Credential Manager, for up to 30 days. It is never written to a file.
+- The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), for up to 30 days. It is never written to a file.
 - ATC knows which account is flying. A flight belongs to the pilot who started it, and nobody else can rejoin it.
 - **Sign out** removes the sign-in from your PC and cancels it with the sign-in service.
 

@@ -103,19 +103,19 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-monitor: **X-Plane 12 on Windows**
+-   :material-monitor: **X-Plane 12 on Windows or Linux**
 
     ---
 
-    X-Plane 12.1.4 or newer, Windows 10 or 11, a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
+    X-Plane 12.1.4 or newer, Windows 10 or 11 or a 64-bit Linux desktop (a Mac app is coming soon), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
 
 -   :material-account-key: **An invitation**
 
     ---
 
-    xatc-agent is an invitation-only experiment. The owner creates your account; you download the Windows installer from the pilot site once you are signed in.
+    xatc-agent is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site once you are signed in.
 
-    [:octicons-arrow-right-24: Install and sign in](getting-started.md)
+    [:octicons-arrow-right-24: Install and sign in](getting-started.md) · [Linux](install-linux.md) · [Mac, coming soon](install-mac.md)
 
 </div>
 

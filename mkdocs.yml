@@ -54,6 +54,8 @@ nav:
   - Home: index.md
   - Getting started:
       - Install and sign in: getting-started.md
+      - Install on Linux: install-linux.md
+      - Install on a Mac (coming soon): install-mac.md
       - Your first flight: first-flight.md
   - The window: window.md
   - Settings: settings.md
