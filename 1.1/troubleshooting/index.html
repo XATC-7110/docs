@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://xatc-7110.github.io/docs/1.1/troubleshooting/">
+        <link rel="canonical" href="https://docs.7110atc.com/1.1/troubleshooting/">
       
       
         <link rel="prev" href="../privacy/">
@@ -1800,7 +1800,11 @@
 <li>When the data is back, the alert clears by itself and the log says "Data access restored". X-Plane stays paused until <strong>you</strong> unpause it.</li>
 </ul>
 <h2 id="update-required">Update required<a class="headerlink" href="#update-required" title="Permanent link">&para;</a></h2>
-<p>The window shows a banner, <strong>Update required.</strong>: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press <strong>Update now</strong> in the banner (it has no <strong>Later</strong>), or download the newest installer from the pilot site (<a href="https://xatc.bandd.cloud">xatc.bandd.cloud</a>, <strong>Download</strong>) and run it over your copy. If it says "No update was found yet", press <strong>Check again</strong>. Then start the client again.</p>
+<p>The window shows a banner, <strong>Update required.</strong>: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press <strong>Update now</strong> in the banner (it has no <strong>Later</strong>), or download the newest installer from the pilot site (<a href="https://app.7110atc.com">app.7110atc.com</a>, <strong>Download</strong>) and run it over your copy. If it says "No update was found yet", press <strong>Check again</strong>. Then start the client again.</p>
+<div class="admonition note">
+<p class="admonition-title">Older than 0.20.0-rc.11: it cannot find updates</p>
+<p>The pilot site moved to <a href="https://app.7110atc.com">app.7110atc.com</a> on 2026-10-20. A client older than <strong>0.20.0-rc.11</strong> still asks the old address for updates, so <strong>Update now</strong> and <strong>Check again</strong> find nothing. Install the newest version once by hand from <a href="https://app.7110atc.com/#/download">app.7110atc.com/#/download</a>; it updates itself from then on.</p>
+</div>
 <h2 id="sign-in">Sign-in<a class="headerlink" href="#sign-in" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1825,6 +1829,10 @@
 <tr>
 <td>"Your sign-in has run out. Sign in again to keep flying."</td>
 <td>Press <strong>Sign in again</strong></td>
+</tr>
+<tr>
+<td>Your passkey is not offered, or is refused</td>
+<td>Passkeys belong to the sign-in address, which changed on 2026-10-20: add the passkey again. Sign in with your email, password and the authenticator's code, then add the passkey again</td>
 </tr>
 <tr>
 <td>"This flight belongs to another pilot"</td>

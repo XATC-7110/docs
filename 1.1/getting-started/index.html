@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://xatc-7110.github.io/docs/1.1/getting-started/">
+        <link rel="canonical" href="https://docs.7110atc.com/1.1/getting-started/">
       
       
         <link rel="prev" href="..">
@@ -1591,13 +1591,17 @@
 <h2 id="install-one-time">Install (one time)<a class="headerlink" href="#install-one-time" title="Permanent link">&para;</a></h2>
 <p>These steps are for Windows. On Linux, follow <a href="../install-linux/">Install on Linux</a>, then come back here to sign in. The Mac app is <a href="../install-mac/">coming soon</a>.</p>
 <ol>
-<li>Go to the pilot site, <a href="https://xatc.bandd.cloud">xatc.bandd.cloud</a>, and sign in with your xatc-agent account. Open <strong>Download</strong> and press <strong>Download for Windows</strong>. The file is <code>xatc-agent-setup-&lt;version&gt;.exe</code>.</li>
+<li>Go to the pilot site, <a href="https://app.7110atc.com">app.7110atc.com</a>, and sign in with your xatc-agent account. Open <strong>Download</strong> (<a href="https://app.7110atc.com/#/download">https://app.7110atc.com/#/download</a>) and press <strong>Download for Windows</strong>. The file is <code>xatc-agent-setup-&lt;version&gt;.exe</code>.</li>
 <li>Run it. It installs for your Windows account only and does not ask for an administrator password.</li>
 <li>The installer is not signed yet, so Windows may say "Windows protected your PC". Choose <strong>More info</strong>, then <strong>Run anyway</strong>. Do this only for a file you downloaded from the Download page while signed in.</li>
 <li>Open <strong>xatc-agent</strong> from the Start menu (or from the last page of the installer).</li>
 <li>Allow the microphone: <em>Windows Settings &gt; Privacy &amp; security &gt; Microphone &gt; Let desktop apps access your microphone</em>.</li>
 </ol>
 <p>There is nothing else to install and no keys to copy. You sign in from the window.</p>
+<div class="admonition note">
+<p class="admonition-title">Installed it before 20 October 2026? Reinstall once, by hand</p>
+<p>On 2026-10-20 the pilot site moved to <a href="https://app.7110atc.com">app.7110atc.com</a> (the product's home is <a href="https://7110atc.com">7110atc.com</a>). A client older than <strong>0.20.0-rc.11</strong> looks for updates at the old address, so it can no longer find them: download the newest installer from <a href="https://app.7110atc.com/#/download">app.7110atc.com/#/download</a> and run it over your copy. After that, updates arrive by themselves again.</p>
+</div>
 <p>The installed app updates itself: see <a href="../settings/#updates">Updates</a>. To remove it, use <em>Windows Settings &gt; Apps &gt; xatc-agent &gt; Uninstall</em>. Your settings and log stay in <code>%LOCALAPPDATA%\xatc-agent-client</code> until you delete that folder. Your sign-in stays in Windows Credential Manager until you press <strong>Sign out</strong> in the window; do that before uninstalling if you want it gone.</p>
 <h2 id="start-the-client">Start the client<a class="headerlink" href="#start-the-client" title="Permanent link">&para;</a></h2>
 <p>Open <strong>xatc-agent</strong> from the Start menu. The <strong>xatc-agent client</strong> window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the <a href="../settings/#where-things-are-kept">log file</a> holds what a console would show.</p>
@@ -1608,7 +1612,7 @@
 <h2 id="sign-in">Sign in<a class="headerlink" href="#sign-in" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Press <strong>Sign in</strong> in the startup dialog. Your browser opens the xatc-agent sign-in page.</li>
-<li>The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one).</li>
+<li>The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one). <strong>Passkeys must be added again</strong> after the sign-in move of 2026-10-20: a passkey belongs to the sign-in address, so the old ones no longer work. Sign in with your password and the authenticator's code, then add the passkey again.</li>
 <li>The browser says <strong>Signed in</strong> and you can close the tab. The window's sign-in pill turns green.</li>
 </ol>
 <p>You stay signed in for 30 days, across restarts. In the last 24 hours the window offers <strong>Sign in again</strong>, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), never in a file.</p>
