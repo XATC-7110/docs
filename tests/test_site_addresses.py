@@ -31,6 +31,12 @@ class AddressTests(unittest.TestCase):
                  for m in (README_OLD if p.name == "README.md" else OLD).finditer(p.read_text(encoding="utf-8"))]
         self.assertEqual(found, [])
 
+    def test_no_cloud_service_is_named_in_the_public_repository(self):
+        # AGENTS.md, "What must never be in this repository": the cloud provider's and its services' names
+        found = [p.relative_to(REPO).as_posix() for p in list(sources()) + [REPO / "AGENTS.md"]
+                 if re.search(r"Route ?53|\bAWS\b|Amazon|CloudFront|\bS3\b", p.read_text(encoding="utf-8"))]
+        self.assertEqual(found, [])
+
     def test_the_pilot_site_is_app_7110atc_com(self):
         pages = "".join(p.read_text(encoding="utf-8") for p in (REPO / "docs").glob("*.md"))
         self.assertIn("https://app.7110atc.com/#/download", pages)

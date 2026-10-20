@@ -115,8 +115,13 @@ def write_stubs(source: Path, dest: Path, base_url: str, alias: str = "latest") 
 
 # Added to the root 404: an address under the old github.io project path (/docs/...) goes to the same one at the root.
 OLD_PREFIX_SCRIPT = (
-    '<script>if (location.pathname.indexOf("/docs/") === 0) '
-    "{ location.replace(location.pathname.slice(5) + location.search + location.hash); }</script>"
+    "<script>(function () { var p = location.pathname;"
+    ' if (p.indexOf("/docs/") !== 0) return;'
+    " var rest = p.slice(5);"
+    # Never an open redirect: a second leading / or \\ after the prefix (/docs//evil.example/x) would be a
+    # protocol-relative address, so it is refused, and the origin is always put in front.
+    ' if (rest.charAt(1) === "/" || rest.charAt(1) === "\\\\") return;'
+    " location.replace(location.origin + rest + location.search + location.hash); })();</script>"
 )
 
 

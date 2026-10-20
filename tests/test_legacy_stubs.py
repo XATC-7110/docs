@@ -1,6 +1,8 @@
 """Tests of scripts/legacy_stubs.py on a sample tree. Run: python -m unittest discover -s tests -v"""
 import json
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -102,21 +104,49 @@ class StubTests(unittest.TestCase):
             self.assertFalse((self.dest / gone).exists(), gone)
         self.assertTrue((self.dest / ".nojekyll").exists())
 
+    def _run_404_script(self, pathname: str, search: str = "", hash_: str = ""):
+        """Run the injected script on node with a fake location; return the address it replaced the page with, or None."""
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node is not installed")
+        legacy_stubs.publish_404(self.source, self.dest)
+        text = (self.dest / "404.html").read_text(encoding="utf-8")
+        script = re.search(r"<script>(.*?)</script>", text, re.S).group(1)
+        harness = (
+            "var replaced = null; var location = " + json.dumps(
+                {"pathname": pathname, "search": search, "hash": hash_, "origin": "https://docs.7110atc.com"})
+            + "; location.replace = function (u) { replaced = u; };\n" + script + "\nconsole.log(JSON.stringify(replaced));"
+        )
+        out = subprocess.run([node, "-e", harness], capture_output=True, text=True, check=True).stdout
+        return json.loads(out)
+
     def test_the_root_404_sends_an_old_docs_prefix_address_to_the_root(self):
         # the old github.io project path (/docs/...): GitHub drops the prefix itself when it redirects to the custom
         # domain, and this is the second line of defence if a /docs/... address ever arrives here.
         legacy_stubs.publish_404(self.source, self.dest)
         text = (self.dest / "404.html").read_text(encoding="utf-8")
-        self.assertIn('<head><script>if (location.pathname.indexOf("/docs/") === 0)', text)
-        self.assertIn("location.replace(location.pathname.slice(5) + location.search + location.hash)", text)
+        self.assertIn("<head><script>", text)
         self.assertEqual(text.count("indexOf"), 1)
-        # the same script, run on a path, yields the root path ("/docs/latest/privacy/" -> "/latest/privacy/")
-        self.assertEqual("/docs/latest/privacy/"[5:], "/latest/privacy/")
-        self.assertEqual("/docs/"[5:], "/")
+        for path, want in (("/docs/latest/privacy/", "/latest/privacy/"), ("/docs/", "/"), ("/docs/1.0/x/", "/1.0/x/")):
+            self.assertEqual(self._run_404_script(path, "?a=1", "#h"), f"https://docs.7110atc.com{want}?a=1#h", path)
+        self.assertIsNone(self._run_404_script("/nope/"))
+        self.assertIsNone(self._run_404_script("/docs"))
         # the page without a <head> still gets it
         (self.source / "404.html").write_text("bare", encoding="utf-8")
         legacy_stubs.publish_404(self.source, self.dest)
         self.assertTrue((self.dest / "404.html").read_text(encoding="utf-8").startswith('<script>'))
+
+    def test_the_root_404_is_not_an_open_redirect(self):
+        # /docs//evil.example/x minus the prefix is //evil.example/x, which location.replace would read as another site
+        for path in ("/docs//evil.example/x", "/docs/\\evil.example/x", "/docs///evil.example", "/docs//"):
+            self.assertIsNone(self._run_404_script(path), path)
+        # and whatever it does replace to is on the site's own origin
+        for path in ("/docs/a//b/", "/docs/a/\\b/"):
+            target = self._run_404_script(path)
+            self.assertTrue(target.startswith("https://docs.7110atc.com/"), target)
+        # the origin is put in front, so even a prefix check that let one through could not leave the site
+        script = (self.dest / "404.html").read_text(encoding="utf-8")
+        self.assertIn("location.replace(location.origin + rest", script)
 
     def test_cname_is_written_when_missing_and_replaced_when_wrong_and_left_alone_when_right(self):
         self.assertFalse((self.dest / "CNAME").exists())

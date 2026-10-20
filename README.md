@@ -46,7 +46,7 @@ To look at what a deploy would write, without pushing anything: `scripts/deploy-
 
 The owner, 2026-10-20: "Do SOT-87 and make sure the docs site is available at docs.7110atc.com". The site is GitHub Pages from the `gh-pages` branch, so with the custom domain its root is the root of that branch: versions live at `/1.0/` and `/latest/`, not under `/docs/`. Three things have to be true, **in this order**, before the first release after the move:
 
-1. The DNS record: `docs.7110atc.com` CNAME `xatc-7110.github.io` (XATC-7110/dns, the Route 53 zone `7110atc.com`).
+1. The DNS record: `docs.7110atc.com` CNAME `xatc-7110.github.io` (XATC-7110/dns, the DNS zone for `7110atc.com`).
 2. The repository's Pages setting: Settings > Pages > Custom domain `docs.7110atc.com`, then **Enforce HTTPS** once the certificate is ready.
 3. A docs release, only after both: its redirect stubs and the sitemap point at the new address.
 
