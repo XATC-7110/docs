@@ -20,13 +20,16 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 
 These steps are for Windows. On Linux, follow [Install on Linux](install-linux.md), then come back here to sign in. The Mac app is [coming soon](install-mac.md).
 
-1. Go to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), and sign in with your xatc-agent account. Open **Download** and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your xatc-agent account. Open **Download** (<https://app.7110atc.com/#/download>) and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
 2. Run it. It installs for your Windows account only and does not ask for an administrator password.
 3. The installer is not signed yet, so Windows may say "Windows protected your PC". Choose **More info**, then **Run anyway**. Do this only for a file you downloaded from the Download page while signed in.
 4. Open **xatc-agent** from the Start menu (or from the last page of the installer).
 5. Allow the microphone: *Windows Settings > Privacy & security > Microphone > Let desktop apps access your microphone*.
 
 There is nothing else to install and no keys to copy. You sign in from the window.
+
+!!! note "Installed it before 20 October 2026? Reinstall once, by hand"
+    On 2026-10-20 the pilot site moved to [app.7110atc.com](https://app.7110atc.com) (the product's home is [7110atc.com](https://7110atc.com)). A client older than **0.20.0-rc.11** looks for updates at the old address, so it can no longer find them: download the newest installer from [app.7110atc.com/#/download](https://app.7110atc.com/#/download) and run it over your copy. After that, updates arrive by themselves again.
 
 The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
 
@@ -40,7 +43,7 @@ Open **xatc-agent** from the Start menu. The **xatc-agent client** window opens 
 ## Sign in
 
 1. Press **Sign in** in the startup dialog. Your browser opens the xatc-agent sign-in page.
-2. The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one).
+2. The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one). **Passkeys must be added again** after the sign-in move of 2026-10-20: a passkey belongs to the sign-in address, so the old ones no longer work. Sign in with your password and the authenticator's code, then add the passkey again.
 3. The browser says **Signed in** and you can close the tab. The window's sign-in pill turns green.
 
 You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), never in a file.

@@ -2,7 +2,8 @@
 """Write redirect stubs for the pre-versioning page addresses.
 
 Before the docs were versioned, every page lived at the root of the site
-(``/docs/getting-started/``). Other repositories and the installed client link
+(``/getting-started/`` since the site moved to its own domain, docs.7110atc.com, SOT-87; before that
+``/docs/getting-started/`` on github.io). Other repositories and the installed client link
 there, so each of those addresses must keep working. After ``mike deploy`` has
 put the built pages under ``latest/``, this walks that folder and writes, at the
 same relative path in the site root, a small page that sends the reader to
@@ -16,15 +17,20 @@ Two more things are done at the root, because the old unversioned build left its
 files there:
 
 * ``404.html`` is copied from the source, so a mistyped address still shows the
-  site's 404 page (its links are absolute, under ``/docs/<version>/``, so it needs
-  no root ``assets/``).
+  site's 404 page (its links are absolute, under ``/<version>/``, so it needs
+  no root ``assets/``). A few lines are added to the root copy: an address that still begins with ``/docs/``
+  (the old github.io project path) is sent to the same address without it. GitHub already drops that
+  prefix when it redirects github.io to the custom domain; this is the belt to those braces.
 * The stale files of the old build are deleted: ``sitemap.xml``, ``sitemap.xml.gz``
   and the ``search/``, ``assets/`` and ``stylesheets/`` folders. Each version has
   its own copies; the root ones would be a second, frozen search index and sitemap.
 
+* ``CNAME`` (``--cname docs.7110atc.com``) is written at the root when it is missing or different:
+  GitHub Pages serves the custom domain only while the branch root has it.
+
 Standard library only.
 
-    legacy_stubs.py --source <pages>/latest --dest <pages> --base-url https://xatc-7110.github.io/docs
+    legacy_stubs.py --source <pages>/latest --dest <pages> --base-url https://docs.7110atc.com --cname docs.7110atc.com
 """
 from __future__ import annotations
 
@@ -107,12 +113,34 @@ def write_stubs(source: Path, dest: Path, base_url: str, alias: str = "latest") 
     return written
 
 
+# Added to the root 404: an address under the old github.io project path (/docs/...) goes to the same one at the root.
+OLD_PREFIX_SCRIPT = (
+    '<script>if (location.pathname.indexOf("/docs/") === 0) '
+    "{ location.replace(location.pathname.slice(5) + location.search + location.hash); }</script>"
+)
+
+
 def publish_404(source: Path, dest: Path) -> bool:
-    """Copy the source's 404.html to the site root; False when the source has none."""
+    """Copy the source's 404.html to the site root, with the old-prefix redirect; False when the source has none."""
     page = source / "404.html"
     if not page.is_file():
         return False
-    shutil.copyfile(page, dest / "404.html")
+    text = page.read_text(encoding="utf-8")
+    head = re.search(r"<head[^>]*>", text)
+    if head:
+        text = text[: head.end()] + OLD_PREFIX_SCRIPT + text[head.end():]
+    else:
+        text = OLD_PREFIX_SCRIPT + text
+    (dest / "404.html").write_text(text, encoding="utf-8")
+    return True
+
+
+def ensure_cname(dest: Path, domain: str) -> bool:
+    """Make ``dest/CNAME`` say ``domain``; True when it had to be written (missing or different)."""
+    path = dest / "CNAME"
+    if path.is_file() and path.read_text(encoding="utf-8").strip() == domain:
+        return False
+    path.write_text(domain + "\n", encoding="utf-8")
     return True
 
 
@@ -138,7 +166,8 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--source", required=True, type=Path, help="the built pages of the latest version")
     ap.add_argument("--dest", required=True, type=Path, help="the site root (the gh-pages checkout)")
-    ap.add_argument("--base-url", required=True, help="the site's address without the version, e.g. https://xatc-7110.github.io/docs")
+    ap.add_argument("--base-url", required=True, help="the site's address without the version, e.g. https://docs.7110atc.com")
+    ap.add_argument("--cname", help="the custom domain: written to CNAME at the site root when missing or different")
     ap.add_argument("--alias", default="latest")
     args = ap.parse_args(argv)
     if not args.source.is_dir() or not args.dest.is_dir():
@@ -154,6 +183,8 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     for rel in written:
         print(f"stub {rel}")
+    if args.cname and ensure_cname(args.dest, args.cname):
+        print(f"wrote CNAME {args.cname}")
     print("copied 404.html")
     for name in remove_stale_build(args.dest, args.alias):
         print(f"removed old {name}")

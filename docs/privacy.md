@@ -32,7 +32,7 @@ While you hold push-to-talk, your audio is streamed to a speech recognition serv
 
 When the client's **Speech recognition** setting is **Scribe**, the audio of your transmissions goes to a third-party speech service outside xatc's own systems, to be written down. When it is **Standard**, or if that service cannot be reached, xatc's own speech recognition writes it down within xatc's systems.
 
-The full statement, which names the services, is the [Privacy page on the pilot site](https://xatc.bandd.cloud/#/privacy).
+The full statement, which names the services, is the [Privacy page on the pilot site](https://app.7110atc.com/#/privacy).
 
 ### Recordings of your voice
 
@@ -56,7 +56,7 @@ Each flight is logged so that it can be reviewed and the controller improved:
 
 The project owner, an air traffic control expert who advises the project, and the project's testers review flights in a private tool. They can see the items above. Only the owner and the expert can listen to your recordings, and only if you allowed them.
 
-A flight log is kept until it is deleted: there is no automatic expiry today. The pilot site's [Privacy page](https://xatc.bandd.cloud/#/privacy) says how to ask for a copy of what is held about you, or for your account, flights or recordings to be deleted.
+A flight log is kept until it is deleted: there is no automatic expiry today. The pilot site's [Privacy page](https://app.7110atc.com/#/privacy) says how to ask for a copy of what is held about you, or for your account, flights or recordings to be deleted.
 
 ## Other services
 
