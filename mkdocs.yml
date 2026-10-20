@@ -1,7 +1,9 @@
 site_name: xatc-agent
 site_description: AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.
-# mike builds each version with this address plus the version folder (docs/1.0/).
-site_url: https://xatc-7110.github.io/docs/
+# The custom domain (SOT-87; the owner, 2026-10-20: "make sure the docs site is available at docs.7110atc.com"):
+# the site root is the root of the gh-pages branch, so versions live at /1.0/ and /latest/, not under /docs/.
+# mike builds each version with this address plus the version folder (https://docs.7110atc.com/1.0/).
+site_url: https://docs.7110atc.com/
 docs_dir: docs
 # The release skill's default notes path is docs/pending-release-<tag>.md: never a page.
 exclude_docs: |

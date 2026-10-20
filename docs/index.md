@@ -111,7 +111,7 @@ hide:
 
     ---
 
-    xatc-agent is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site once you are signed in.
+    xatc-agent is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site ([app.7110atc.com](https://app.7110atc.com)) once you are signed in. The product's home is [7110atc.com](https://7110atc.com).
 
     [:octicons-arrow-right-24: Install and sign in](getting-started.md) · [Linux](install-linux.md) · [Mac, coming soon](install-mac.md)
 

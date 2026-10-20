@@ -4,7 +4,8 @@
 #   release published (prerelease), a draft, a bare tag, a push, a pull request -> deploys nothing
 #   workflow_dispatch with a tag -> deploys an already published stable release again
 #
-# mike pushes to the gh-pages branch, which GitHub Pages serves. See scripts/deploy-versioned.sh.
+# mike pushes to the gh-pages branch, which GitHub Pages serves at docs.7110atc.com (SOT-87); the script also
+# guarantees the CNAME file at the root of that branch. See scripts/deploy-versioned.sh.
 name: docs-release
 
 on:

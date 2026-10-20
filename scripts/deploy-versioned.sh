@@ -12,16 +12,20 @@ set -euo pipefail
 # tag it also moves the alias `latest`, which is the default: the site root redirects to it.
 # Deploying an older stable tag again (a re-run for v1.0.0 after v1.1.0) replaces its folder
 # but leaves `latest` where it is, and says so. Re-releasing a patch replaces X.Y.
-# The old, unversioned page addresses (/docs/getting-started/) keep working: each gets a
-# redirect stub to /docs/latest/ (scripts/legacy_stubs.py), committed with the deploy. The
-# same step copies latest's 404.html to the site root and deletes the old build's root
-# sitemap, search index, assets and stylesheets (the version folders have their own).
+# The site is served at docs.7110atc.com (SOT-87), so the root of gh-pages is the root of the
+# site: versions live at /1.0/ and /latest/.
+# The old, unversioned page addresses (/getting-started/) keep working: each gets a
+# redirect stub to /latest/ (scripts/legacy_stubs.py), committed with the deploy. The
+# same step copies latest's 404.html to the site root (with a redirect for the old /docs/
+# prefix), deletes the old build's root sitemap, search index, assets and stylesheets (the
+# version folders have their own), and guarantees the root CNAME file (the custom domain):
+# GitHub Pages stops serving the domain if the branch root has none.
 #
 # The CI workflow (.github/workflows/docs-release.yml) is the normal way to run this; it
 # calls it from a checkout of the release tag. Run it by hand only with --no-push, to look.
 #
 # Environment (all optional): MIKE, MKDOCS (commands), PAGES_BRANCH (default gh-pages),
-# SITE_BASE_URL (default https://xatc-7110.github.io/docs).
+# SITE_DOMAIN (default docs.7110atc.com), SITE_BASE_URL (default https://$SITE_DOMAIN).
 
 PUSH=true
 TAG=""
@@ -43,7 +47,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 MIKE="${MIKE:-mike}"
 MKDOCS="${MKDOCS:-mkdocs}"
 BRANCH="${PAGES_BRANCH:-gh-pages}"
-BASE_URL="${SITE_BASE_URL:-https://xatc-7110.github.io/docs}"
+DOMAIN="${SITE_DOMAIN:-docs.7110atc.com}"
+BASE_URL="${SITE_BASE_URL:-https://${DOMAIN}}"
 ALIAS=latest
 
 if [[ -n "$(git status --porcelain)" ]]; then
@@ -81,13 +86,13 @@ if [[ ! -d "$WORK/pages/$ALIAS" ]]; then
   echo "deploy-versioned.sh: ${BRANCH} has no '${ALIAS}' yet: deploy the newest stable release (${NEWEST}) first" >&2
   exit 1
 fi
-python3 scripts/legacy_stubs.py --source "$WORK/pages/$ALIAS" --dest "$WORK/pages" --base-url "$BASE_URL" > "$WORK/stubs.txt"
+python3 scripts/legacy_stubs.py --source "$WORK/pages/$ALIAS" --dest "$WORK/pages" --base-url "$BASE_URL" --cname "$DOMAIN" > "$WORK/stubs.txt"
 echo "legacy stubs: $(grep -c '^stub ' "$WORK/stubs.txt") pages; $(grep -v '^stub ' "$WORK/stubs.txt" | tr '\n' ';')"
 git -C "$WORK/pages" config user.name "$(git config user.name || echo github-actions[bot])"
 git -C "$WORK/pages" config user.email "$(git config user.email || echo 41898282+github-actions[bot]@users.noreply.github.com)"
 git -C "$WORK/pages" add -A
 if ! git -C "$WORK/pages" diff --cached --quiet; then
-  git -C "$WORK/pages" commit --quiet -m "Redirect the old page addresses to ${ALIAS}, root 404, drop the old build (${TAG})"
+  git -C "$WORK/pages" commit --quiet -m "Redirect the old page addresses to ${ALIAS}, root 404 and CNAME, drop the old build (${TAG})"
   git -C "$WORK/pages" push --quiet origin "HEAD:refs/heads/${BRANCH}"
 fi
 

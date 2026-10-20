@@ -1,6 +1,8 @@
 """Tests of scripts/legacy_stubs.py on a sample tree. Run: python -m unittest discover -s tests -v"""
 import json
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -9,7 +11,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import legacy_stubs  # noqa: E402
 
-BASE = "https://xatc-7110.github.io/docs"
+BASE = "https://docs.7110atc.com"
+DOMAIN = "docs.7110atc.com"
 
 
 def touch(root: Path, rel: str, text: str = "x") -> None:
@@ -44,7 +47,7 @@ class StubTests(unittest.TestCase):
         touch(self.dest, "stylesheets/xatc.css")
         touch(self.dest, ".nojekyll", "")
         self.source = self.dest / "latest"
-        touch(self.source, "404.html", "NEW 404")
+        touch(self.source, "404.html", "<!doctype html><html><head><title>NEW 404</title></head><body>NEW 404</body></html>")
 
     def run_stubs(self):
         return legacy_stubs.write_stubs(self.source, self.dest, BASE)
@@ -94,10 +97,79 @@ class StubTests(unittest.TestCase):
     def test_main_publishes_the_404_and_removes_the_old_build(self):
         rc = legacy_stubs.main(["--source", str(self.source), "--dest", str(self.dest), "--base-url", BASE])
         self.assertEqual(rc, 0)
-        self.assertEqual((self.dest / "404.html").read_text(encoding="utf-8"), "NEW 404")
+        text = (self.dest / "404.html").read_text(encoding="utf-8")
+        self.assertIn("NEW 404", text)
+        self.assertNotIn("OLD 404", text)
         for gone in ("sitemap.xml", "sitemap.xml.gz", "search", "assets", "stylesheets"):
             self.assertFalse((self.dest / gone).exists(), gone)
         self.assertTrue((self.dest / ".nojekyll").exists())
+
+    def _run_404_script(self, pathname: str, search: str = "", hash_: str = ""):
+        """Run the injected script on node with a fake location; return the address it replaced the page with, or None."""
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node is not installed")
+        legacy_stubs.publish_404(self.source, self.dest)
+        text = (self.dest / "404.html").read_text(encoding="utf-8")
+        script = re.search(r"<script>(.*?)</script>", text, re.S).group(1)
+        harness = (
+            "var replaced = null; var location = " + json.dumps(
+                {"pathname": pathname, "search": search, "hash": hash_, "origin": "https://docs.7110atc.com"})
+            + "; location.replace = function (u) { replaced = u; };\n" + script + "\nconsole.log(JSON.stringify(replaced));"
+        )
+        out = subprocess.run([node, "-e", harness], capture_output=True, text=True, check=True).stdout
+        return json.loads(out)
+
+    def test_the_root_404_sends_an_old_docs_prefix_address_to_the_root(self):
+        # the old github.io project path (/docs/...): GitHub drops the prefix itself when it redirects to the custom
+        # domain, and this is the second line of defence if a /docs/... address ever arrives here.
+        legacy_stubs.publish_404(self.source, self.dest)
+        text = (self.dest / "404.html").read_text(encoding="utf-8")
+        self.assertIn("<head><script>", text)
+        self.assertEqual(text.count("indexOf"), 1)
+        for path, want in (("/docs/latest/privacy/", "/latest/privacy/"), ("/docs/", "/"), ("/docs/1.0/x/", "/1.0/x/")):
+            self.assertEqual(self._run_404_script(path, "?a=1", "#h"), f"https://docs.7110atc.com{want}?a=1#h", path)
+        self.assertIsNone(self._run_404_script("/nope/"))
+        self.assertIsNone(self._run_404_script("/docs"))
+        # the page without a <head> still gets it
+        (self.source / "404.html").write_text("bare", encoding="utf-8")
+        legacy_stubs.publish_404(self.source, self.dest)
+        self.assertTrue((self.dest / "404.html").read_text(encoding="utf-8").startswith('<script>'))
+
+    def test_the_root_404_is_not_an_open_redirect(self):
+        # /docs//evil.example/x minus the prefix is //evil.example/x, which location.replace would read as another site
+        for path in ("/docs//evil.example/x", "/docs/\\evil.example/x", "/docs///evil.example", "/docs//"):
+            self.assertIsNone(self._run_404_script(path), path)
+        # and whatever it does replace to is on the site's own origin
+        for path in ("/docs/a//b/", "/docs/a/\\b/"):
+            target = self._run_404_script(path)
+            self.assertTrue(target.startswith("https://docs.7110atc.com/"), target)
+        # the origin is put in front, so even a prefix check that let one through could not leave the site
+        script = (self.dest / "404.html").read_text(encoding="utf-8")
+        self.assertIn("location.replace(location.origin + rest", script)
+
+    def test_cname_is_written_when_missing_and_replaced_when_wrong_and_left_alone_when_right(self):
+        self.assertFalse((self.dest / "CNAME").exists())
+        self.assertTrue(legacy_stubs.ensure_cname(self.dest, DOMAIN))
+        self.assertEqual((self.dest / "CNAME").read_text(encoding="utf-8"), DOMAIN + "\n")
+        self.assertFalse(legacy_stubs.ensure_cname(self.dest, DOMAIN))
+        (self.dest / "CNAME").write_text("other.example.com\n", encoding="utf-8")
+        self.assertTrue(legacy_stubs.ensure_cname(self.dest, DOMAIN))
+        self.assertEqual((self.dest / "CNAME").read_text(encoding="utf-8"), DOMAIN + "\n")
+        # the way GitHub writes it: no trailing newline is the same domain
+        (self.dest / "CNAME").write_text(DOMAIN, encoding="utf-8")
+        self.assertFalse(legacy_stubs.ensure_cname(self.dest, DOMAIN))
+
+    def test_main_with_cname_writes_it(self):
+        rc = legacy_stubs.main(["--source", str(self.source), "--dest", str(self.dest), "--base-url", BASE, "--cname", DOMAIN])
+        self.assertEqual(rc, 0)
+        self.assertEqual((self.dest / "CNAME").read_text(encoding="utf-8").strip(), DOMAIN)
+
+    def test_main_without_cname_leaves_an_existing_one(self):
+        touch(self.dest, "CNAME", DOMAIN + "\n")
+        rc = legacy_stubs.main(["--source", str(self.source), "--dest", str(self.dest), "--base-url", BASE])
+        self.assertEqual(rc, 0)
+        self.assertEqual((self.dest / "CNAME").read_text(encoding="utf-8"), DOMAIN + "\n")
 
     def test_removing_the_old_build_leaves_versions_manifest_and_redirect(self):
         before = {

@@ -79,7 +79,10 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 ## Update required
 
-The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([xatc.bandd.cloud](https://xatc.bandd.cloud), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
+The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([app.7110atc.com](https://app.7110atc.com), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
+
+!!! note "Older than 0.20.0-rc.11: it cannot find updates"
+    The pilot site moved to [app.7110atc.com](https://app.7110atc.com) on 2026-10-20. A client older than **0.20.0-rc.11** still asks the old address for updates, so **Update now** and **Check again** find nothing. Install the newest version once by hand from [app.7110atc.com/#/download](https://app.7110atc.com/#/download); it updates itself from then on.
 
 ## Sign-in
 
@@ -89,6 +92,7 @@ The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and
 | **Signed in · offline** | The sign-in service cannot be reached. Your flight keeps going and the client keeps trying |
 | "Your sign-in expires in ..." | Press **Sign in again** whenever it suits you. During a flight, sign in as the same account or the flight will end |
 | "Your sign-in has run out. Sign in again to keep flying." | Press **Sign in again** |
+| Your passkey is not offered, or is refused | Passkeys belong to the sign-in address, which changed on 2026-10-20: add the passkey again. Sign in with your email, password and the authenticator's code, then add the passkey again |
 | "This flight belongs to another pilot" | You tried to rejoin a flight another account started. Press **New flight** |
 | "Your account isn't allowed to fly" | Ask the owner |
 | "Can't confirm this flight's pilot right now. Retrying." | Nothing to do. The client reconnects by itself and your flight is kept |

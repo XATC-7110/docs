@@ -7,7 +7,7 @@ The Mac app will be for **Apple silicon Macs (M1 or later)**.
 
 ## What installing will look like
 
-1. Sign in to the pilot site, [xatc.bandd.cloud](https://xatc.bandd.cloud), open **Download** and choose the Mac download.
+1. Sign in to the pilot site, [app.7110atc.com](https://app.7110atc.com), open **Download** and choose the Mac download.
 2. Open the downloaded `.dmg` file.
 3. Drag **xatc-agent** to your **Applications** folder.
 4. Open **xatc-agent** from Applications. It asks to use the microphone; allow it.
