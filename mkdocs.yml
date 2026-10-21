@@ -1,4 +1,4 @@
-site_name: xatc-agent
+site_name: SeventyOneTen
 site_description: AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.
 # The custom domain (SOT-87; the owner, 2026-10-20: "make sure the docs site is available at docs.7110atc.com"):
 # the site root is the root of the gh-pages branch, so versions live at /1.0/ and /latest/, not under /docs/.

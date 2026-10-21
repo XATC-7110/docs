@@ -1,6 +1,6 @@
 # Install and sign in
 
-xatc-agent has two parts. The controller runs in the cloud. On your sim PC you run a small program, the **client**, in its own window beside X-Plane. It reads your aircraft's state from X-Plane, sends your voice while you hold push-to-talk, and plays ATC's replies through a radio effect.
+SeventyOneTen has two parts. The controller runs in the cloud. On your sim PC you run a small program, the **client**, in its own window beside X-Plane. It reads your aircraft's state from X-Plane, sends your voice while you hold push-to-talk, and plays ATC's replies through a radio effect.
 
 ## What you need
 
@@ -9,21 +9,21 @@ xatc-agent has two parts. The controller runs in the cloud. On your sim PC you r
 | Simulator | X-Plane 12.1.4 or newer. The client uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. Tested on 12.4.3. Use the current X-Plane 12 release |
 | PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both. On Linux, see [Install on Linux](install-linux.md); a Mac app is [coming soon](install-mac.md) |
 | Audio | A microphone, and speakers or a headset |
-| Account | An xatc-agent account, created for you by the project owner |
+| Account | A SeventyOneTen account, created for you by the project owner |
 | The client | The installer (Windows) or the AppImage (Linux), from the pilot site once you are signed in (below) |
 | Phone | An authenticator app, for the sign-in's second step |
 
 !!! note "Invitation only"
-    xatc-agent is an experiment and is not open for sign-up. If you were invited, the owner has sent you an email with a temporary password.
+    SeventyOneTen is an experiment and is not open for sign-up. If you were invited, the owner has sent you an email with a temporary password.
 
 ## Install (one time)
 
 These steps are for Windows. On Linux, follow [Install on Linux](install-linux.md), then come back here to sign in. The Mac app is [coming soon](install-mac.md).
 
-1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your xatc-agent account. Open **Download** (<https://app.7110atc.com/#/download>) and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download** (<https://app.7110atc.com/#/download>) and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
 2. Run it. It installs for your Windows account only and does not ask for an administrator password.
 3. The installer is not signed yet, so Windows may say "Windows protected your PC". Choose **More info**, then **Run anyway**. Do this only for a file you downloaded from the Download page while signed in.
-4. Open **xatc-agent** from the Start menu (or from the last page of the installer).
+4. Open **SeventyOneTen** from the Start menu (or from the last page of the installer).
 5. Allow the microphone: *Windows Settings > Privacy & security > Microphone > Let desktop apps access your microphone*.
 
 There is nothing else to install and no keys to copy. You sign in from the window.
@@ -31,18 +31,18 @@ There is nothing else to install and no keys to copy. You sign in from the windo
 !!! note "Installed it before 20 October 2026? Reinstall once, by hand"
     On 2026-10-20 the pilot site moved to [app.7110atc.com](https://app.7110atc.com) (the product's home is [7110atc.com](https://7110atc.com)). A client older than **0.20.0-rc.11** looks for updates at the old address, so it can no longer find them: download the newest installer from [app.7110atc.com/#/download](https://app.7110atc.com/#/download) and run it over your copy. After that, updates arrive by themselves again.
 
-The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
+The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > SeventyOneTen > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
 
 ## Start the client
 
-Open **xatc-agent** from the Start menu. The **xatc-agent client** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
+Open **SeventyOneTen** from the Start menu. The **SeventyOneTen client** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.
 
 ## Sign in
 
-1. Press **Sign in** in the startup dialog. Your browser opens the xatc-agent sign-in page.
+1. Press **Sign in** in the startup dialog. Your browser opens the SeventyOneTen sign-in page.
 2. The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one). **Passkeys must be added again** after the sign-in move of 2026-10-20: a passkey belongs to the sign-in address, so the old ones no longer work. Sign in with your password and the authenticator's code, then add the passkey again.
 3. The browser says **Signed in** and you can close the tab. The window's sign-in pill turns green.
 
@@ -64,7 +64,7 @@ That is all the setup. [Settings](settings.md) describes everything else you can
 
 The first time you connect, the window asks one thing before you can transmit:
 
-> **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. xatc also keeps the text its speech recognizer wrote down for what you said, with your flight's record, for as long as that flight is kept: only the audio is deleted after 180 days. You can change this at any time in Settings. Your flight's transcript is always kept with the flight. The recording and the recognizer's own text are kept only if you allow it.
+> **Keep your radio audio to improve SeventyOneTen?** SeventyOneTen can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. SeventyOneTen also keeps the text its speech recognizer wrote down for what you said, with your flight's record, for as long as that flight is kept: only the audio is deleted after 180 days. You can change this at any time in Settings. Your flight's transcript is always kept with the flight. The recording and the recognizer's own text are kept only if you allow it.
 
 Choose **Allow** or **Don't allow**. Your choice is remembered with your account, and you can change it in **Settings > Your account > Recording**. [Your data](privacy.md) says what else is sent and kept.
 
