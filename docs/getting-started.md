@@ -64,7 +64,7 @@ That is all the setup. [Settings](settings.md) describes everything else you can
 
 The first time you connect, the window asks one thing before you can transmit:
 
-> **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. You can change this at any time in Settings. Nothing is kept unless you allow it.
+> **Keep your radio audio to improve xatc?** xatc can keep recordings of what you say on the radio, to help it understand pilots better. Only your own transmissions are kept, in private storage, for 180 days. The owner and the ATC expert can listen to them. xatc also keeps the text its speech recognizer wrote down for what you said, with your flight's record, for as long as that flight is kept: only the audio is deleted after 180 days. You can change this at any time in Settings. Nothing is kept unless you allow it.
 
 Choose **Allow** or **Don't allow**. Your choice is remembered with your account, and you can change it in **Settings > Your account > Recording**. [Your data](privacy.md) says what else is sent and kept.
 
