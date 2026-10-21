@@ -37,7 +37,7 @@ Pressing push-to-talk does nothing, and the log shows an **Error** line that beg
 | COM1 is off (or COM2) | Switch that radio on. It is the radio selected to transmit, marked **TX** |
 | COM1 isn't selected to listen | Select it to listen on your audio panel, or select the other radio to transmit |
 | no aircraft state yet (is X-Plane connected?) | Start X-Plane: see [X-Plane: not connected](#x-plane-not-connected) |
-| answer the recording question in the xatc-agent window first | Choose **Allow** or **Don't allow** in the [recording question](privacy.md#recordings-of-your-voice) |
+| answer the recording question in the SeventyOneTen window first | Choose **Allow** or **Don't allow** in the [recording question](privacy.md#recordings-of-your-voice) |
 | your recording choice is still being saved | Wait for the **Saving settings** box to finish, or choose **Try again** or **Close** if it says it could not save |
 
 Nothing is sent to ATC when a press is refused.
@@ -79,7 +79,7 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 ## Update required
 
-The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([app.7110atc.com](https://app.7110atc.com), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
+The window shows a banner, **Update required.**: "This is SeventyOneTen 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([app.7110atc.com](https://app.7110atc.com), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
 
 !!! note "Older than 0.20.0-rc.11: it cannot find updates"
     The pilot site moved to [app.7110atc.com](https://app.7110atc.com) on 2026-10-20. A client older than **0.20.0-rc.11** still asks the old address for updates, so **Update now** and **Check again** find nothing. Install the newest version once by hand from [app.7110atc.com/#/download](https://app.7110atc.com/#/download); it updates itself from then on.
@@ -101,7 +101,7 @@ The window shows a banner, **Update required.**: "This is xatc-agent 0.19.0, and
 
 - **It opened in my browser instead.** On Windows the window needs Edge WebView2, which ships with Windows 10 and 11; on Linux it needs WebKit2GTK. Without it the same page opens in your default browser and works the same.
 - **On Linux I have to sign in every time.** Staying signed in needs a keyring (GNOME Keyring or KWallet). Without one, the sign-in lasts only while the app runs.
-- **"xatc-agent is already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front. If the line adds that the window could not be brought forward, look for it in the taskbar.
+- **"SeventyOneTen is already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front. If the line adds that the window could not be brought forward, look for it in the taskbar.
 - **I closed the client mid-flight.** Start it again within about ten minutes and choose **Rejoin last flight**.
 
 ## The radios will not tune from the window

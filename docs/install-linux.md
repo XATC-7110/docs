@@ -25,7 +25,7 @@ The Linux app is new and has been run by fewer pilots than the Windows one. If s
 2. Make it executable. Either:
     - in your file manager, open the file's **Properties** and tick **Allow executing as program**; or
     - in a terminal, run `chmod +x xatc-agent-<version>-x86_64.AppImage`.
-3. Run it by double-clicking it (or `./xatc-agent-<version>-x86_64.AppImage` in a terminal). The **xatc-agent** window opens.
+3. Run it by double-clicking it (or `./xatc-agent-<version>-x86_64.AppImage` in a terminal). The **SeventyOneTen client** window opens.
 4. Allow the microphone if your desktop asks.
 
 If the file will not start and the message mentions FUSE, run it in a terminal as `APPIMAGE_EXTRACT_AND_RUN=1 ./xatc-agent-<version>-x86_64.AppImage`.

@@ -23,7 +23,7 @@ These steps are for Windows. On Linux, follow [Install on Linux](install-linux.m
 1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download** (<https://app.7110atc.com/#/download>) and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
 2. Run it. It installs for your Windows account only and does not ask for an administrator password.
 3. The installer is not signed yet, so Windows may say "Windows protected your PC". Choose **More info**, then **Run anyway**. Do this only for a file you downloaded from the Download page while signed in.
-4. Open **xatc-agent** from the Start menu (or from the last page of the installer).
+4. Open **SeventyOneTen** from the Start menu (or from the last page of the installer).
 5. Allow the microphone: *Windows Settings > Privacy & security > Microphone > Let desktop apps access your microphone*.
 
 There is nothing else to install and no keys to copy. You sign in from the window.
@@ -31,11 +31,11 @@ There is nothing else to install and no keys to copy. You sign in from the windo
 !!! note "Installed it before 20 October 2026? Reinstall once, by hand"
     On 2026-10-20 the pilot site moved to [app.7110atc.com](https://app.7110atc.com) (the product's home is [7110atc.com](https://7110atc.com)). A client older than **0.20.0-rc.11** looks for updates at the old address, so it can no longer find them: download the newest installer from [app.7110atc.com/#/download](https://app.7110atc.com/#/download) and run it over your copy. After that, updates arrive by themselves again.
 
-The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > xatc-agent > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
+The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > SeventyOneTen > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
 
 ## Start the client
 
-Open **xatc-agent** from the Start menu. The **xatc-agent client** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
+Open **SeventyOneTen** from the Start menu. The **SeventyOneTen client** window opens with the startup dialog: one row each for your sign-in, the ATC service and X-Plane. There is no console window; the [log file](settings.md#where-things-are-kept) holds what a console would show.
 
 - X-Plane is shown but not required yet. Start it whenever you like; the client keeps looking for it.
 - Only one client runs at a time. Starting it again brings the window that is already open to the front.

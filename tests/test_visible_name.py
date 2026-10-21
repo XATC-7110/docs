@@ -1,6 +1,7 @@
 """SOT-119 (the owner, 2026-10-21: "It should be \"SeventyOneTen\"" and "xatc should not be anywhere"): no text a reader can
-see says "xatc". The one exception is the installed app and its files, which are still named xatc-agent on disk until a client
-change renames them; they stay literal where a page tells the reader what to click or type (ALLOWED below).
+see says "xatc". The one exception is the names of files and folders the reader handles, which the client keeps on disk
+(client#148 renamed everything the pilot sees: the window, the Start menu, Settings > Apps, the banner and its messages).
+They stay literal where a page tells the reader what to click or type (ALLOWED below).
 Not scanned: URLs and repository names are not in the pages, AGENTS.md and README.md are developer docs, the stylesheet's
 file name and the comments in mkdocs.yml and the CSS are code.
 Run: python -m unittest discover -s tests -v"""
@@ -10,17 +11,13 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Literal names, exactly as they are on disk or as the client shows them today.
+# Literal names, exactly as they are on disk.
 ALLOWED = [
-    "xatc-agent-setup-<version>.exe",           # the Windows installer
-    "xatc-agent-<version>-x86_64.AppImage",     # the Linux AppImage
+    "xatc-agent-setup-<version>.exe",           # the Windows installer's file name
+    "xatc-agent-<version>-x86_64.AppImage",     # the Linux AppImage's file name
     "xatc-agent-client",                        # the settings folder, the log file, the credential name
-    "**xatc-agent client**",                    # the window's title
-    "**xatc-agent**",                           # the app in the Start menu, Applications, the header, the AppImage window
-    "Apps > xatc-agent >",                      # Windows Settings > Apps
-    "This is xatc-agent 0.19.0,",               # the client's own banner, quoted
-    '"xatc-agent is already running"',          # the client's own message, quoted
-    "in the xatc-agent window first",           # the client's own reason, quoted
+    "Drag **xatc-agent** to your",              # the Mac app's file name in Finder (no localized display name is set)
+    "Open **xatc-agent** from Applications.",   # the same, in Applications
 ]
 
 

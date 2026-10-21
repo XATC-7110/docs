@@ -1,12 +1,12 @@
 # The window
 
-The client runs in its own window, titled **xatc-agent client**, beside X-Plane. It has two views, **Radio** and **Settings**. This page is a tour of the Radio view, from the top. [Settings](settings.md) has its own page.
+The client runs in its own window, titled **SeventyOneTen client**, beside X-Plane. It has two views, **Radio** and **Settings**. This page is a tour of the Radio view, from the top. [Settings](settings.md) has its own page.
 
 ## The header
 
 The top bar has two rows.
 
-- **The name and versions.** **xatc-agent**, then the client's version, then X-Plane's version while X-Plane is connected, then the ATC service's version once ATC has welcomed your flight (the window labels that one **Gateway**, and shows **Gateway —** until then).
+- **The name and versions.** **SeventyOneTen**, then the client's version, then X-Plane's version while X-Plane is connected, then the ATC service's version once ATC has welcomed your flight (the window labels that one **Gateway**, and shows **Gateway —** until then).
 - **The theme button**, at the top right: **Night** and **Paper**. Its tooltip says which one it switches to.
 - **Your flight**: callsign (a tail number, or an airline callsign such as "Walker 1745"), aircraft type, departure → destination, and its state (starting, ready, ended). With no flight it says "No flight: press New flight". When a flight ended, the line says why, and the **New flight** button is highlighted.
 - **The approach confirmation**: while ATC has you on an approach, a pill beside your callsign shows the kind of approach (**ILS**, **RNAV**, **Visual**), the runway, and **ATC is vectoring you**. It turns green and says **cleared for the approach** once ATC clears you. See [The approach plan](client/approach-card.md).
