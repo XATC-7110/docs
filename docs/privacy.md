@@ -43,7 +43,7 @@ By default **nothing you say is kept as audio**. The first time you connect, the
 - You must choose **Allow** or **Don't allow** before you can transmit.
 - The choice is stored with your account, so you are asked once, not once per PC.
 - Change it at any time in **Settings > Your account > Recording**.
-- When the wording of the question changes, every pilot is asked again. The wording above (version 3) first ships with client 0.20.0-rc.13, a prerelease (see [Settings](settings.md) for how prereleases are offered), so you will see the question once more after you update to a client that carries it; client 0.19.0 still shows the earlier wording.
+- When the wording of the question changes, every pilot is asked again. The wording above (version 3) first ships with the next client release (it reaches you first as a prerelease if you have opted in; see [Settings](settings.md) for how prereleases are offered), so you will see the question once more after you update to a client that carries it; client 0.19.0 still shows the earlier wording.
 
 ## What is kept about a flight
 
@@ -56,7 +56,7 @@ Each flight is logged so that it can be reviewed and the controller improved:
 
 The project owner, an air traffic control expert who advises the project, and the project's testers review flights in a private tool. They can see the items above. Only the owner and the expert can listen to your recordings, and only if you allowed them.
 
-If you allowed recordings, the flight's record also keeps the text the speech recognizer wrote down for what you said, exactly as it wrote it, for as long as the flight is kept. That is longer than the audio: **only the audio is deleted after 180 days**; the text stays with the flight. If you chose **Don't allow**, that text is not kept (the transcript of what you said, listed above, always is).
+If you allowed recordings, the flight's record also keeps the text the speech recognizer wrote down for what you said, exactly as it wrote it, for as long as the flight is kept. That is longer than the audio: **only the audio is deleted after 180 days**; the text stays with the flight. If you chose **Don't allow**, that text is not kept (the transcript of what you said, listed above, always is). Text already kept with earlier flights stays with them.
 
 A flight log is kept until it is deleted: there is no automatic expiry today. The pilot site's [Privacy page](https://app.7110atc.com/#/privacy) says how to ask for a copy of what is held about you, or for your account, flights or recordings to be deleted.
 
