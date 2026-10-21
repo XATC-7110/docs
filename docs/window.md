@@ -31,7 +31,7 @@ Under the row, a banner may appear:
 - **Lost the connection to the client. Retrying…** when the window loses its own client.
 - A setup banner, with **Open Settings**, when ATC needs something set up or has stopped.
 - The update banner: see [Updates](settings.md#updates).
-- On the Linux AppImage, the offer to [add xatc-agent to your app menu](install-linux.md#add-xatc-agent-to-your-app-menu).
+- On the Linux AppImage, the offer to [add the app to your app menu](install-linux.md#add-the-app-to-your-app-menu).
 
 ## The radios
 

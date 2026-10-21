@@ -46,7 +46,7 @@ The two **Two-way (experimental)** choices, **Two-way A** and **Two-way B** (two
 
 ### App menu (Linux AppImage)
 
-Only on Linux, and only when you run the AppImage, there is one more part, **App menu**, with **Add to app menu** and **Remove from app menu**. See [Install on Linux](install-linux.md#add-xatc-agent-to-your-app-menu). Nowhere else shows it.
+Only on Linux, and only when you run the AppImage, there is one more part, **App menu**, with **Add to app menu** and **Remove from app menu**. See [Install on Linux](install-linux.md#add-the-app-to-your-app-menu). Nowhere else shows it.
 
 ## How ATC sounds
 
@@ -79,7 +79,7 @@ The radio voices are off by default. With them on, each controller on the radio 
 
 ### Recording
 
-**Keep my radio audio to improve xatc** shows your answer to the [recording question](privacy.md#recordings-of-your-voice), with **Allow** and **Don't allow** to change it. Your choice is saved with your account and takes effect at once. Recordings already kept stay until they expire. While it saves, a **Saving settings** box keeps you from leaving the page until the choice is saved.
+**Keep my radio audio to improve SeventyOneTen** shows your answer to the [recording question](privacy.md#recordings-of-your-voice), with **Allow** and **Don't allow** to change it. Your choice is saved with your account and takes effect at once. Recordings already kept stay until they expire. While it saves, a **Saving settings** box keeps you from leaving the page until the choice is saved.
 
 ### Updates
 

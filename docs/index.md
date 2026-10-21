@@ -90,7 +90,7 @@ hide:
 
 ## What a flight is like
 
-1. Start X-Plane 12 and the xatc-agent window. Press **New flight** and enter your flight plan, or load it from SimBrief.
+1. Start X-Plane 12 and the client. Press **New flight** and enter your flight plan, or load it from SimBrief.
 2. Tune the ATIS and listen. Then call Clearance Delivery, get your clearance and read it back.
 3. Ground taxis you to the runway. Tower clears you for takeoff. Departure climbs you and puts you on course. Center takes you to cruise and brings you down again.
 4. Approach vectors you to final and clears the approach. Tower clears you to land and tells you where to leave the runway. Ground taxis you to the parking you ask for.
@@ -111,7 +111,7 @@ hide:
 
     ---
 
-    xatc-agent is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site ([app.7110atc.com](https://app.7110atc.com)) once you are signed in. The product's home is [7110atc.com](https://7110atc.com).
+    SeventyOneTen is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site ([app.7110atc.com](https://app.7110atc.com)) once you are signed in. The product's home is [7110atc.com](https://7110atc.com).
 
     [:octicons-arrow-right-24: Install and sign in](getting-started.md) · [Linux](install-linux.md) · [Mac, coming soon](install-mac.md)
 
@@ -120,7 +120,7 @@ hide:
 ## Know before you fly
 
 !!! warning "A simulation, and an experiment"
-    xatc-agent is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is not an approved flight training device. It is under active development: what a controller says and does changes between releases, and things break.
+    SeventyOneTen is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is not an approved flight training device. It is under active development: what a controller says and does changes between releases, and things break.
 
 - **IFR only**, for now. VFR departures, pattern work and flight following are not built.
 - **US airports** work best: everything outside the taxiways comes from the FAA's data. Outside the US, ATC asks your X-Plane for the airport's procedures and frequencies instead.

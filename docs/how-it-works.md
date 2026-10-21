@@ -9,8 +9,8 @@ Two parts: a thin **client** on your sim PC, and the **controller** in the cloud
 
 <figure class="xa-diagram">
 <svg viewBox="0 0 1060 590" role="img" aria-labelledby="xa-d-title xa-d-desc" xmlns="http://www.w3.org/2000/svg">
-<title id="xa-d-title">How the parts of xatc-agent work together</title>
-<desc id="xa-d-desc">On your PC, X-Plane 12 gives the xatc-agent client the aircraft's state, and the client tunes X-Plane's radios; your microphone and headset carry your voice in and ATC's audio out. The client signs in through your browser with the sign-in service, then keeps one encrypted connection per flight to the ATC service in the cloud. It sends the aircraft's state, your voice and answers about your scenery, and receives ATC's audio and text, the approach plan and parking. In the ATC service, speech recognition hears the call, an AI model understands it, the controller agent (an AI model) decides which ATC tool to use, the tool checks the request and writes the phraseology, and text to speech speaks it. Monitors watch every frame and start ATC's own calls through the same tools. The tools read the FAA's data. Each flight is written to a flight log that is reviewed afterwards.</desc>
+<title id="xa-d-title">How the parts of SeventyOneTen work together</title>
+<desc id="xa-d-desc">On your PC, X-Plane 12 gives the SeventyOneTen client the aircraft's state, and the client tunes X-Plane's radios; your microphone and headset carry your voice in and ATC's audio out. The client signs in through your browser with the sign-in service, then keeps one encrypted connection per flight to the ATC service in the cloud. It sends the aircraft's state, your voice and answers about your scenery, and receives ATC's audio and text, the approach plan and parking. In the ATC service, speech recognition hears the call, an AI model understands it, the controller agent (an AI model) decides which ATC tool to use, the tool checks the request and writes the phraseology, and text to speech speaks it. Monitors watch every frame and start ATC's own calls through the same tools. The tools read the FAA's data. Each flight is written to a flight log that is reviewed afterwards.</desc>
 <defs>
 <marker id="xa-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 Z"/></marker>
 <marker id="xa-ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="ah2" d="M0,0 L10,5 L0,10 Z"/></marker>
@@ -23,7 +23,7 @@ Two parts: a thin **client** on your sim PC, and the **controller** in the cloud
 <text class="t" x="155" y="140" text-anchor="middle">X-Plane 12</text>
 <text class="u" x="155" y="160" text-anchor="middle">your aircraft, weather, traffic, scenery</text>
 <rect class="b hl" x="40" y="240" width="230" height="110" rx="9"/>
-<text class="t" x="155" y="278" text-anchor="middle">xatc-agent client</text>
+<text class="t" x="155" y="278" text-anchor="middle">SeventyOneTen client</text>
 <text class="u" x="155" y="300" text-anchor="middle">push-to-talk, radios, the cards</text>
 <text class="u" x="155" y="316" text-anchor="middle">plays ATC through a radio effect</text>
 <rect class="b" x="40" y="404" width="230" height="56" rx="9"/>

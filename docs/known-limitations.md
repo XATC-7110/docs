@@ -1,6 +1,6 @@
 # Known limitations
 
-xatc is an invitation-only experiment under active development. These are the edges as of 2026-10-19; each will be removed from this page when it is fixed.
+SeventyOneTen is an invitation-only experiment under active development. These are the edges as of 2026-10-19; each will be removed from this page when it is fixed.
 
 - **IFR only.** Every flight is an IFR flight. VFR departures, pattern work, flight following and VFR arrivals are not built.
 - **The United States first.** The FAA's data covers the US only. Elsewhere ATC works from your X-Plane's own navigation data for the airport's procedures, fixes and frequencies, and it has no airspace boundaries, Center sectors or minimum vectoring altitudes for the area, so expect less of it there. The project has not flown outside the US. See [Your X-Plane's data](client/xplane-data.md).

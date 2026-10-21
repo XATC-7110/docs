@@ -1,6 +1,6 @@
 # What ATC can do
 
-xatc-agent staffs every position of an IFR flight. Each controller is on its real frequency, hands you to the next one at the right place, and uses the phraseology of the FAA's controller handbook (JO 7110.65).
+SeventyOneTen staffs every position of an IFR flight. Each controller is on its real frequency, hands you to the next one at the right place, and uses the phraseology of the FAA's controller handbook (JO 7110.65).
 
 | Position | What it does for you |
 |---|---|

@@ -16,12 +16,12 @@ The Linux app is new and has been run by fewer pilots than the Windows one. If s
 | Window | WebKit2GTK 4.1, from your system, so the app opens in its own window. Ubuntu 24.04 and most desktop distributions have it. Without it, the same panel opens in your web browser and works the same |
 | Staying signed in | A keyring: GNOME Keyring or KWallet. Without one you sign in each time you start the app |
 | Audio | A microphone, and speakers or a headset |
-| Account | An xatc-agent account, created for you by the project owner |
+| Account | A SeventyOneTen account, created for you by the project owner |
 | Phone | An authenticator app, for the sign-in's second step |
 
 ## Install (one time)
 
-1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your xatc-agent account. Open **Download**, choose **Linux (x86_64 AppImage)**, then press **Download for Linux**. The file is `xatc-agent-<version>-x86_64.AppImage`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Linux (x86_64 AppImage)**, then press **Download for Linux**. The file is `xatc-agent-<version>-x86_64.AppImage`.
 2. Make it executable. Either:
     - in your file manager, open the file's **Properties** and tick **Allow executing as program**; or
     - in a terminal, run `chmod +x xatc-agent-<version>-x86_64.AppImage`.
@@ -34,9 +34,9 @@ The file is not signed. The Download page shows the file's **SHA-256**; to check
 
 From here, [sign in and choose your audio](getting-started.md#sign-in) exactly as on Windows.
 
-## Add xatc-agent to your app menu
+## Add the app to your app menu
 
-The first time you run the AppImage, the window offers to add xatc-agent to your app menu: **Add** or **Not now**. **Add** gives you a menu entry and an icon, so you can start it like any other app. **Settings > Your setup** has the same thing, under **App menu**: **Add to app menu**, and **Remove from app menu** to undo it.
+The first time you run the AppImage, the window offers to add the app to your app menu: **Add** or **Not now**. **Add** gives you a menu entry and an icon, so you can start it like any other app. **Settings > Your setup** has the same thing, under **App menu**: **Add to app menu**, and **Remove from app menu** to undo it.
 
 The menu entry points at the AppImage file where it is now. If you move the file, add the entry again from **Settings > Your setup > App menu**.
 
