@@ -11,6 +11,8 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.
 4. Press **Start flight**. The dialog says **Starting new flight…** and closes when ATC is ready.
 
+The client also writes your plan for X-Plane's own avionics, so you can load it into the GNS 530, the G1000 or the FMS. [Your plan in X-Plane's avionics](client/flight-plan-file.md) says how.
+
 !!! tip "The first flight after installing takes longer"
     The first time, the client reads the headers of your X-Plane scenery once, so it can answer ATC's questions about taxiways and parking. The dialog shows a progress bar. On a slow disk this can take a minute or more. After that, only new or updated scenery is read.
 
