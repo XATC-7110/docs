@@ -1,13 +1,17 @@
 # Your plan in X-Plane's avionics
 
+!!! info "A prerelease, for now"
+    The plan file first comes with client 0.20.0-rc.16, which is a **prerelease**: a build for testing, not yet a stable release. Until a stable client carries it, only a prerelease writes the file.
+
 When you start a flight, SeventyOneTen writes your flight plan as a file X-Plane can read, so you can load it into the GNS 530, the G1000 or the FMS without typing the route again.
 
 ## Where it goes
 
 The file is `SeventyOneTen.fms`, in the `Output/FMS plans` folder of your X-Plane folder. The client creates the folder if it is missing.
 
-- It is written each time you press **Start flight**, whether you typed the plan in or loaded it from SimBrief.
-- The name never changes. Each new flight **replaces** the file, so it always holds your current plan and nothing piles up in X-Plane's list. If you want to keep a plan, save your own copy under another name.
+- It is written each time you press **Start flight**, whether you typed the plan in or loaded it from SimBrief. It needs a departure and a destination: without both, nothing is written and nothing is logged.
+- The name never changes. Each new flight **replaces** the file, so nothing piles up in X-Plane's list. If you want to keep a plan, save your own copy under another name.
+- **If the log says the file was not written, the file in the folder is an earlier flight's plan.** The client leaves the old file as it was; it never empties it.
 - ATC changing your route during the flight does not rewrite it.
 - It is always on. There is no setting to turn it off.
 
@@ -28,7 +32,7 @@ The file holds your departure and destination airports, your cruise altitude and
 - **An airport your X-Plane does not have.** The plan starts or ends at the first or last fix X-Plane does know, and the log says so.
 - **No X-Plane folder found.** No file is written, and the log says so (set the folder in **Settings > X-Plane data**). **Your flight starts anyway.**
 
-The log is the one at the bottom of the window, and the line "Your flight plan is in X-Plane as SeventyOneTen.fms" tells you the file was written.
+The [log](../window.md#the-log) is the one at the bottom of the window, and the line "Your flight plan is in X-Plane as SeventyOneTen.fms" tells you the file was written.
 
 !!! note "Not checked yet"
     Whether the G1000 picks up an updated `SeventyOneTen.fms` without restarting X-Plane has not been checked. If it shows an old plan, reopen the flight plan list, or restart X-Plane.
