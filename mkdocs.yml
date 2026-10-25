@@ -87,6 +87,7 @@ nav:
       - Parking: client/parking.md
       - Pre-departure clearance by text: client/pdc.md
       - Your X-Plane's data: client/xplane-data.md
+      - Your plan in X-Plane's avionics: client/flight-plan-file.md
   - Your data: privacy.md
   - Troubleshooting: troubleshooting.md
   - How it works: how-it-works.md
