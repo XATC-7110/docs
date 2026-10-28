@@ -8,16 +8,17 @@ Tower owns the runway: it clears you onto it, off it, and onto it again at the o
 
 **Takeoff clearance**, with the wind (gusts and wind shear when there are any) and where to go after takeoff:
 
-> "November five four seven Golf Alpha, wind one six zero at eight, fly heading one six zero, runway one six left, cleared for takeoff."
+> "November five four seven Golf Alpha, wind one six zero at eight, runway one six left, cleared for takeoff, fly runway heading."
 
-On radar vectors it is "fly heading" a heading. On an RNAV departure with no other aircraft within 10 nm of the airport it is "RNAV to" the first fix. On a conventional departure, or with traffic about, the clearance carries no departure instruction. A turn-out or a heading you ask for on a SID cancels it: "cancel departure procedure, fly heading one nine zero, climb and maintain five thousand", and you read both back.
+The runway comes first and sits next to "cleared for takeoff". On radar vectors the clearance then ends with "fly runway heading", or with the turn and the heading ("turn left heading two five zero"). "RNAV to" the first fix, ahead of the runway ("RNAV to Summa, runway one six left, cleared for takeoff"), is said only for simultaneous departures from parallel runways on RNAV SIDs. On a conventional departure, or an RNAV departure on its own, the clearance carries no departure instruction. When there is low level wind shear, Tower adds "low level wind shear advisories in effect". A turn-out or a heading you ask for on a SID cancels it: "cancel departure procedure, fly heading one nine zero, climb and maintain five thousand", and you read both back.
 
 **When you have to wait**, Tower says why, and clears you without being asked once the reason is gone:
 
 | Reason | What you hear |
 |---|---|
 | Traffic on final | "hold short of runway one six left, traffic on a two mile final" |
-| Wake turbulence behind a heavy | "expect departure in two minutes" |
+| Wake turbulence: two minutes behind a heavy aircraft or a Boeing 757, three behind a super, longer from an intersection or an offset parallel runway | "hold for wake turbulence" |
+| A long wait for your runway, over two minutes | "expect departure delay" |
 | The runway is occupied | Tower holds you, then clears you once it is clear |
 
 With an arrival a few miles out, the clearance may be "cleared for takeoff, no delay, traffic on a three mile final". Behind a heavy aircraft it adds "caution wake turbulence". Waiting at the line with an arrival further out, Tower may ask, once per flight, "are you ready for an immediate departure?"
@@ -26,7 +27,7 @@ With an arrival a few miles out, the clearance may be "cleared for takeoff, no d
 
 **Your requests**: an intersection departure, a turn-out or a heading after takeoff, "need a few minutes". Another runway or full length sends you back to Ground. If Tower cannot, it says "unable" with the reason. If *you* say "unable" to a line up and wait or an immediate departure, Tower offers an alternative.
 
-**After takeoff**, about 1,000 ft above the ground: "contact Seattle Departure".
+**After takeoff**, once you are airborne and half a mile from the runway in any direction (an early turn included), or at 1,000 ft above the ground at the latest: "contact Seattle Departure".
 
 ## Arrival
 
@@ -34,7 +35,9 @@ With an arrival a few miles out, the clearance may be "cleared for takeoff, no d
 
 > "November five four seven Golf Alpha, wind one seven zero at one zero, runway one six center, cleared to land."
 
-Read back "cleared to land" with the runway. If the runway is not free yet, Tower says "continue" and clears you once it is.
+Read back "cleared to land" with the runway. If the runway is not free yet, Tower says "continue" and clears you once it is. Where Tower points out traffic, it may add "report traffic in sight".
+
+**Touch-and-go, stop-and-go and low approach.** Ask for one on your approach and Tower clears it, in the book's words. Tower clears these only when you ask, and never for the AI aircraft. Read back the operation you were cleared for: a plain landing clearance read back as another operation is caught.
 
 **Go-arounds.** Tower sends you around when the runway is not clear, and expects one when you call it yourself. You get the missed approach instructions and "contact Approach".
 
@@ -51,4 +54,4 @@ Read back "cleared to land" with the runway. If the runway is not free yet, Towe
 
 ## What Tower knows about traffic
 
-Tower clears takeoffs and landings against the other aircraft in your X-Plane: its AI traffic and aircraft a multiplayer plugin adds. A runway with a departure still on it, or an arrival on short final, is not yours yet. If X-Plane's traffic goes missing or stale, Tower holds every takeoff and landing clearance ("holding due to temporary traffic feed failure") until it is back. Closely spaced parallel runways are treated as one runway for wake turbulence.
+Tower clears takeoffs and landings against the other aircraft in your X-Plane: SeventyOneTen's own [AI traffic](../traffic.md), X-Plane's AI traffic and aircraft a multiplayer plugin adds. A runway with a departure still on it, or an arrival on short final, is not yours yet. If X-Plane's traffic goes missing or stale, Tower holds every takeoff and landing clearance ("holding due to temporary traffic feed failure") until it is back. Closely spaced parallel runways are treated as one runway for wake turbulence.

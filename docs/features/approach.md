@@ -8,11 +8,11 @@ On your first call, Approach gives you the altimeter, your descent, and the appr
 
 > "November five four seven Golf Alpha, Portland Approach, radar contact, Portland altimeter three zero zero two, descend and maintain four thousand, expect ILS runway one zero right."
 
-Approach also checks, once, that you have the destination's current ATIS where it has one you can tune: "advise you have information Kilo" if you gave no letter, "information Kilo is current, altimeter three zero zero two" if you gave an old one.
+Approach also checks, once, that you have the destination's current ATIS where it has one you can tune: "verify you have information Kilo" if you gave no letter, "information Kilo is current, altimeter three zero zero two" if you gave an old one.
 
 ## Which approach
 
-Approach picks from what the airport publishes for the runway in use: the ILS first, then RNAV (GPS), then a localizer approach. At most airports, in good weather (ceiling 3,000 ft or more and visibility 5 miles or more), it is a visual approach. At a busy airport such as Seattle, the instrument approach stays the plan in good weather: the check-in says "expect the ILS runway one six center", Approach asks once, within 15 nm, "field is at your two o'clock, twelve miles, report field in sight", and you get the visual approach when you report the field or the runway in sight. An approach you ask for by name is never replaced.
+Approach picks from what the airport publishes for the runway in use: the ILS first, then RNAV (GPS), then a localizer approach. At most airports, in good weather (ceiling 3,000 ft or more and visibility 5 miles or more), it is a visual approach. At a busy airport such as Seattle, the instrument approach stays the plan in good weather: the check-in says "expect the ILS runway one six center", Approach asks once, within 15 nm, "field is at your two o'clock, one two miles, report field in sight", and you get the visual approach when you report the field or the runway in sight. An approach you ask for by name is never replaced.
 
 **You can ask** for the one you want: "request the RNAV runway one zero right", "request vectors for the ILS". You can also ask for another runway and be vectored for it.
 
@@ -24,7 +24,7 @@ Approach vectors you on a downwind, a base and an intercept heading, as a real c
 - Altitudes step down as the minimum altitudes allow.
 - Every heading allows for the wind.
 - Where vectors are not the plan (so far Teterboro, and some RNAV approaches and STARs that end at an initial approach fix), Approach gives you a direct to a fix instead: "after Solberg proceed direct Skuby, descend and maintain three thousand, expect the ILS runway one niner approach", then, before the fix, "maintain three thousand until Skuby, cleared straight-in ILS runway one niner approach". You can ask "request direct Skuby" for a fix of the approach: you get the direct, or one plain reason. Say "unable" and Approach gives you vectors at once, with "cancel approach clearance" first if you were cleared.
-- Coming off a STAR: "depart Battle Ground heading one one zero, descend and maintain five thousand, vectors for the ILS runway one zero right".
+- Coming off a STAR: "depart Battle Ground heading one one zero, descend and maintain five thousand, vectors for the ILS runway one zero right". A STAR that ends on the approach's own fix is cleared at that fix, at least 3 nm before it: "at Shafr, cleared ILS runway two eight right approach".
 
 The window shows this as it happens: the [Approach card](../client/approach-card.md) draws ATC's plan with your aircraft on it, and the top line of the window says **ATC is vectoring you**.
 
@@ -42,7 +42,7 @@ Approach then hands you to [Tower](tower.md) before the final approach fix.
 
 > "November five four seven Golf Alpha, field is at your two o'clock, one two miles, report field in sight."
 
-Report the field in sight and you are cleared for the visual approach. If you have not reported it by about 10 nm, Approach gives you the ILS instead. When you report traffic in sight, it may be "number two, follow the Boeing on a five mile final, cleared visual approach".
+Report the field in sight and you are cleared for the visual approach. If you have not reported it by about 10 nm, Approach gives you the ILS instead. When you report traffic in sight, it may be "number two, follow the Boeing seven thirty seven on a five mile final, cleared visual approach runway one zero right"; when you have not, Approach tells you where you stand: "number two, following a Boeing seven thirty seven on a five mile final". Behind a heavy or a super it adds "caution wake turbulence". Number one says nothing.
 
 ## Sequencing and the missed approach
 

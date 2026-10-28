@@ -7,10 +7,10 @@ SeventyOneTen has two parts. The controller runs in the cloud. On your sim PC yo
 | | |
 |---|---|
 | Simulator | X-Plane 12.1.4 or newer. The client uses X-Plane's own Web API, and needs the version of it that arrived in 12.1.4. Tested on 12.4.3. Use the current X-Plane 12 release |
-| PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both. On Linux, see [Install on Linux](install-linux.md); a Mac app is [coming soon](install-mac.md) |
+| PC | Windows 10 or 11. The window uses Edge WebView2, which ships with both. On Linux, see [Install on Linux](install-linux.md). On an Apple silicon Mac with macOS 14 or newer, see [Install on a Mac](install-mac.md) |
 | Audio | A microphone, and speakers or a headset |
 | Account | A SeventyOneTen account, created for you by the project owner |
-| The client | The installer (Windows) or the AppImage (Linux), from the pilot site once you are signed in (below) |
+| The client | The installer (Windows), the AppImage (Linux) or the disk image (Mac), from the pilot site once you are signed in (below) |
 | Phone | An authenticator app, for the sign-in's second step |
 
 !!! note "Invitation only"
@@ -18,7 +18,7 @@ SeventyOneTen has two parts. The controller runs in the cloud. On your sim PC yo
 
 ## Install (one time)
 
-These steps are for Windows. On Linux, follow [Install on Linux](install-linux.md), then come back here to sign in. The Mac app is [coming soon](install-mac.md).
+These steps are for Windows. On Linux, follow [Install on Linux](install-linux.md); on a Mac, follow [Install on a Mac](install-mac.md). Then come back here to sign in.
 
 1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download** (<https://app.7110atc.com/#/download>) and press **Download for Windows**. The file is `xatc-agent-setup-<version>.exe`.
 2. Run it. It installs for your Windows account only and does not ask for an administrator password.
@@ -46,7 +46,7 @@ Open **SeventyOneTen** from the Start menu. The **SeventyOneTen client** window 
 2. The first time, enter your email and the temporary password from your invitation, choose your own password, and set up your authenticator app. After that it is your email, your password and the authenticator's code (or a passkey, if you add one). **Passkeys must be added again** after the sign-in move of 2026-10-20: a passkey belongs to the sign-in address, so the old ones no longer work. Sign in with your password and the authenticator's code, then add the passkey again.
 3. The browser says **Signed in** and you can close the tab. The window's sign-in pill turns green.
 
-You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), never in a file.
+You stay signed in for 30 days, across restarts. In the last 24 hours the window offers **Sign in again**, which never interrupts a flight. The client keeps your sign-in in Windows Credential Manager (on a Mac, in your Keychain; on Linux, in your keyring), never in a file.
 
 ## Choose your audio
 

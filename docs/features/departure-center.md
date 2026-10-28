@@ -20,7 +20,7 @@ On a SID with altitude restrictions it is "climb via the Summa Two departure", s
 
 ## Center
 
-The handoff to Center comes on its own: climbing through a thousand feet below the top of Departure's airspace when your cruise is at or above that top, otherwise at the edge of its airspace, sideways, to whoever owns the airspace there (on a short flight, to the destination's Approach). Check in and Center clears you to your cruise altitude, in steps around traffic if it has to.
+The handoff to Center comes on its own: climbing through a thousand feet below the top of Departure's airspace when your cruise is at or above that top, otherwise just before the edge of its airspace, sideways, to whoever owns the airspace there (on a short flight, to the destination's Approach). Check in and Center clears you to your cruise altitude, in steps around traffic if it has to.
 
 ## What you can ask for
 
@@ -29,15 +29,21 @@ The handoff to Center comes on its own: climbing through a thousand feet below t
 | Higher or lower | Your altitude, or "unable" with the reason. With no altitude named: "say requested altitude" |
 | Direct to a fix | "proceed direct Helns", for a fix ahead on your route |
 | A heading or a speed | Approved when it is safe |
-| A deviation around weather | "deviation twenty degrees left approved, advise when able to proceed direct Helns" |
+| A deviation around weather | "deviation twenty degrees left approved, when able, proceed direct Helns". See [A weather deviation](#a-weather-deviation) |
 | A hold | "hold west of Battle Ground as published, expect further clearance two one three five" |
 | A diversion | "cleared to the Olympia airport via direct, maintain ..." |
 | To return to your departure airport | Radar vectors back, and what to expect |
-| To cancel IFR | "IFR cancellation received, squawk VFR, frequency change approved". Not in Class A airspace: "unable, IFR cannot be cancelled in Class Alpha airspace". Near a towered destination it ends "contact Portland Tower" and the frequency; inbound to a field with no tower, "change to advisory frequency approved". Words that do not say what is cancelled get "confirm cancelling IFR?" |
+| To cancel IFR | En route: "IFR cancellation received, maintain VFR, squawk VFR, frequency change approved". Near a towered destination it ends "contact Portland Tower" and the frequency; inbound to a field with no tower, "change to advisory frequency approved". Not in Class A airspace (18,000 ft and up): ATC offers the way out, "unable, descend and maintain one seven thousand to exit Class Alpha airspace", and you cancel again below 18,000 ft. Where it cannot give that descent: "unable, IFR cannot be cancelled in Class Alpha airspace". Words that do not say what is cancelled get "confirm cancelling IFR?" |
 
 Cancelling IFR in the air is on the radio, as above. After you land at an airport with no control tower, you cancel on the ground: see [Cancelling IFR after landing](#cancelling-ifr-after-landing).
 
 ATC never clears you below the minimum altitude for where you are. The FAA's minimum vectoring and minimum IFR altitude charts for the whole US are in its data.
+
+### A weather deviation
+
+ATC approves a deviation with "when able, proceed direct" and the next fix, and notes that direct. After you have turned away from the direct, the deviation ends by itself, without a call, when you are clearly proceeding direct to that fix again: your heading is within about 5 degrees of the bearing to the fix and has been for about a minute, and you are not drifting away from it. Within 3 nm of the fix it ends at once.
+
+When it is not clear, ATC asks once, "verify you are proceeding direct" and the fix. Answer "proceeding direct" and the deviation ends. If you pass the fix with the deviation still open, ATC asks once about the next fix on your route ("verify you are proceeding direct" that fix), or says "say intentions" when there is no next fix. Coming within 3 nm of the next fix, or being established direct to it, also ends the deviation with no call.
 
 ## The descent
 

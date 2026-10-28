@@ -56,6 +56,7 @@ Only on Linux, and only when you run the AppImage, there is one more part, **App
 | **ATC delivery** | How briskly controllers talk: *Relaxed*, *Brisk* (the default, about 15% faster) or *Fast* (about 30% faster). The ATIS is always read at the relaxed pace. Saving a change reconnects the flight (the same flight) |
 | **Radio effect** | *Clean*, *Realistic* (the default) or *Busy day*: how much of a VHF radio you hear on ATC's voice |
 | **Speech recognition** | How your transmissions are written down for ATC. Two choices: *Standard (the default)* and *Scribe, which knows your flight's names*. Saving a change reconnects the flight (the same flight); it applies from your next transmission. If Scribe is not available on a flight, Settings says **Scribe is not available on this flight: speech recognition is Standard.** See [Your data](privacy.md#what-happens-to-your-voice) for where the audio goes |
+| **Hear other traffic on the frequency** | A checkbox, off by default. On, you hear the [AI traffic](traffic.md#hearing-the-other-traffic)'s calls, and ATC's replies to them, on a frequency one of your radios is tuned to and set to listen to: never over you, nor over ATC talking to you. The row appears only when ATC offers it for your flights, and it matters only on a flight whose **Traffic** is not **None**. Saving a change reconnects the flight (the same flight) |
 
 ### The radio voices
 
@@ -83,7 +84,7 @@ The radio voices are off by default. With them on, each controller on the radio 
 
 ### Updates
 
-The installed app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner above the views: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight. **Update now** downloads the new version, checks it, installs it, and the app opens again by itself. On Windows it runs the installer; on Linux it replaces the AppImage file (see [Install on Linux](install-linux.md#updates)). **Later** puts that version off until a newer one comes, or until you start the app again.
+The installed app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner above the views: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight. **Update now** downloads the new version, checks it, installs it, and the app opens again by itself. On Windows it runs the installer; on Linux it replaces the AppImage file (see [Install on Linux](install-linux.md#updates)); on a Mac it replaces the app, which must be in Applications or another folder you can write to (see [Install on a Mac](install-mac.md#updates)). **Later** puts that version off until a newer one comes, or until you start the app again.
 
 - **Check now** checks on request, and says if it could not.
 - **Receive prereleases: early versions, to try before everyone gets them** is off unless you turn it on. On, you are offered early versions too. A prerelease is a build for testing; it can have faults, and a later change to the service can stop it working until you update. Turn it on only if you have been asked to.
@@ -110,7 +111,7 @@ At the very bottom of the page the window shows the **Settings file** and the **
 | The log file | `%LOCALAPPDATA%\xatc-agent-client\logs\xatc-agent-client.log` |
 | Your sign-in | Windows Credential Manager, under `xatc-agent-client`. Never in a file |
 
-On Linux the settings and the log are in `~/.config/xatc-agent-client/` (the log in its `logs` folder), and the sign-in is in your keyring.
+On a Mac the settings and the log are in `~/Library/Application Support/xatc-agent-client/` (the log in its `logs` folder), and the sign-in is in your Keychain; **Open log folder** opens it in Finder. On Linux they are in `~/.config/xatc-agent-client/` (the log in its `logs` folder), and the sign-in is in your keyring.
 
 The settings file never holds a password or a key. It holds ATC's address (written from your account's answer, never by the window, and never shown in it), the sign-in service's two public values, your SimBrief username or pilot ID, your X-Plane folder, and your last flight plan, which pre-fills the New flight dialog.
 
