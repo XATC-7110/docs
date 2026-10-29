@@ -12,9 +12,9 @@ Nothing is uploaded in advance. When ATC needs something only your X-Plane has, 
 | **Parking stands** | When the Parking card comes up | The same scenery |
 | **Outside the US only**: the airport's runways, frequencies and procedures, the fixes and airways along your route | At the start of the flight | Your X-Plane's navigation data. It is assumed to be current |
 
-It is done safely. ATC can ask only for these kinds of data, for an airport identifier that is checked first, and for a few weather values that X-Plane itself reports, read-only. It can never name a file to read, and it can never write or command anything. The log says what was read: "ATC read KBFI's ground layout from your X-Plane".
+It is done safely. ATC can ask only for these kinds of data, for an airport identifier that is checked first, and for a few weather values that X-Plane itself reports, read-only. It can never name a file to read, and it can never write or command anything. (The client itself writes in your X-Plane folder in two places only, listed in [Your data](../privacy.md#what-stays-on-your-pc).) The log says what was read: "ATC read KBFI's ground layout from your X-Plane".
 
-If your scenery has no taxiway data for an airport, Ground says "taxi at your own discretion". While an answer is still on its way, Ground says "stand by" and calls back.
+If X-Plane gives ATC no ground layout for your **departure** airport, the flight ends at the start, and the window says why (see [Troubleshooting](../troubleshooting.md#flight-ended-no-ground-data-from-x-plane-for-the-departure-airport)). If your scenery has no taxiway data for your destination or a diversion airport, Ground says "taxi to parking at your own discretion". While an answer is still on its way, Ground says "stand by" and calls back.
 
 ### The scenery index, once
 
@@ -29,7 +29,7 @@ About once a second, and at once when you change a radio:
 - your transponder code,
 - the weather at the aircraft (sampled about every five seconds and sent with the once-a-second state),
 - X-Plane's clock, so that ATC judges things like tower opening hours by the sim's time,
-- the other aircraft X-Plane knows about (its AI traffic, and aircraft a multiplayer plugin adds): the nearest 32.
+- the other aircraft X-Plane knows about (its AI traffic, SeventyOneTen's own [AI traffic](../traffic.md) when you turned it on, and aircraft a multiplayer plugin adds): the nearest 32.
 
 See [Your data](../privacy.md) for the whole picture.
 

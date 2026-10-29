@@ -7,7 +7,7 @@ What the client sends, what is kept, and what stays on your PC. This page descri
 You sign in with a SeventyOneTen account that the owner creates for you: your email address, a password you choose, and an authenticator app or a passkey.
 
 - The client never sees your password. You type it into the sign-in page in your own browser.
-- The client keeps your sign-in in Windows Credential Manager (on Linux, in your keyring), for up to 30 days. It is never written to a file.
+- The client keeps your sign-in in Windows Credential Manager (on a Mac, in your Keychain; on Linux, in your keyring), for up to 30 days. It is never written to a file.
 - ATC knows which account is flying. A flight belongs to the pilot who started it, and nobody else can rejoin it.
 - **Sign out** removes the sign-in from your PC and cancels it with the sign-in service.
 
@@ -20,11 +20,11 @@ Over one encrypted connection to ATC, for as long as a flight is running:
 | Your flight plan: callsign, aircraft type, departure, destination, cruise altitude, route | When the flight starts |
 | Your aircraft's state: position, altitude, speed, heading, radios (frequencies, and whether each is on and selected to listen), transponder code, on the ground or not | About once a second |
 | The weather at your aircraft and X-Plane's clock | Every few seconds |
-| The other aircraft in your X-Plane (the nearest 32) | About once a second |
-| **Your microphone** | **Only while you hold push-to-talk** |
+| The other aircraft in your X-Plane (the nearest 32), including [AI traffic](traffic.md) if you turned it on | About once a second |
+| **Your microphone** | **Only while you hold push-to-talk.** The exception is an experimental [two-way phone call](#two-way-phone-calls-experimental), where it is open for the whole call |
 | Answers to ATC's questions about your scenery: an airport's taxiways and stands | When ATC asks. See [Your X-Plane's data](client/xplane-data.md) |
 
-No connection to ATC is open when no flight is running, and your microphone is never sent outside push-to-talk.
+No connection to ATC is open when no flight is running, and your microphone is never sent outside push-to-talk, except on a two-way phone call you chose.
 
 ## What happens to your voice
 
@@ -33,6 +33,10 @@ While you hold push-to-talk, your audio is streamed to a speech recognition serv
 When the client's **Speech recognition** setting is **Scribe**, the audio of your transmissions goes to a third-party speech service outside SeventyOneTen's own systems, to be written down. When it is **Standard**, or if that service cannot be reached, SeventyOneTen's own speech recognition writes it down within SeventyOneTen's systems.
 
 The full statement, which names the services, is the [Privacy page on the pilot site](https://app.7110atc.com/#/privacy).
+
+### Two-way phone calls (experimental)
+
+On a [clearance call](features/clearance.md#by-phone-at-a-field-with-no-radio-way) you can choose a **Two-way** call in Settings ([Phone calls](settings.md#phone-calls)). It is experimental and offered only on some accounts. On a two-way call there is no push-to-talk button: **your microphone is open for the whole call**, and the call's audio goes to a live voice service that carries the conversation. With **Two-way B** that is a third-party service outside SeventyOneTen's own systems; the [Privacy page on the pilot site](https://app.7110atc.com/#/privacy) names the services. SeventyOneTen does not keep the audio of a two-way call, whatever you chose in the recording question below. On **Push to talk**, the default, a call is like the radio: the microphone is open only while you hold the key.
 
 ### Recordings of your voice
 
@@ -59,6 +63,10 @@ The project owner, an air traffic control expert who advises the project, and th
 If you allowed recordings, the flight's record also keeps the text the speech recognizer wrote down for what you said, exactly as it wrote it, for as long as the flight is kept. That is longer than the audio: **only the audio is deleted after 180 days**; the text stays with the flight. If you chose **Don't allow**, that text is not kept (the transcript of what you said, listed above, always is). Text already kept with earlier flights stays with them.
 
 A flight log is kept until it is deleted: there is no automatic expiry today. The pilot site's [Privacy page](https://app.7110atc.com/#/privacy) says how to ask for a copy of what is held about you, or for your account, flights or recordings to be deleted.
+
+## Plans you send to your account
+
+If you [send a flight plan to your account](send-a-plan.md), SeventyOneTen keeps your five most recent plans (the airports, route, altitude and tail number in each, and the file's name) so you can load one in the client. The file itself is not stored. Older plans are removed as new ones arrive, and all of them are deleted with your account. The iPhone app keeps its sign-in in the iPhone's Keychain and sends a file only when you tap **Send**.
 
 ## Other services
 

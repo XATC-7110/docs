@@ -18,6 +18,11 @@ ALLOWED = [
     "xatc-agent-client",                        # the settings folder, the log file, the credential name
     "Drag **xatc-agent** to your",              # the Mac app's file name in Finder (no localized display name is set)
     "Open **xatc-agent** from Applications.",   # the same, in Applications
+    "Drag **xatc-agent** from Applications to the Trash.",  # removing the Mac app
+    "xatc-agent-<version>-arm64.dmg",           # the Mac disk image's file name
+    "its file name, `xatc-agent`;",             # the Mac app's file name, said once on the Mac page
+    "~/.xatc-agent/session.json",               # the flight's session file, which the client keeps in the home folder
+    "Custom Data/xatc-traffic/CSL",             # the folder Bluebell goes in, as the client's window names it
 ]
 
 

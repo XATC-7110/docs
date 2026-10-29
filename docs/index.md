@@ -86,11 +86,27 @@ hide:
 
     [:octicons-arrow-right-24: Your X-Plane's data](client/xplane-data.md)
 
+-   :material-airplane-marker: **Other aircraft in the sky**
+
+    ---
+
+    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can hear their calls.
+
+    [:octicons-arrow-right-24: AI traffic](traffic.md)
+
+-   :material-send: **Send your plan from ForeFlight**
+
+    ---
+
+    Share the flight plan file to your account from your iPhone or the pilot site, then load it in the client with New flight, From my account.
+
+    [:octicons-arrow-right-24: Send a plan to your account](send-a-plan.md)
+
 </div>
 
 ## What a flight is like
 
-1. Start X-Plane 12 and the client. Press **New flight** and enter your flight plan, or load it from SimBrief.
+1. Start X-Plane 12 and the client. Press **New flight** and enter your flight plan, load it from SimBrief, or use a plan you sent to your account.
 2. Tune the ATIS and listen. Then call Clearance Delivery, get your clearance and read it back.
 3. Ground taxis you to the runway. Tower clears you for takeoff. Departure climbs you and puts you on course. Center takes you to cruise and brings you down again.
 4. Approach vectors you to final and clears the approach. Tower clears you to land and tells you where to leave the runway. Ground taxis you to the parking you ask for.
@@ -101,11 +117,11 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-monitor: **X-Plane 12 on Windows or Linux**
+-   :material-monitor: **X-Plane 12 on Windows, Linux or a Mac**
 
     ---
 
-    X-Plane 12.1.4 or newer, Windows 10 or 11 or a 64-bit Linux desktop (the Linux app is a prerelease for now, and a Mac app is coming soon), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
+    X-Plane 12.1.4 or newer, Windows 10 or 11, a 64-bit Linux desktop or an Apple silicon Mac with macOS 14 or newer (the Linux and Mac apps are prereleases for now), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
 
 -   :material-account-key: **An invitation**
 
@@ -113,7 +129,7 @@ hide:
 
     SeventyOneTen is an invitation-only experiment. The owner creates your account; you download the installer from the pilot site ([app.7110atc.com](https://app.7110atc.com)) once you are signed in. The product's home is [7110atc.com](https://7110atc.com).
 
-    [:octicons-arrow-right-24: Install and sign in](getting-started.md) · [Linux](install-linux.md) · [Mac, coming soon](install-mac.md)
+    [:octicons-arrow-right-24: Install and sign in](getting-started.md) · [Linux](install-linux.md) · [Mac](install-mac.md)
 
 </div>
 
@@ -122,7 +138,7 @@ hide:
 !!! warning "A simulation, and an experiment"
     SeventyOneTen is for flight simulation only. It must never be used for real-world flying, flight instruction or navigation. It is not an approved flight training device. It is under active development: what a controller says and does changes between releases, and things break.
 
-- **IFR only**, for now. VFR departures, pattern work and flight following are not built.
+- **IFR only**, for now. VFR departures, pattern work and flight following are not built. A touch-and-go, stop-and-go or low approach is cleared when you ask for it.
 - **US airports** work best: everything outside the taxiways comes from the FAA's data. Outside the US, ATC asks your X-Plane for the airport's procedures and frequencies instead.
 - **English, FAA phraseology.**
 - When ATC is asked for something it has not been taught, it says so: *"unable, I have not completed that training."* It does not make something up.

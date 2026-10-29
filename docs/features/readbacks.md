@@ -21,7 +21,9 @@ ATC corrects the one item that was wrong:
 
 > "Negative, squawk six six six two."
 
-When only one item is in doubt, ATC may ask for that item by name: "confirm squawk, rest of readback correct". The correction is spoken firmly, with the wrong item stressed, after a short pause. The window shows an amber **✗ Corrected**. A safety item you left out, such as a hold short or a runway, gets one "read back hold short instructions". ATC asks twice at most, then moves on with a "verify".
+When only one item is in doubt, ATC may ask for that item by name: "confirm squawk, rest of readback correct". The correction is spoken firmly, with the wrong item stressed, after a short pause. The window shows an amber **✗ Corrected**. A runway hold short that is not your departure runway's must be read back; if you leave it out, ATC asks once, "read back hold instructions". (The hold short of your departure runway need not be read back.) ATC asks twice at most, then moves on with a "verify".
+
+A wrong readback of an IFR clearance gets "readback incorrect" and the whole clearance again.
 
 ## What it forgives
 
@@ -34,10 +36,14 @@ Speech recognition is not perfect, and neither is anyone's radio work:
 
 ## When you forget
 
-About 30 seconds after ATC stops talking, and never while you are transmitting, ATC reminds you: "read back hold short instructions", "confirm cleared to land runway one six center". A takeoff clearance is reminded sooner.
+About 30 seconds after ATC stops talking, and never while you are transmitting, ATC reminds you: "read back hold instructions", "confirm cleared to land runway one six center". A takeoff clearance is reminded sooner.
 
 The **Read back** line under push-to-talk shows what ATC is still waiting for, so you can see it before the reminder comes.
 
 ## If ATC did not catch your callsign
 
-A garbled call, or a first call to a position with no callsign, gets "Aircraft calling Seattle Ground, say again." It never gets a clearance. A readback without a callsign is fine.
+A garbled call, or a first call to a position with no callsign, gets "Aircraft calling Seattle Ground, say again." It never gets a clearance. A readback without a callsign is fine. (A bare radio check as your first call is the exception: it gets "Aircraft calling Seattle Ground, read you loud and clear." See [At every position](everywhere.md#common-requests).)
+
+## Your callsign, shortened
+
+Once you and a position have both spoken on a frequency, ATC shortens a registration to its prefix and the last three characters: "Gulfstream seven golf alpha" (written "Gulfstream 7GA") or "November seven golf alpha". Each new position or frequency starts again with the full callsign, and a new sector with the facility's name. If another aircraft on your frequency has the same last three characters, ATC keeps the full callsign. You can still say your whole callsign every time.

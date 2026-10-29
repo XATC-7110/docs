@@ -46,7 +46,7 @@ Nothing is sent to ATC when a press is refused.
 
 Your microphone is not reaching the client.
 
-- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On Linux, check your desktop's sound settings and that the microphone is not muted.
+- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch SeventyOneTen on. On Linux, check your desktop's sound settings and that the microphone is not muted.
 - **Settings > Your setup > Audio > Microphone**: pick the right device.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
@@ -67,8 +67,8 @@ What to do: update X-Plane 12 to the current release.
 ## Tower will not clear me
 
 - **Traffic.** Tower waits for a departure ahead to be clear, and for an arrival on short final. It tells you why.
-- **Wake turbulence.** Behind a heavy, the wait is two or three minutes: "expect departure in two minutes".
-- **No traffic data.** If the client loses X-Plane's traffic feed, Tower holds every takeoff and landing clearance until it is back, because it cannot see the runway. A multiplayer or traffic plugin that takes over X-Plane's traffic can cause this.
+- **Wake turbulence.** Behind a heavy aircraft or a Boeing 757 the wait is two minutes, behind a super three, and longer from an intersection or an offset parallel runway. Tower says "hold for wake turbulence" and clears you once the time is up.
+- **No traffic data.** If the client loses X-Plane's traffic feed, Tower holds every takeoff and landing clearance until it is back, because it cannot see the runway. A multiplayer plugin, or another plugin that takes over X-Plane's AI aircraft, can cause this. If the cause is SeventyOneTen's own [AI traffic](traffic.md), the traffic line under the window's header says what is wrong.
 
 ## Unable to access data, check connection
 
@@ -99,10 +99,28 @@ The window shows a banner, **Update required.**: "This is SeventyOneTen 0.19.0, 
 
 ## The window
 
-- **It opened in my browser instead.** On Windows the window needs Edge WebView2, which ships with Windows 10 and 11; on Linux it needs WebKit2GTK. Without it the same page opens in your default browser and works the same.
+- **It opened in my browser instead.** On Windows the window needs Edge WebView2, which ships with Windows 10 and 11; on Linux it needs WebKit2GTK; on a Mac it uses the web view that is built into macOS. Without it the same page opens in your default browser and works the same.
 - **On Linux I have to sign in every time.** Staying signed in needs a keyring (GNOME Keyring or KWallet). Without one, the sign-in lasts only while the app runs.
 - **"SeventyOneTen is already running".** Only one client runs at a time. Starting it again brings the window that is already open to the front. If the line adds that the window could not be brought forward, look for it in the taskbar.
 - **I closed the client mid-flight.** Start it again within about ten minutes and choose **Rejoin last flight**.
+
+## Flight ended: no ground data from X-Plane for the departure airport
+
+The flight ended at the start. ATC could not get the airport's ground layout (its taxiways, hold lines and stands) from your X-Plane for the **departure** airport, so it cannot serve the flight. The window's header says **Flight ended: no ground data from X-Plane for the departure airport**, and the **New flight** dialog shows what to check:
+
+- X-Plane has the departure airport's scenery installed and enabled.
+- The client has your X-Plane folder: **Settings > X-Plane data > X-Plane folder**.
+- X-Plane is running and connected (the **X-Plane** pill is green), then start a new flight.
+
+An older client (before 0.20.0-rc.17) shows only a general error line for the same end.
+
+## ATC got stuck on that call
+
+A card appears in the window: **ATC got stuck on that call. It has been reported.** ATC could not make sense of your last call and said nothing. The card has a **Reference** line, such as "Reference: t-1234", and **Close**.
+
+- The flight goes on, and nothing is retried by itself. Close the card and say the call again, in other words if you can.
+- The problem has already been reported. If it keeps happening, send the reference and the time with your [report](#reporting-a-problem).
+- The technical cause is in the log file, not in the window.
 
 ## The radios will not tune from the window
 

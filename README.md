@@ -1,6 +1,6 @@
-# xatc-agent documentation
+# SeventyOneTen documentation
 
-Source for the xatc-agent documentation site: AI air traffic control for X-Plane 12.
+Source for the SeventyOneTen documentation site: AI air traffic control for X-Plane 12.
 
 **The site: <https://docs.7110atc.com/>** (the product's home is <https://7110atc.com>)
 
@@ -57,6 +57,9 @@ GitHub redirects `xatc-7110.github.io/docs/<page>` to `docs.7110atc.com/<page>` 
 | Path | What |
 |---|---|
 | `docs/index.md`, `getting-started.md`, `first-flight.md` | What it is, installing, a flight gate to gate |
+| `docs/install-linux.md`, `install-mac.md` | Installing on Linux (the AppImage) and on a Mac (the disk image); both are prereleases until a stable client carries them |
+| `docs/send-a-plan.md` | Sending a ForeFlight plan to your account (iPhone app, pilot site) and loading it with New flight, From my account |
+| `docs/traffic.md` | AI traffic: the Traffic choice, what X-Plane needs, the start dialog's steps, and traffic audio |
 | `docs/window.md`, `settings.md` | The client's window and its settings |
 | `docs/features/` | What ATC can do, position by position |
 | `docs/client/` | The window's cards: the approach plan, parking, PDC, your X-Plane's data |

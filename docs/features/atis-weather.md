@@ -19,7 +19,9 @@ The window names the ATIS on the radio tuned to it ("KSEA ATIS Charlie · loopin
 
 ## The letter on the radio
 
-Say the letter on your first call: "with information Charlie". ATC remembers it for that airport. If you give no letter, the controller says "advise you have information Charlie". If you give an old one: "information Kilo is current, altimeter three zero zero two". "Confirm you have information Kilo, altimeter three zero zero two" is said when the letter changed since another controller had yours. Arriving, Approach checks the destination's letter, once. Departure and Center never ask.
+Say the letter on your first call: "with information Charlie". ATC remembers it for that airport. If you give no letter, the controller asks "verify you have information Charlie"; Tower, checking a departure on the ground, adds the altimeter: "verify you have information Charlie, altimeter three zero zero two". If you give an old one, Approach says "information Kilo is current, altimeter three zero zero two". The "verify you have information" words are also used when the letter changed since another controller had yours. Arriving, Approach checks the destination's letter, once. Departure and Center never ask.
+
+**When the letter changes while you are listening to Tower or Approach**, that controller tells you on its own, once per letter: "attention all aircraft, information Charlie current", with the cause when there is one, such as a runway change. You answer nothing. It is not said to a pilot who has no letter yet (that pilot is asked at check-in), nor during an emergency.
 
 ## Weather in clearances
 

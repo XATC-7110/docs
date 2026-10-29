@@ -15,7 +15,7 @@ Ground moves you between your parking and the runway, on the taxiways of your ow
 - The route follows your scenery's real taxiways and names.
 - The taxi instruction ends at the first runway on the way: a hold short of the runway to cross, or of your departure runway. Each later crossing is its own clearance. A hold short for a crossing must be read back; a plain hold short of your departure runway is said, and a wrong runway is still corrected.
 - If you did not report the ATIS, Ground gives you the wind and the altimeter.
-- If your scenery has no taxiway data for the airport, Ground says "taxi to runway one six left at your own discretion, hold short of runway one six left" and you read back the hold short. While the airport's layout is still being fetched from your X-Plane, Ground says "stand by" and calls back.
+- If X-Plane gives ATC no ground layout for your **departure** airport, the flight ends at the start and the window says why: see [Troubleshooting](../troubleshooting.md#flight-ended-no-ground-data-from-x-plane-for-the-departure-airport). At your destination (or a diversion airport) with no taxiway data, Ground says "taxi to parking at your own discretion". While the airport's layout is still being fetched from your X-Plane, Ground says "stand by" and calls back.
 
 **Runway crossings** are cleared one runway at a time, once the runway is clear: "cross runway one six left at Charlie, hold short of runway one six center". Ground clears each one as you come up to the hold line, without being asked, and you do not need to stop first. While the runway is busy you hear "continue holding short of runway one six center, traffic". A second crossing waits until you have crossed the first, and one asked for from far back is held until you are close.
 
@@ -31,8 +31,8 @@ Ground moves you between your parking and the runway, on the taxiways of your ow
 
 ## Ground calls you
 
-- **A readback you owe**: about 30 seconds after ATC stops talking, "read back hold short instructions".
-- **Traffic**: "give way to the Airbus", "follow the Boeing", "hold position, traffic".
+- **A readback you owe**: about 30 seconds after ATC stops talking, "read back hold instructions".
+- **Traffic**: "hold position, traffic" and the aircraft, "hold for traffic", "follow the Boeing", and "continue taxiing" once the traffic has passed.
 - **Off your route**: "you are off your cleared taxi route", with a new route from where you are.
 - **Moving without a clearance**: "hold position" ("hold in position" if you are on a runway).
 - **A runway change** forced by the wind: a new route and the new ATIS letter.

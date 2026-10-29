@@ -7,7 +7,7 @@ Things you can say to any controller, and things any controller may say to you.
 | You say | You get |
 |---|---|
 | "Say again" | The last transmission again |
-| "Radio check" | "November five four seven Golf Alpha, Seattle Ground, read you five" |
+| "Radio check" | As your first call to a position, "Aircraft calling Seattle Ground, read you loud and clear." After that, "November five four seven Golf Alpha, Seattle Ground, read you five" (and once you have spoken on the frequency, the shortened callsign) |
 | A question | The answer, for: the wind, the weather, the altimeter, the runway to expect, the ATIS, your position, your assigned heading, altitude or squawk, any facility's frequency, the time, a distance, traffic |
 | "Thanks for the help", "good day" | One short reply, or a "good day" after a handoff |
 

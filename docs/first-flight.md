@@ -9,7 +9,9 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 3. Press **New flight**.
     - **Enter manually**: tail number, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan. To fly as an airline, switch **Tail number** to **Callsign** and give the **Airline** (three letters), its **Pronunciation** (the word ATC says, filled in for the airlines the client knows) and the **Flight number**. A line under the fields says what ATC will say, such as "Walker seventeen forty-five", and the window's header shows "Walker 1745".
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.
-4. Press **Start flight**. The dialog says **Starting new flight…** and closes when ATC is ready.
+    - **From my account**: the newest plan you [sent to your account](send-a-plan.md) from ForeFlight or another app. Press **Use this plan** to fill in the form, then check it.
+    - **Traffic**: **None** is the default. Choose a level and AI aircraft fly around you: see [AI traffic](traffic.md).
+4. Press **Start flight**. The dialog says **Starting new flight…** and closes when ATC is ready (with **Traffic** on, when the traffic is drawn: see [AI traffic](traffic.md#starting-a-flight-with-traffic)).
 
 The client also writes your plan for X-Plane's own avionics, so you can load it into the GNS 530, the G1000 or the FMS. [Your plan in X-Plane's avionics](client/flight-plan-file.md) says how.
 
@@ -50,11 +52,11 @@ Ground gives you a route along your scenery's real taxiways, with a hold short f
 
 ### 4. Tower
 
-At the hold line, the window shows **Next: Seattle Tower** with buttons that put the frequency in a radio's standby. Call ready. Tower may line you up and wait, hold you for traffic or wake turbulence, or clear you for takeoff with the wind and your initial heading or RNAV fix.
+At the hold line, the window shows **Next: Seattle Tower** with buttons that put the frequency in a radio's standby. Call ready. Tower may line you up and wait, hold you for traffic or wake turbulence, or clear you for takeoff with the runway, the wind and your initial heading.
 
 ### 5. Departure and Center
 
-About 1,000 ft above the ground, Tower hands you to Departure. Check in with your altitude:
+Once you are airborne and half a mile from the runway, Tower hands you to Departure (at 1,000 ft above the ground at the latest). Check in with your altitude:
 
 > **You:** Seattle Departure, November five four seven Golf Alpha, one thousand two hundred climbing five thousand.
 

@@ -67,8 +67,9 @@ nav:
   - Getting started:
       - Install and sign in: getting-started.md
       - Install on Linux: install-linux.md
-      - Install on a Mac (coming soon): install-mac.md
+      - Install on a Mac: install-mac.md
       - Your first flight: first-flight.md
+      - Send a plan to your account: send-a-plan.md
   - The window: window.md
   - Settings: settings.md
   - What ATC can do:
@@ -81,6 +82,7 @@ nav:
       - Readbacks: features/readbacks.md
       - ATIS and weather: features/atis-weather.md
       - At every position: features/everywhere.md
+  - AI traffic: traffic.md
   - Known limitations: known-limitations.md
   - In the window:
       - The approach plan: client/approach-card.md
