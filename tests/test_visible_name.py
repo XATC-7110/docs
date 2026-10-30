@@ -17,7 +17,8 @@ ALLOWED = [
     "xatc-agent-<version>-x86_64.AppImage",     # the Linux AppImage's file name
     "xatc-agent-client",                        # the settings folder, the log file, the credential name
     "Drag **xatc-agent** to your",              # the Mac app's file name in Finder (no localized display name is set)
-    "Open **xatc-agent** from Applications.",   # the same, in Applications
+    "Open **xatc-agent** from Applications, not from the disk image.",   # the same, in Applications
+    "switch on **xatc-agent** (it may be listed as SeventyOneTen).",   # the microphone setting can list the Finder name (Mac)
     "Drag **xatc-agent** from Applications to the Trash.",  # removing the Mac app
     "xatc-agent-<version>-arm64.dmg",           # the Mac disk image's file name
     "its file name, `xatc-agent`;",             # the Mac app's file name, said once on the Mac page

@@ -70,7 +70,7 @@ If you [send a flight plan to your account](send-a-plan.md), SeventyOneTen keeps
 
 ## Other services
 
-- **The radio voices.** ATC's voice is made by SeventyOneTen's own text to speech. Only when **ATC voices** is set to **Radio voices** do the words ATC says on the radio go instead, as text, to a third-party speech service outside SeventyOneTen's own systems, to give each controller a distinct voice and accent. Only ATC's words are sent, never your voice. The setting is off by default. Phone calls, the ATIS and AWOS are always spoken by SeventyOneTen's own text to speech, and so is any transmission that the third-party service cannot speak in time.
+- **The radio voices.** ATC's voice is made by SeventyOneTen's own text to speech. Only when **ATC voices** is set to **Radio voices** do the words ATC says on the radio go instead, as text, to a third-party speech service outside SeventyOneTen's own systems, to give each controller a distinct voice and accent. Only ATC's words are sent, never your voice. The setting is off by default. Push-to-talk phone calls, the ATIS and AWOS are always spoken by SeventyOneTen's own text to speech; on a two-way call the live voice service speaks ATC's words too (see [Two-way phone calls](#two-way-phone-calls-experimental)). So is any radio transmission that the third-party service cannot speak in time.
 - **The AI model.** The text of your transmissions, with the facts of your flight, is processed by an AI model to work out what you asked for and to judge readbacks. See [How it works](how-it-works.md).
 - **SimBrief.** If you load a flight plan from SimBrief, the client fetches your latest plan from SimBrief with the username or pilot ID you typed. No SimBrief password or key is involved.
 

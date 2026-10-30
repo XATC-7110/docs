@@ -31,7 +31,7 @@ Under the row, a banner may appear:
 - **Lost the connection to the client. Retrying…** when the window loses its own client.
 - A setup banner, with **Open Settings**, when ATC needs something set up or has stopped.
 - The update banner: see [Updates](settings.md#updates).
-- The **traffic line**, on a flight with [AI traffic](traffic.md), when the plugin or its aircraft models are missing, the traffic is paused, or X-Plane's own parked aircraft are on.
+- The **traffic line** (client 0.20 prerelease), on a flight with [AI traffic](traffic.md), when the plugin or its aircraft models are missing, the traffic is paused, or X-Plane's own parked aircraft are on.
 - On the Linux AppImage, the offer to [add the app to your app menu](install-linux.md#add-the-app-to-your-app-menu).
 
 ## The radios
@@ -75,7 +75,7 @@ One card at a time, picked with the chips above it. The slot keeps its height, s
 | **[PDC](client/pdc.md)** | After you request a pre-departure clearance by text. **Request PDC** is a chip too, while one is possible |
 | **⚠ Deviation** | When ATC flags a pilot deviation, such as taking off without a clearance. It stays until you dismiss it, and the chip stays so that you can bring it back |
 | **⚠ No data** | **Unable to access data, check connection**: when ATC cannot read its airport data. The client pauses X-Plane; see [Troubleshooting](troubleshooting.md#unable-to-access-data-check-connection) |
-| **⚠ ATC stuck** | **ATC got stuck on that call. It has been reported.** ATC could not answer your last call. The card shows a reference line ("Reference: t-1234") for support, and a **Close** button. It blocks nothing: the flight goes on and nothing is retried. A card you close stays closed for that call, a later stuck call shows a new one, and a new flight starts with none. The technical cause goes to the log file only |
+| **⚠ ATC stuck** | Client 0.20 prerelease. **ATC got stuck on that call. It has been reported.** ATC could not answer your last call. The card shows a reference line ("Reference: t-1234") for support, and a **Close** button. It blocks nothing: the flight goes on and nothing is retried. A card you close stays closed for that call, a later stuck call shows a new one, and a new flight starts with none. The technical cause goes to the log file only |
 | **⚠ Flight refused** | When ATC refuses the flight, for example "This flight belongs to another pilot. Start a new flight." It has **New flight** and **Dismiss** |
 
 An alert takes the front and its chip turns amber. **Hide** folds the slot down to its chips.
@@ -115,7 +115,7 @@ Scroll up to read something and the log stays where you left it; scroll back to 
 ## Dialogs you will meet
 
 - **The startup dialog**, each time the client starts: your sign-in, the **ATC service** and X-Plane. It closes by itself when the first two are ready. After a client restart mid-flight it offers **Rejoin last flight**.
-- **New flight**: the flight plan, by hand, from SimBrief or from your account ([send a plan](send-a-plan.md)), and the **Traffic** choice ([AI traffic](traffic.md)). It opens by itself when a flight ends, with a line saying why. After **Start flight** it shows the start's progress; on a flight with traffic it stays up until the aircraft are drawn: **Connecting**, **Loading airport data**, **Building traffic**, **Traffic visible**, and **Fly now** closes it at any time.
+- **New flight**: the flight plan, by hand, from SimBrief or from your account ([send a plan](send-a-plan.md)), and the **Traffic** choice ([AI traffic](traffic.md)); the account tab, the Traffic choice and the start's progress steps are client 0.20 prerelease. It opens by itself when a flight ends, with a line saying why. After **Start flight** it shows the start's progress; on a flight with traffic it stays up until the aircraft are drawn: **Connecting**, **Loading airport data**, **Building traffic**, **Traffic visible**, and **Fly now** closes it at any time.
 - **The recording question**, the first time you connect: see [Your data](privacy.md#recordings-of-your-voice).
 - **The call screen**, when you press **Call** on a phone row: see [Clearance by phone](features/clearance.md#by-phone-at-a-field-with-no-radio-way).
 - **The approach diagram** and **the parking map**, full size, with **Bigger**.

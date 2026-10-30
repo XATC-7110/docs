@@ -46,7 +46,7 @@ Nothing is sent to ATC when a press is refused.
 
 Your microphone is not reaching the client.
 
-- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch SeventyOneTen on. On Linux, check your desktop's sound settings and that the microphone is not muted.
+- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch on **xatc-agent** (it may be listed as SeventyOneTen). On Linux, check your desktop's sound settings and that the microphone is not muted.
 - **Settings > Your setup > Audio > Microphone**: pick the right device.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
@@ -116,7 +116,7 @@ An older client (before 0.20.0-rc.17) shows only a general error line for the sa
 
 ## ATC got stuck on that call
 
-A card appears in the window: **ATC got stuck on that call. It has been reported.** ATC could not make sense of your last call and said nothing. The card has a **Reference** line, such as "Reference: t-1234", and **Close**.
+This card is in client 0.20 prereleases; the stable client, 0.19.0, does not show it. A card appears in the window: **ATC got stuck on that call. It has been reported.** ATC could not make sense of your last call and said nothing. The card has a **Reference** line, such as "Reference: t-1234", and **Close**.
 
 - The flight goes on, and nothing is retried by itself. Close the card and say the call again, in other words if you can.
 - The problem has already been reported. If it keeps happening, send the reference and the time with your [report](#reporting-a-problem).

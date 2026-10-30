@@ -18,7 +18,7 @@ The runway comes first and sits next to "cleared for takeoff". On radar vectors 
 |---|---|
 | Traffic on final | "hold short of runway one six left, traffic on a two mile final" |
 | Wake turbulence: two minutes behind a heavy aircraft or a Boeing 757, three behind a super, longer from an intersection or an offset parallel runway | "hold for wake turbulence" |
-| A long wait for your runway, over two minutes | "expect departure delay" |
+| An unusually long wait for your runway (over about ten minutes) | "hold short of runway one six left, number three for departure, expect departure delay" |
 | The runway is occupied | Tower holds you, then clears you once it is clear |
 
 With an arrival a few miles out, the clearance may be "cleared for takeoff, no delay, traffic on a three mile final". Behind a heavy aircraft it adds "caution wake turbulence". Waiting at the line with an arrival further out, Tower may ask, once per flight, "are you ready for an immediate departure?"
