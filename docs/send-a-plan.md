@@ -13,7 +13,7 @@ SeventyOneTen reads three kinds of file:
 - `.gfp`, a plain text plan;
 - `.gpx`, a GPX route file.
 
-From the file it takes the **departure**, the **destination**, the **route**, the **cruise altitude** and the **tail number**. A flight of two airports with no fixes in between is a direct flight, and its route stays empty with no "missing" mark. The file must be no larger than 256 KB.
+From the file it takes the **departure**, the **destination**, the **route**, the **cruise altitude** and the **tail number**. A flight of two airports with no fixes in between is a direct flight, and its route stays empty with no "missing" mark. A `.fpl` file can also carry an aircraft type, which the pilot site reads when it is there (ForeFlight's does not carry one). The file must be no larger than 256 KB.
 
 ## Send a plan from your iPhone
 

@@ -21,7 +21,7 @@ ATC corrects the one item that was wrong:
 
 > "Negative, squawk six six six two."
 
-When only one item is in doubt, ATC may ask for that item by name: "confirm squawk, rest of readback correct". The correction is spoken firmly, with the wrong item stressed, after a short pause. The window shows an amber **✗ Corrected**. A runway hold short that is not your departure runway's must be read back; if you leave it out, ATC asks once, "read back hold instructions". (The hold short of your departure runway need not be read back.) ATC asks twice at most, then moves on with a "verify".
+When only one item is in doubt, ATC may ask for that item by name: "confirm squawk, rest of readback correct". The correction is spoken firmly, with the wrong item stressed, after a short pause. The window shows an amber **✗ Corrected**. A runway hold short that is not your departure runway's must be read back; if you leave it out, ATC asks once for each instruction, "read back hold instructions". (The hold short of your departure runway need not be read back.) After two corrections of the same readback, ATC makes one "verify" and moves on.
 
 A wrong readback of an IFR clearance gets "readback incorrect" and the whole clearance again.
 
@@ -46,4 +46,4 @@ A garbled call, or a first call to a position with no callsign, gets "Aircraft c
 
 ## Your callsign, shortened
 
-Once you and a position have both spoken on a frequency, ATC shortens a registration to its prefix and the last three characters: "Gulfstream seven golf alpha" (written "Gulfstream 7GA") or "November seven golf alpha". Each new position or frequency starts again with the full callsign, and a new sector with the facility's name. If another aircraft on your frequency has the same last three characters, ATC keeps the full callsign. You can still say your whole callsign every time.
+Once you and a position have both spoken on a frequency, ATC shortens a registration to its prefix and the last three characters: "Gulfstream seven golf alpha" (written "Gulfstream 7GA") or "November seven golf alpha". Each new position or frequency starts again with the full callsign, and a new sector with the facility's name. If another aircraft on your frequency has the same three characters anywhere in its spoken identification, ATC keeps the full callsign. You can still say your whole callsign every time.

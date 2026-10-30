@@ -1,9 +1,9 @@
 # AI traffic
 
-A flight can have other aircraft in it. SeventyOneTen can fill your X-Plane with AI aircraft that depart, taxi, cross runways, fly approaches and land at the airports on your route, and ATC works with them: it sequences you with them as with any other aircraft, and you hear their calls. This page says how to turn the traffic on, what to install, what the start dialog shows and what you can hear.
+A flight can have other aircraft in it. SeventyOneTen can fill your X-Plane with AI aircraft that depart, taxi, cross runways, fly approaches and land at the airports on your route that have traffic, and ATC works with them: it sequences you with them as with any other aircraft. You read their calls in the log, and you can choose to hear them. This page says how to turn the traffic on, what to install, what the start dialog shows and what you can hear.
 
 !!! info "A prerelease, for now"
-    The traffic setup shown here is in the client's 0.20 prereleases. The stable client, 0.19.0, does not start AI traffic.
+    The traffic setup shown here is in the client's 0.20 prereleases. The stable client, 0.19.0, does not start AI traffic. The traffic plugin it needs is not on the Download page yet: see [What X-Plane needs](#what-x-plane-needs).
 
 ## Turn it on
 
@@ -22,13 +22,15 @@ The line under the choice says what it does: "AI aircraft that ATC works around 
 
 The traffic is drawn inside X-Plane by two things you install once:
 
-- **The SeventyOneTen traffic plugin**, in your X-Plane's `Resources/plugins` folder. Restart X-Plane after you add it.
+- **The SeventyOneTen traffic plugin**, which goes in your X-Plane's `Resources/plugins` folder. Restart X-Plane after you add it. The plugin is not on the Download page yet. Until it is, AI traffic is only for testers who have been given the plugin.
 - **Bluebell**, a package of aircraft models for X-Plane, which you download yourself. Unpack it into the `Custom Data/xatc-traffic/CSL` folder of your X-Plane, then start a new flight. When Bluebell is missing, the window shows the folder and a **Download Bluebell** link.
 
 The window tells you when something is missing. A line under the header says so in words:
 
 - **Traffic is off: the SeventyOneTen traffic plugin isn't answering in X-Plane.** The plugin is not installed, or X-Plane was not restarted after you installed it.
 - **Bluebell CSL not found: traffic is off.** Bluebell is not in the folder above.
+- **No traffic on this flight: ATC doesn't offer traffic yet.** ATC is not offering traffic on this flight, so the flight goes on without any.
+- **No traffic on this flight: there is no traffic at these airports yet.** The airports of this flight have no traffic yet, so the flight goes on without any.
 - Another plugin holds X-Plane's AI aircraft: the line names it. Only one can have them at a time, so the traffic yields, for example when you connect to an online network.
 - **Traffic is paused while X-Plane is in a menu. It comes back when X-Plane runs again.** This is not a fault. It appears when X-Plane is paused or on its Flight Configuration screen.
 
@@ -51,7 +53,7 @@ Each step shows its state in words: Done, In progress, Waiting or Skipped. The d
 
 ATC works the AI aircraft as it works you, with the same rules:
 
-- **Tower** keeps the runway for one aircraft at a time. It cancels an AI takeoff if you enter the runway, clears AI aircraft across runways, and tells you where you stand: you may hear **"expect departure delay"** when the wait for your runway is long.
+- **Tower** keeps the runway for one aircraft at a time. It cancels an AI takeoff if you enter the runway without a clearance (you are told to "hold in position", then "possible pilot deviation, advise you contact the airport's Tower after landing"; every runway entry without a clearance is recorded as a deviation, except during a declared emergency), clears AI aircraft across runways, and tells you where you stand: you may hear **"expect departure delay"** when the wait for your runway is unusually long (over about ten minutes).
 - **Traffic calls** name what matters to you, with the distance: "traffic, Boeing seven thirty seven, two mile final". Tower may add **"report traffic in sight"**.
 - **Approach** puts you in one landing order with the AI arrivals. You are not given priority: the slower or later aircraft takes the delay, and that can be you, with a slow-down, a longer vector or a "follow". An aircraft closing on a slower one on final is told to cancel its approach, and Tower sends a pair around when the spacing is lost.
 - The AI pilots read back only what is required. Their calls and ATC's replies to them show as text in the log.

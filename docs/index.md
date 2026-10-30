@@ -90,7 +90,7 @@ hide:
 
     ---
 
-    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can hear their calls.
+    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can choose to hear their calls. In the client's 0.20 prereleases only, and for testers for now.
 
     [:octicons-arrow-right-24: AI traffic](traffic.md)
 
@@ -98,7 +98,7 @@ hide:
 
     ---
 
-    Share the flight plan file to your account from your iPhone or the pilot site, then load it in the client with New flight, From my account.
+    Share the flight plan file to your account from your iPhone or the pilot site, then load it in the client with New flight, From my account (client 0.20 prerelease).
 
     [:octicons-arrow-right-24: Send a plan to your account](send-a-plan.md)
 

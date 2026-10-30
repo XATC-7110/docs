@@ -23,10 +23,10 @@ The Mac app is new and has been run by fewer pilots than the Windows one. If som
 2. Open the downloaded `.dmg` file. A disk image named *SeventyOneTen* and the version opens, with the app and your Applications folder side by side.
 3. Drag **xatc-agent** to your **Applications** folder. Finder shows the app by its file name, `xatc-agent`; the window it opens is called **SeventyOneTen client**.
 4. Eject the disk image.
-5. Open **xatc-agent** from Applications. Open it from Applications, not from the disk image.
+5. Open **xatc-agent** from Applications, not from the disk image.
 6. The first time, macOS asks whether SeventyOneTen may use the microphone. Allow it, so the app can hear you.
 
-If you said no by mistake, open *System Settings > Privacy & Security > Microphone* and switch SeventyOneTen on.
+If you said no by mistake, open *System Settings > Privacy & Security > Microphone* and switch on **xatc-agent** (it may be listed as SeventyOneTen).
 
 From here, [sign in and choose your audio](getting-started.md#sign-in) exactly as on Windows.
 
