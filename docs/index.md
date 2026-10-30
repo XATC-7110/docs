@@ -90,7 +90,7 @@ hide:
 
     ---
 
-    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can choose to hear their calls. In the client's 0.20 prereleases only.
+    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can choose to hear their calls. In the client's 0.20 prereleases only, and for testers for now.
 
     [:octicons-arrow-right-24: AI traffic](traffic.md)
 
