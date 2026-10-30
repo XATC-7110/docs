@@ -1,0 +1,1856 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI air traffic control for X-Plane 12. You talk on the radio, a controller answers.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.7110atc.com/1.4/how-it-works/">
+      
+      
+        <link rel="prev" href="../troubleshooting/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>How it works - SeventyOneTen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/xatc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-it-works" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SeventyOneTen" class="md-header__button md-logo" aria-label="SeventyOneTen" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SeventyOneTen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How it works
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to the light theme"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to the light theme" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to the dark theme"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to the dark theme" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../window/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  The window
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../settings/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Settings
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../features/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  What ATC can do
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../traffic/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  AI traffic
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../known-limitations/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Known limitations
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../client/approach-card/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  In the window
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../privacy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Your data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  How it works
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SeventyOneTen" class="md-nav__button md-logo" aria-label="SeventyOneTen" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    SeventyOneTen
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install and sign in
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install on Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install on a Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-flight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your first flight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../send-a-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Send a plan to your account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The window
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../features/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What ATC can do
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    What ATC can do
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/clearance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clearance Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/ground/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/tower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tower
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/departure-center/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Departure and Center
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/approach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/readbacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readbacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/atis-weather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ATIS and weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/everywhere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    At every position
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../traffic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI traffic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../known-limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In the window
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    In the window
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/approach-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The approach plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/parking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/pdc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre-departure clearance by text
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/xplane-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your X-Plane's data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/flight-plan-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your plan in X-Plane's avionics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How it works
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How it works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-radio-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One radio call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-ai-is-and-where-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where the AI is, and where it is not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-session-per-flight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One session per flight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-takes-a-moment-to-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it takes a moment to answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-radio-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One radio call
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-the-ai-is-and-where-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where the AI is, and where it is not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-session-per-flight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One session per flight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-takes-a-moment-to-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it takes a moment to answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h1>
+<p>Two parts: a thin <strong>client</strong> on your sim PC, and the <strong>controller</strong> in the cloud. One encrypted connection joins them for the whole flight.</p>
+<figure class="xa-diagram">
+<svg viewBox="0 0 1060 590" role="img" aria-labelledby="xa-d-title xa-d-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="xa-d-title">How the parts of SeventyOneTen work together</title>
+<desc id="xa-d-desc">On your PC, X-Plane 12 gives the SeventyOneTen client the aircraft's state, and the client tunes X-Plane's radios; your microphone and headset carry your voice in and ATC's audio out. The client signs in through your browser with the sign-in service, then keeps one encrypted connection per flight to the ATC service in the cloud. It sends the aircraft's state, your voice and answers about your scenery, and receives ATC's audio and text, the approach plan and parking. In the ATC service, speech recognition hears the call, an AI model understands it, the controller agent (an AI model) decides which ATC tool to use, the tool checks the request and writes the phraseology, and text to speech speaks it. Monitors watch every frame and start ATC's own calls through the same tools. The tools read the FAA's data. Each flight is written to a flight log that is reviewed afterwards.</desc>
+<defs>
+<marker id="xa-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 Z"/></marker>
+<marker id="xa-ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="ah2" d="M0,0 L10,5 L0,10 Z"/></marker>
+</defs>
+<rect class="g" x="20" y="60" width="270" height="420" rx="14"/>
+<text class="gt" x="36" y="84">Your PC</text>
+<rect class="g" x="470" y="60" width="570" height="510" rx="14"/>
+<text class="gt" x="486" y="84">The cloud</text>
+<rect class="b" x="40" y="110" width="230" height="70" rx="9"/>
+<text class="t" x="155" y="140" text-anchor="middle">X-Plane 12</text>
+<text class="u" x="155" y="160" text-anchor="middle">your aircraft, weather, traffic, scenery</text>
+<rect class="b hl" x="40" y="240" width="230" height="110" rx="9"/>
+<text class="t" x="155" y="278" text-anchor="middle">SeventyOneTen client</text>
+<text class="u" x="155" y="300" text-anchor="middle">push-to-talk, radios, the cards</text>
+<text class="u" x="155" y="316" text-anchor="middle">plays ATC through a radio effect</text>
+<rect class="b" x="40" y="404" width="230" height="56" rx="9"/>
+<text class="t" x="155" y="437" text-anchor="middle">Microphone and headset</text>
+<path class="a" d="M120,180 V238" marker-end="url(#xa-ah)"/>
+<text class="l" x="112" y="206" text-anchor="end">aircraft</text>
+<text class="l" x="112" y="220" text-anchor="end">state</text>
+<path class="a" d="M190,240 V182" marker-end="url(#xa-ah)"/>
+<text class="l" x="198" y="206">radio</text>
+<text class="l" x="198" y="220">tuning</text>
+<path class="a" d="M120,404 V352" marker-end="url(#xa-ah)"/>
+<text class="l" x="112" y="374" text-anchor="end">your</text>
+<text class="l" x="112" y="388" text-anchor="end">voice</text>
+<path class="a" d="M190,350 V402" marker-end="url(#xa-ah)"/>
+<text class="l" x="198" y="374">ATC</text>
+<text class="l" x="198" y="388">audio</text>
+<rect class="b" x="490" y="95" width="210" height="50" rx="9"/>
+<text class="t" x="595" y="117" text-anchor="middle">Sign-in service</text>
+<text class="u" x="595" y="134" text-anchor="middle">knows which pilot is flying</text>
+<path class="a" d="M270,252 H305 V120 H488" marker-end="url(#xa-ah)"/>
+<text class="l" x="318" y="112">sign in, in your browser</text>
+<path class="a2" d="M270,275 H488" marker-end="url(#xa-ah2)"/>
+<text class="l" x="318" y="180">aircraft state</text>
+<text class="l" x="318" y="196">your voice, while you</text>
+<text class="l" x="318" y="210">hold push-to-talk</text>
+<text class="l" x="318" y="226">answers about your</text>
+<text class="l" x="318" y="240">scenery, when asked</text>
+<text class="lk" x="380" y="299" text-anchor="middle">one encrypted connection per flight</text>
+<path class="a2" d="M490,320 H272" marker-end="url(#xa-ah2)"/>
+<text class="l" x="318" y="342">ATC's audio and text</text>
+<text class="l" x="318" y="358">the approach plan</text>
+<text class="l" x="318" y="374">parking, frequencies</text>
+<rect class="gw" x="490" y="175" width="530" height="270" rx="12"/>
+<text class="t" x="506" y="200">ATC service</text>
+<text class="u" x="596" y="200">one isolated session per flight</text>
+<rect class="b" x="505" y="215" width="92" height="64" rx="8"/>
+<text class="t" x="551" y="243" text-anchor="middle">Hear</text>
+<text class="u" x="551" y="261" text-anchor="middle">speech to text</text>
+<rect class="m" x="607" y="215" width="92" height="64" rx="8"/>
+<text class="t" x="653" y="243" text-anchor="middle">Understand</text>
+<text class="u" x="653" y="261" text-anchor="middle">reads the call</text>
+<rect class="m" x="709" y="215" width="92" height="64" rx="8"/>
+<text class="t" x="755" y="243" text-anchor="middle">Decide</text>
+<text class="u" x="755" y="261" text-anchor="middle">picks a tool</text>
+<rect class="b" x="811" y="215" width="92" height="64" rx="8"/>
+<text class="t" x="857" y="243" text-anchor="middle">ATC tools</text>
+<text class="u" x="857" y="261" text-anchor="middle">check, phrase</text>
+<rect class="b" x="913" y="215" width="92" height="64" rx="8"/>
+<text class="t" x="959" y="243" text-anchor="middle">Speak</text>
+<text class="u" x="959" y="261" text-anchor="middle">text to speech</text>
+<path class="a" d="M597,247 H605" marker-end="url(#xa-ah)"/>
+<path class="a" d="M699,247 H707" marker-end="url(#xa-ah)"/>
+<path class="a" d="M801,247 H809" marker-end="url(#xa-ah)"/>
+<path class="a" d="M903,247 H911" marker-end="url(#xa-ah)"/>
+<rect class="b" x="505" y="335" width="194" height="60" rx="8"/>
+<text class="t" x="602" y="361" text-anchor="middle">Monitors</text>
+<text class="u" x="602" y="379" text-anchor="middle">watch every frame, call you first</text>
+<path class="a" d="M699,365 H835 V281" marker-end="url(#xa-ah)"/>
+<text class="u" x="712" y="357">ATC's own calls</text>
+<text class="u" x="507" y="417">A readback is judged by the AI model, item by item;</text>
+<text class="u" x="507" y="431">code checks every quote against what you said.</text>
+<rect class="s" x="640" y="475" width="250" height="70" rx="9"/>
+<text class="t" x="765" y="504" text-anchor="middle">The FAA's data</text>
+<text class="u" x="765" y="524" text-anchor="middle">procedures, frequencies, airspace, altitudes</text>
+<path class="a" d="M875,475 V281" marker-end="url(#xa-ah)"/>
+<rect class="s" x="910" y="475" width="110" height="70" rx="9"/>
+<text class="t" x="965" y="504" text-anchor="middle">Flight log</text>
+<text class="u" x="965" y="524" text-anchor="middle">reviewed after</text>
+<path class="a" d="M965,445 V473" marker-end="url(#xa-ah)"/>
+<rect class="m" x="24" y="508" width="26" height="16" rx="4"/>
+<text class="u" x="58" y="520">an AI model</text>
+<rect class="b" x="24" y="532" width="26" height="16" rx="4"/>
+<text class="u" x="58" y="544">plain code: it checks, and it writes ATC's words</text>
+<rect class="s" x="24" y="556" width="26" height="16" rx="4"/>
+<text class="u" x="58" y="568">data</text>
+</svg>
+<figcaption>How the parts work together. The AI model understands and chooses; plain code checks the request and writes what ATC says.</figcaption>
+</figure>
+
+<h2 id="one-radio-call">One radio call<a class="headerlink" href="#one-radio-call" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>You key the mic.</strong> The client streams your audio while push-to-talk is held, beside a frame of aircraft state about once a second.</li>
+<li><strong>Speech recognition</strong> turns the audio into text. It is tuned for aviation phraseology, and with the <strong>Scribe</strong> choice in Settings it is also given the names from your flight (callsign, cities, procedures, route fixes).</li>
+<li><strong>Plain code checks the basics</strong>: is a controller on that frequency, and did your callsign come through.</li>
+<li><strong>An AI model reads the call.</strong> Is it a readback of what ATC just said, a request, or both?</li>
+<li><strong>A readback is judged</strong> item by item, quoting your own words. Code refuses any quote that is not in the transcript, then decides: accept in silence, correct one item, or ask once for a safety item.</li>
+<li><strong>A request goes to the controller agent</strong>, an AI model that plays the position you called. Its job is to pick the right <strong>tool</strong> for what you asked: issue a taxi clearance, assign an altitude, clear an approach.</li>
+<li><strong>The tool does the controlling.</strong> It checks the request against the FAA's data, your scenery and the state of your flight, writes the exact phraseology, and refuses in fixed words when the data says no.</li>
+<li><strong>Text to speech</strong> speaks it, the client adds the radio effect (the optional radio voices already sound like a radio, so they get only the key-up click), and you hear it if a radio that is on and selected to listen is tuned to that frequency. A call you could not hear is said again once when the radio can hear it, within about a minute.</li>
+</ol>
+<p>Meanwhile <strong>monitors</strong> watch every frame of your aircraft's state and start ATC's own calls: handoffs, readback reminders, an altitude that drifted, traffic.</p>
+<h2 id="where-the-ai-is-and-where-it-is-not">Where the AI is, and where it is not<a class="headerlink" href="#where-the-ai-is-and-where-it-is-not" title="Permanent link">&para;</a></h2>
+<p>The AI model understands what you said and chooses what kind of thing a controller would do next. It does not invent the clearance.</p>
+<table>
+<thead>
+<tr>
+<th>The model does</th>
+<th>Code does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classifies your transmission</td>
+<td>Decides whether a controller is listening on that frequency</td>
+</tr>
+<tr>
+<td>Judges a readback against what was said</td>
+<td>Checks that every quoted word was really in your transmission</td>
+</tr>
+<tr>
+<td>Picks the tool for your request</td>
+<td>Checks the request against the data: runways, procedures, minimum altitudes, traffic</td>
+</tr>
+<tr>
+<td></td>
+<td>Writes the words ATC speaks, in standard phraseology</td>
+</tr>
+<tr>
+<td></td>
+<td>Watches your flight and starts ATC's own calls</td>
+</tr>
+</tbody>
+</table>
+<p>A model can still pick the wrong tool. When it does, the tool refuses rather than issue something the data does not support, and the cost is a retry or an "unable", not a wrong clearance. When no tool fits, ATC says "unable, I have not completed that training".</p>
+<h2 id="the-data">The data<a class="headerlink" href="#the-data" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The FAA's published data</strong>, updated every 28-day cycle: procedures (SIDs, STARs, approaches), fixes and airways, facility frequencies and hours, airspace boundaries, minimum vectoring and minimum IFR altitudes.</li>
+<li><strong>Your X-Plane</strong>, asked when needed: taxiways, stands and runway use. The weather and traffic around you are sent continuously. See <a href="../client/xplane-data/">Your X-Plane's data</a>.</li>
+</ul>
+<h2 id="one-session-per-flight">One session per flight<a class="headerlink" href="#one-session-per-flight" title="Permanent link">&para;</a></h2>
+<p>Each flight gets its own isolated session in the cloud, which keeps the flight's state: your clearance, where you are in the flight, what you still owe a readback for. It survives a reconnect (a transmission lost in a dropped connection is sent again once), and it stops when the flight ends.</p>
+<h2 id="why-it-takes-a-moment-to-answer">Why it takes a moment to answer<a class="headerlink" href="#why-it-takes-a-moment-to-answer" title="Permanent link">&para;</a></h2>
+<p>Each reply involves speech recognition, two or three model calls (a router for every call, a judge for a readback, the controller agent for a request), and speech synthesis. Expect a few seconds from releasing push-to-talk to the first word. The log's <strong>Timing</strong> line shows each step.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../troubleshooting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Troubleshooting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Troubleshooting
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
