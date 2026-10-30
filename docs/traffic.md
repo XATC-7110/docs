@@ -29,8 +29,8 @@ The window tells you when something is missing. A line under the header says so 
 
 - **Traffic is off: the SeventyOneTen traffic plugin isn't answering in X-Plane.** The plugin is not installed, or X-Plane was not restarted after you installed it.
 - **Bluebell CSL not found: traffic is off.** Bluebell is not in the folder above.
-- **No traffic on this flight: ATC doesn't offer traffic yet.** ATC is not offering traffic on this flight, so it goes on without any. This is not a fault in your setup.
-- **No traffic on this flight: there is no traffic at these airports yet.** The airports of this flight have no traffic yet. Not every airport does.
+- **No traffic on this flight: ATC doesn't offer traffic yet.** ATC is not offering traffic on this flight, so the flight goes on without any.
+- **No traffic on this flight: there is no traffic at these airports yet.** The airports of this flight have no traffic yet, so the flight goes on without any.
 - Another plugin holds X-Plane's AI aircraft: the line names it. Only one can have them at a time, so the traffic yields, for example when you connect to an online network.
 - **Traffic is paused while X-Plane is in a menu. It comes back when X-Plane runs again.** This is not a fault. It appears when X-Plane is paused or on its Flight Configuration screen.
 
