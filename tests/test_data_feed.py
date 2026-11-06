@@ -1,0 +1,537 @@
+"""SOT-212: tests of scripts/data_feed.py (the generated limitations block, the gaps page, the stored summary)
+and of the workflow that runs it. Run: python -m unittest discover -s tests -v"""
+import copy
+import importlib.util
+import json
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "scripts"))
+import data_feed  # noqa: E402
+
+SUMMARY = {
+    "format": 1, "generated": "2026-11-07", "release": "2611r4", "cycle": "2611", "effective": "2026-11-05",
+    "approaches": {"published": 12000, "coded_by_faa": 11500, "built_by_us": 70, "missing": 430,
+                   "missing_by_reason": [{"reason": "no usable form", "count": 300},
+                                         {"reason": "not an ILS or LOC", "count": 130}]},
+    "airports": {"total": 3000, "all_available": 2500, "some_missing": 400, "runway_without_approach": 60,
+                 "circling_only_missing": 40},
+    "lists": {"runway_without_approach": [{"id": "KABC", "name": "Example Field", "runways": ["33"],
+                                           "missing": ["ILS RWY 33"]}],
+              "circling_only_missing": [{"id": "KGHI", "name": "Third Field", "runways": ["18"],
+                                         "missing": ["VOR-A"]}],
+              "some_missing": [{"id": "KDEF", "name": "Other Field", "runways": ["06"], "missing": ["VOR RWY 06"]}]},
+    "fixes": {"total": 32502, "confirmed": 5, "lexicon_version": 12, "lexicon_generated": "2026-11-05"},
+}
+
+
+def later():
+    """The next cycle: two airports new, one fixed (on no list now), two changed (one moved lists), fewer
+    missing approaches, more fixes confirmed."""
+    s = copy.deepcopy(SUMMARY)
+    s.update(generated="2026-12-04", release="2612r1", cycle="2612", effective="2026-12-03")
+    s["approaches"].update(missing=410, coded_by_faa=11520)
+    s["approaches"]["missing_by_reason"][0]["count"] = 285
+    s["airports"].update(all_available=2505, some_missing=395)
+    s["lists"]["runway_without_approach"] = [{"id": "KNEW", "name": "New Field", "runways": ["09"],
+                                              "missing": ["ILS RWY 09"]}]
+    s["lists"]["circling_only_missing"] = [{"id": "KJKL", "name": "Fourth Field", "runways": ["27"],
+                                            "missing": ["RNAV-B"]}]
+    s["lists"]["some_missing"] = [{"id": "KDEF", "name": "Other Field", "runways": ["06", "24"],
+                                   "missing": ["VOR RWY 06"]},
+                                  {"id": "KGHI", "name": "Third Field", "runways": ["18"], "missing": ["VOR-A"]}]
+    s["fixes"]["confirmed"] = 9
+    return s
+
+
+def airports(n, prefix="K"):
+    return [{"id": f"{prefix}{i:03d}", "name": f"Field {i}", "runways": ["01"], "missing": ["ILS RWY 01"]}
+            for i in range(n)]
+
+
+class FeedCase(unittest.TestCase):
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.root = Path(tmp.name)
+        (self.root / "scripts/templates").mkdir(parents=True)
+        (self.root / "docs").mkdir()
+        shutil.copy(REPO / "scripts/templates/data-feed.md.tmpl", self.root / "scripts/templates")
+        shutil.copy(REPO / "docs/known-limitations.md", self.root / "docs")
+        shutil.copy(REPO / "docs/data-gaps.md", self.root / "docs")
+
+    def feed(self, summary):
+        return data_feed.run(json.dumps(summary), self.root)
+
+    def read(self, rel):
+        return (self.root / rel).read_text(encoding="utf-8")
+
+    def files(self):
+        return {rel: self.read(rel) for rel in ("docs/known-limitations.md", "docs/data-gaps.md",
+                                                 "docs/_generated/data-feed.json")}
+
+    def block(self):
+        text = self.read("docs/known-limitations.md")
+        return text[text.index(data_feed.MARK_BEGIN):text.index(data_feed.MARK_END)]
+
+
+class RenderTests(FeedCase):
+    def test_a_valid_summary_renders_the_block_the_page_and_the_stored_file(self):
+        self.feed(SUMMARY)
+        block = self.block()
+        self.assertIn("## Where the FAA data has gaps", block)
+        self.assertIn("FAA cycle 2611, effective 2026-11-05, and was made on 2026-11-07", block)
+        self.assertIn("12,000 instrument approaches", block)
+        self.assertIn("11,500 of them come coded by the FAA", block)
+        self.assertIn("built 70 more", block)
+        self.assertIn("430 are missing", block)
+        self.assertIn("- no usable form: 300", block)
+        self.assertIn("5 of 32,502 fix names are confirmed (lexicon version 12, 2026-11-05)", block)
+        self.assertIn("(data-gaps.md)", block)
+        self.assertNotIn("first summary", block)
+        self.assertNotIn("What changed", block)
+        page = self.read("docs/data-gaps.md")
+        self.assertTrue(page.startswith("<!-- Generated by scripts/data_feed.py; edit the template, not this file -->\n"))
+        self.assertIn("| KABC | Example Field | 33 | ILS RWY 33 |", page)
+        self.assertIn("| KDEF | Other Field | 06 | VOR RWY 06 |", page)
+        self.assertIn("| KGHI | Third Field | 18 | VOR-A |", page)
+        self.assertIn("## Airports with only circling approaches missing", page)
+        stored = json.loads(self.read("docs/_generated/data-feed.json"))
+        self.assertEqual(stored["summary"], SUMMARY)
+        self.assertIsNone(stored["compared_with"])
+
+    def test_the_generated_block_says_it_is_generated(self):
+        self.feed(SUMMARY)
+        self.assertIn(data_feed.GENERATED_NOTE, self.block())
+
+    def test_the_same_input_twice_gives_byte_identical_files(self):
+        self.feed(SUMMARY)
+        first = self.files()
+        self.feed(SUMMARY)
+        self.assertEqual(self.files(), first)
+
+    def test_the_same_second_input_twice_is_identical_and_keeps_its_marks(self):
+        self.feed(SUMMARY)
+        self.feed(later())
+        first = self.files()
+        self.feed(later())
+        self.assertEqual(self.files(), first)
+        self.assertIn("new since 2611", first["docs/data-gaps.md"])
+
+    def test_marked_changes_between_two_summaries(self):
+        self.feed(SUMMARY)
+        out = self.feed(later())
+        block, page = self.block(), self.read("docs/data-gaps.md")
+        self.assertIn("| KNEW | New Field | 09 | ILS RWY 09 | new since 2611 |", page)
+        self.assertIn("| KDEF | Other Field | 06, 24 | VOR RWY 06 | changed since 2611 |", page)
+        self.assertIn("| KJKL | Fourth Field | 27 | RNAV-B | new since 2611 |", page)
+        # KGHI moved from the circling-only list to the others: changed, not fixed
+        self.assertIn("| KGHI | Third Field | 18 | VOR-A | changed since 2611 |", page)
+        self.assertNotIn("fixed since 2611 (only circling", page)
+        self.assertIn("## No longer on the lists", page)
+        self.assertIn("| KABC | Example Field | fixed since 2611 (a runway had no approach) |", page)
+        self.assertIn("What changed since 2611: 2 airports newly listed, 1 airport fixed, 2 airports changed, "
+                      "and 4 more fix names confirmed.", block)
+        self.assertIn("410 (down 20 since 2611) are missing", block)
+        self.assertIn("- no usable form: 285 (down 15 since 2611)", block)
+        self.assertIn("Fixed airports (1): KABC", out["changes"])
+        self.assertIn("Changed airports (2): KDEF, KGHI", out["changes"])
+        self.assertIn("Newly listed airports (2): KJKL, KNEW", out["changes"])
+        stored = json.loads(self.read("docs/_generated/data-feed.json"))
+        self.assertEqual(stored["compared_with"], SUMMARY)
+
+    def test_the_airports_wording_is_pinned(self):
+        self.feed(SUMMARY)
+        self.assertIn(
+            "Of 3,000 airports, 2,500 have every approach SeventyOneTen could find. 500 airports are missing at "
+            "least one approach: 60 where a runway has no approach, 40 where ATC has no approach at all in its data "
+            "and only circling approaches are missing, and 400 others.", self.block())
+        self.assertIn("built 70 more from the FAA's own approach forms", self.block())
+        self.assertNotIn("plates", self.block())
+
+    def test_the_airports_change_counts_the_three_kinds_together(self):
+        self.feed(SUMMARY)
+        self.feed(later())    # 395 + 60 + 40 = 495 against 500
+        self.assertIn("(5 fewer airports are missing an approach than at 2611.)", self.block())
+
+    def test_a_bare_cycle_is_a_release(self):
+        s = copy.deepcopy(SUMMARY)
+        s["release"] = "2611"
+        self.feed(s)
+
+    def test_an_unchanged_list_has_no_change_column(self):
+        self.feed(SUMMARY)
+        again = copy.deepcopy(SUMMARY)
+        again["generated"] = "2026-11-08"
+        again["release"] = "2611r5"
+        self.feed(again)
+        page = self.read("docs/data-gaps.md")
+        self.assertNotIn("| Change |", page)
+        self.assertIn("nothing on the lists or in the confirmed fix names has changed since 2611r4", page)
+
+    def test_the_list_is_capped_at_500_rows_with_and_n_more(self):
+        s = copy.deepcopy(SUMMARY)
+        s["lists"]["some_missing"] = airports(512)
+        self.feed(s)
+        page = self.read("docs/data-gaps.md")
+        self.assertEqual(len(re.findall(r"(?m)^\| K\d{3} \|", page)), 500)
+        self.assertIn("and 12 more not shown here.", page)
+        self.assertNotIn("K511", page)
+
+    def test_marked_rows_come_first_when_the_list_is_capped(self):
+        old = copy.deepcopy(SUMMARY)
+        old["lists"]["some_missing"] = airports(510)
+        self.feed(old)
+        new = copy.deepcopy(old)
+        new.update(generated="2026-12-04", cycle="2612", release="2612r1")
+        new["lists"]["some_missing"] = airports(510) + [{"id": "KZZZ", "name": "Z", "runways": ["01"], "missing": ["X"]}]
+        self.feed(new)
+        page = self.read("docs/data-gaps.md")
+        self.assertIn("| KZZZ | Z | 01 | X | new since 2611 |", page)
+
+    def test_table_cells_are_escaped(self):
+        s = copy.deepcopy(SUMMARY)
+        s["lists"]["some_missing"][0]["name"] = "Smith & Co #2 (East)"
+        self.feed(s)
+        row = [l for l in self.read("docs/data-gaps.md").split("\n") if l.startswith("| KDEF")][0]
+        self.assertEqual(len(re.findall(r"(?<!\\)\|", row)), 5)
+        self.assertIn(r"Smith &amp; Co \#2 (East)", row)
+
+    def test_the_generated_text_holds_none_of_the_words_the_site_never_uses(self):
+        self.feed(SUMMARY)
+        self.feed(later())
+        generated = self.block() + self.read("docs/data-gaps.md")
+        for word in data_feed.NOT_PILOT_WORDS + data_feed.THIRD_PARTY:
+            self.assertNotIn(word, generated.lower())
+        self.assertIsNone(data_feed.forbidden_in(generated))
+        self.assertNotIn("log in", generated.lower())
+        for found in re.finditer(r"seventy[\s-]?one[\s-]?ten", generated, re.I):
+            self.assertEqual(found.group(0), "SeventyOneTen")
+
+    def test_a_template_with_a_forbidden_word_is_refused(self):
+        path = self.root / "scripts/templates/data-feed.md.tmpl"
+        path.write_text(path.read_text(encoding="utf-8").replace("the FAA's data has gaps.", "the gateway has gaps.", 1),
+                        encoding="utf-8")
+        before = self.read("docs/known-limitations.md")
+        with self.assertRaises(data_feed.SummaryError):
+            self.feed(SUMMARY)
+        self.assertEqual(self.read("docs/known-limitations.md"), before)
+
+
+class OrderTests(FeedCase):
+    def test_a_summary_older_than_the_stored_one_is_refused_unless_forced(self):
+        self.feed(later())
+        before = self.files()
+        with self.assertRaises(data_feed.SummaryError) as ctx:
+            self.feed(SUMMARY)
+        self.assertIn("older than the stored", str(ctx.exception))
+        self.assertEqual(self.files(), before)
+        data_feed.run(json.dumps(SUMMARY), self.root, force=True)
+        self.assertEqual(json.loads(self.read("docs/_generated/data-feed.json"))["summary"], SUMMARY)
+
+    def test_the_same_effective_date_is_accepted(self):
+        self.feed(SUMMARY)
+        again = copy.deepcopy(SUMMARY)
+        again["release"] = "2611r5"
+        self.feed(again)
+
+    def test_the_command_line_has_a_force_flag(self):
+        self.feed(later())
+        path = self.root / "old.json"
+        path.write_text(json.dumps(SUMMARY), encoding="utf-8")
+        cli = [sys.executable, str(REPO / "scripts/data_feed.py"), str(path), "--root", str(self.root)]
+        self.assertEqual(subprocess.run(cli, capture_output=True, text=True).returncode, 1)
+        self.assertEqual(subprocess.run(cli + ["--force"], capture_output=True, text=True).returncode, 0)
+
+
+class MarkerTests(FeedCase):
+    def test_the_page_outside_the_markers_is_untouched_and_the_markers_stay(self):
+        before = self.read("docs/known-limitations.md")
+        head, tail = before.split(data_feed.MARK_BEGIN)[0], before.split(data_feed.MARK_END)[1]
+        self.feed(SUMMARY)
+        self.feed(later())
+        after = self.read("docs/known-limitations.md")
+        self.assertTrue(after.startswith(head + data_feed.MARK_BEGIN))
+        self.assertTrue(after.endswith(data_feed.MARK_END + tail))
+        self.assertEqual(after.count(data_feed.MARK_BEGIN), 1)
+        self.assertEqual(after.count(data_feed.MARK_END), 1)
+
+    def test_a_page_without_the_markers_is_refused_and_nothing_is_written(self):
+        path = self.root / "docs/known-limitations.md"
+        path.write_text(path.read_text(encoding="utf-8").replace(data_feed.MARK_END, ""), encoding="utf-8")
+        gaps = self.read("docs/data-gaps.md")
+        with self.assertRaises(data_feed.SummaryError):
+            self.feed(SUMMARY)
+        self.assertEqual(self.read("docs/data-gaps.md"), gaps)
+        self.assertFalse((self.root / "docs/_generated").exists())
+
+
+class RefusalTests(FeedCase):
+    def refused(self, summary, *needles):
+        before = {p: (self.root / p).read_bytes() for p in ("docs/known-limitations.md", "docs/data-gaps.md")}
+        text = summary if isinstance(summary, str) else json.dumps(summary)
+        with self.assertRaises(data_feed.SummaryError) as ctx:
+            data_feed.run(text, self.root)
+        message = "; ".join(ctx.exception.problems)
+        for needle in needles:
+            self.assertIn(needle, message)
+        for p, data in before.items():
+            self.assertEqual((self.root / p).read_bytes(), data)
+        self.assertFalse((self.root / "docs/_generated").exists())
+
+    def test_third_party_names_are_refused_in_any_string_whatever_the_case(self):
+        first, boundaries = data_feed.THIRD_PARTY[0], data_feed.THIRD_PARTY[2]
+        for where in ("name", "missing"):
+            s = copy.deepcopy(SUMMARY)
+            value = f"{first.capitalize()} airspace" if where == "name" else [f"from {boundaries.upper()}"]
+            s["lists"]["some_missing"][0][where] = value
+            self.refused(s, "must not be on this site")
+        s = copy.deepcopy(SUMMARY)
+        s["approaches"]["missing_by_reason"][0]["reason"] = f"not in {boundaries.upper()}"
+        self.refused(s, "must not be on this site")
+
+    def test_the_check_sees_through_width_spacing_and_case_tricks(self):
+        first = data_feed.THIRD_PARTY[0]
+        fullwidth = "".join(chr(ord(c) + 0xFEE0) for c in first)
+        for text in (first.upper(), fullwidth, first[:3] + " " + first[3:], first[:3] + "-" + first[3:],
+                     "amazon", "an aws form", "an s3 file"):
+            with self.subTest(text=text):
+                self.assertIsNotNone(data_feed.forbidden_in(text, pilot_words=False))
+        self.assertIsNone(data_feed.forbidden_in("Civil Aviation Field", pilot_words=False))
+
+    def test_pilot_forbidden_words_and_cloud_names_are_refused_in_reasons(self):
+        for word in ("the gateway cannot", "xatc form", "no training form", "an aws form", "an s3 file"):
+            s = copy.deepcopy(SUMMARY)
+            s["approaches"]["missing_by_reason"][0]["reason"] = word
+            self.refused(s, "must not be on this site")
+
+    def test_a_real_name_that_holds_a_pilot_word_passes_and_is_published(self):
+        s = copy.deepcopy(SUMMARY)
+        s["lists"]["some_missing"][0]["name"] = "PHOENIX-MESA GATEWAY"
+        s["lists"]["some_missing"][0]["missing"] = ["VOR TRAINING RWY 06"]
+        self.feed(s)
+        self.assertIn("| KDEF | PHOENIX-MESA GATEWAY | 06 | VOR TRAINING RWY 06 |", self.read("docs/data-gaps.md"))
+
+    def test_text_fields_may_hold_only_the_listed_characters(self):
+        for bad in ("Field_One", "Field [x](y)", "Field {.big}", "Field :smile:", "Field \U0001F600", "Field <b>",
+                    "Field | x", "Field `x`", "Field *x*", "Field ~x~", "Fi\u00e9ld"):
+            for where in ("name", "reason", "missing", "runways"):
+                s = copy.deepcopy(SUMMARY)
+                if where == "name":
+                    s["lists"]["some_missing"][0]["name"] = bad
+                elif where == "reason":
+                    s["approaches"]["missing_by_reason"][0]["reason"] = bad
+                else:
+                    s["lists"]["some_missing"][0][where] = [bad]
+                with self.subTest(bad=bad, where=where):
+                    self.refused(s, "not in the expected form")
+        s = copy.deepcopy(SUMMARY)
+        s["lists"]["some_missing"][0]["name"] = "St. John's-Field/Airpark (East) #2, A+B & Co"
+        self.feed(s)
+
+    def test_bad_types_are_refused(self):
+        def mutate(fn):
+            s = copy.deepcopy(SUMMARY)
+            fn(s)
+            return s
+        cases = [
+            mutate(lambda s: s["approaches"].update(missing="430")),
+            mutate(lambda s: s["approaches"].update(missing=430.0)),
+            mutate(lambda s: s["approaches"].update(missing=True)),
+            mutate(lambda s: s["approaches"].update(missing=-1)),
+            mutate(lambda s: s["airports"].update(total=None)),
+            mutate(lambda s: s["fixes"].update(lexicon_version="12")),
+            mutate(lambda s: s["approaches"]["missing_by_reason"][0].update(count="300")),
+            mutate(lambda s: s["approaches"]["missing_by_reason"][0].update(reason=5)),
+            mutate(lambda s: s["lists"].update(some_missing={"id": "KDEF"})),
+            mutate(lambda s: s["lists"]["some_missing"][0].update(runways="06")),
+            mutate(lambda s: s["lists"]["some_missing"][0].update(id="kdef")),
+            mutate(lambda s: s["lists"]["some_missing"][0].update(name="Two\nlines")),
+            mutate(lambda s: s["lists"]["some_missing"][0].update(name="")),
+            mutate(lambda s: s.update(format=2)),
+            mutate(lambda s: s.update(format="1")),
+            mutate(lambda s: s.update(generated="2026-13-45")),
+            mutate(lambda s: s.update(effective="yesterday")),
+            mutate(lambda s: s.update(cycle="26")),
+            mutate(lambda s: s["fixes"].update(confirmed=40000)),
+            mutate(lambda s: s["airports"].update(total=2999)),
+            mutate(lambda s: s["airports"].update(all_available=2501)),
+            mutate(lambda s: s["approaches"].update(published=12001)),
+            mutate(lambda s: s["approaches"].update(missing=429)),
+            mutate(lambda s: s.update(release="2611r1234")),
+            mutate(lambda s: s.update(release="2612r1")),
+            mutate(lambda s: s.update(release="26111")),
+            mutate(lambda s: s.update(release="2611r")),
+            mutate(lambda s: s["lists"].pop("circling_only_missing")),
+            mutate(lambda s: s["lists"]["some_missing"].append(copy.deepcopy(s["lists"]["some_missing"][0]))),
+            "[]", "not json", "null",
+        ]
+        for case in cases:
+            with self.subTest(case=str(case)[:80]):
+                self.refused(case)
+
+    def test_unknown_and_missing_keys_are_refused(self):
+        s = copy.deepcopy(SUMMARY)
+        s["extra"] = 1
+        self.refused(s, "unknown key 'extra'")
+        s = copy.deepcopy(SUMMARY)
+        s["approaches"]["extra_count"] = 1
+        self.refused(s, "unknown key 'extra_count'")
+        s = copy.deepcopy(SUMMARY)
+        s["lists"]["some_missing"][0]["notes"] = "x"
+        self.refused(s, "unknown key 'notes'")
+        s = copy.deepcopy(SUMMARY)
+        del s["fixes"]
+        self.refused(s, "missing key 'fixes'")
+
+    def test_a_summary_over_the_limit_is_refused(self):
+        self.refused(" " * (data_feed.MAX_CHARS + 1) + "{}", "the limit is 60000")
+
+    def test_a_damaged_stored_file_is_refused(self):
+        (self.root / "docs/_generated").mkdir()
+        (self.root / "docs/_generated/data-feed.json").write_text("{}", encoding="utf-8")
+        with self.assertRaises(data_feed.SummaryError):
+            self.feed(SUMMARY)
+
+
+class CommandLineTests(FeedCase):
+    def run_cli(self, summary):
+        path = self.root / "summary.json"
+        path.write_text(summary if isinstance(summary, str) else json.dumps(summary), encoding="utf-8")
+        return subprocess.run([sys.executable, str(REPO / "scripts/data_feed.py"), str(path), "--root", str(self.root),
+                               "--changes-file", str(self.root / "changes.md"),
+                               "--github-output", str(self.root / "out.txt")],
+                              capture_output=True, text=True)
+
+    def test_a_good_summary_exits_zero_and_writes_the_outputs(self):
+        done = self.run_cli(SUMMARY)
+        self.assertEqual(done.returncode, 0, done.stderr)
+        self.assertEqual(self.read("out.txt"), "cycle=2611\nrelease=2611r4\n")
+        self.assertIn("first summary", self.read("changes.md"))    # for the pull request, not for pilots
+
+    def test_a_bad_summary_exits_one_and_says_why(self):
+        bad = copy.deepcopy(SUMMARY)
+        bad["lists"]["some_missing"][0]["name"] = data_feed.THIRD_PARTY[0]
+        done = self.run_cli(bad)
+        self.assertEqual(done.returncode, 1)
+        self.assertIn("nothing was written", done.stderr)
+        self.assertFalse((self.root / "out.txt").exists())
+
+
+class RepositoryTests(unittest.TestCase):
+    def test_the_committed_pages_are_what_the_script_makes_from_the_stored_summary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for rel in ("scripts/templates", "docs"):
+                shutil.copytree(REPO / rel, root / rel, ignore=shutil.ignore_patterns("*.pyc", "__pycache__"))
+            data_feed.run(None, root)
+            for rel in ("docs/known-limitations.md", "docs/data-gaps.md"):
+                self.assertEqual((root / rel).read_text(encoding="utf-8"), (REPO / rel).read_text(encoding="utf-8"), rel)
+            stored = REPO / "docs/_generated/data-feed.json"
+            if stored.exists():
+                self.assertEqual((root / "docs/_generated/data-feed.json").read_text(encoding="utf-8"),
+                                 stored.read_text(encoding="utf-8"))
+
+    def test_the_known_limitations_page_has_one_pair_of_markers(self):
+        text = (REPO / "docs/known-limitations.md").read_text(encoding="utf-8")
+        self.assertEqual(text.count(data_feed.MARK_BEGIN), 1)
+        self.assertEqual(text.count(data_feed.MARK_END), 1)
+
+    def test_the_gaps_page_is_in_the_nav(self):
+        self.assertIn("data-gaps.md", (REPO / "mkdocs.yml").read_text(encoding="utf-8"))
+
+    @unittest.skipUnless(importlib.util.find_spec("mkdocs"), "mkdocs is not installed")
+    def test_the_strict_build_passes_with_a_full_feed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "repo"
+            for rel in ("scripts/templates", "docs"):
+                shutil.copytree(REPO / rel, root / rel, ignore=shutil.ignore_patterns("*.pyc", "__pycache__"))
+            shutil.copy(REPO / "mkdocs.yml", root / "mkdocs.yml")
+            first = copy.deepcopy(SUMMARY)
+            first["lists"]["some_missing"] = airports(520)
+            data_feed.run(json.dumps(first), root)
+            data_feed.run(json.dumps(later()), root)
+            done = subprocess.run([sys.executable, "-m", "mkdocs", "build", "--strict", "-d", str(Path(tmp) / "site")],
+                                  cwd=root, capture_output=True, text=True)
+            self.assertEqual(done.returncode, 0, done.stdout + done.stderr)
+            self.assertTrue((Path(tmp) / "site/data-gaps/index.html").exists())
+            self.assertFalse((Path(tmp) / "site/_generated").exists())
+
+
+class WorkflowTests(unittest.TestCase):
+    text = (REPO / ".github/workflows/data-feed.yml").read_text(encoding="utf-8")
+
+    def steps(self):
+        """{step name: its text} for the steps that have a name."""
+        found = {}
+        for step in re.split(r"(?m)^      - ", self.text)[1:]:
+            m = re.match(r"name: (.+)", step)
+            if m:
+                found[m.group(1)] = step
+        return found
+
+    def test_the_summary_reaches_the_shell_only_through_the_write_steps_environment(self):
+        lines = [l for l in self.text.split("\n") if "inputs.summary" in l and not l.lstrip().startswith("#")]
+        self.assertEqual([l.strip() for l in lines], ["SUMMARY: ${{ inputs.summary }}"])
+        self.assertIn("SUMMARY: ${{ inputs.summary }}", self.steps()["Write the summary to a file"])
+        self.assertNotIn("SUMMARY", self.text.split("jobs:")[1].split("      - name: Write the summary")[0])
+
+    def test_the_token_is_in_the_pull_request_steps_environment_only(self):
+        self.assertEqual(self.text.count("GH_TOKEN"), 1)
+        self.assertIn("GH_TOKEN: ${{ github.token }}", self.steps()["Open the pull request"])
+
+    def test_no_expression_is_written_inside_a_command(self):
+        # Every ${{ }} sits on an environment line (NAME: ${{ ... }}); commands read $NAME.
+        for n, line in enumerate(self.text.split("\n"), 1):
+            if "${{" in line:
+                self.assertRegex(line, r"^\s+[A-Z_]+: \$\{\{ [a-z_.]+ \}\}$", f"line {n}: {line}")
+
+    def test_it_starts_by_hand_with_one_input_and_runs_on_a_github_hosted_runner(self):
+        self.assertRegex(self.text, r"(?ms)^on:\n  workflow_dispatch:\n    inputs:\n      summary:\n")
+        self.assertEqual(len(re.findall(r"(?m)^      \w+:$", self.text.split("jobs:")[0])), 1)
+        self.assertIn("runs-on: ubuntu-latest", self.text)
+        self.assertNotIn("self-hosted", self.text)
+
+    def test_only_the_job_may_write(self):
+        top = self.text.split("jobs:")[0]
+        self.assertRegex(top, r"(?m)^permissions:\n  contents: read\n")
+        self.assertNotIn("write", top.split("concurrency:")[0].split("permissions:")[1])
+        job = self.text.split("jobs:")[1].split("    steps:")[0]
+        for permission in ("contents: write", "pull-requests: write", "actions: write"):
+            self.assertIn(permission, job)
+
+    def test_it_starts_the_docs_checks_and_never_the_release_workflow(self):
+        dispatches = re.findall(r"(?m)^\s+gh workflow run (\S+)", self.text)
+        self.assertEqual(dispatches, ["docs.yml"])
+        self.assertNotIn("docs-release", self.text)
+        self.assertIn("workflow_dispatch:", (REPO / ".github/workflows/docs.yml").read_text(encoding="utf-8"))
+
+    def test_the_branch_is_fixed_and_an_open_pull_request_is_reused(self):
+        step = self.steps()["Open the pull request"]
+        self.assertIn('BRANCH="data-feed"', step)
+        self.assertIn("git push --force-with-lease origin", step)
+        self.assertNotIn("git push origin \"$BRANCH\"", step)
+        self.assertIn("gh pr list --head", step)
+        self.assertIn("gh pr edit", step)
+        self.assertIn("gh pr create", step)
+
+    def test_a_failed_pull_request_deletes_the_branch_and_names_the_setting(self):
+        step = self.steps()["Open the pull request"]
+        self.assertIn('git push origin --delete "$BRANCH"', step)
+        self.assertIn("Allow GitHub Actions to create pull requests", step)
+
+    def test_the_pull_request_body_ends_with_the_claude_code_line(self):
+        self.assertIn("🤖 Generated with [Claude Code](https://claude.com/claude-code)", self.text)
+
+    def test_the_concurrency_comment_tells_the_truth(self):
+        self.assertIn("a third cancels the second", re.sub(r"\s*\n#\s*", " ", self.text))
+
+
+if __name__ == "__main__":
+    unittest.main()

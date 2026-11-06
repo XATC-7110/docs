@@ -2,3 +2,4 @@ site/
 .venv/
 # The release skill's default notes path: never commit it
 docs/pending-release-*.md
+__pycache__/

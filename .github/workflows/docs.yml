@@ -6,6 +6,8 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Started by data-feed.yml on the data-feed branch: a push made with the workflow token starts no workflow.
+  workflow_dispatch:
 
 concurrency:
   group: docs-${{ github.workflow }}-${{ github.ref }}

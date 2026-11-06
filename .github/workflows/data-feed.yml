@@ -1,0 +1,124 @@
+# The data feed (SOT-212): the data tool, or a person, starts this with a summary of the live FAA release
+# (format 1, see scripts/data_feed.py). It writes the generated limitations block, the gaps page and the
+# stored summary, runs the strict build and the tests, and opens a pull request. It never merges and
+# never releases: a person merges the pull request, and the site changes only when a stable docs
+# release is cut.
+#
+#   gh workflow run data-feed.yml -f summary=@summary.json
+#
+# The input reaches the shell only through an environment variable, never inside the command text.
+# The repository must allow GitHub Actions to create pull requests (Settings > Actions > General).
+# The runner is GitHub-hosted on purpose: this repository is public.
+# The branch is always `data-feed`: a new feed replaces the content of the open pull request (its title and
+# description are edited) instead of opening a second one.
+name: data-feed
+
+on:
+  workflow_dispatch:
+    inputs:
+      summary:
+        description: "The summary (JSON, format 1, at most 60,000 characters)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+# One feed at a time. GitHub keeps one waiting run per group: a second dispatch waits for the first, and a
+# third cancels the second (the cancelled summary is lost; send it again).
+concurrency:
+  group: data-feed
+  cancel-in-progress: false
+
+jobs:
+  feed:
+    name: feed (summary to pull request)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      # Only to start the docs checks on the data-feed branch: a push made with the workflow token starts
+      # no workflow, but a dispatch does, and the pull request needs its checks.
+      actions: write
+    steps:
+      - name: Only from main
+        env:
+          REF: ${{ github.ref }}
+        run: |
+          if [[ "$REF" != "refs/heads/main" ]]; then
+            echo "::error::The data feed runs from main only (this run is on $REF)"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Write the summary to a file
+        env:
+          SUMMARY: ${{ inputs.summary }}
+        run: |
+          set -euo pipefail
+          if (( ${#SUMMARY} > 60000 )); then
+            echo "::error::The summary is ${#SUMMARY} characters; the limit is 60000"
+            exit 1
+          fi
+          printf '%s' "$SUMMARY" > "$RUNNER_TEMP/summary.json"
+
+      - name: Render the pages
+        id: render
+        run: |
+          python scripts/data_feed.py "$RUNNER_TEMP/summary.json" \
+            --changes-file "$RUNNER_TEMP/changes.md" --github-output "$GITHUB_OUTPUT"
+
+      - name: Strict build and tests
+        run: |
+          mkdocs build --strict
+          python -m unittest discover -s tests
+
+      - name: Open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CYCLE: ${{ steps.render.outputs.cycle }}
+          RELEASE: ${{ steps.render.outputs.release }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- docs)" ]]; then
+            echo "The pages already match this summary: nothing to propose."
+            exit 0
+          fi
+          BRANCH="data-feed"
+          TITLE="Data feed: FAA cycle ${CYCLE} (live release ${RELEASE})"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add docs/known-limitations.md docs/data-gaps.md docs/_generated/data-feed.json
+          git commit -m "$TITLE"
+          {
+            echo "The data feed's summary of the live FAA release ${RELEASE} (FAA cycle ${CYCLE}), rendered by \`scripts/data_feed.py\` with the words in \`scripts/templates/data-feed.md.tmpl\`."
+            echo
+            cat "$RUNNER_TEMP/changes.md"
+            echo
+            echo "Changes the generated block in \`docs/known-limitations.md\`, the page \`docs/data-gaps.md\` and the stored summary \`docs/_generated/data-feed.json\`; nothing else. The strict build and the tests passed in this run. Merging does not publish: cut a docs release when the pilots should see it."
+            echo
+            echo "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          } > "$RUNNER_TEMP/body.md"
+          # Replace an earlier feed's branch (the lease protects against a push that is not ours).
+          git fetch origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}" 2>/dev/null || true
+          git push --force-with-lease origin "HEAD:refs/heads/${BRANCH}"
+          OPEN="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [[ -n "$OPEN" ]]; then
+            gh pr edit "$OPEN" --title "$TITLE" --body-file "$RUNNER_TEMP/body.md"
+          elif ! gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file "$RUNNER_TEMP/body.md"; then
+            git push origin --delete "$BRANCH" || true
+            echo "::error::The pull request could not be opened. 'Allow GitHub Actions to create pull requests' may be off (Settings > Actions > General). The branch was deleted."
+            exit 1
+          fi
+          # The checks the branch ruleset requires.
+          gh workflow run docs.yml --ref "$BRANCH"

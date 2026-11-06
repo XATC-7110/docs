@@ -1,0 +1,93 @@
+# The words of the data feed (SOT-212). Edit the sentences here, not the generated pages.
+#
+# scripts/data_feed.py reads this file and fills in the $names. A line that starts with "#" before the
+# first section is a comment. Sections start with a line like "=== block ===". Write $$ for a literal $.
+# Marks ("new since 2610", "changed since 2610", "fixed since 2610") compare with the summary the previous feed
+# stored, not with the last published site. After the next feed they are gone: the pages show only what changed
+# since the feed before. The first feed has nothing to compare with and marks nothing.
+# The generated text must never contain the words the site does not use (see AGENTS.md): the script
+# refuses to write a page that does, and the tests check it.
+#
+# Sections:
+#   block    the short section in docs/known-limitations.md (between the data-feed markers)
+#   gaps     the whole page docs/data-gaps.md
+#   first, first_page  the sentences that stand in, in the block and on the page, until the first summary arrives
+#   phrases  one "name = words" line each; small pieces the sections use
+
+=== block ===
+## Where the FAA data has gaps
+
+ATC flies the FAA's published data, and the FAA's data has gaps. This section describes FAA cycle $cycle, effective $effective, and was made on $generated. It changes with every cycle.
+
+**Approaches.** The FAA publishes $published instrument approaches in this cycle. $coded_by_faa of them come coded by the FAA, SeventyOneTen built $built_by_us more from the FAA's own approach forms, and $missing are missing, so ATC does not offer those yet.$reasons_intro
+
+$reasons
+
+**Airports.** Of $airports_total airports, $all_available have every approach SeventyOneTen could find. $missing_airports airports are missing at least one approach: $runway_without_approach where a runway has no approach, $circling_only_missing where ATC has no approach at all in its data and only circling approaches are missing, and $some_missing others.$airports_change See [the full lists of airports](data-gaps.md).
+
+**Fix names.** $fixes_confirmed of $fixes_total fix names are confirmed (lexicon version $lexicon_version, $lexicon_generated). ATC says a confirmed fix the way controllers say it and any other fix as it is written.$fixes_change
+
+$what_changed
+
+=== gaps ===
+# FAA data gaps: the full lists
+
+These are the airports where the FAA's data has gaps, for FAA cycle $cycle, effective $effective. The lists were made on $generated from the data ATC is using now, and they change with every cycle. The short version is under [Where the FAA data has gaps](known-limitations.md#where-the-faa-data-has-gaps) on the Known limitations page.
+
+$what_changed
+
+## Runways with no approach
+
+At these airports a runway has no instrument approach at all in ATC's data, so ATC cannot clear you for an approach to it. There are $runway_without_approach such airports.
+
+$runway_table
+
+## Airports with only circling approaches missing
+
+At these airports ATC has no approach at all in its data, and the only approaches missing are circling ones. There are $circling_only_missing such airports.
+
+$circling_table
+
+## Other airports missing some approaches
+
+These airports have approaches in ATC's data, but at least one published approach is missing. There are $some_missing such airports.
+
+$some_missing_table
+$fixed_section
+
+=== first ===
+## Where the FAA data has gaps
+
+A summary of the gaps in the FAA's data will appear here after the next data check.
+
+=== first_page ===
+# FAA data gaps: the full lists
+
+The lists of airports where the FAA's data has gaps will appear here after the next data check. The short version is under [Where the FAA data has gaps](known-limitations.md#where-the-faa-data-has-gaps) on the Known limitations page.
+
+=== phrases ===
+reasons_intro = The main reasons:
+reason_line = - $reason: $count
+airports_change_up = ($n more airports are missing at least one approach than at $since.)
+airports_change_down = ($n fewer airports are missing an approach than at $since.)
+fixes_change_up = That is $n more than at $since.
+fixes_change_down = That is $n fewer than at $since.
+up_since = up $n since $since
+down_since = down $n since $since
+new_since = new since $since
+changed_since = changed since $since
+fixed_since = fixed since $since
+more_rows = and $n more not shown here
+table_none = None.
+no_longer_heading = ## No longer on the lists
+no_longer_intro = These airports were on the lists at $since and are not now.
+no_longer_was_runway = a runway had no approach
+no_longer_was_circling = only circling approaches were missing
+no_longer_was_some = some approaches were missing
+airport_one = $n airport
+airport_many = $n airports
+changed_none = What changed: nothing on the lists or in the confirmed fix names has changed since $since.
+changed_some = What changed since $since: $new_airports newly listed, $fixed_airports fixed, $changed_airports changed, and $fix_change.
+fix_change_up = $n more fix names confirmed
+fix_change_down = $n fewer fix names confirmed
+fix_change_same = no change in the confirmed fix names
