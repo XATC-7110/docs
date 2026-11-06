@@ -8,6 +8,8 @@ docs_dir: docs
 # The release skill's default notes path is docs/pending-release-<tag>.md: never a page.
 exclude_docs: |
   pending-release-*.md
+  # The data feed's stored summary (scripts/data_feed.py): the build reads it, readers do not.
+  _generated/
 
 # The look is the product's own: the client window's colours, dark first (docs/stylesheets/xatc.css).
 theme:
@@ -83,7 +85,9 @@ nav:
       - ATIS and weather: features/atis-weather.md
       - At every position: features/everywhere.md
   - AI traffic: traffic.md
-  - Known limitations: known-limitations.md
+  - Known limitations:
+      - known-limitations.md
+      - Where the FAA data has gaps: data-gaps.md
   - In the window:
       - The approach plan: client/approach-card.md
       - Parking: client/parking.md
