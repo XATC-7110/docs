@@ -30,7 +30,7 @@ The file holds your departure and destination airports, your cruise altitude and
 - **A fix X-Plane does not know.** If a fix in your route is not in your X-Plane's navigation data, it is left out of the file, and the log says which one, for example "ZZYZX is not in your X-Plane navdata, so it is left out." The client never guesses a position.
 - **A very long route.** X-Plane's flight plans hold at most 100 waypoints. On a long route the client leaves out some of the fixes along an airway, and the airway still carries the route. If it is still too long, no file is written and the log says why.
 - **An airport your X-Plane does not have.** The plan starts or ends at the first or last fix X-Plane does know, and the log says so.
-- **No X-Plane folder found.** No file is written, and the log says so (set the folder in **Settings > X-Plane data**). **Your flight starts anyway.**
+- **No X-Plane folder found.** No file is written, and the log says so (set the folder in **Settings > X-Plane**). **Your flight starts anyway.**
 
 The [log](../window.md#the-log) is the one at the bottom of the window, and the line "Your flight plan is in X-Plane as SeventyOneTen.fms" tells you the file was written.
 

@@ -6,7 +6,7 @@ The client runs in its own window, titled **SeventyOneTen client**, beside X-Pla
 
 The top bar has two rows.
 
-- **The name and versions.** **SeventyOneTen**, then the client's version, then X-Plane's version while X-Plane is connected, then the ATC service's version once ATC has welcomed your flight (the window labels that one **Gateway**, and shows **Gateway —** until then).
+- **The name and versions.** **SeventyOneTen**, then the client's version, then X-Plane's version while X-Plane is connected. The ATC service's version is not here; it is in [Settings](settings.md#about-and-support), under **About and support**.
 - **The theme button**, at the top right: **Night** and **Paper**. Its tooltip says which one it switches to.
 - **Your flight**: callsign (a tail number, or an airline callsign such as "Walker 1745"), aircraft type, departure → destination, and its state (starting, ready, ended). With no flight it says "No flight: press New flight". When a flight ended, the line says why, and the **New flight** button is highlighted.
 - **The approach confirmation**: while ATC has you on an approach, a pill beside your callsign shows the kind of approach (**ILS**, **RNAV**, **Visual**), the runway, and **ATC is vectoring you**. It turns green and says **cleared for the approach** once ATC clears you. See [The approach plan](client/approach-card.md).
@@ -20,7 +20,7 @@ Three pills show what the client is connected to, beside **Radio** and **Setting
 
 | Pill | What it shows |
 |---|---|
-| **Gateway** | The connection to the ATC service. It reads **Gateway: connected**, **connecting**, **reconnecting**, **needs setup**, **stopped** or **no flight**. Click it for the reason of the last change and **Reconnect**, which reopens the connection on the same flight |
+| **ATC service** | The connection to the ATC service. It reads **ATC service: connected**, **connecting**, **reconnecting**, **needs setup**, **stopped** or **no flight**. Click it for the reason of the last change and **Reconnect**, which reopens the connection on the same flight |
 | **X-Plane** | **X-Plane: connected** with its version, or **not connected**. It turns amber and reads **X-Plane: paused** (or **in replay**) while the sim is paused: ATC is silent then and does not hear you. **X-Plane: too old** means it is older than the minimum: see [X-Plane too old](troubleshooting.md#x-plane-too-old) |
 | **Sign-in** | **Signed in · your name** (green) with **Sign out**, **Not signed in** (red) with **Sign in**, or **Signed in · offline** (amber) when the sign-in service cannot be reached |
 
@@ -33,6 +33,12 @@ Under the row, a banner may appear:
 - The update banner: see [Updates](settings.md#updates).
 - The **traffic line** (client 0.20 prerelease), on a flight with [AI traffic](traffic.md), when the plugin or its aircraft models are missing, the traffic is paused, or X-Plane's own parked aircraft are on.
 - On the Linux AppImage, the offer to [add the app to your app menu](install-linux.md#add-the-app-to-your-app-menu).
+
+## The start panel
+
+While no flight is under way, the Radio view shows the **Start a flight** panel in place of the radios, push-to-talk and cards. It checks the three things a flight needs, your sign-in, X-Plane and your microphone, and has **New flight**, and, when they apply, **Rejoin** and **Start from my account**. The log stays under it. [Your first flight](first-flight.md#start-a-flight) describes it. The panel goes the moment a flight starts, and comes back when it ends.
+
+![The start panel](assets/client-start-panel.png)
 
 ## The radios
 
@@ -48,9 +54,15 @@ The client changes X-Plane's radios and nothing else, so the window always shows
 
 ## Push-to-talk
 
-The big button, **PUSH TO TALK**. Press and hold to transmit (it reads **TRANSMITTING**), release to stop. Its hint, "Hold, or hold Space", adds the facility you are transmitting to. It works with a mouse or a touch screen, and holding **Space** does the same while the window has focus. If the window loses focus the button releases, so the radio cannot get stuck keyed.
+The big button, **PUSH TO TALK**. Press and hold to transmit (it reads **TRANSMITTING**), release to stop. Its hint, "Hold, or hold Space", adds the facility you are transmitting to. It works with a mouse or a touch screen, and holding **Space** on the Radio view does the same while the window has focus. If the window loses focus the button releases, so the radio cannot get stuck keyed.
 
-For a button on your yoke or joystick, see [Settings](settings.md#push-to-talk).
+![The push-to-talk button under the two radios](assets/client-ptt-button.png)
+
+**With a yoke or joystick button set, the big button is hidden** while X-Plane is connected, and a thin light takes its place: **Push-to-talk**, then **TRANSMITTING** while you are keyed, with "Button 3, or hold Space" and the facility you are transmitting to under it (on a phone call it says "On the phone"). If X-Plane is not connected, the big button comes back, because a button set through X-Plane cannot key then. Holding Space works either way.
+
+![The thin transmit light, which takes the button's place when a yoke or joystick button is set](assets/client-ptt-light.png)
+
+To set a yoke or joystick button, see [Settings](settings.md#push-to-talk) (it is also part of the [first-run setup](getting-started.md#set-up-the-first-time)).
 
 ## Read back, and Next
 
@@ -61,7 +73,7 @@ Under push-to-talk:
 
 ## Last ATC
 
-Who spoke last and what they said, with the verdict on your last readback: **✓ Readback accepted** or **✗ Corrected**. Numbers are shown as you would write them ("119.2"), while the audio says them as a controller does ("one one niner point two"). Under it, a grey line begins "cloud has:" and says what ATC currently knows about your aircraft, for example its stand, whether it is on the ground and the age of the data. It is there so you can see that ATC sees you.
+Who spoke last and what they said, with the verdict on your last readback: **✓ Readback accepted** or **✗ Corrected**. Numbers are shown as you would write them ("119.2"), while the audio says them as a controller does ("one one niner point two").
 
 ## The card slot
 
@@ -99,22 +111,30 @@ Click an airport name in the header, on the Frequencies card or on the Parking c
 
 ## The log
 
-Everything that happened, newest at the bottom:
+Everything that happened, newest at the bottom. Two buttons above it choose how much shows: **Radio** (the default) is the radio calls and anything that went wrong, and **Everything** adds what the client does in the background. Nothing is thrown away by the choice: every line stays in the log file, and **Everything** shows them all. **Settings > Display > Log detail** is the same choice. When there are no radio calls yet but other lines exist, a quiet line says so and counts them.
+
+Under **Radio**:
 
 - **You**: what the speech recognition heard, in grey while it is still working. A correct readback gets silence on the radio, so the verdict appears here: a green **✓ Readback accepted** or an amber **✗ Corrected**.
 - **▶ transmitting on COM1 121.700**: the frequency you keyed. On a phone call it says "talking on the phone".
-- **ATC**: the station, what it said and the frequency. If you were not tuned to it, or its radio was off, the next line says "not played" and why.
+- **ATC**: the station, what it said and the frequency.
 - **An ATIS** appears in full, once when you tune it and once for each new letter while you stay tuned.
 - **No reply**: why ATC did not answer. See [Troubleshooting](troubleshooting.md#atc-does-not-answer).
-- **Timing**: how long each step of the reply took: "transcript … · agent … · first audio … · total … ms".
 - **Flight ended**, with the reason.
-- **Error**, for something the client refused or could not do, such as "can't transmit: COM1 is off".
+- **Error**, for something the client refused or could not do, such as "can't transmit: COM1 is off". Every warning and error shows under **Radio**.
+
+Under **Everything**, you also see:
+
+- **Not played**: if you were not tuned to a call, or its radio was off, a line after the **ATC** line says "not played" and why.
+- **Timing**: how long each step of the reply took: "transcript … · agent … · first audio … · total … ms".
+- The connection to the ATC service, and the client's own notes about what it is watching.
 
 Scroll up to read something and the log stays where you left it; scroll back to the bottom and it follows again. **Clear** empties it.
 
 ## Dialogs you will meet
 
-- **The startup dialog**, each time the client starts: your sign-in, the **ATC service** and X-Plane. It closes by itself when the first two are ready. After a client restart mid-flight it offers **Rejoin last flight**.
+- **The setup**, the first time the client starts (and from **Settings > About and support > Run setup again**): sign-in, sound, push-to-talk, X-Plane. See [Set up the first time](getting-started.md#set-up-the-first-time). A first setup cannot be closed before its last step.
+- **The startup dialog**, each time the client starts after that: your sign-in, the **ATC service** and X-Plane. It closes by itself when the first two are ready. After a client restart mid-flight it offers **Rejoin last flight**.
 - **New flight**: the flight plan, by hand, from SimBrief or from your account ([send a plan](send-a-plan.md)), and the **Traffic** choice ([AI traffic](traffic.md)); the account tab, the Traffic choice and the start's progress steps are client 0.20 prerelease. It opens by itself when a flight ends, with a line saying why. After **Start flight** it shows the start's progress; on a flight with traffic it stays up until the aircraft are drawn: **Connecting**, **Loading airport data**, **Building traffic**, **Traffic visible**, and **Fly now** closes it at any time.
 - **The recording question**, the first time you connect: see [Your data](privacy.md#recordings-of-your-voice).
 - **The call screen**, when you press **Call** on a phone row: see [Clearance by phone](features/clearance.md#by-phone-at-a-field-with-no-radio-way).

@@ -35,7 +35,7 @@ See [Your data](../privacy.md) for the whole picture.
 
 ## FAA procedures for your X-Plane
 
-Optional. ATC clears you on the FAA's current procedures. If your X-Plane's navigation data is older, your aircraft's FMS may not have a procedure ATC names. **Settings > X-Plane data** can install the FAA's current procedures into X-Plane, so that the two agree.
+Optional. ATC clears you on the FAA's current procedures. If your X-Plane's navigation data is older, your aircraft's FMS may not have a procedure ATC names. **Settings > X-Plane** can install the FAA's current procedures into X-Plane, so that the two agree.
 
 - **Check for update** shows the release, its AIRAC cycle and its dates.
 - **Install** downloads it, checks every file, backs up anything it replaces, and writes the FAA's procedure file into your X-Plane's `Custom Data` folder.

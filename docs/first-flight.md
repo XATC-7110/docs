@@ -5,8 +5,8 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 ## Before you call anyone
 
 1. **Start X-Plane 12** and put your aircraft on a stand at the departure airport.
-2. **Start the client** and wait for the startup dialog to close (signed in, ATC service ready).
-3. Press **New flight**.
+2. **Start the client** and wait for the startup dialog to close (signed in, ATC service ready). The first time, [the setup](getting-started.md#set-up-the-first-time) comes first. With no flight under way, the Radio view shows the [start panel](#start-a-flight).
+3. Press **New flight**, in the start panel or at the top right.
     - **Enter manually**: tail number, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan. To fly as an airline, switch **Tail number** to **Callsign** and give the **Airline** (three letters), its **Pronunciation** (the word ATC says, filled in for the airlines the client knows) and the **Flight number**. A line under the fields says what ATC will say, such as "Walker seventeen forty-five", and the window's header shows "Walker 1745".
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.
     - **From my account** (client 0.20 prerelease): the newest plan you [sent to your account](send-a-plan.md) from ForeFlight or another app. Press **Use this plan** to fill in the form, then check it.
@@ -15,12 +15,32 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 
 The client also writes your plan for X-Plane's own avionics (client 0.20 prerelease), so you can load it into the GNS 530, the G1000 or the FMS. [Your plan in X-Plane's avionics](client/flight-plan-file.md) says how.
 
+### Start a flight
+
+While there is no flight, the Radio view shows a **Start a flight** panel instead of the radios. It has one line each for what a flight needs:
+
+![The start panel: Sign-in, X-Plane and Microphone each with a tick, and the buttons New flight, Rejoin and Start from my account](assets/client-start-panel.png)
+
+| Line | What it tells you |
+|---|---|
+| **Sign-in** | Who is signed in, or **Not signed in** with a **Sign in** button. **New flight** waits for the sign-in |
+| **X-Plane** | **X-Plane found** with its version, or **X-Plane not found. Start X-Plane 12.** (where your account shows the X-Plane connection settings, it also points to them: **X-Plane settings**) |
+| **Microphone** | The microphone in use (**System default**, with its name), or what is wrong, such as **No microphone found**, with **Sound settings** to fix it |
+
+Under the lines are the buttons:
+
+- **New flight** opens the dialog above.
+- **Rejoin KSEA to KPDX** (with your own airports) appears when a flight you were in can still be rejoined, which is for about ten minutes after you closed the client or lost it.
+- **Start KSEA to KPDX from my account** appears when a plan you [sent to your account](send-a-plan.md) is waiting (client 0.20 prerelease). It opens the New flight dialog with the plan filled in for you to check. A plan you have already flown is not offered again.
+
+After a flight ends, a line under the heading, above the three lines, says so and why. The log stays under the panel, so you can still read what happened; the radios and cards of the flight that ended are gone.
+
 !!! tip "The first flight after installing takes longer"
     The first time, the client reads the headers of your X-Plane scenery once, so it can answer ATC's questions about taxiways and parking. The dialog shows a progress bar. On a slow disk this can take a minute or more. After that, only new or updated scenery is read.
 
 ## How to talk
 
-- **Push-to-talk**: hold the big button in the window, hold **Space** while the window has focus, or use a yoke or joystick button ([Settings](settings.md#push-to-talk)).
+- **Push-to-talk**: hold the big button in the window, hold **Space** on the Radio view while the window has focus, or use a yoke or joystick button ([Settings](settings.md#push-to-talk)). With a yoke or joystick button set and X-Plane connected, the big button is hidden and a thin light shows **TRANSMITTING** while you are keyed.
 - You transmit on the COM radio selected on your aircraft's audio panel, on its active frequency. The push-to-talk button names who is listening there.
 - Say **who you are calling, your callsign, and what you want**, as on a real radio. Read back clearances and instructions.
 - You hear ATC only if COM1 or COM2 is tuned to the frequency ATC transmits on, is switched on, and is selected to listen on your audio panel. A radio that is off, or not selected to listen, is silent, and you cannot transmit on it.
@@ -82,4 +102,4 @@ Park at your stand and shut down the engines. The flight ends by itself within a
 
 - **Silence after you transmit?** The log's **No reply** line says why. See [Troubleshooting](troubleshooting.md).
 - **Missed what ATC said?** Say "say again". The words are also in the log. If ATC called while your radio was off or not selected to listen, it says that call again once the radio can hear it, within about a minute.
-- **Closed the client mid-flight by accident?** Start it again within about ten minutes and choose **Rejoin last flight**.
+- **Closed the client mid-flight by accident?** Start it again within about ten minutes and choose **Rejoin last flight** (in the startup dialog, or **Rejoin** on the start panel).

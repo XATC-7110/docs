@@ -22,10 +22,10 @@ If ATC answers "Aircraft calling, say again", it did not catch your callsign. Sa
 
 ## I cannot hear ATC
 
-- **You hear ATC only on a radio that is tuned to the frequency, switched on, and selected to listen on your audio panel.** If the log says a reply was "not played", the line says why: "isn't on COM1/COM2 active" (neither radio was tuned to it), or "COM1 is off", "COM1 isn't selected to listen", "the avionics are off".
+- **You hear ATC only on a radio that is tuned to the frequency, switched on, and selected to listen on your audio panel.** If a reply was "not played", the line says why (choose **Everything** above the log to see these lines): "isn't on COM1/COM2 active" (neither radio was tuned to it), or "COM1 is off", "COM1 isn't selected to listen", "the avionics are off".
 - **A call you missed is said again.** When the radio can hear it again within about a minute, and you have not transmitted since, ATC repeats its latest call on that frequency once.
 - ATC's audio waits while you are transmitting. Release push-to-talk.
-- Check **Settings > Your setup > Audio > Speakers / headset**. A headset you switched on after the client started appears after **Refresh devices**.
+- Check **Settings > Sound > Audio > Speakers / headset**. A headset you switched on after the client started appears after **Refresh devices**.
 
 ## Cannot transmit
 
@@ -46,14 +46,14 @@ Nothing is sent to ATC when a press is refused.
 
 Your microphone is not reaching the client.
 
-- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch on **xatc-agent** (it may be listed as SeventyOneTen). On Linux, check your desktop's sound settings and that the microphone is not muted.
-- **Settings > Your setup > Audio > Microphone**: pick the right device.
+- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch on **SeventyOneTen** (an app installed before the rename may still carry its old name in Applications until its next update). On Linux, check your desktop's sound settings and that the microphone is not muted.
+- **Settings > Sound > Audio > Microphone**: pick the right device. **Test microphone**, just below, shows a level meter and says **We can hear you** when the microphone works.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
 ## X-Plane: not connected
 
 - The client and X-Plane must run on the same PC. X-Plane's Web API listens only on `127.0.0.1:8086`.
-- Check **Settings > Your setup > X-Plane**: host `127.0.0.1`, port `8086`. (Under **Advanced**, **Aircraft state from** must be *X-Plane 12 (Web API)*; that is how it ships.)
+- Check **Settings > X-Plane**: host `127.0.0.1`, port `8086`. (Under **Advanced**, **Aircraft state from** must be *X-Plane 12 (Web API)*; that is how it ships.)
 - The client keeps looking every few seconds. You do not need to restart it after starting X-Plane.
 
 ## X-Plane too old
@@ -109,7 +109,7 @@ The window shows a banner, **Update required.**: "This is SeventyOneTen 0.19.0, 
 The flight ended at the start. ATC could not get the airport's ground layout (its taxiways, hold lines and stands) from your X-Plane for the **departure** airport, so it cannot serve the flight. The window's header says **Flight ended: no ground data from X-Plane for the departure airport**, and the **New flight** dialog shows what to check:
 
 - X-Plane has the departure airport's scenery installed and enabled.
-- The client has your X-Plane folder: **Settings > X-Plane data > X-Plane folder**.
+- The client has your X-Plane folder: **Settings > X-Plane > X-Plane folder**.
 - X-Plane is running and connected (the **X-Plane** pill is green), then start a new flight.
 
 An older client (before 0.20.0-rc.17) shows only a general error line for the same end.
@@ -131,4 +131,4 @@ The **1**, **2** and **⇄** buttons write to X-Plane. They are greyed out while
 Check the [known limitations](known-limitations.md) first. Then send the owner:
 
 1. What you said and what you expected, with the time.
-2. The log file: **Settings**, at the bottom, **Open log folder**. It never contains your sign-in or any audio.
+2. The log file: **Settings > About and support > Open log folder**. It never contains your sign-in or any audio.
