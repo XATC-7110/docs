@@ -60,7 +60,7 @@ ATC works the AI aircraft as it works you, with the same rules:
 
 ## Hearing the other traffic
 
-By default you read the traffic's calls in the log. You can also hear them. **Settings > How ATC sounds** has a checkbox, **Hear other traffic on the frequency**, off by default. It shows only when ATC offers it for your flights, and only matters when your flight has traffic.
+By default you read the traffic's calls in the log. You can also hear them. **Settings > Sound** has a checkbox, **Hear other traffic on the frequency**, off by default. It shows only when ATC offers it for your flights, and only matters when your flight has traffic.
 
 - **What you hear:** other aircraft's calls, and ATC's replies to them, on a frequency that one of your radios is tuned to **and** set to listen to. Each AI aircraft has its own voice, and the controller keeps one voice for the position.
 - **Never over you:** a traffic voice is dropped if you are transmitting, if ATC is talking to you, or if a phone call is ringing or open. One that is playing stops within a tenth of a second when any of those starts.
@@ -70,4 +70,4 @@ By default you read the traffic's calls in the log. You can also hear them. **Se
 
 ## Next
 
-[Settings](settings.md#how-atc-sounds) lists the setting. [Tower](features/tower.md) says more about how it clears you with traffic about.
+[Settings](settings.md#sound) lists the setting. [Tower](features/tower.md) says more about how it clears you with traffic about.

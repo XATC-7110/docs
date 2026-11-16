@@ -19,23 +19,23 @@ The Mac app is new and has been run by fewer pilots than the Windows one. If som
 
 ## Install (one time)
 
-1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Mac (Apple silicon)**, then press **Download for Mac** under **Prerelease**. The file is `xatc-agent-<version>-arm64.dmg`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Mac (Apple silicon)**, then press **Download for Mac** under **Prerelease**. The file is `SeventyOneTen-<version>-arm64.dmg`.
 2. Open the downloaded `.dmg` file. A disk image named *SeventyOneTen* and the version opens, with the app and your Applications folder side by side.
-3. Drag **xatc-agent** to your **Applications** folder. Finder shows the app by its file name, `xatc-agent`; the window it opens is called **SeventyOneTen client**.
+3. Drag **SeventyOneTen** to your **Applications** folder. The window it opens is called **SeventyOneTen client**.
 4. Eject the disk image.
-5. Open **xatc-agent** from Applications, not from the disk image.
-6. The first time, macOS asks whether SeventyOneTen may use the microphone. Allow it, so the app can hear you.
+5. Open **SeventyOneTen** from Applications, not from the disk image.
+6. The first time, macOS asks whether SeventyOneTen may use the microphone. This happens in the [setup](getting-started.md#set-up-the-first-time), at its Sound step. Allow it, so the app can hear you.
 
-If you said no by mistake, open *System Settings > Privacy & Security > Microphone* and switch on **xatc-agent** (it may be listed as SeventyOneTen).
+If you said no by mistake, open *System Settings > Privacy & Security > Microphone* and switch on **SeventyOneTen**.
 
-From here, [sign in and choose your audio](getting-started.md#sign-in) exactly as on Windows.
+From here, [set up and sign in](getting-started.md#set-up-the-first-time) exactly as on Windows.
 
 ## Is this the right file?
 
 The app is signed with the project's Apple developer certificate and notarized by Apple, so macOS can check it. (The Windows installer and the Linux AppImage are not signed.) The Download page also shows the file's **SHA-256**. To check that your copy is the one the page describes, run this in Terminal and compare the result with the page:
 
 ```
-shasum -a 256 xatc-agent-<version>-arm64.dmg
+shasum -a 256 SeventyOneTen-<version>-arm64.dmg
 ```
 
 Download the file only from the Download page while signed in.
@@ -57,7 +57,7 @@ Because it replaces the app, the app must be in **Applications** (or another fol
 | What | Where |
 |---|---|
 | Settings | `~/Library/Application Support/xatc-agent-client/settings.json` |
-| The log file | `~/Library/Application Support/xatc-agent-client/logs/xatc-agent-client.log` (**Settings**, at the bottom, has **Open log folder**, which opens it in Finder) |
+| The log file | `~/Library/Application Support/xatc-agent-client/logs/xatc-agent-client.log` (**Settings > About and support** has **Open log folder**, which opens it in Finder) |
 | The current flight, for **Rejoin last flight** | `~/.xatc-agent/session.json` |
 | Your sign-in | Your Keychain, under `xatc-agent-client`. Never in a file |
 
@@ -65,7 +65,7 @@ None of these is inside the app.
 
 ## Remove the app
 
-Drag **xatc-agent** from Applications to the Trash. Your settings, log and session file stay until you delete them. Your sign-in stays in your Keychain until you press **Sign out** in the window, so do that first if you want it gone.
+Drag **SeventyOneTen** from Applications to the Trash. Your settings, log and session file stay until you delete them. Your sign-in stays in your Keychain until you press **Sign out** in the window, so do that first if you want it gone.
 
 ## Next
 

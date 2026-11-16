@@ -21,24 +21,24 @@ The Linux app is new and has been run by fewer pilots than the Windows one. If s
 
 ## Install (one time)
 
-1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Linux (x86_64 AppImage)**, then press **Download for Linux**. The file is `xatc-agent-<version>-x86_64.AppImage`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Linux (x86_64 AppImage)**, then press **Download for Linux**. The file is `SeventyOneTen-<version>-x86_64.AppImage`.
 2. Make it executable. Either:
     - in your file manager, open the file's **Properties** and tick **Allow executing as program**; or
-    - in a terminal, run `chmod +x xatc-agent-<version>-x86_64.AppImage`.
-3. Run it by double-clicking it (or `./xatc-agent-<version>-x86_64.AppImage` in a terminal). The **SeventyOneTen client** window opens.
+    - in a terminal, run `chmod +x SeventyOneTen-<version>-x86_64.AppImage`.
+3. Run it by double-clicking it (or `./SeventyOneTen-<version>-x86_64.AppImage` in a terminal). The **SeventyOneTen client** window opens.
 4. Allow the microphone if your desktop asks.
 
-If the file will not start and the message mentions FUSE, run it in a terminal as `APPIMAGE_EXTRACT_AND_RUN=1 ./xatc-agent-<version>-x86_64.AppImage`.
+If the file will not start and the message mentions FUSE, run it in a terminal as `APPIMAGE_EXTRACT_AND_RUN=1 ./SeventyOneTen-<version>-x86_64.AppImage`.
 
-The file is not signed. The Download page shows the file's **SHA-256**; to check that your copy is the one the page describes, run `sha256sum xatc-agent-<version>-x86_64.AppImage` and compare the result with the page. Download the file only from the Download page while signed in.
+The file is not signed. The Download page shows the file's **SHA-256**; to check that your copy is the one the page describes, run `sha256sum SeventyOneTen-<version>-x86_64.AppImage` and compare the result with the page. Download the file only from the Download page while signed in.
 
-From here, [sign in and choose your audio](getting-started.md#sign-in) exactly as on Windows.
+From here, [set up and sign in](getting-started.md#set-up-the-first-time) exactly as on Windows.
 
 ## Add the app to your app menu
 
-The first time you run the AppImage, the window offers to add the app to your app menu: **Add** or **Not now**. **Add** gives you a menu entry and an icon, so you can start it like any other app. **Settings > Your setup** has the same thing, under **App menu**: **Add to app menu**, and **Remove from app menu** to undo it.
+The first time you run the AppImage, the window offers to add the app to your app menu: **Add** or **Not now**. **Add** gives you a menu entry and an icon, so you can start it like any other app. **Settings > Account** has the same thing, under **App menu**: **Add to app menu**, and **Remove from app menu** to undo it.
 
-The menu entry points at the AppImage file where it is now. If you move the file, add the entry again from **Settings > Your setup > App menu**.
+The menu entry points at the AppImage file where it is now. If you move the file, add the entry again from **Settings > Account > App menu**.
 
 ## Staying signed in
 

@@ -54,4 +54,4 @@ If the window is too short for the card's diagram to be readable, the full-size 
 ## Turning it off
 
 - **Close** on the card hides it until ATC makes a new plan.
-- **Settings > Appearance > Show the Approach card** turns the card off for good. The confirmation in the header stays.
+- **Settings > Display > Show the Approach card** turns the card off for good. The confirmation in the header stays.
