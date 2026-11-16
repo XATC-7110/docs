@@ -46,7 +46,7 @@ Nothing is sent to ATC when a press is refused.
 
 Your microphone is not reaching the client.
 
-- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch on **SeventyOneTen**. On Linux, check your desktop's sound settings and that the microphone is not muted.
+- *Windows Settings > Privacy & security > Microphone*: allow desktop apps. On a Mac, open *System Settings > Privacy & Security > Microphone* and switch on **SeventyOneTen** (an app installed before the rename may still carry its old name in Applications until its next update). On Linux, check your desktop's sound settings and that the microphone is not muted.
 - **Settings > Sound > Audio > Microphone**: pick the right device. **Test microphone**, just below, shows a level meter and says **We can hear you** when the microphone works.
 - Push-to-talk releases when the window loses focus. To transmit while X-Plane has focus, use a [yoke or joystick button](settings.md#push-to-talk).
 
@@ -131,4 +131,4 @@ The **1**, **2** and **⇄** buttons write to X-Plane. They are greyed out while
 Check the [known limitations](known-limitations.md) first. Then send the owner:
 
 1. What you said and what you expected, with the time.
-2. The log file: **Settings**, at the bottom, **Open log folder**. It never contains your sign-in or any audio.
+2. The log file: **Settings > About and support > Open log folder**. It never contains your sign-in or any audio.

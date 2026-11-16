@@ -48,7 +48,7 @@ You stay signed in for 30 days, across restarts, when your desktop has a keyring
 
 The app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight.
 
-**Update now** replaces the AppImage file with the new version, checks it first, and opens the app again by itself. Because it replaces the file, the AppImage must be somewhere you can write to, such as your home folder. Until Linux is in a stable release, newer Linux builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Your account > Updates**: see [Updates](settings.md#updates). If an update fails, your old file is left as it was and the banner says why.
+**Update now** replaces the AppImage file with the new version, checks it first, and opens the app again by itself. Because it replaces the file, the AppImage must be somewhere you can write to, such as your home folder. Until Linux is in a stable release, newer Linux builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates). If an update fails, your old file is left as it was and the banner says why.
 
 ## Where things are kept
 

@@ -33,7 +33,7 @@ Under the lines are the buttons:
 - **Rejoin KSEA to KPDX** (with your own airports) appears when a flight you were in can still be rejoined, which is for about ten minutes after you closed the client or lost it.
 - **Start KSEA to KPDX from my account** appears when a plan you [sent to your account](send-a-plan.md) is waiting (client 0.20 prerelease). It opens the New flight dialog with the plan filled in for you to check. A plan you have already flown is not offered again.
 
-After a flight ends, a line above the buttons says so and why. The log stays under the panel, so you can still read what happened; the radios and cards of the flight that ended are gone.
+After a flight ends, a line under the heading, above the three lines, says so and why. The log stays under the panel, so you can still read what happened; the radios and cards of the flight that ended are gone.
 
 !!! tip "The first flight after installing takes longer"
     The first time, the client reads the headers of your X-Plane scenery once, so it can answer ATC's questions about taxiways and parking. The dialog shows a progress bar. On a slow disk this can take a minute or more. After that, only new or updated scenery is read.

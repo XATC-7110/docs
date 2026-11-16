@@ -28,6 +28,9 @@ The Mac app is new and has been run by fewer pilots than the Windows one. If som
 
 If you said no by mistake, open *System Settings > Privacy & Security > Microphone* and switch on **SeventyOneTen**.
 
+!!! note "Installed it before the rename?"
+    An app installed before this release can keep its old name in Applications until its next update; it is the same app. A Dock icon pinned to the old app may need pinning again. When you remove the app, remove whichever name you have in Applications.
+
 From here, [set up and sign in](getting-started.md#set-up-the-first-time) exactly as on Windows.
 
 ## Is this the right file?
@@ -50,7 +53,7 @@ The app asks the pilot site for the newest version when it starts, and once a da
 
 **Update now** downloads the new version, checks that it is the release that was offered and that it is this app, replaces the app and opens it again by itself. If anything is wrong, your old app is left as it was and the banner says why.
 
-Because it replaces the app, the app must be in **Applications** (or another folder you can write to). An app opened straight from the disk image, or left in Downloads, is not updated: move it to Applications first. Until the Mac app is in a stable release, newer Mac builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Your account > Updates**: see [Updates](settings.md#updates).
+Because it replaces the app, the app must be in **Applications** (or another folder you can write to). An app opened straight from the disk image, or left in Downloads, is not updated: move it to Applications first. Until the Mac app is in a stable release, newer Mac builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates).
 
 ## Where things are kept
 

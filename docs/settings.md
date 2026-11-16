@@ -65,7 +65,7 @@ The radio voices are off by default. With them on, each controller on the radio 
 
 ## Push-to-talk
 
-Holding **Space** on the Radio view always transmits. **Also transmit with** adds one more way:
+During a flight, holding **Space** on the Radio view always transmits. **Also transmit with** adds one more way:
 
 | Choice | What it does |
 |---|---|
@@ -78,9 +78,9 @@ Holding **Space** on the Radio view always transmits. **Also transmit with** add
 |---|---|
 | ![The push-to-talk button in the window](assets/client-ptt-button.png) | ![The thin transmit light that replaces it](assets/client-ptt-light.png) |
 
-For a yoke or joystick button, press **Learn button**, then press and release the button you want within 10 seconds. X-Plane must be running. The client reads the button through X-Plane, so anything X-Plane sees as a joystick button works. The client says "Learned button 5 and saved it" (with your button's number), and **Button index** shows it. To go back to the button in the window, set **Also transmit with** to **Only this window**.
+For a yoke or joystick button, first choose **A yoke or joystick button, through X-Plane**: **Learn button** and **Button index** appear then. Press **Learn button**, then press and release the button you want within 10 seconds. X-Plane must be running. The client reads the button through X-Plane, so anything X-Plane sees as a joystick button works. The client says "Learned button 5 and saved it" (with your button's number), and **Button index** shows it. To go back to the button in the window, set **Also transmit with** to **Only this window**.
 
-(When you run the client from a console window, there is a third choice, **Enter in the console window (toggles)**. The installed app has no console, so it does not show it.)
+(When you run the client from a console window, **Advanced** has a row to transmit with Enter in that window. The installed app has no console, so it does not show it.)
 
 ### Phone calls
 
@@ -124,7 +124,7 @@ This part installs the FAA's current procedures into your X-Plane, and takes the
 The installed app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner above the views: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight. **Update now** downloads the new version, checks it, installs it, and the app opens again by itself. On Windows it runs the installer; on Linux it replaces the AppImage file (see [Install on Linux](install-linux.md#updates)); on a Mac it replaces the app, which must be in Applications or another folder you can write to (see [Install on a Mac](install-mac.md#updates)). **Later** puts that version off until a newer one comes, or until you start the app again.
 
 - **Check now** checks on request, and says if it could not.
-- **Receive prereleases: early versions, to try before everyone gets them** is off unless you turn it on. On, you are offered early versions too. A prerelease is a build for testing; it can have faults, and a later change to the service can stop it working until you update. Turn it on only if you have been asked to.
+- **Receive prereleases: early versions, to try before everyone gets them** is shown only on accounts that may receive prereleases. It is off unless you turn it on. On, you are offered early versions too. A prerelease is a build for testing; it can have faults, and a later change to the service can stop it working until you update. Turn it on only if you have been asked to.
 - If ATC needs a newer client than yours, the banner says **Update required** and has no **Later**.
 
 ### App menu (Linux AppImage)
