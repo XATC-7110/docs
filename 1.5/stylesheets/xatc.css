@@ -1,0 +1,232 @@
+/* The xatc-agent docs theme: the product's own colours (the client window's tokens), dark first.
+   Dark: bg #0d1117, panel #161b22, border #30363d, text #e6edf3, dim #8d96a0, accent #58a6ff,
+   frequency green #7ee787, amber #e3b341, transmit red #f85149, ATC blue #79c0ff.
+   Light: bg #f5f6f8, panel #ffffff, border #d0d7de, text #1f2328, accent #0969da, green #116329. */
+
+:root {
+  --md-text-font: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  --md-code-font: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+}
+
+[data-md-color-scheme="slate"] {
+  --xa-bg: #0d1117; --xa-panel: #161b22; --xa-border: #30363d; --xa-text: #e6edf3; --xa-dim: #8d96a0;
+  --xa-accent: #58a6ff; --xa-freq: #7ee787; --xa-warn: #e3b341; --xa-warn-bg: #3b2e0a; --xa-tx: #f85149;
+  --xa-atc: #79c0ff; --xa-info-bg: #0c2d4a; --xa-info-fg: #a5d6ff; --xa-ok-bg: #133d24; --xa-err-bg: #4a1519;
+  --xa-glow: rgba(88, 166, 255, 0.22);
+
+  --md-hue: 215;
+  --md-default-bg-color: var(--xa-bg);
+  --md-default-bg-color--light: rgba(13, 17, 23, 0.7);
+  --md-default-bg-color--lighter: rgba(13, 17, 23, 0.3);
+  --md-default-bg-color--lightest: rgba(13, 17, 23, 0.12);
+  --md-default-fg-color: var(--xa-text);
+  --md-default-fg-color--light: var(--xa-dim);
+  --md-default-fg-color--lighter: rgba(141, 150, 160, 0.5);
+  --md-default-fg-color--lightest: rgba(141, 150, 160, 0.16);
+  --md-primary-fg-color: var(--xa-panel);
+  --md-primary-fg-color--light: #1c2330;
+  --md-primary-fg-color--dark: var(--xa-bg);
+  --md-primary-bg-color: var(--xa-text);
+  --md-primary-bg-color--light: var(--xa-dim);
+  --md-accent-fg-color: var(--xa-accent);
+  --md-accent-fg-color--transparent: rgba(88, 166, 255, 0.12);
+  --md-accent-bg-color: var(--xa-bg);
+  --md-typeset-color: var(--xa-text);
+  --md-typeset-a-color: var(--xa-accent);
+  --md-typeset-mark-color: rgba(227, 179, 65, 0.3);
+  --md-typeset-kbd-color: #262c36;
+  --md-typeset-table-color: var(--xa-border);
+  --md-typeset-table-color--light: rgba(48, 54, 61, 0.45);
+  --md-code-bg-color: var(--xa-panel);
+  --md-code-fg-color: var(--xa-text);
+  --md-code-hl-color: var(--xa-accent);
+  --md-code-hl-color--light: rgba(88, 166, 255, 0.12);
+  --md-admonition-bg-color: var(--xa-panel);
+  --md-admonition-fg-color: var(--xa-text);
+  --md-footer-bg-color: #0a0d12;
+  --md-footer-bg-color--dark: #07090d;
+  --md-footer-fg-color: var(--xa-text);
+  --md-footer-fg-color--light: var(--xa-dim);
+  --md-footer-fg-color--lighter: rgba(141, 150, 160, 0.6);
+}
+
+[data-md-color-scheme="default"] {
+  --xa-bg: #f5f6f8; --xa-panel: #ffffff; --xa-border: #d0d7de; --xa-text: #1f2328; --xa-dim: #59636e;
+  --xa-accent: #0969da; --xa-freq: #116329; --xa-warn: #7d4e00; --xa-warn-bg: #fff8c5; --xa-tx: #cf222e;
+  --xa-atc: #0550ae; --xa-info-bg: #ddf4ff; --xa-info-fg: #0a3069; --xa-ok-bg: #dafbe1; --xa-err-bg: #ffebe9;
+  --xa-glow: rgba(9, 105, 218, 0.16);
+
+  --md-default-bg-color: var(--xa-bg);
+  --md-default-fg-color: var(--xa-text);
+  --md-default-fg-color--light: var(--xa-dim);
+  --md-default-fg-color--lighter: rgba(89, 99, 110, 0.5);
+  --md-default-fg-color--lightest: rgba(89, 99, 110, 0.14);
+  --md-primary-fg-color: var(--xa-panel);
+  --md-primary-fg-color--light: #f5f6f8;
+  --md-primary-fg-color--dark: #eaeef2;
+  --md-primary-bg-color: var(--xa-text);
+  --md-primary-bg-color--light: var(--xa-dim);
+  --md-accent-fg-color: var(--xa-accent);
+  --md-accent-fg-color--transparent: rgba(9, 105, 218, 0.1);
+  --md-typeset-color: var(--xa-text);
+  --md-typeset-a-color: var(--xa-accent);
+  --md-typeset-table-color: var(--xa-border);
+  --md-code-bg-color: #eaeef2;
+  --md-code-fg-color: var(--xa-text);
+  --md-admonition-bg-color: var(--xa-panel);
+  --md-footer-bg-color: #1f2328;
+  --md-footer-bg-color--dark: #16191d;
+}
+
+/* The header and the tabs: a panel with a hairline under it, like the window's top bar. */
+.md-header { box-shadow: none; border-bottom: 1px solid var(--xa-border); }
+.md-header--shadow { box-shadow: 0 1px 12px rgba(0, 0, 0, 0.18); }
+.md-tabs { border-bottom: 1px solid var(--xa-border); }
+.md-header__title { font-weight: 700; letter-spacing: 0.01em; }
+.md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.5rem; width: 1.5rem; border-radius: 0.3rem; }
+.md-tabs__link { opacity: 0.75; font-weight: 600; }
+.md-tabs__item--active .md-tabs__link, .md-tabs__link:hover { opacity: 1; color: var(--xa-accent); }
+.md-search__form { background: var(--xa-bg); border: 1px solid var(--xa-border); border-radius: 0.4rem; }
+.md-search__form:hover { background: var(--xa-bg); border-color: var(--xa-accent); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form { border-radius: 0.4rem 0.4rem 0 0; }
+.md-search__input { color: var(--xa-text); }
+.md-search__input::placeholder, .md-search__icon { color: var(--xa-dim); }
+
+/* The side navigation */
+.md-nav__link--active, .md-nav__item .md-nav__link--active { color: var(--xa-accent); font-weight: 600; }
+.md-nav__title { color: var(--xa-dim); }
+
+/* Text */
+.md-typeset { font-size: 0.8rem; line-height: 1.65; }
+.md-typeset h1 { font-weight: 700; letter-spacing: -0.01em; color: var(--xa-text); }
+.md-typeset h2 { font-weight: 700; letter-spacing: -0.005em; margin-top: 2.2em; padding-bottom: 0.3em; border-bottom: 1px solid var(--xa-border); }
+.md-typeset h3 { font-weight: 600; }
+.md-typeset a { text-decoration: none; }
+.md-typeset a:hover { text-decoration: underline; color: var(--xa-accent); }
+.md-typeset hr { border-bottom-color: var(--xa-border); }
+
+/* A radio call: a quote reads like a line of the window's log. */
+.md-typeset blockquote {
+  margin: 1em 0; padding: 0.7em 1em; color: var(--xa-text);
+  background: var(--xa-panel); border: 1px solid var(--xa-border); border-left: 3px solid var(--xa-atc); border-radius: 6px;
+}
+.md-typeset blockquote p { margin: 0.35em 0; }
+.md-typeset blockquote strong { color: var(--xa-atc); font-weight: 700; letter-spacing: 0.01em; }
+
+/* Code, and anything the window prints */
+.md-typeset code { border: 1px solid var(--xa-border); border-radius: 5px; padding: 0.05em 0.35em; }
+.md-typeset pre > code { border: 1px solid var(--xa-border); border-radius: 8px; padding: 0.9em 1.1em; }
+.md-typeset .highlight code, .md-typeset pre > code { color: var(--xa-freq); }
+.md-typeset .highlight span { color: inherit; }
+
+/* Tables: a panel with hairlines */
+.md-typeset table:not([class]) { background: var(--xa-panel); border: 1px solid var(--xa-border); border-radius: 8px; box-shadow: none; font-size: 0.74rem; }
+.md-typeset table:not([class]) th { background: color-mix(in srgb, var(--xa-border) 35%, var(--xa-panel)); font-weight: 700; color: var(--xa-text); }
+.md-typeset table:not([class]) td, .md-typeset table:not([class]) th { border-color: var(--xa-border); }
+.md-typeset table:not([class]) tbody tr:hover { background: var(--md-accent-fg-color--transparent); }
+
+/* Screenshots */
+.md-typeset img[src$=".png"] { border: 1px solid var(--xa-border); border-radius: 10px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--xa-glow); }
+.md-typeset img + em, .md-typeset p > img + br + em { color: var(--xa-dim); }
+.md-typeset p > em:only-child { display: block; color: var(--xa-dim); font-size: 0.72rem; margin-top: -0.4em; }
+
+/* Admonitions in the window's own alert colours */
+.md-typeset .admonition, .md-typeset details { border: 1px solid var(--xa-border); border-left-width: 3px; border-radius: 8px; box-shadow: none; font-size: 0.76rem; }
+.md-typeset .admonition.warning, .md-typeset details.warning { border-color: var(--xa-warn); }
+.md-typeset .warning > .admonition-title, .md-typeset .warning > summary { background: var(--xa-warn-bg); color: var(--xa-warn); }
+.md-typeset .warning > .admonition-title::before, .md-typeset .warning > summary::before { background-color: var(--xa-warn); }
+.md-typeset .admonition.note, .md-typeset .admonition.tip, .md-typeset details.note, .md-typeset details.tip { border-color: var(--xa-accent); }
+.md-typeset .note > .admonition-title, .md-typeset .tip > .admonition-title { background: var(--xa-info-bg); color: var(--xa-info-fg); }
+.md-typeset .note > .admonition-title::before, .md-typeset .tip > .admonition-title::before { background-color: var(--xa-accent); }
+
+/* Buttons */
+.md-typeset .md-button { border-radius: 8px; border: 1px solid var(--xa-border); color: var(--xa-text); background: var(--xa-panel); font-weight: 600; padding: 0.55em 1.3em; }
+.md-typeset .md-button:hover, .md-typeset .md-button:focus { border-color: var(--xa-accent); color: var(--xa-accent); background: var(--xa-panel); text-decoration: none; }
+.md-typeset .md-button--primary { background: var(--xa-accent); border-color: var(--xa-accent); color: #fff; }
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary { color: #0d1117; }
+.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus { background: color-mix(in srgb, var(--xa-accent) 85%, #fff); border-color: var(--xa-accent); color: #0d1117; box-shadow: 0 0 0 3px var(--xa-glow); }
+[data-md-color-scheme="default"] .md-typeset .md-button--primary:hover { color: #fff; background: color-mix(in srgb, var(--xa-accent) 88%, #000); }
+
+/* ---- The home page ---- */
+
+.xa-hero {
+  position: relative; overflow: hidden; margin: 0 0 2.2rem; padding: 3rem 2rem 2.4rem; text-align: center;
+  border: 1px solid var(--xa-border); border-radius: 16px;
+  background:
+    radial-gradient(60rem 26rem at 50% -8rem, var(--xa-glow), transparent 70%),
+    repeating-radial-gradient(circle at 50% 118%, transparent 0 4.9rem, color-mix(in srgb, var(--xa-border) 70%, transparent) 4.9rem 5rem),
+    var(--xa-panel);
+}
+/* the sweep of a radar scope, behind everything, slow; still for anyone who asks for less motion */
+.xa-hero::before {
+  content: ""; position: absolute; left: 50%; top: 118%; width: 90rem; height: 90rem; margin: -45rem 0 0 -45rem; border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 78%, color-mix(in srgb, var(--xa-freq) 16%, transparent) 97%, color-mix(in srgb, var(--xa-freq) 40%, transparent) 100%);
+  animation: xa-sweep 9s linear infinite; pointer-events: none;
+}
+@keyframes xa-sweep { from { transform: rotate(-80deg); } to { transform: rotate(80deg); } }
+@media (prefers-reduced-motion: reduce) { .xa-hero::before { animation: none; transform: rotate(20deg); } }
+.xa-hero > * { position: relative; }
+.md-typeset .xa-hero h1 { margin: 0 0 0.3em; font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.md-typeset .xa-hero h1 .headerlink { display: none; }
+.xa-kicker {
+  display: inline-block; margin-bottom: 1rem; padding: 0.2em 0.85em; border-radius: 999px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--xa-freq); background: color-mix(in srgb, var(--xa-freq) 12%, transparent); border: 1px solid color-mix(in srgb, var(--xa-freq) 40%, transparent);
+  font-family: var(--md-code-font);
+}
+.xa-tagline { max-width: 38rem; margin: 0 auto 1.5rem !important; font-size: 1rem; color: var(--xa-dim); }
+.xa-hero .md-button { margin: 0.25rem 0.3rem; }
+.xa-hero img { margin-top: 2rem; max-width: min(100%, 46rem); }
+.xa-call {
+  max-width: 40rem; margin: 1.6rem auto 0; padding: 0.8rem 1rem; text-align: left; font-family: var(--md-code-font); font-size: 0.72rem; line-height: 1.6;
+  background: var(--xa-bg); border: 1px solid var(--xa-border); border-radius: 10px;
+}
+.xa-call p { margin: 0.3em 0 !important; display: grid; grid-template-columns: 6.2em 1fr; column-gap: 0.9em; align-items: baseline; }
+.xa-call .you { color: var(--xa-text); }
+.xa-call .atc { color: var(--xa-atc); }
+.xa-call .who { font-weight: 700; }
+.xa-call .said { min-width: 0; }
+.xa-call .ok { color: var(--xa-freq); }
+
+/* cards */
+.md-typeset .grid.cards > ul > li, .md-typeset .grid.cards > ol > li, .md-typeset .grid > .card {
+  background: var(--xa-panel); border: 1px solid var(--xa-border); border-radius: 12px; box-shadow: none; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.md-typeset .grid.cards > ul > li:hover, .md-typeset .grid > .card:hover { border-color: var(--xa-accent); box-shadow: 0 0 0 3px var(--xa-glow); transform: translateY(-2px); }
+.md-typeset .grid.cards > ul > li > hr { border-bottom-color: var(--xa-border); margin: 0.6em 0; }
+.md-typeset .grid.cards .twemoji, .md-typeset .grid.cards .md-icon { color: var(--xa-accent); }
+.md-typeset .grid.cards li > p:first-child strong { font-size: 0.86rem; }
+
+/* the frequency strip under the hero: the flight, position by position */
+.md-typeset ul.xa-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 2rem; padding: 0; list-style: none; font-family: var(--md-code-font); }
+.md-typeset ul.xa-strip li { margin: 0; padding: 0.35rem 0.75rem; min-width: 6.2rem; text-align: center; list-style: none; border: 1px solid var(--xa-border); border-radius: 8px; background: var(--xa-panel); font-size: 0.66rem; color: var(--xa-dim); }
+.md-typeset ul.xa-strip li + li { position: relative; }
+.md-typeset ul.xa-strip b { display: block; font-size: 0.98rem; font-weight: 700; color: var(--xa-freq); letter-spacing: 0.03em; }
+
+@media screen and (max-width: 44em) {
+  .xa-hero { padding: 2rem 1rem 1.6rem; border-radius: 12px; }
+  .md-typeset .xa-hero h1 { font-size: 1.9rem; }
+  .xa-call p { grid-template-columns: 1fr; }
+  .xa-tagline { font-size: 0.85rem; }
+  .xa-kicker { letter-spacing: 0.05em; font-size: 0.6rem; }
+}
+
+/* ---- The component diagram (docs/how-it-works.md): inline SVG, so it follows the theme switch ---- */
+
+.md-typeset figure.xa-diagram { display: block; width: 100%; max-width: none; margin: 1.4em 0; padding: 0.6rem 0.6rem 0.2rem; overflow-x: auto; background: var(--xa-bg); border: 1px solid var(--xa-border); border-radius: 12px; }
+.xa-diagram svg { display: block; width: 100%; min-width: 38rem; height: auto; font-family: var(--md-text-font); }
+.md-typeset figure.xa-diagram figcaption { max-width: none; margin: 0.4em 0 0.5em; font-style: normal; font-size: 0.72rem; color: var(--xa-dim); }
+.xa-diagram .g { fill: color-mix(in srgb, var(--xa-panel) 45%, transparent); stroke: var(--xa-border); stroke-width: 1.2; stroke-dasharray: 6 5; }
+.xa-diagram .gw { fill: color-mix(in srgb, var(--xa-panel) 80%, transparent); stroke: var(--xa-border); stroke-width: 1.2; }
+.xa-diagram .b { fill: var(--xa-panel); stroke: var(--xa-border); stroke-width: 1.2; }
+.xa-diagram .b.hl { stroke: var(--xa-accent); stroke-width: 1.6; }
+.xa-diagram .m { fill: color-mix(in srgb, var(--xa-accent) 16%, var(--xa-panel)); stroke: var(--xa-accent); stroke-width: 1.4; }
+.xa-diagram .s { fill: color-mix(in srgb, var(--xa-freq) 9%, var(--xa-panel)); stroke: var(--xa-freq); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.xa-diagram .t { fill: var(--xa-text); font-size: 13px; font-weight: 700; }
+.xa-diagram .u { fill: var(--xa-dim); font-size: 10.5px; }
+.xa-diagram .l { fill: var(--xa-text); font-size: 10.5px; }
+.xa-diagram .lk { fill: var(--xa-accent); font-size: 10.5px; font-weight: 700; }
+.xa-diagram .gt { fill: var(--xa-dim); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.xa-diagram .a { fill: none; stroke: var(--xa-dim); stroke-width: 1.4; }
+.xa-diagram .ah { fill: var(--xa-dim); }
+.xa-diagram .a2 { fill: none; stroke: var(--xa-accent); stroke-width: 2.2; }
+.xa-diagram .ah2 { fill: var(--xa-accent); }
