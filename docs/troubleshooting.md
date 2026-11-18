@@ -79,7 +79,7 @@ A red alert, and **X-Plane is paused for you**. ATC could not read its airport a
 
 ## Update required
 
-The window shows a banner, **Update required.**: "This is SeventyOneTen 0.19.0, and 0.20.0 or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([app.7110atc.com](https://app.7110atc.com), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
+The window shows a banner, **Update required.**: "This is SeventyOneTen <your version>, and <a newer version> or newer is needed to fly." ATC needs a newer client than yours and has stopped connecting. Press **Update now** in the banner (it has no **Later**), or download the newest installer from the pilot site ([app.7110atc.com](https://app.7110atc.com), **Download**) and run it over your copy. If it says "No update was found yet", press **Check again**. Then start the client again.
 
 !!! note "Still on 0.19.0 (or any client older than 0.20.0-rc.11): it cannot find updates or sign in"
     The pilot site moved to [app.7110atc.com](https://app.7110atc.com) on 2026-10-20. Client 0.19.0, and any client older than **0.20.0-rc.11**, still asks the old address, so **Update now** and **Check again** find nothing and it can no longer sign in. Install **0.20.0** once by hand from [app.7110atc.com/#/download](https://app.7110atc.com/#/download), then sign in with your password and authenticator code. It updates itself from then on.
