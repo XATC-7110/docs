@@ -2,8 +2,8 @@
 
 A flight can have other aircraft in it. SeventyOneTen can fill your X-Plane with AI aircraft that depart, taxi, cross runways, fly approaches and land at the airports on your route that have traffic, and ATC works with them: it sequences you with them as with any other aircraft. You read their calls in the log, and you can choose to hear them. This page says how to turn the traffic on, what to install, what the start dialog shows and what you can hear.
 
-!!! info "A prerelease, for now"
-    The traffic setup shown here is in the client's 0.20 prereleases. The stable client, 0.19.0, does not start AI traffic. The traffic plugin it needs is not on the Download page yet: see [What X-Plane needs](#what-x-plane-needs).
+!!! note "The plugin is not on the Download page yet"
+    The traffic plugin that AI traffic needs is not on the Download page yet: see [What X-Plane needs](#what-x-plane-needs). Until it is, AI traffic is only for testers who have been given the plugin.
 
 ## Turn it on
 

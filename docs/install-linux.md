@@ -2,9 +2,6 @@
 
 The Linux client is an **AppImage**: one file that you download, make executable and run. There is nothing to install and no terminal is needed. It is for 64-bit Intel and AMD PCs (x86_64) only.
 
-!!! info "A prerelease, for now"
-    The Linux app first came with client 0.20, which is a **prerelease**: a build for testing, not yet a stable release. The Download page shows it under **Prerelease** (with a warning that it can have faults), and when no Linux version has been published it says **No Linux release yet**. Install it if you have been asked to, or if you are happy to test. When a stable release carries it, this note goes.
-
 The Linux app is new and has been run by fewer pilots than the Windows one. If something does not work, [report it](troubleshooting.md#reporting-a-problem).
 
 ## What you need
@@ -48,7 +45,7 @@ You stay signed in for 30 days, across restarts, when your desktop has a keyring
 
 The app asks the pilot site for the newest version when it starts, and once a day while it is open. A newer version shows a banner: **What changed**, **Update now** and **Later**. The banner waits until your flight has ended, and nothing is installed during a flight.
 
-**Update now** replaces the AppImage file with the new version, checks it first, and opens the app again by itself. Because it replaces the file, the AppImage must be somewhere you can write to, such as your home folder. Until Linux is in a stable release, newer Linux builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates). If an update fails, your old file is left as it was and the banner says why.
+**Update now** replaces the AppImage file with the new version, checks it first, and opens the app again by itself. Because it replaces the file, the AppImage must be somewhere you can write to, such as your home folder. A newer Linux build that is still a prerelease is offered only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates). If an update fails, your old file is left as it was and the banner says why.
 
 ## Where things are kept
 

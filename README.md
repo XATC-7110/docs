@@ -57,7 +57,7 @@ GitHub redirects `xatc-7110.github.io/docs/<page>` to `docs.7110atc.com/<page>` 
 | Path | What |
 |---|---|
 | `docs/index.md`, `getting-started.md`, `first-flight.md` | What it is, installing, a flight gate to gate |
-| `docs/install-linux.md`, `install-mac.md` | Installing on Linux (the AppImage) and on a Mac (the disk image); both are prereleases until a stable client carries them |
+| `docs/install-linux.md`, `install-mac.md` | Installing on Linux (the AppImage) and on a Mac (the disk image); both are in the stable client since 0.20.0 |
 | `docs/send-a-plan.md` | Sending a ForeFlight plan to your account (iPhone app, pilot site) and loading it with New flight, From my account |
 | `docs/traffic.md` | AI traffic: the Traffic choice, what X-Plane needs, the start dialog's steps, and traffic audio |
 | `docs/window.md`, `settings.md` | The client's window and its settings |

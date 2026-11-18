@@ -2,9 +2,6 @@
 
 The Mac app is a **disk image**: you download it, drag the app to your Applications folder and open it. There is nothing else to install and no terminal is needed. It is for **Apple silicon Macs (M1 or later)** running **macOS 14 or newer**.
 
-!!! info "A prerelease, for now"
-    The Mac app came with client 0.20 (since 0.20.0-rc.10), which is a **prerelease**: a build for testing, not yet a stable release. The Download page shows it under **Prerelease** (with a warning that it can have faults). Install it if you have been asked to, or if you are happy to test. When a stable release carries it, this note goes.
-
 The Mac app is new and has been run by fewer pilots than the Windows one. If something does not work, [report it](troubleshooting.md#reporting-a-problem).
 
 ## What you need
@@ -19,7 +16,7 @@ The Mac app is new and has been run by fewer pilots than the Windows one. If som
 
 ## Install (one time)
 
-1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Mac (Apple silicon)**, then press **Download for Mac** under **Prerelease**. The file is `SeventyOneTen-<version>-arm64.dmg`.
+1. Go to the pilot site, [app.7110atc.com](https://app.7110atc.com), and sign in with your SeventyOneTen account. Open **Download**, choose **Mac (Apple silicon)**, then press **Download for Mac** under **Latest release**. The file is `SeventyOneTen-<version>-arm64.dmg`.
 2. Open the downloaded `.dmg` file. A disk image named *SeventyOneTen* and the version opens, with the app and your Applications folder side by side.
 3. Drag **SeventyOneTen** to your **Applications** folder. The window it opens is called **SeventyOneTen client**.
 4. Eject the disk image.
@@ -53,7 +50,7 @@ The app asks the pilot site for the newest version when it starts, and once a da
 
 **Update now** downloads the new version, checks that it is the release that was offered and that it is this app, replaces the app and opens it again by itself. If anything is wrong, your old app is left as it was and the banner says why.
 
-Because it replaces the app, the app must be in **Applications** (or another folder you can write to). An app opened straight from the disk image, or left in Downloads, is not updated: move it to Applications first. Until the Mac app is in a stable release, newer Mac builds are prereleases, and the app offers a prerelease only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates).
+Because it replaces the app, the app must be in **Applications** (or another folder you can write to). An app opened straight from the disk image, or left in Downloads, is not updated: move it to Applications first. A newer Mac build that is still a prerelease is offered only when **Receive prereleases** is on in **Settings > Account > Updates**: see [Updates](settings.md#updates).
 
 ## Where things are kept
 

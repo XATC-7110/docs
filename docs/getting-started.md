@@ -29,7 +29,7 @@ These steps are for Windows. On Linux, follow [Install on Linux](install-linux.m
 There is nothing else to install and no keys to copy. You sign in from the window.
 
 !!! note "Installed it before 20 October 2026? Reinstall once, by hand"
-    On 2026-10-20 the pilot site moved to [app.7110atc.com](https://app.7110atc.com) (the product's home is [7110atc.com](https://7110atc.com)). A client older than **0.20.0-rc.11** looks for updates at the old address, so it can no longer find them: download the newest installer from [app.7110atc.com/#/download](https://app.7110atc.com/#/download) and run it over your copy. After that, updates arrive by themselves again.
+    On 2026-10-20 the pilot site moved to [app.7110atc.com](https://app.7110atc.com) (the product's home is [7110atc.com](https://7110atc.com)). Client 0.19.0, and any client older than **0.20.0-rc.11**, looks for updates at the old address, so it can no longer find them: download the newest installer from [app.7110atc.com/#/download](https://app.7110atc.com/#/download) and run it over your copy. After that, updates arrive by themselves again.
 
 The installed app updates itself: see [Updates](settings.md#updates). To remove it, use *Windows Settings > Apps > SeventyOneTen > Uninstall*. Your settings and log stay in `%LOCALAPPDATA%\xatc-agent-client` until you delete that folder. Your sign-in stays in Windows Credential Manager until you press **Sign out** in the window; do that before uninstalling if you want it gone.
 

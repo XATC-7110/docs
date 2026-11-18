@@ -47,7 +47,7 @@ By default **nothing you say is kept as audio**. The first time you connect, the
 - You must choose **Allow** or **Don't allow** before you can transmit.
 - The choice is stored with your account, so you are asked once, not once per PC.
 - Change it at any time in **Settings > Account > Recording**.
-- When the wording of the question changes, every pilot is asked again. The wording above (version 3) first ships with the next client release (it reaches you first as a prerelease if you have opted in; see [Settings](settings.md) for how prereleases are offered), so you will see the question once more after you update to a client that carries it; client 0.19.0 still shows the earlier wording.
+- When the wording of the question changes, every pilot is asked again. The wording above (version 3) first shipped with client 0.20.0, so you will see the question once more after you update to it; client 0.19.0 still shows the earlier wording.
 
 ## What is kept about a flight
 
