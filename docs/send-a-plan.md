@@ -2,9 +2,6 @@
 
 If you plan your flights in ForeFlight or another planning app, you do not have to type the plan into the client. Send the plan file to your SeventyOneTen account, from your iPhone or from the pilot site, then load it in the client with **New flight > From my account**.
 
-!!! info "A prerelease, for now"
-    **From my account** is in the client's 0.20 prereleases (since 0.20.0-rc.10). The stable client, 0.19.0, does not have it. Sending a plan from the pilot site works for everyone with an account. The iPhone app is a test version for invited testers.
-
 ## What a plan file is
 
 SeventyOneTen reads three kinds of file:

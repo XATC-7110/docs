@@ -1,8 +1,5 @@
 # Your plan in X-Plane's avionics
 
-!!! info "A prerelease, for now"
-    The plan file first comes with client 0.20.0-rc.16, which is a **prerelease**: a build for testing, not yet a stable release. Until a stable client carries it, only a prerelease writes the file.
-
 When you start a flight, SeventyOneTen writes your flight plan as a file X-Plane can read, so you can load it into the GNS 530, the G1000 or the FMS without typing the route again.
 
 ## Where it goes

@@ -90,7 +90,7 @@ hide:
 
     ---
 
-    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can choose to hear their calls. In the client's 0.20 prereleases only, and for testers for now.
+    Choose a Traffic level on New flight and AI aircraft depart, cross runways and land around you. ATC sequences you with them, and you can choose to hear their calls. For testers for now, until the traffic plugin is on the Download page.
 
     [:octicons-arrow-right-24: AI traffic](traffic.md)
 
@@ -98,7 +98,7 @@ hide:
 
     ---
 
-    Share the flight plan file to your account from your iPhone or the pilot site, then load it in the client with New flight, From my account (client 0.20 prerelease).
+    Share the flight plan file to your account from your iPhone or the pilot site, then load it in the client with New flight, From my account.
 
     [:octicons-arrow-right-24: Send a plan to your account](send-a-plan.md)
 
@@ -121,7 +121,7 @@ hide:
 
     ---
 
-    X-Plane 12.1.4 or newer, Windows 10 or 11, a 64-bit Linux desktop or an Apple silicon Mac with macOS 14 or newer (the Linux and Mac apps are prereleases for now), a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
+    X-Plane 12.1.4 or newer, Windows 10 or 11, a 64-bit Linux desktop or an Apple silicon Mac with macOS 14 or newer, a microphone, and an internet connection during the flight. The controller runs in the cloud; the window beside X-Plane is a thin client.
 
 -   :material-account-key: **An invitation**
 

@@ -57,7 +57,7 @@ The **Test** row checks your sound before you fly.
 | Setting | Choices |
 |---|---|
 | **Radio effect** | *Clean*, *Realistic* (the default) or *Busy day*: how much of a VHF radio you hear on ATC's voice |
-| **Hear other traffic on the frequency** | Client 0.20 prerelease. A checkbox, off by default. On, you hear the [AI traffic](traffic.md#hearing-the-other-traffic)'s calls, and ATC's replies to them, on a frequency one of your radios is tuned to and set to listen to: never over you, nor over ATC talking to you. The row appears only when ATC offers it for your flights, and it matters only on a flight whose **Traffic** is not **None**. Saving a change reconnects the flight (the same flight) |
+| **Hear other traffic on the frequency** | A checkbox, off by default. On, you hear the [AI traffic](traffic.md#hearing-the-other-traffic)'s calls, and ATC's replies to them, on a frequency one of your radios is tuned to and set to listen to: never over you, nor over ATC talking to you. The row appears only when ATC offers it for your flights, and it matters only on a flight whose **Traffic** is not **None**. Saving a change reconnects the flight (the same flight) |
 
 ### The radio voices
 

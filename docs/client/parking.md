@@ -12,9 +12,6 @@ The card comes up once per landing, at whichever of the last two comes first. It
 
 The Parking card comes to the front of the card slot, titled with the airport, such as "Parking at KPDX". When it came up on its own, a line under the title says **"Pick your parking, then tell Ground"**, and the log says "Landed" or "Switched to Ground" instead of naming a controller who asked. If you close it, it stays closed for that landing; ATC's "say parking" still brings it back.
 
-!!! note "Needs client 0.20"
-    The card's own line, the log's wording and a closed card staying closed come with client 0.20, which is still a prerelease (the stable release is 0.19.0). On client 0.19.0 the card does not know why it came up: the card appears on landing and on the switch to Ground all the same, but with no line under its title, and the log says that ATC asked for your parking when it did not.
-
 ## What you can say
 
 - **Gates and stands**, by the names your own scenery gives them, grouped by kind: airline gates, general aviation, cargo, military and the rest. A long group is split into sections by name. An airport with 30 or more stands gets a search box ("Search gates and stands"); it matches every word you type, in any order, so "a 1" finds A1. A very long list says how many more stands are not listed and that you can still say them.

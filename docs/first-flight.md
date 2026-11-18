@@ -9,11 +9,11 @@ An IFR flight from Seattle to Portland, gate to gate. The frequencies and names 
 3. Press **New flight**, in the start panel or at the top right.
     - **Enter manually**: tail number, aircraft type, departure, destination, cruise altitude and route. The dialog remembers your last plan. To fly as an airline, switch **Tail number** to **Callsign** and give the **Airline** (three letters), its **Pronunciation** (the word ATC says, filled in for the airlines the client knows) and the **Flight number**. A line under the fields says what ATC will say, such as "Walker seventeen forty-five", and the window's header shows "Walker 1745".
     - **From SimBrief**: enter your SimBrief username or pilot ID and press **Load**. It fills in your latest flight plan and tells you which one it loaded and how old it is. No password or key is needed.
-    - **From my account** (client 0.20 prerelease): the newest plan you [sent to your account](send-a-plan.md) from ForeFlight or another app. Press **Use this plan** to fill in the form, then check it.
-    - **Traffic** (client 0.20 prerelease): **None** is the default. Choose a level and AI aircraft fly around you: see [AI traffic](traffic.md).
+    - **From my account**: the newest plan you [sent to your account](send-a-plan.md) from ForeFlight or another app. Press **Use this plan** to fill in the form, then check it.
+    - **Traffic**: **None** is the default. Choose a level and AI aircraft fly around you: see [AI traffic](traffic.md).
 4. Press **Start flight**. The dialog says **Starting new flight…** and closes when ATC is ready (with **Traffic** on, when the traffic is drawn: see [AI traffic](traffic.md#starting-a-flight-with-traffic)).
 
-The client also writes your plan for X-Plane's own avionics (client 0.20 prerelease), so you can load it into the GNS 530, the G1000 or the FMS. [Your plan in X-Plane's avionics](client/flight-plan-file.md) says how.
+The client also writes your plan for X-Plane's own avionics, so you can load it into the GNS 530, the G1000 or the FMS. [Your plan in X-Plane's avionics](client/flight-plan-file.md) says how.
 
 ### Start a flight
 
@@ -31,7 +31,7 @@ Under the lines are the buttons:
 
 - **New flight** opens the dialog above.
 - **Rejoin KSEA to KPDX** (with your own airports) appears when a flight you were in can still be rejoined, which is for about ten minutes after you closed the client or lost it.
-- **Start KSEA to KPDX from my account** appears when a plan you [sent to your account](send-a-plan.md) is waiting (client 0.20 prerelease). It opens the New flight dialog with the plan filled in for you to check. A plan you have already flown is not offered again.
+- **Start KSEA to KPDX from my account** appears when a plan you [sent to your account](send-a-plan.md) is waiting. It opens the New flight dialog with the plan filled in for you to check. A plan you have already flown is not offered again.
 
 After a flight ends, a line under the heading, above the three lines, says so and why. The log stays under the panel, so you can still read what happened; the radios and cards of the flight that ended are gone.
 
