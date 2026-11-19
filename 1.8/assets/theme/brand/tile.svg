@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="SeventyOneTen">
+  <!-- The 71/10 tile. The digits are live text in Archivo 800: the page or app showing this must load Archivo, or use logo/icon/*.png -->
+  <rect width="64" height="64" rx="12" fill="#0E1A2B"/>
+  <rect x="7" y="10" width="4" height="44" rx="2" fill="#D64545"/>
+  <text x="37" y="30" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="25" fill="#EDE7DA">71</text>
+  <text x="37" y="55" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="25" fill="#2EC4B6">10</text>
+</svg>
