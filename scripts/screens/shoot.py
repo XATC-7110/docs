@@ -64,7 +64,9 @@ def main(site, out):
                 key = f"search-{sname}-{width}"
                 page.goto(base + "features/clearance/", wait_until="networkidle"); set_scheme(page, scheme)
                 (page.click("label.md-header__button[for=__search]") if width < 1000 else page.click("input.md-search__input")); page.fill("input.md-search__input", "readback")
-                page.wait_for_timeout(700)
+                try: page.wait_for_selector(".md-search-result__item", timeout=6000)
+                except Exception: pass
+                page.wait_for_timeout(500)
                 page.screenshot(path=str(out / f"{key}.png"))
                 report[key] = {"text": page.inner_text(".md-search-result") if page.query_selector(".md-search-result") else "", "sideways": 0, "errors": []}
                 # the version switcher open

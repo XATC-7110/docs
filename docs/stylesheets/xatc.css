@@ -106,6 +106,8 @@
 .md-search__form:hover { background: var(--s71-deep-night); border-color: var(--xa-chrome-accent); }
 [data-md-toggle="search"]:checked ~ .md-header .md-search__form { border-radius: var(--s71-r-field) var(--s71-r-field) 0 0; }
 .md-search__input { color: var(--s71-paper); }
+/* The open search field takes the page colour (at every width), so the typed text follows the scheme: paper on paper was unreadable. */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input { color: var(--md-default-fg-color); }
 .md-search__input::placeholder, .md-search__icon { color: var(--s71-dim); }
 
 /* The side navigation */
