@@ -99,6 +99,8 @@
 .md-header__title { font-weight: 800; letter-spacing: var(--s71-tracking-title); }
 .md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.5rem; width: 1.5rem; border-radius: var(--s71-r-field); }
 .md-tabs__link { opacity: 0.75; font-weight: 600; }
+/* Eleven tabs: the theme's label tracking (0.1em) pushes the last one past the row at 1220-1920 px, so the tabs track a little tighter. */
+.md-tabs__link { letter-spacing: 0.06em; }
 .md-tabs__item--active .md-tabs__link, .md-tabs__link:hover { opacity: 1; color: var(--xa-chrome-accent); }
 .md-search__form { background: var(--s71-deep-night); border: 1px solid var(--xa-chrome-line); border-radius: var(--s71-r-field); }
 .md-search__form:hover { background: var(--s71-deep-night); border-color: var(--xa-chrome-accent); }
