@@ -77,7 +77,11 @@ def main(site, out):
                     page.click("label.md-header__button[for=__drawer]"); page.wait_for_timeout(300)
                     sel = page.query_selector(".md-version"); shown = bool(sel and sel.is_visible())
                 if shown:
-                    page.hover(".md-version__current"); page.wait_for_timeout(400)
+                    try:
+                        page.hover(".md-version", timeout=3000)
+                    except Exception:
+                        page.focus(".md-version__current", timeout=3000) if page.query_selector(".md-version__current") else None
+                    page.wait_for_timeout(400)
                 page.screenshot(path=str(out / f"{key}.png"))
                 report[key] = {"text": page.inner_text(".md-version") if sel else "", "sideways": 0, "errors": [], "version_visible": shown}
                 # the default scheme the site opens in (no stored choice)
