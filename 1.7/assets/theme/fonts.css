@@ -1,0 +1,8 @@
+/* SeventyOneTen theme: self-hosted fonts (SIL Open Font License 1.1; licences in fonts/). Archivo 400, 500, 700, 800 and
+   Archivo Narrow 600. Nothing is loaded from another origin, so a site's CSP can say font-src 'self'. The URLs are
+   relative to this file: keep fonts/ next to it. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/Archivo-400.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/Archivo-500.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/Archivo-700.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 800; font-display: swap; src: url("fonts/Archivo-800.woff2") format("woff2"); }
+@font-face { font-family: "Archivo Narrow"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ArchivoNarrow-600.woff2") format("woff2"); }

@@ -1,0 +1,255 @@
+/* The SeventyOneTen docs theme (SOT-260). The look is the shared SeventyOneTen theme v1.0.0 (docs/assets/theme/, a pinned copy: tokens.css,
+   fonts.css and shape-soft.css, linked before this file in mkdocs.yml's extra_css; never edit those files here, scripts/sync_theme.sh
+   upgrades them). Material's own switch picks the scheme (slate = night, default = paper), not the theme's data-theme, so each scheme
+   below is written from the theme's RAW palette (never themed); the semantic --s71-* tokens are not used. Night is the default.
+   Archivo is the body face, Archivo Narrow the small capital labels (the theme's self-hosted woff2 files, no Google Fonts).
+   Corners come from shape-soft.css (--s71-r-*). The header, the tabs and the footer are chrome: night in both schemes, as the theme says. */
+
+:root {
+  --md-text-font: var(--s71-font);
+  --md-code-font: var(--s71-font-mono);
+  /* 12.5 px small capitals: shape-soft's label size is written for a 16 px root and Material's root is 20 px */
+  --xa-label-size: calc(var(--s71-fs-label) * 0.8);
+}
+
+[data-md-color-scheme="slate"] {
+  color-scheme: dark;
+  --xa-bg: var(--s71-night); --xa-panel: var(--s71-panel); --xa-border: var(--s71-line-night); --xa-text: var(--s71-paper); --xa-dim: var(--s71-dim);
+  --xa-accent: var(--s71-teal); --xa-freq: var(--s71-teal); --xa-warn: var(--s71-warn); --xa-warn-bg: var(--s71-warn-bg-night); --xa-tx: var(--s71-red-text);
+  --xa-atc: var(--s71-teal); --xa-info-bg: color-mix(in srgb, var(--s71-teal) 12%, var(--s71-panel)); --xa-info-fg: var(--s71-paper);
+  --xa-ok-bg: var(--s71-ok-bg-night); --xa-err-bg: var(--s71-err-bg);
+  --xa-glow: color-mix(in srgb, var(--s71-teal) 22%, transparent);
+  --xa-on-accent: var(--s71-night); --xa-code-bg: var(--s71-deep-night);
+
+  --md-default-bg-color: var(--xa-bg);
+  --md-default-bg-color--light: color-mix(in srgb, var(--s71-night) 70%, transparent);
+  --md-default-bg-color--lighter: color-mix(in srgb, var(--s71-night) 30%, transparent);
+  --md-default-bg-color--lightest: color-mix(in srgb, var(--s71-night) 12%, transparent);
+  --md-default-fg-color: var(--xa-text);
+  --md-default-fg-color--light: var(--xa-dim);
+  --md-default-fg-color--lighter: color-mix(in srgb, var(--s71-dim) 50%, transparent);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--s71-dim) 16%, transparent);
+  --md-accent-fg-color: var(--xa-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--s71-teal) 12%, transparent);
+  --md-accent-bg-color: var(--xa-bg);
+  --md-typeset-color: var(--xa-text);
+  --md-typeset-a-color: var(--xa-accent);
+  --md-typeset-mark-color: color-mix(in srgb, var(--s71-warn) 30%, transparent);
+  --md-typeset-kbd-color: var(--s71-line-night);
+  --md-typeset-table-color: var(--xa-border);
+  --md-typeset-table-color--light: color-mix(in srgb, var(--s71-line-night) 45%, transparent);
+  --md-code-bg-color: var(--xa-code-bg);
+  --md-code-fg-color: var(--xa-text);
+  --md-code-hl-color: var(--xa-accent);
+  --md-code-hl-color--light: color-mix(in srgb, var(--s71-teal) 12%, transparent);
+  --md-admonition-bg-color: var(--xa-panel);
+  --md-admonition-fg-color: var(--xa-text);
+}
+
+[data-md-color-scheme="default"] {
+  color-scheme: light;
+  --xa-bg: var(--s71-paper); --xa-panel: var(--s71-paper-card); --xa-border: var(--s71-line-light); --xa-text: var(--s71-night); --xa-dim: var(--s71-dim-light);
+  --xa-accent: var(--s71-teal-deep); --xa-freq: var(--s71-teal-deep); --xa-warn: var(--s71-warn-light); --xa-warn-bg: var(--s71-warn-bg-light); --xa-tx: var(--s71-red-text-light);
+  --xa-atc: var(--s71-teal-deep); --xa-info-bg: color-mix(in srgb, var(--s71-teal-deep) 10%, var(--s71-paper-card)); --xa-info-fg: var(--s71-night);
+  --xa-ok-bg: var(--s71-ok-bg-light); --xa-err-bg: var(--s71-err-bg-light);
+  --xa-glow: color-mix(in srgb, var(--s71-teal-deep) 16%, transparent);
+  --xa-on-accent: var(--s71-paper); --xa-code-bg: var(--s71-deep-light);
+
+  --md-default-bg-color: var(--xa-bg);
+  --md-default-fg-color: var(--xa-text);
+  --md-default-fg-color--light: var(--xa-dim);
+  --md-default-fg-color--lighter: color-mix(in srgb, var(--s71-dim-light) 50%, transparent);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--s71-dim-light) 14%, transparent);
+  --md-accent-fg-color: var(--xa-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--s71-teal-deep) 10%, transparent);
+  --md-typeset-color: var(--xa-text);
+  --md-typeset-a-color: var(--xa-accent);
+  --md-typeset-table-color: var(--xa-border);
+  --md-code-bg-color: var(--xa-code-bg);
+  --md-code-fg-color: var(--xa-text);
+  --md-admonition-bg-color: var(--xa-panel);
+}
+
+/* Chrome: the header, the tabs and the footer are night in both schemes (the theme's --s71-chrome-* rule, written from the raw palette
+   because Material's switch does not set data-theme). The search field and the toggle sit on it, so they read the chrome colours too. */
+[data-md-color-scheme] {
+  --md-primary-fg-color: var(--s71-panel);
+  --md-primary-fg-color--light: var(--s71-line-night);
+  --md-primary-fg-color--dark: var(--s71-deep-night);
+  --md-primary-bg-color: var(--s71-paper);
+  --md-primary-bg-color--light: var(--s71-dim);
+  --md-footer-bg-color: var(--s71-deep-night);
+  --md-footer-bg-color--dark: var(--s71-deep-night);
+  --md-footer-fg-color: var(--s71-paper);
+  --md-footer-fg-color--light: var(--s71-dim);
+  --md-footer-fg-color--lighter: color-mix(in srgb, var(--s71-dim) 60%, transparent);
+}
+.md-header, .md-tabs { --xa-chrome-line: var(--s71-line-night); --xa-chrome-accent: var(--s71-teal); }
+
+/* Small capital labels: Archivo Narrow 600, uppercase, tracked */
+.md-tabs__link, .md-nav__title, .md-nav--secondary > .md-nav__title, .md-typeset table:not([class]) th,
+.md-typeset .admonition-title, .md-typeset summary, .md-footer__title, .md-source__facts, .md-version__current {
+  font-family: var(--s71-font-label); text-transform: uppercase; letter-spacing: var(--s71-tracking-label); font-size: var(--xa-label-size);
+}
+
+/* The header and the tabs: a panel with a hairline under it, like the window's top bar. */
+.md-header { box-shadow: none; border-bottom: 1px solid var(--xa-chrome-line); }
+.md-header--shadow { box-shadow: var(--s71-shadow); }
+.md-tabs { border-bottom: 1px solid var(--xa-chrome-line); }
+.md-header__title { font-weight: 800; letter-spacing: var(--s71-tracking-title); }
+.md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.5rem; width: 1.5rem; border-radius: var(--s71-r-field); }
+.md-tabs__link { opacity: 0.75; font-weight: 600; }
+/* Eleven tabs: the theme's label tracking (0.1em) pushes the last one past the row at 1220-1920 px, so the tabs track a little tighter. */
+.md-tabs__link { letter-spacing: 0.06em; }
+.md-tabs__item--active .md-tabs__link, .md-tabs__link:hover { opacity: 1; color: var(--xa-chrome-accent); }
+.md-search__form { background: var(--s71-deep-night); border: 1px solid var(--xa-chrome-line); border-radius: var(--s71-r-field); }
+.md-search__form:hover { background: var(--s71-deep-night); border-color: var(--xa-chrome-accent); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form { border-radius: var(--s71-r-field) var(--s71-r-field) 0 0; }
+.md-search__input { color: var(--s71-paper); }
+/* The open search field takes the page colour (at every width), so the typed text follows the scheme: paper on paper was unreadable. */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input { color: var(--md-default-fg-color); }
+.md-search__input::placeholder, .md-search__icon { color: var(--s71-dim); }
+/* the open field takes the page colour: its placeholder follows (--s71-dim on paper was 2:1) */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input::placeholder { color: var(--md-default-fg-color--light); }
+
+/* The side navigation */
+.md-nav__link--active, .md-nav__item .md-nav__link--active { color: var(--xa-accent); font-weight: 600; }
+.md-nav__title { color: var(--xa-dim); }
+/* the drawer's title is the site name, not a label: it reads SeventyOneTen, not SEVENTYONETEN */
+.md-nav--primary > .md-nav__title[for="__drawer"] { font-family: var(--md-text-font); text-transform: none; letter-spacing: var(--s71-tracking-title); font-size: 0.9rem; font-weight: 800; }
+
+/* Text */
+.md-typeset { font-size: 0.8rem; line-height: 1.65; }
+.md-typeset h1 { font-weight: 800; letter-spacing: var(--s71-tracking-title); color: var(--xa-text); }
+.md-typeset h2 { font-weight: 800; letter-spacing: var(--s71-tracking-title); margin-top: 2.2em; padding-bottom: 0.3em; border-bottom: 1px solid var(--xa-border); }
+.md-typeset h3 { font-weight: 700; }
+.md-typeset a { text-decoration: none; }
+.md-typeset a:hover { text-decoration: underline; color: var(--xa-accent); }
+.md-typeset hr { border-bottom-color: var(--xa-border); }
+
+/* A radio call: a quote reads like a line of the window's log. */
+.md-typeset blockquote {
+  margin: 1em 0; padding: 0.7em 1em; color: var(--xa-text);
+  background: var(--xa-panel); border: 1px solid var(--xa-border); border-left: 3px solid var(--xa-atc); border-radius: var(--s71-r-card);
+}
+.md-typeset blockquote p { margin: 0.35em 0; }
+.md-typeset blockquote strong { color: var(--xa-atc); font-weight: 700; letter-spacing: 0.01em; }
+
+/* Code, and anything the window prints */
+.md-typeset code { border: 1px solid var(--xa-border); border-radius: var(--s71-r-field); padding: 0.05em 0.35em; }
+.md-typeset pre > code { border: 1px solid var(--xa-border); border-radius: var(--s71-r-card); padding: 0.9em 1.1em; }
+.md-typeset .highlight code, .md-typeset pre > code { color: var(--xa-freq); }
+.md-typeset .highlight span { color: inherit; }
+
+/* Tables: a panel with hairlines */
+.md-typeset table:not([class]) { background: var(--xa-panel); border: 1px solid var(--xa-border); border-radius: var(--s71-r-card); box-shadow: none; font-size: 0.74rem; }
+.md-typeset table:not([class]) th { background: var(--xa-code-bg); font-weight: 600; color: var(--xa-text); }
+.md-typeset table:not([class]) td, .md-typeset table:not([class]) th { border-color: var(--xa-border); }
+.md-typeset table:not([class]) tbody tr:hover { background: var(--md-accent-fg-color--transparent); }
+
+/* Screenshots */
+.md-typeset img[src$=".png"] { border: 1px solid var(--xa-border); border-radius: var(--s71-r-card); box-shadow: var(--s71-shadow); }
+.md-typeset img + em, .md-typeset p > img + br + em { color: var(--xa-dim); }
+.md-typeset p > em:only-child { display: block; color: var(--xa-dim); font-size: 0.72rem; margin-top: -0.4em; }
+
+/* Admonitions in the window's own alert colours */
+.md-typeset .admonition, .md-typeset details { border: 1px solid var(--xa-border); border-left-width: 3px; border-radius: var(--s71-r-card); box-shadow: none; font-size: 0.76rem; }
+.md-typeset .admonition.warning, .md-typeset details.warning { border-color: var(--xa-warn); }
+.md-typeset .warning > .admonition-title, .md-typeset .warning > summary { background: var(--xa-warn-bg); color: var(--xa-warn); }
+.md-typeset .warning > .admonition-title::before, .md-typeset .warning > summary::before { background-color: var(--xa-warn); }
+.md-typeset .admonition.note, .md-typeset .admonition.tip, .md-typeset details.note, .md-typeset details.tip { border-color: var(--xa-accent); }
+.md-typeset .note > .admonition-title, .md-typeset .tip > .admonition-title { background: var(--xa-info-bg); color: var(--xa-info-fg); }
+.md-typeset .note > .admonition-title::before, .md-typeset .tip > .admonition-title::before { background-color: var(--xa-accent); }
+
+/* Buttons */
+.md-typeset .md-button { border-radius: var(--s71-r-control); border: 1px solid var(--xa-border); color: var(--xa-text); background: var(--xa-panel); font-weight: 600; padding: 0.55em 1.3em; }
+.md-typeset .md-button:hover, .md-typeset .md-button:focus { border-color: var(--xa-accent); color: var(--xa-accent); background: var(--xa-panel); text-decoration: none; }
+.md-typeset .md-button--primary { background: var(--xa-accent); border-color: var(--xa-accent); color: var(--xa-on-accent); }
+.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus { background: var(--s71-teal-hover); border-color: var(--s71-teal-hover); color: var(--s71-night); box-shadow: 0 0 0 3px var(--xa-glow); }
+[data-md-color-scheme="default"] .md-typeset .md-button--primary:hover, [data-md-color-scheme="default"] .md-typeset .md-button--primary:focus { color: var(--s71-paper); background: var(--s71-teal-hover-light); border-color: var(--s71-teal-hover-light); }
+
+/* ---- The home page ---- */
+
+.xa-hero {
+  position: relative; overflow: hidden; margin: 0 0 2.2rem; padding: 3rem 2rem 2.4rem; text-align: center;
+  border: 1px solid var(--xa-border); border-radius: var(--s71-r-card);
+  background:
+    radial-gradient(60rem 26rem at 50% -8rem, var(--xa-glow), transparent 70%),
+    repeating-radial-gradient(circle at 50% 118%, transparent 0 4.9rem, color-mix(in srgb, var(--xa-border) 70%, transparent) 4.9rem 5rem),
+    var(--xa-panel);
+}
+/* the sweep of a radar scope, behind everything, slow; still for anyone who asks for less motion */
+.xa-hero::before {
+  content: ""; position: absolute; left: 50%; top: 118%; width: 90rem; height: 90rem; margin: -45rem 0 0 -45rem; border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 78%, color-mix(in srgb, var(--xa-freq) 16%, transparent) 97%, color-mix(in srgb, var(--xa-freq) 40%, transparent) 100%);
+  animation: xa-sweep 9s linear infinite; pointer-events: none;
+}
+@keyframes xa-sweep { from { transform: rotate(-80deg); } to { transform: rotate(80deg); } }
+@media (prefers-reduced-motion: reduce) { .xa-hero::before { animation: none; transform: rotate(20deg); } }
+.xa-hero > * { position: relative; }
+.md-typeset .xa-hero h1 { margin: 0 0 0.3em; font-size: 2.6rem; font-weight: 800; letter-spacing: var(--s71-tracking-title); line-height: 1.1; }
+.md-typeset .xa-hero h1 .headerlink { display: none; }
+.xa-kicker {
+  display: inline-block; margin-bottom: 1rem; padding: 0.2em 0.85em; border-radius: 999px; font-size: var(--xa-label-size); font-weight: 600; letter-spacing: var(--s71-tracking-label); text-transform: uppercase;
+  color: var(--xa-freq); background: color-mix(in srgb, var(--xa-freq) 12%, transparent); border: 1px solid color-mix(in srgb, var(--xa-freq) 40%, transparent);
+  font-family: var(--s71-font-label);
+}
+/* paper: teal-deep on its own tint is 4.3:1 at best; the theme's hover teal is darker (5.1:1 on the hero's glow) */
+[data-md-color-scheme="default"] .xa-kicker { color: var(--s71-teal-hover-light); }
+.xa-tagline { max-width: 38rem; margin: 0 auto 1.5rem !important; font-size: 1rem; color: var(--xa-dim); }
+.xa-hero .md-button { margin: 0.25rem 0.3rem; }
+.xa-hero img { margin-top: 2rem; max-width: min(100%, 46rem); }
+.xa-call {
+  max-width: 40rem; margin: 1.6rem auto 0; padding: 0.8rem 1rem; text-align: left; font-family: var(--md-code-font); font-size: 0.72rem; line-height: 1.6;
+  background: var(--xa-bg); border: 1px solid var(--xa-border); border-radius: var(--s71-r-card);
+}
+.xa-call p { margin: 0.3em 0 !important; display: grid; grid-template-columns: 6.2em 1fr; column-gap: 0.9em; align-items: baseline; }
+.xa-call .you { color: var(--xa-text); }
+.xa-call .atc { color: var(--xa-atc); }
+.xa-call .who { font-weight: 700; }
+.xa-call .said { min-width: 0; }
+.xa-call .ok { color: var(--xa-freq); }
+
+/* cards */
+.md-typeset .grid.cards > ul > li, .md-typeset .grid.cards > ol > li, .md-typeset .grid > .card {
+  background: var(--xa-panel); border: 1px solid var(--xa-border); border-radius: var(--s71-r-card); box-shadow: none; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.md-typeset .grid.cards > ul > li:hover, .md-typeset .grid > .card:hover { border-color: var(--xa-accent); box-shadow: 0 0 0 3px var(--xa-glow); transform: translateY(-2px); }
+.md-typeset .grid.cards > ul > li > hr { border-bottom-color: var(--xa-border); margin: 0.6em 0; }
+.md-typeset .grid.cards .twemoji, .md-typeset .grid.cards .md-icon { color: var(--xa-accent); }
+.md-typeset .grid.cards li > p:first-child strong { font-size: 0.86rem; }
+
+/* the frequency strip under the hero: the flight, position by position */
+.md-typeset ul.xa-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 2rem; padding: 0; list-style: none; font-family: var(--md-code-font); }
+.md-typeset ul.xa-strip li { margin: 0; padding: 0.35rem 0.75rem; min-width: 6.2rem; text-align: center; list-style: none; border: 1px solid var(--xa-border); border-radius: var(--s71-r-field); background: var(--xa-panel); font-size: 0.66rem; color: var(--xa-dim); }
+.md-typeset ul.xa-strip li + li { position: relative; }
+.md-typeset ul.xa-strip b { display: block; font-size: 0.98rem; font-weight: 700; color: var(--xa-freq); letter-spacing: 0.03em; }
+
+@media screen and (max-width: 44em) {
+  .xa-hero { padding: 2rem 1rem 1.6rem; }
+  .md-typeset .xa-hero h1 { font-size: 1.9rem; }
+  .xa-call p { grid-template-columns: 1fr; }
+  .xa-tagline { font-size: 0.85rem; }
+  .xa-kicker { letter-spacing: 0.05em; font-size: 0.6rem; }
+}
+
+/* ---- The component diagram (docs/how-it-works.md): inline SVG, so it follows the theme switch ---- */
+
+.md-typeset figure.xa-diagram { display: block; width: 100%; max-width: none; margin: 1.4em 0; padding: 0.6rem 0.6rem 0.2rem; overflow-x: auto; background: var(--xa-bg); border: 1px solid var(--xa-border); border-radius: var(--s71-r-card); }
+.xa-diagram svg { display: block; width: 100%; min-width: 38rem; height: auto; font-family: var(--md-text-font); }
+.md-typeset figure.xa-diagram figcaption { max-width: none; margin: 0.4em 0 0.5em; font-style: normal; font-size: 0.72rem; color: var(--xa-dim); }
+.xa-diagram .g { fill: color-mix(in srgb, var(--xa-panel) 45%, transparent); stroke: var(--xa-border); stroke-width: 1.2; stroke-dasharray: 6 5; }
+.xa-diagram .gw { fill: color-mix(in srgb, var(--xa-panel) 80%, transparent); stroke: var(--xa-border); stroke-width: 1.2; }
+.xa-diagram .b { fill: var(--xa-panel); stroke: var(--xa-border); stroke-width: 1.2; }
+.xa-diagram .b.hl { stroke: var(--xa-accent); stroke-width: 1.6; }
+.xa-diagram .m { fill: color-mix(in srgb, var(--xa-accent) 16%, var(--xa-panel)); stroke: var(--xa-accent); stroke-width: 1.4; }
+.xa-diagram .s { fill: color-mix(in srgb, var(--xa-freq) 9%, var(--xa-panel)); stroke: var(--xa-freq); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.xa-diagram .t { fill: var(--xa-text); font-size: 13px; font-weight: 700; }
+.xa-diagram .u { fill: var(--xa-dim); font-size: 10.5px; }
+.xa-diagram .l { fill: var(--xa-text); font-size: 10.5px; }
+.xa-diagram .lk { fill: var(--xa-accent); font-size: 10.5px; font-weight: 700; }
+.xa-diagram .gt { fill: var(--xa-dim); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.xa-diagram .a { fill: none; stroke: var(--xa-dim); stroke-width: 1.4; }
+.xa-diagram .ah { fill: var(--xa-dim); }
+.xa-diagram .a2 { fill: none; stroke: var(--xa-accent); stroke-width: 2.2; }
+.xa-diagram .ah2 { fill: var(--xa-accent); }

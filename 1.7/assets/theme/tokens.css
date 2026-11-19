@@ -1,0 +1,141 @@
+/* SeventyOneTen theme tokens, v1.0.0. GENERATED from tokens/tokens.json by scripts/build_theme.py:
+   never edit this file by hand. Two layers: the raw palette (--s71-night, --s71-teal ...) and the semantic tokens a site
+   uses (--s71-bg, --s71-text, --s71-accent ...). Night is the base; paper is written once under prefers-color-scheme:
+   light (unless data-theme="dark") and once under data-theme="light". */
+
+:root {
+  color-scheme: dark;
+
+  /* the raw palette */
+  --s71-night: #0E1A2B;
+  --s71-panel: #132337;
+  --s71-deep-night: #0A1420;
+  --s71-line-night: #22304A;
+  --s71-paper: #EDE7DA;
+  --s71-paper-card: #F7F3EA;
+  --s71-line-light: #C9C2B2;
+  --s71-deep-light: #EFEAE0;
+  --s71-dim: #9AA7BB;
+  --s71-dim-light: #4A463D;
+  --s71-teal: #2EC4B6;
+  --s71-teal-deep: #1B746B;
+  --s71-red-night: #D64545;
+  --s71-red-text: #E36A6A;
+  --s71-red-text-light: #C52B2B;
+  --s71-warn: #E5B455;
+  --s71-warn-light: #7A4D00;
+  --s71-ok-bg-night: #123A3C;
+  --s71-ok-bg-light: #DDEFE8;
+  --s71-warn-bg-night: #3A2F14;
+  --s71-warn-bg-light: #F3E3BE;
+  --s71-err-bg: #3B1D27;
+  --s71-err-bg-light: #FAE6E2;
+  --s71-line-strong-night: #34486A;
+  --s71-line-strong-light: #A59E8C;
+  --s71-teal-hover: #5AD6CB;
+  --s71-teal-hover-light: #145A53;
+
+  /* type, spacing and motion */
+  --s71-font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --s71-font-label: "Archivo Narrow", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --s71-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --s71-tracking-label: 0.1em;
+  --s71-tracking-title: -0.025em;
+  --s71-lh-body: 1.55;
+  --s71-lh-tight: 1.12;
+  --s71-s-1: 0.25rem;
+  --s71-s-2: 0.5rem;
+  --s71-s-3: 0.75rem;
+  --s71-s-4: 1rem;
+  --s71-s-5: 1.5rem;
+  --s71-s-6: 2rem;
+  --s71-s-7: 3rem;
+  --s71-t-fast: 120ms;
+
+  /* semantic: night */
+  --s71-bg: var(--s71-night);
+  --s71-surface: var(--s71-panel);
+  --s71-deep: var(--s71-deep-night);
+  --s71-text: var(--s71-paper);
+  --s71-text-2: var(--s71-dim);
+  --s71-accent: var(--s71-teal);
+  --s71-accent-hover: var(--s71-teal-hover);
+  --s71-on-accent: var(--s71-night);
+  --s71-accent-soft: rgba(46, 196, 182, 0.12);
+  --s71-chrome-bg: var(--s71-panel);
+  --s71-chrome-deep: var(--s71-deep-night);
+  --s71-chrome-line: var(--s71-line-night);
+  --s71-chrome-text: var(--s71-paper);
+  --s71-chrome-text-2: var(--s71-dim);
+  --s71-chrome-accent: var(--s71-teal);
+  --s71-chrome-accent-soft: rgba(46, 196, 182, 0.12);
+  --s71-line: var(--s71-line-night);
+  --s71-line-strong: var(--s71-line-strong-night);
+  --s71-danger-text: var(--s71-red-text);
+  --s71-warn-text: var(--s71-warn);
+  --s71-ok-bg: var(--s71-ok-bg-night);
+  --s71-warn-bg: var(--s71-warn-bg-night);
+  --s71-danger-bg: var(--s71-err-bg);
+  --s71-focus: var(--s71-teal);
+  --s71-live: var(--s71-teal);
+  --s71-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --s71-tile-outlined-display: block;
+  --s71-tile-plain-display: none;
+  --s71-red: var(--s71-red-night);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --s71-t-fast: 0ms; }
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --s71-bg: var(--s71-paper);
+    --s71-surface: var(--s71-paper-card);
+    --s71-deep: var(--s71-deep-light);
+    --s71-text: var(--s71-night);
+    --s71-text-2: var(--s71-dim-light);
+    --s71-accent: var(--s71-teal-deep);
+    --s71-accent-hover: var(--s71-teal-hover-light);
+    --s71-on-accent: var(--s71-paper);
+    --s71-accent-soft: rgba(27, 116, 107, 0.10);
+    --s71-line: var(--s71-line-light);
+    --s71-line-strong: var(--s71-line-strong-light);
+    --s71-danger-text: var(--s71-red-text-light);
+    --s71-warn-text: var(--s71-warn-light);
+    --s71-ok-bg: var(--s71-ok-bg-light);
+    --s71-warn-bg: var(--s71-warn-bg-light);
+    --s71-danger-bg: var(--s71-err-bg-light);
+    --s71-focus: var(--s71-teal-deep);
+    --s71-live: var(--s71-teal-deep);
+    --s71-shadow: 0 8px 24px rgba(14, 26, 43, 0.18);
+    --s71-tile-outlined-display: none;
+    --s71-tile-plain-display: block;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --s71-bg: var(--s71-paper);
+  --s71-surface: var(--s71-paper-card);
+  --s71-deep: var(--s71-deep-light);
+  --s71-text: var(--s71-night);
+  --s71-text-2: var(--s71-dim-light);
+  --s71-accent: var(--s71-teal-deep);
+  --s71-accent-hover: var(--s71-teal-hover-light);
+  --s71-on-accent: var(--s71-paper);
+  --s71-accent-soft: rgba(27, 116, 107, 0.10);
+  --s71-line: var(--s71-line-light);
+  --s71-line-strong: var(--s71-line-strong-light);
+  --s71-danger-text: var(--s71-red-text-light);
+  --s71-warn-text: var(--s71-warn-light);
+  --s71-ok-bg: var(--s71-ok-bg-light);
+  --s71-warn-bg: var(--s71-warn-bg-light);
+  --s71-danger-bg: var(--s71-err-bg-light);
+  --s71-focus: var(--s71-teal-deep);
+  --s71-live: var(--s71-teal-deep);
+  --s71-shadow: 0 8px 24px rgba(14, 26, 43, 0.18);
+  --s71-tile-outlined-display: none;
+  --s71-tile-plain-display: block;
+}
