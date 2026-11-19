@@ -30,7 +30,7 @@ ALLOWED = [
 def visible_sources():
     for path in sorted((REPO / "docs").rglob("*")):
         # the pinned theme copy (docs/assets/theme/) is the brand repo's own files, not a page: its README is excluded from the build
-        if path.is_file() and path.suffix in {".md", ".svg"} and "assets/theme" not in path.as_posix():
+        if path.is_file() and path.suffix in {".md", ".svg"} and path.relative_to(REPO / "docs").parts[:2] != ("assets", "theme"):
             yield path, path.read_text(encoding="utf-8")
     text = (REPO / "mkdocs.yml").read_text(encoding="utf-8")
     # comments and the stylesheet's file name are code, not text
@@ -55,7 +55,10 @@ class VisibleNameTests(unittest.TestCase):
 
     def test_the_site_and_the_logo_are_named_seventyoneten(self):
         self.assertRegex((REPO / "mkdocs.yml").read_text(encoding="utf-8"), r"(?m)^site_name: SeventyOneTen$")
-        self.assertIn('aria-label="SeventyOneTen"', (REPO / "docs/assets/logo.svg").read_text(encoding="utf-8"))
+        # the logo is a PNG of the theme's tile (an SVG in an <img> cannot use Archivo); Material names its link from site_name
+        logo = re.search(r"(?m)^  logo: (\S+)$", (REPO / "mkdocs.yml").read_text(encoding="utf-8")).group(1)
+        self.assertEqual(logo, "assets/theme/brand/tile-outlined-64.png")
+        self.assertTrue((REPO / "docs" / logo).is_file())
 
     def test_the_name_is_written_as_one_word_with_three_capitals(self):
         wrong = []

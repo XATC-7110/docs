@@ -93,6 +93,15 @@ class ContrastTests(unittest.TestCase):
                 ratio = contrast(p[s[fg]], p[s[bg]])
                 self.assertGreaterEqual(ratio, 4.5, f"{name}: {fg} on {bg} is {ratio:.2f}:1")
 
+    def test_paper_search_placeholder_and_kicker(self):
+        p = palette()
+        # the open search field is paper below 60em: its placeholder is --s71-dim-light there (it was --s71-dim, 2:1)
+        self.assertGreaterEqual(contrast(p["dim-light"], p["paper"]), 4.5)
+        # the hero kicker in paper: --s71-teal-hover-light on the hero panel under a 25% teal-deep tint (the 12% tint plus the 16% glow, worst case)
+        card, deep = p["paper-card"], p["teal-deep"]
+        mixed = "#" + "".join(f"{round(int(card[i:i + 2], 16) * 0.75 + int(deep[i:i + 2], 16) * 0.25):02X}" for i in (1, 3, 5))
+        self.assertGreaterEqual(contrast(p["teal-hover-light"], mixed), 4.5)
+
     def test_chrome_pairs(self):
         p = palette()
         for fg, bg in (("paper", "panel"), ("dim", "panel"), ("teal", "panel"), ("paper", "deep-night"), ("dim", "deep-night")):

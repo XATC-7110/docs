@@ -13,6 +13,9 @@ PAGES = {
     "clearance": "features/clearance/", "approach-card": "client/approach-card/",
 }
 SCHEMES = {"night": "slate", "paper": "default"}
+# optional narrowing for a quick re-shoot: XATC_SHOOT_PAGES=home,clearance XATC_SHOOT_SCHEMES=paper
+if os.environ.get("XATC_SHOOT_PAGES"): PAGES = {k: v for k, v in PAGES.items() if k in os.environ["XATC_SHOOT_PAGES"].split(",")}
+if os.environ.get("XATC_SHOOT_SCHEMES"): SCHEMES = {k: v for k, v in SCHEMES.items() if k in os.environ["XATC_SHOOT_SCHEMES"].split(",")}
 WIDTHS = {1440: 900, 375: 812}
 
 def serve(site: Path):

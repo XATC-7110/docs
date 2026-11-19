@@ -109,10 +109,14 @@
 /* The open search field takes the page colour (at every width), so the typed text follows the scheme: paper on paper was unreadable. */
 [data-md-toggle="search"]:checked ~ .md-header .md-search__input { color: var(--md-default-fg-color); }
 .md-search__input::placeholder, .md-search__icon { color: var(--s71-dim); }
+/* the open field takes the page colour: its placeholder follows (--s71-dim on paper was 2:1) */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input::placeholder { color: var(--md-default-fg-color--light); }
 
 /* The side navigation */
 .md-nav__link--active, .md-nav__item .md-nav__link--active { color: var(--xa-accent); font-weight: 600; }
 .md-nav__title { color: var(--xa-dim); }
+/* the drawer's title is the site name, not a label: it reads SeventyOneTen, not SEVENTYONETEN */
+.md-nav--primary > .md-nav__title[for="__drawer"] { font-family: var(--md-text-font); text-transform: none; letter-spacing: var(--s71-tracking-title); font-size: 0.9rem; font-weight: 800; }
 
 /* Text */
 .md-typeset { font-size: 0.8rem; line-height: 1.65; }
@@ -190,6 +194,8 @@
   color: var(--xa-freq); background: color-mix(in srgb, var(--xa-freq) 12%, transparent); border: 1px solid color-mix(in srgb, var(--xa-freq) 40%, transparent);
   font-family: var(--s71-font-label);
 }
+/* paper: teal-deep on its own tint is 4.3:1 at best; the theme's hover teal is darker (5.1:1 on the hero's glow) */
+[data-md-color-scheme="default"] .xa-kicker { color: var(--s71-teal-hover-light); }
 .xa-tagline { max-width: 38rem; margin: 0 auto 1.5rem !important; font-size: 1rem; color: var(--xa-dim); }
 .xa-hero .md-button { margin: 0.25rem 0.3rem; }
 .xa-hero img { margin-top: 2rem; max-width: min(100%, 46rem); }

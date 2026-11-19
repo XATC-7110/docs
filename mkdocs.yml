@@ -17,7 +17,7 @@ exclude_docs: |
 # The look is the shared SeventyOneTen theme v1.0.0 (docs/assets/theme/, a pinned copy), dark first (docs/stylesheets/xatc.css).
 theme:
   name: material
-  logo: assets/theme/brand/tile-outlined.svg
+  logo: assets/theme/brand/tile-outlined-64.png
   favicon: assets/theme/brand/favicon.ico
   font: false
   palette:
