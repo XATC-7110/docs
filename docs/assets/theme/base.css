@@ -1,0 +1,116 @@
+/* SeventyOneTen theme: shared components. Every class is prefixed s71- and sits in @layer s71, so a site's own unlayered CSS
+   always wins without a fight. Reads only tokens (tokens.css, plus one shape file); no literal colours. Needs fonts.css
+   for Archivo. The tool shell (rail, status bar, pane) is in shell.css. */
+@layer s71 {
+  /* the page: ground, text, face */
+  .s71-page { background: var(--s71-bg); color: var(--s71-text); font-family: var(--s71-font); font-size: var(--s71-fs-body); line-height: var(--s71-lh-body); }
+  .s71-page *, .s71-page *::before, .s71-page *::after { box-sizing: border-box; }
+  .s71-title { font-weight: 800; font-size: var(--s71-fs-title); letter-spacing: var(--s71-tracking-title); line-height: var(--s71-lh-tight); margin: 0; }
+  .s71-display { font-weight: 800; font-size: var(--s71-fs-display); letter-spacing: var(--s71-tracking-title); line-height: var(--s71-lh-tight); margin: 0; }
+  .s71-h2 { font-weight: 700; font-size: var(--s71-fs-h2); line-height: var(--s71-lh-tight); margin: 0; }
+  .s71-small { font-size: var(--s71-fs-small); color: var(--s71-text-2); }
+  .s71-mono { font-family: var(--s71-font-mono); font-variant-numeric: tabular-nums; }
+  /* numbers that line up: frequencies, times, altitudes */
+  .s71-num { font-variant-numeric: tabular-nums; }
+  .s71-link { color: var(--s71-accent); font-weight: 700; text-decoration: none; }
+  .s71-link:hover { text-decoration: underline; }
+
+  /* the focus ring */
+  [class*="s71-"]:focus-visible { outline: 2px solid var(--s71-focus); outline-offset: 2px; }
+
+  /* the wordmark: <span class="s71-wordmark">Seventy<span>One</span>Ten</span> */
+  .s71-wordmark { font-family: var(--s71-font); font-weight: 800; letter-spacing: -0.035em; color: var(--s71-text); white-space: nowrap; }
+  .s71-wordmark > span { font-weight: 500; color: var(--s71-accent); }
+
+  /* the tile: the 71/10 tile never inverts. Put both images in; the theme shows the outlined one on dark grounds. */
+  .s71-tile { width: 2rem; height: 2rem; flex: none; }
+  .s71-tile--plain { display: var(--s71-tile-plain-display); }
+  .s71-tile--outlined { display: var(--s71-tile-outlined-display); }
+
+  /* the header bar */
+  .s71-header { display: flex; align-items: center; gap: var(--s71-s-2) var(--s71-s-4); flex-wrap: wrap; min-height: 3.5rem; padding: var(--s71-s-2) var(--s71-s-4); background: var(--s71-chrome-bg); border-bottom: 1px solid var(--s71-chrome-line); color: var(--s71-chrome-text); font-family: var(--s71-font); }
+  .s71-header__brand { display: flex; align-items: center; gap: var(--s71-s-3); color: inherit; text-decoration: none; font-size: 1.25rem; }
+  .s71-header__nav { display: flex; align-items: center; gap: var(--s71-s-1); flex-wrap: wrap; }
+  .s71-header__nav a { font-family: var(--s71-font-label); font-weight: 600; font-size: var(--s71-fs-label); letter-spacing: var(--s71-tracking-label); text-transform: uppercase; color: var(--s71-chrome-text-2); text-decoration: none; padding: var(--s71-s-1) var(--s71-s-3); border: 1px solid transparent; border-radius: var(--s71-r-control); }
+  .s71-header__nav a:hover { color: var(--s71-chrome-text); }
+  .s71-header__nav a[aria-current] { color: var(--s71-chrome-accent); border-color: var(--s71-chrome-accent); }
+  .s71-header__end { margin-left: auto; display: flex; align-items: center; gap: var(--s71-s-3); font-size: var(--s71-fs-small); color: var(--s71-chrome-text-2); }
+
+  /* chrome (the header, and the rail and status bar in shell.css) is night in BOTH themes: it reads only --s71-chrome-*,
+     the tile inside it is always the outlined one, and the wordmark, live mark and focus ring take the chrome colours */
+  .s71-header .s71-wordmark, .s71-rail .s71-wordmark { color: var(--s71-chrome-text); }
+  .s71-header .s71-wordmark > span, .s71-rail .s71-wordmark > span { color: var(--s71-chrome-accent); }
+  .s71-header .s71-tile--plain, .s71-rail .s71-tile--plain { display: none; }
+  .s71-header .s71-tile--outlined, .s71-rail .s71-tile--outlined { display: block; }
+  .s71-header .s71-live, .s71-status .s71-live { color: var(--s71-chrome-accent); }
+  .s71-header .s71-live::before, .s71-status .s71-live::before { background: var(--s71-chrome-accent); }
+  .s71-header :focus-visible, .s71-rail :focus-visible, .s71-status :focus-visible { outline-color: var(--s71-chrome-accent); }
+  .s71-header .s71-btn { background: transparent; border-color: var(--s71-chrome-accent); color: var(--s71-chrome-accent); }
+  .s71-header .s71-btn:hover { background: var(--s71-chrome-accent-soft); }
+  .s71-header .s71-btn--quiet { border-color: transparent; color: var(--s71-chrome-text-2); }
+  .s71-header .s71-btn--quiet:hover { color: var(--s71-chrome-text); background: transparent; }
+
+  /* labels: Archivo Narrow 600 capitals */
+  .s71-label { font-family: var(--s71-font-label); font-weight: 600; font-size: var(--s71-fs-label); letter-spacing: var(--s71-tracking-label); text-transform: uppercase; color: var(--s71-text-2); line-height: 1.2; }
+
+  /* buttons: primary, default, quiet; two sizes */
+  .s71-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s71-s-2); font: inherit; font-family: var(--s71-font); font-weight: 700; font-size: var(--s71-btn-fs); line-height: 1; padding: var(--s71-btn-py) var(--s71-btn-px); border: 1px solid var(--s71-line-strong); border-radius: var(--s71-r-control); background: transparent; color: var(--s71-text); text-decoration: none; white-space: nowrap; cursor: pointer; transition: background var(--s71-t-fast), border-color var(--s71-t-fast); }
+  .s71-btn:hover { background: var(--s71-deep); }
+  .s71-btn--primary { background: var(--s71-accent); border-color: var(--s71-accent); color: var(--s71-on-accent); }
+  .s71-btn--primary:hover { background: var(--s71-accent-hover); border-color: var(--s71-accent-hover); }
+  .s71-btn--quiet { border-color: transparent; color: var(--s71-accent); padding-inline: var(--s71-btn-px-quiet); }
+  .s71-btn--sm { font-size: var(--s71-btn-fs-sm); padding: var(--s71-btn-py-sm) var(--s71-btn-px-sm); }
+  .s71-btn[disabled], .s71-btn[aria-disabled="true"] { opacity: 0.55; cursor: default; }
+
+  /* the tag, in five tones: neutral, live, info, warning, problem. Its words carry the meaning; the tone only backs them. */
+  .s71-tag { display: inline-flex; align-items: center; gap: 0.3em; font-family: var(--s71-font-label); font-weight: 600; font-size: var(--s71-fs-label); letter-spacing: var(--s71-tracking-label); text-transform: uppercase; line-height: 1; padding: var(--s71-tag-py) var(--s71-tag-px); border: 1px solid var(--s71-line); border-radius: var(--s71-r-tag); background: var(--s71-deep); color: var(--s71-text-2); white-space: nowrap; }
+  .s71-tag--live { background: transparent; border-color: var(--s71-live); color: var(--s71-live); }
+  .s71-tag--live::before { content: ""; width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--s71-live); }
+  .s71-tag--info { background: transparent; border-color: var(--s71-line-strong); color: var(--s71-text); }
+  .s71-tag--warning { background: var(--s71-warn-bg); border-color: transparent; color: var(--s71-warn-text); }
+  .s71-tag--problem { background: var(--s71-danger-bg); border-color: transparent; color: var(--s71-danger-text); }
+
+  /* fields */
+  .s71-field-group { display: flex; flex-direction: column; gap: var(--s71-s-1); }
+  .s71-field { display: block; width: 100%; font: inherit; font-family: var(--s71-font); font-size: var(--s71-fs-body); line-height: 1.2; padding: var(--s71-field-py) var(--s71-field-px); background: var(--s71-bg); color: var(--s71-text); border: 1px solid var(--s71-line); border-radius: var(--s71-r-field); }
+  .s71-field::placeholder { color: var(--s71-text-2); }
+  .s71-field:hover { border-color: var(--s71-line-strong); }
+  .s71-field[aria-invalid="true"] { border-color: var(--s71-danger-text); }
+  .s71-hint { font-size: var(--s71-fs-small); color: var(--s71-text-2); }
+  .s71-error { font-size: var(--s71-fs-small); color: var(--s71-danger-text); font-weight: 700; }
+  .s71-error::before { content: "Error: "; }
+
+  /* notices: ok, warning, problem. Each starts with a word, so colour is never the only signal. */
+  .s71-notice { padding: var(--s71-s-3) var(--s71-s-4); border-radius: var(--s71-r-field); background: var(--s71-ok-bg); color: var(--s71-text); font-size: var(--s71-fs-small); }
+  .s71-notice > b:first-child { color: var(--s71-accent); margin-right: 0.4em; }
+  .s71-notice--warning { background: var(--s71-warn-bg); }
+  .s71-notice--warning > b:first-child { color: var(--s71-warn-text); }
+  .s71-notice--problem { background: var(--s71-danger-bg); }
+  .s71-notice--problem > b:first-child { color: var(--s71-danger-text); }
+
+  /* tables */
+  .s71-table { width: 100%; border-collapse: collapse; font-size: var(--s71-fs-body); }
+  .s71-table th { font-family: var(--s71-font-label); font-weight: 600; font-size: var(--s71-fs-label); letter-spacing: var(--s71-tracking-label); text-transform: uppercase; color: var(--s71-text-2); text-align: left; padding: 0.625rem 0.875rem; background: var(--s71-deep); border-bottom: 1px solid var(--s71-line); }
+  .s71-table td { padding: 0.625rem 0.875rem; border-bottom: 1px solid var(--s71-line); font-variant-numeric: tabular-nums; }
+  .s71-table tbody tr:last-child td { border-bottom: 0; }
+  .s71-table tbody tr:hover td, .s71-table tbody tr[aria-selected="true"] td, .s71-table tbody tr.is-selected td { background: var(--s71-accent-soft); }  /* body text on the tint; no accent text on it on paper */
+  .s71-table th.s71-num, .s71-table td.s71-num { text-align: right; }
+  .s71-table-wrap { overflow-x: auto; }
+
+  /* cards: a 1 px line and a radius in the soft shape; flush with a hairline in the room shape */
+  .s71-card { background: var(--s71-surface); color: var(--s71-text); border: var(--s71-card-border); border-bottom: var(--s71-card-divider); border-radius: var(--s71-r-card); padding: var(--s71-card-pad); }
+  .s71-card--live { border: 1px solid var(--s71-live); }
+
+  /* dialogs: <dialog class="s71-dialog"> */
+  .s71-dialog { background: var(--s71-surface); color: var(--s71-text); border: 1px solid var(--s71-line-strong); border-radius: var(--s71-r-dialog); box-shadow: var(--s71-shadow); padding: var(--s71-s-5); max-width: min(32rem, calc(100vw - 2rem)); font-family: var(--s71-font); font-size: var(--s71-fs-body); }
+  .s71-dialog::backdrop { background: color-mix(in srgb, var(--s71-deep) 75%, transparent); }
+  .s71-dialog__actions { display: flex; justify-content: flex-end; gap: var(--s71-s-2); margin-top: var(--s71-s-4); }
+
+  /* the live mark: a dot that pulses, and stops when the viewer asks for no motion */
+  .s71-live { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--s71-font-label); font-weight: 600; font-size: var(--s71-fs-label); letter-spacing: var(--s71-tracking-label); text-transform: uppercase; color: var(--s71-live); }
+  .s71-live::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--s71-live); animation: s71-pulse 2s ease-in-out infinite; }
+  @keyframes s71-pulse { 50% { opacity: 0.35; } }
+  @media (prefers-reduced-motion: reduce) { .s71-live::before { animation: none; } }
+
+  /* the segmented switch and the label-and-value grid are shared by the tool shell: see shell.css */
+}

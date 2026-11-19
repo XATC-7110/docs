@@ -3,3 +3,5 @@ site/
 # The release skill's default notes path: never commit it
 docs/pending-release-*.md
 __pycache__/
+.venv-shoot/
+site-shoot/

@@ -8,14 +8,17 @@ docs_dir: docs
 # The release skill's default notes path is docs/pending-release-<tag>.md: never a page.
 exclude_docs: |
   pending-release-*.md
+  # The pinned theme's own README and demo page are for the theme's readers: the build copies its css, fonts and images only.
+  assets/theme/README.md
+  assets/theme/demo.html
   # The data feed's stored summary (scripts/data_feed.py): the build reads it, readers do not.
   _generated/
 
-# The look is the product's own: the client window's colours, dark first (docs/stylesheets/xatc.css).
+# The look is the shared SeventyOneTen theme v1.0.0 (docs/assets/theme/, a pinned copy), dark first (docs/stylesheets/xatc.css).
 theme:
   name: material
-  logo: assets/logo.svg
-  favicon: assets/logo.svg
+  logo: assets/theme/brand/tile-outlined-64.png
+  favicon: assets/theme/brand/favicon.ico
   font: false
   palette:
     - scheme: slate
@@ -48,6 +51,9 @@ extra:
     provider: mike
 
 extra_css:
+  - assets/theme/tokens.css
+  - assets/theme/fonts.css
+  - assets/theme/shape-soft.css
   - stylesheets/xatc.css
 
 markdown_extensions:
