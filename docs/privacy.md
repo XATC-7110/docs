@@ -68,6 +68,10 @@ A flight log is kept until it is deleted: there is no automatic expiry today. Th
 
 If you [send a flight plan to your account](send-a-plan.md), SeventyOneTen keeps your five most recent plans (the airports, route, altitude and tail number in each, and the file's name) so you can load one in the client. The file itself is not stored. Older plans are removed as new ones arrive, and all of them are deleted with your account. The iPhone app keeps its sign-in in the iPhone's Keychain and sends a file only when you tap **Send**.
 
+## Reports you send
+
+If you send a report from the client (see [Reporting a problem](reporting.md)), SeventyOneTen keeps what you wrote, the choice you picked, the call, moment or flight it is about, if any, and your client's version; a report that is not about a flight also keeps your computer's system. If you leave **Attach the client's log file** ticked, it also keeps the newest part of the client's log file, which holds your callsign, airports and times but never your audio or your sign-in, for 180 days. The owner and the ATC expert read reports; a report about a flight is also seen by the testers, like the flight itself. Only the owner and the ATC expert see feedback that is not about a flight, and log files. You can see each report's status in the client. Reports and their log files are deleted with your account.
+
 ## Other services
 
 - **The radio voices.** ATC's voice is made by SeventyOneTen's own text to speech. Only when **ATC voices** is set to **Radio voices** do the words ATC says on the radio go instead, as text, to a third-party speech service outside SeventyOneTen's own systems, to give each controller a distinct voice and accent. Only ATC's words are sent, never your voice. The setting is off by default. Push-to-talk phone calls, the ATIS and AWOS are always spoken by SeventyOneTen's own text to speech, and so is any radio transmission that the third-party service cannot speak in time. On a two-way call the live voice service speaks ATC's words too (see [Two-way phone calls](#two-way-phone-calls-experimental)).

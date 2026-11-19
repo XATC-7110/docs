@@ -101,5 +101,6 @@ nav:
       - Your X-Plane's data: client/xplane-data.md
       - Your plan in X-Plane's avionics: client/flight-plan-file.md
   - Your data: privacy.md
+  - Reporting a problem: reporting.md
   - Troubleshooting: troubleshooting.md
   - How it works: how-it-works.md
