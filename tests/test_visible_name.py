@@ -29,7 +29,8 @@ ALLOWED = [
 
 def visible_sources():
     for path in sorted((REPO / "docs").rglob("*")):
-        if path.is_file() and path.suffix in {".md", ".svg"}:
+        # the pinned theme copy (docs/assets/theme/) is the brand repo's own files, not a page: its README is excluded from the build
+        if path.is_file() and path.suffix in {".md", ".svg"} and "assets/theme" not in path.as_posix():
             yield path, path.read_text(encoding="utf-8")
     text = (REPO / "mkdocs.yml").read_text(encoding="utf-8")
     # comments and the stylesheet's file name are code, not text

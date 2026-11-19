@@ -1,0 +1,34 @@
+/* SeventyOneTen theme: the SOFT shape. Pill controls and tags, 8 px fields, 12 px cards with a 1 px line, and the
+   40 / 24 / 18 / 16 / 14 / 12.5 px type scale. Used by the marketing site, the pilot site and the docs. A site links
+   exactly one shape file (this or shape-room.css). Sets only shape and type-scale tokens; base.css reads them. */
+:root {
+  --s71-r-control: 999px;
+  --s71-r-tag: 999px;
+  --s71-r-field: 8px;
+  --s71-r-card: 12px;
+  --s71-r-dialog: 12px;
+  --s71-r-seg: 999px;
+  --s71-r-seg-item: 999px;
+  --s71-card-border: 1px solid var(--s71-line);
+  --s71-card-divider: 1px solid var(--s71-line);
+  --s71-card-pad: var(--s71-s-4);
+
+  --s71-fs-display: 2.5rem;   /* 40: one per page at most */
+  --s71-fs-title: 1.5rem;     /* 24: the page title */
+  --s71-fs-h2: 1.125rem;      /* 18: a section */
+  --s71-fs-body: 1rem;        /* 16 */
+  --s71-fs-small: 0.875rem;   /* 14: secondary lines */
+  --s71-fs-label: 0.78rem;    /* 12.5: uppercase labels and tags */
+
+  --s71-btn-fs: var(--s71-fs-body);
+  --s71-btn-py: 0.7rem;
+  --s71-btn-px: 1.25rem;
+  --s71-btn-fs-sm: var(--s71-fs-small);
+  --s71-btn-py-sm: 0.35rem;
+  --s71-btn-px-sm: 0.8rem;
+  --s71-btn-px-quiet: 0.9rem;
+  --s71-field-py: 0.7rem;
+  --s71-field-px: 0.8rem;
+  --s71-tag-py: 0.15rem;
+  --s71-tag-px: 0.5rem;
+}

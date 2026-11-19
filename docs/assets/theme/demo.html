@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SeventyOneTen theme demo</title>
+<link rel="icon" href="brand/favicon.ico">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" id="shape" href="shape-soft.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="shell.css">
+<script src="theme.js"></script>
+<style>
+  /* the demo's own layout only; every look comes from the theme */
+  html, body { margin: 0; }
+  body { min-height: 100vh; overflow-x: hidden; }
+  .wrap { max-width: 70rem; margin: 0 auto; padding: var(--s71-s-5) 1rem var(--s71-s-7); display: flex; flex-direction: column; gap: var(--s71-s-6); }
+  .wrap > section { display: flex; flex-direction: column; gap: var(--s71-s-3); min-width: 0; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s71-s-2); }
+  .switches { display: flex; flex-wrap: wrap; gap: var(--s71-s-4); align-items: center; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--s71-s-4); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--s71-s-2); }
+  .sw { border: 1px solid var(--s71-line); font-size: var(--s71-fs-small); min-width: 0; }
+  .sw i { display: block; height: 2rem; }
+  .sw span { display: block; padding: 0.25rem 0.4rem; overflow-wrap: anywhere; }
+  .frame { border: 1px solid var(--s71-line); height: 380px; min-width: 0; overflow: hidden; }
+  .frame .s71-shell { height: 100%; }
+  .pad { padding: 12px 14px; }
+</style>
+</head>
+<body class="s71-page">
+<header class="s71-header">
+  <a class="s71-header__brand" href="#top">
+    <img class="s71-tile s71-tile--plain" src="brand/tile-64.png" alt="" width="32" height="32">
+    <img class="s71-tile s71-tile--outlined" src="brand/tile-outlined-64.png" alt="" width="32" height="32">
+    <span class="s71-wordmark">Seventy<span>One</span>Ten</span>
+  </a>
+  <nav class="s71-header__nav" aria-label="Demo">
+    <a href="#buttons" aria-current="page">Flights</a>
+    <a href="#tags">Docs</a>
+  </nav>
+  <div class="s71-header__end"><span>N489BS</span></div>
+</header>
+
+<main class="wrap" id="top">
+  <section>
+    <h1 class="s71-display">Theme demo</h1>
+    <p class="s71-small">The header, the rail and the status bar are chrome: night in both themes. Every component of the SeventyOneTen theme. Switch the ground and the shape here; a real site links one shape file.</p>
+    <div class="switches">
+      <div class="row"><span class="s71-label">Ground</span>
+        <div class="s71-segs" id="sw-theme" role="group" aria-label="Ground">
+          <button class="s71-segs__item" data-v="system" aria-pressed="false">System</button>
+          <button class="s71-segs__item" data-v="dark" aria-pressed="false">Night</button>
+          <button class="s71-segs__item" data-v="light" aria-pressed="false">Paper</button>
+        </div></div>
+      <div class="row"><span class="s71-label">Shape</span>
+        <div class="s71-segs" id="sw-shape" role="group" aria-label="Shape">
+          <button class="s71-segs__item" data-v="soft" aria-pressed="true">Soft</button>
+          <button class="s71-segs__item" data-v="room" aria-pressed="false">Room</button>
+        </div></div>
+    </div>
+  </section>
+
+  <section id="colour">
+    <h2 class="s71-h2">Colour</h2>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <section id="type">
+    <h2 class="s71-h2">Type</h2>
+    <p class="s71-display">Display 40</p>
+    <p class="s71-title">Title: cleared to land</p>
+    <p class="s71-h2">Section heading</p>
+    <p>Body text in Archivo. Contact approach on 124.35, squawk 4521.</p>
+    <p class="s71-small">Secondary line in the small size.</p>
+    <p class="s71-label">Label in Archivo Narrow capitals</p>
+    <p class="s71-num">Tabular figures: 118.700 / 121.900 / 11,000 / 1234 &nbsp; <span class="s71-wordmark">Seventy<span>One</span>Ten</span></p>
+  </section>
+
+  <section id="buttons">
+    <h2 class="s71-h2">Buttons</h2>
+    <div class="row">
+      <button class="s71-btn s71-btn--primary">Primary</button>
+      <button class="s71-btn">Default</button>
+      <button class="s71-btn s71-btn--quiet">Quiet</button>
+      <button class="s71-btn" disabled>Disabled</button>
+    </div>
+    <div class="row">
+      <button class="s71-btn s71-btn--primary s71-btn--sm">Primary small</button>
+      <button class="s71-btn s71-btn--sm">Default small</button>
+      <button class="s71-btn s71-btn--quiet s71-btn--sm">Quiet small</button>
+    </div>
+  </section>
+
+  <section id="tags">
+    <h2 class="s71-h2">Tags</h2>
+    <div class="row">
+      <span class="s71-tag">Neutral</span>
+      <span class="s71-tag s71-tag--live">Live</span>
+      <span class="s71-tag s71-tag--info">Info</span>
+      <span class="s71-tag s71-tag--warning">Warning</span>
+      <span class="s71-tag s71-tag--problem">Problem</span>
+      <span class="s71-live">On frequency</span>
+    </div>
+  </section>
+
+  <section id="forms">
+    <h2 class="s71-h2">Fields and notices</h2>
+    <div class="grid">
+      <div class="s71-field-group"><label class="s71-label" for="cs">Callsign</label><input class="s71-field" id="cs" value="N489BS"><span class="s71-hint">As filed in the flight plan.</span></div>
+      <div class="s71-field-group"><label class="s71-label" for="alt">Altitude</label><input class="s71-field" id="alt" value="invalid" aria-invalid="true" aria-describedby="alt-e"><span class="s71-error" id="alt-e">Say it as 11,000.</span></div>
+      <div class="s71-field-group"><label class="s71-label" for="rte">Route</label><select class="s71-field" id="rte"><option>KOSH direct KMKE</option><option>KOSH V9 KMKE</option></select></div>
+    </div>
+    <div class="s71-notice"><b>OK</b>Flight plan filed for N489BS.</div>
+    <div class="s71-notice s71-notice--warning"><b>Warning</b>Sign in again to change this.</div>
+    <div class="s71-notice s71-notice--problem"><b>Problem</b>The radio check did not go through.</div>
+  </section>
+
+  <section id="cards">
+    <h2 class="s71-h2">Cards</h2>
+    <div class="grid">
+      <div class="s71-card"><p class="s71-h2">N489BS</p><p class="s71-small">KOSH to KMKE, climbing 5,000</p></div>
+      <div class="s71-card s71-card--live"><p class="s71-h2">Flight in progress</p><p class="s71-small">Live card with an accent border</p></div>
+    </div>
+  </section>
+
+  <section id="tables">
+    <h2 class="s71-h2">Table</h2>
+    <p class="s71-small">The second row is selected: the accent tint behind body text.</p>
+    <div class="s71-table-wrap s71-card" style="padding:0">
+    <table class="s71-table">
+      <thead><tr><th>Station</th><th>Callsign</th><th class="s71-num">Freq</th><th class="s71-num">Alt</th></tr></thead>
+      <tbody>
+        <tr><td>Chicago Approach</td><td>N489BS</td><td class="s71-num">124.350</td><td class="s71-num">11,000</td></tr>
+        <tr aria-selected="true"><td>Milwaukee Tower</td><td>N489BS</td><td class="s71-num">118.700</td><td class="s71-num">2,400</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="dialog">
+    <h2 class="s71-h2">Dialog</h2>
+    <div class="row"><button class="s71-btn" id="open-dialog">Open dialog</button></div>
+    <dialog class="s71-dialog" id="dlg" aria-labelledby="dlg-t">
+      <h2 class="s71-h2" id="dlg-t">Cancel flight plan?</h2>
+      <p class="s71-small">N489BS will be removed from the strip bay.</p>
+      <div class="s71-dialog__actions">
+        <button class="s71-btn s71-btn--sm" id="close-dialog">Keep it</button>
+        <button class="s71-btn s71-btn--primary s71-btn--sm" id="close-dialog-2">Cancel plan</button>
+      </div>
+    </dialog>
+  </section>
+
+  <section id="shell">
+    <h2 class="s71-h2">Tool shell</h2>
+    <p class="s71-small">The rail, the status bar, two panes, the segmented switch and the label-and-value grid. Under 760 px the rail lies along the top.</p>
+    <div class="frame">
+      <div class="s71-shell">
+        <div class="s71-shell__main">
+          <nav class="s71-rail" aria-label="Views">
+            <img class="s71-tile s71-tile--plain" src="brand/tile-64.png" alt="SeventyOneTen" width="30" height="30">
+            <img class="s71-tile s71-tile--outlined" src="brand/tile-outlined-64.png" alt="" width="30" height="30">
+            <a class="s71-rail__link" href="#shell" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l7-7 4 4 7-8"/></svg>Flights</a>
+            <a class="s71-rail__link" href="#shell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>Notes<span class="s71-rail__badge">3</span></a>
+            <a class="s71-rail__link" href="#shell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Tests</a>
+            <a class="s71-rail__me" href="#shell" aria-label="Account">DB</a>
+          </nav>
+          <div class="s71-work">
+            <section class="s71-pane" style="flex:1">
+              <header class="s71-pane__head"><span>N489BS</span><span class="s71-tag s71-tag--live">Live</span>
+                <span class="s71-segs" style="margin-left:auto" id="sw-seg"><button class="s71-segs__item" aria-pressed="true">Map</button><button class="s71-segs__item" aria-pressed="false">Log</button></span></header>
+              <div class="s71-pane__body pad">
+                <dl class="s71-kv">
+                  <dt>Station</dt><dd>Chicago Approach</dd>
+                  <dt>Frequency</dt><dd class="s71-num">124.350</dd>
+                  <dt>Altitude</dt><dd class="s71-num">11,000</dd>
+                  <dt>Cleared</dt><dd>Direct KMKE, descend and maintain 4,000</dd>
+                </dl>
+              </div>
+            </section>
+            <section class="s71-pane" style="flex:1">
+              <header class="s71-pane__head"><span>Radio log</span></header>
+              <div class="s71-pane__body pad"><p class="s71-small">November four eight niner Bravo Sierra, contact Milwaukee Tower one one eight point seven.</p></div>
+            </section>
+          </div>
+        </div>
+        <footer class="s71-status">
+          <span><span class="s71-status__k">Release</span><b>2611r4</b></span>
+          <span><span class="s71-status__k">Freq</span><b class="s71-num">124.350</b></span>
+          <span class="s71-live">Live</span>
+        </footer>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var themeBtns = document.querySelectorAll("#sw-theme button");
+  function syncTheme() {
+    var c = window.s71Theme.get();
+    themeBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.v === c)); });
+    paintSwatches();
+  }
+  themeBtns.forEach(function (b) { b.addEventListener("click", function () { window.s71Theme.set(b.dataset.v); }); });
+  window.s71Theme.subscribe(syncTheme);
+
+  var shapeBtns = document.querySelectorAll("#sw-shape button");
+  shapeBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.getElementById("shape").setAttribute("href", "shape-" + b.dataset.v + ".css");
+      shapeBtns.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+    });
+  });
+  document.querySelectorAll("#sw-seg button").forEach(function (b, _i, all) {
+    b.addEventListener("click", function () { all.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); }); });
+  });
+
+  var dlg = document.getElementById("dlg");
+  document.getElementById("open-dialog").addEventListener("click", function () { dlg.showModal(); });
+  document.getElementById("close-dialog").addEventListener("click", function () { dlg.close(); });
+  document.getElementById("close-dialog-2").addEventListener("click", function () { dlg.close(); });
+
+  var names = ["bg", "surface", "deep", "text", "text-2", "accent", "accent-hover", "on-accent", "line", "line-strong",
+    "accent-soft", "chrome-bg", "chrome-deep", "chrome-line", "chrome-text", "chrome-text-2", "chrome-accent", "danger-text", "warn-text", "ok-bg", "warn-bg", "danger-bg", "focus", "live", "red"];
+  var box = document.getElementById("swatches");
+  function paintSwatches() {
+    box.textContent = "";
+    var cs = getComputedStyle(document.documentElement);
+    names.forEach(function (n) {
+      var d = document.createElement("div"); d.className = "sw";
+      var i = document.createElement("i"); i.style.background = "var(--s71-" + n + ")";
+      var s = document.createElement("span"); s.textContent = "--s71-" + n + " " + cs.getPropertyValue("--s71-" + n).trim();
+      d.appendChild(i); d.appendChild(s); box.appendChild(d);
+    });
+  }
+  syncTheme();
+  /* demo.html?theme=dark&shape=room opens in that state (used for screenshots) */
+  var q = new URLSearchParams(location.search);
+  if (q.get("shape")) { var sb = document.querySelector('#sw-shape button[data-v="' + q.get("shape") + '"]'); if (sb) { sb.click(); } }
+  if (q.get("theme")) { try { window.s71Theme.set(q.get("theme")); } catch (e) { /* unknown value: ignore */ } }
+})();
+</script>
+</body>
+</html>

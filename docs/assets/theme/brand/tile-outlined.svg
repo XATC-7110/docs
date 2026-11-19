@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="SeventyOneTen">
+  <!-- The 71/10 tile with its paper keyline, for dark grounds. Digits need Archivo loaded (see tile.svg) -->
+  <rect x="1" y="1" width="62" height="62" rx="11" fill="#0E1A2B" stroke="#EDE7DA" stroke-width="2"/>
+  <rect x="7" y="10" width="4" height="44" rx="2" fill="#D64545"/>
+  <text x="37" y="30" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="25" fill="#EDE7DA">71</text>
+  <text x="37" y="55" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="25" fill="#2EC4B6">10</text>
+</svg>
